@@ -35,7 +35,7 @@
     }
 
     .image-background {
-        z-index: -1;
+        z-index: 1;
         transform: translate(30px, -30px);
     }
 
@@ -43,6 +43,7 @@
         z-index: 1;
     }
     </style>
+
 
 @endsection
 
@@ -89,7 +90,7 @@
 
 @section('content')
 
-<div class="uk-section">
+<div class="uk-section in-content-3 uk-background-contain uk-background-center" data-src="img/in-equity-2-bg.png" data-uk-img="" style="background-image: url(&quot;https://www.indonez.com/html-demo/equity/img/in-equity-2-bg.png&quot;);">
     <div class="uk-container">
         <div class="uk-grid uk-grid-stack uk-flex-middle" data-uk-grid>
             <div class="uk-width-3-5@m uk-first-column">
