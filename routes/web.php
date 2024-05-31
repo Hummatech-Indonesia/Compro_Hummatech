@@ -225,7 +225,10 @@ Route::get('news/category/{category:slug}', [NewsController::class, 'newsCategor
 Route::get('news/{slugnews}', [NewsController::class, 'showNews'])->name('news.view');
 
 //showService
-Route::get('services/{slugService}', [ServiceController::class, 'ShowService']);
+// Route::get('services/{slugService}', [ServiceController::class, 'ShowService']);
+Route::get('services/magang-pkl', function() {
+    return view('landing.service.service-detail');
+});
 
 //portofolio
 Route::get('/portfolio', [HomeProductController::class, 'portfolio']);

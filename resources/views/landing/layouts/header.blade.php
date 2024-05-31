@@ -26,7 +26,7 @@
                         <li><a href="#">Layanan<span data-uk-navbar-parent-icon></span></a>
                             <div class="uk-navbar-dropdown">
                                 <ul class="uk-nav uk-navbar-dropdown-nav">
-                                    <li><a href="about.html">Magang pkl</a></li>
+                                    <li><a href="/services/magang-pkl">Magang pkl</a></li>
                                 </ul>
                             </div>
                         </li>
