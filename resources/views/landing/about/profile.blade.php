@@ -44,7 +44,6 @@
     }
     </style>
 
-
 @endsection
 
 @section('seo')
