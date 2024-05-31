@@ -3,74 +3,6 @@
 @section('style')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
 
-    <style>
-        .subtitle {
-            text-transform: uppercase;
-            font-weight: 600;
-            color: #1273eb;
-            margin-top: -5px;
-            display: inline-block;
-            background: linear-gradient(90deg, rgba(18, 115, 235, 1) 30%, rgba(4, 215, 242, 1) 100%);
-            -webkit-background-clip: text;
-            -moz-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .about-us-area .thumb {
-            padding-left: unset;
-            /* padding-right: 50px; */
-        }
-
-        .about-us-area .thumb::after {
-            right: 0;
-            top: 5rem !important;
-            left: unset !important;
-        }
-
-        .about-us-area .container {
-            position: relative;
-        }
-
-        .about-us-area .about-triangle {
-            position: absolute;
-            z-index: -1;
-            top: -7.5rem;
-            right: -7.5rem;
-        }
-
-        @media screen and (max-width: 992px) {
-            .about-us-area .about-triangle {
-                right: 0;
-            }
-
-            .about-us-area .thumb {
-                padding-top: 50px;
-                padding-right: unset;
-            }
-        }
-
-        .pagination {
-            display: flex !important;
-            gap: .5rem;
-        }
-
-        .pagination .page-item {
-            margin: 0 !important;
-        }
-
-        .pagination .page-item .page-link {
-            padding: .75rem 1rem !important;
-            border-radius: 8px;
-            margin: 0;
-        }
-
-        @media screen and (min-width: 992px) {
-            .text-lg-start {
-                text-align: left !important;
-            }
-        }
-    </style>
 @endsection
 
 @section('seo')
@@ -103,83 +35,72 @@
     <meta name="og:description" content="Perusahaan Software House terbaik se-Jawa Timur" />
 @endsection
 
-@section('content')
-    <div class="breadcrumb-area text-center shadow dark text-light bg-cover"
-        style="background-image: url('{{ $background != null && $background->show_in == 'Tentang Kami' && $background->about_in == 'Tim' ? asset('storage/' . $background->image) : asset('assets-home/img/default-bg.png') }}');">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <h1>Tentang Kami</h1>
-                    <ul class="breadcrumb">
-                        <li><a href="#"><i class="fas fa-home"></i> Beranda</a></li>
-                        <li class="active">Tentang Kami</li>
-                    </ul>
-                </div>
+@section('header')
+<div class="uk-section uk-padding-remove-vertical in-equity-breadcrumb">
+    <div class="uk-container">
+        <div class="uk-grid">
+            <div class="uk-width-1-1">
+                <ul class="uk-breadcrumb">
+                    <li href="/">Beranda</li>
+                    <li href="#">Tentang</li>
+                    <li>
+                        <span>Tim</span>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
-
-    <div class="team-area default-padding bottom-less">
-        <div class="container">
-            <div class="team-items text-center">
-                <div class="row">
-                    <div class="col-lg-8 offset-lg-2">
-                        <div class="site-heading text-center">
-                            <h4>TIM KAMI</h4>
-                            <h2>Bersatu Demi Kesuksesan: Introducing Tim Kami yang Berdedikasi dan Profesional</h2>
-                            <div class="devider"></div>
-                        </div>
-                    </div>
-                    <!-- Single Item -->
-                    @forelse ($teams as $team)
-                        <div class="single-item col-lg-4 col-md-6">
-                            <div class="item">
-                                <div class="thumb">
-                                    <img src="{{ url(Storage::url($team->image)) }}" alt="Thumb">
-                                    <div class="social">
-                                        <a href="#" class="share-icon facebook">
-                                            <i class="fab fa-facebook-f"></i>
-                                        </a>
-                                        <a href="#" class="share-icon twitter">
-                                            <i class="fab fa-twitter"></i>
-                                        </a>
-                                        <a href="#" class="share-icon instagram">
-                                            <i class="fab fa-instagram"></i>
-                                        </a>
-                                    </div>
-                                    <div class="share">
-                                        <i class="fas fa-share-alt"></i>
-                                    </div>
-                                </div>
-                                <div class="info">
-                                    <div class="content">
-                                        <h4>{{ $team->name }}</h4>
-                                        <span>{{ $team->position->name }}</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @empty
-                        <div class="col-12">
-                            <div class="d-flex justify-content-center">
-                                <img src="{{ asset('nodata-gif.gif') }}" alt="" width="800px">
-                            </div>
-                            <h4 class="text-center text-dark" style="font-weight:600">
-                                Belum ada tim yang didaftarkan
-                            </h4>
-                        </div>
-                    @endforelse
-
-                    <div class="col-12" id="pagination">
-                        <div class="d-flex justify-content-center">
-                            {{ $teams->links() }}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
 @endsection
+
+@section('content')
+<div class="uk-section">
+    <div class="uk-container">
+        <div class="uk-grid uk-flex uk-flex-center">
+            <div class="uk-width-3-4@m uk-text-center">
+                <h4>
+                    <span class="in-highlight uk-margin-small">
+                        Tim Kami
+                    </span>
+                </h4>
+                <h2>Bersatu Demi Kesuksesan: Introducing Tim Kami yang Berdedikasi dan Profesional</h2>
+            </div>
+        </div>
+        <div class="uk-grid">
+            <div class="uk-width-1-1">
+                <div class="uk-card uk-card-default uk-border-rounded uk-background-center uk-background-contain uk-background-image@m"
+                    style="background-image: url('img/blockit/in-team-background-1.png'); will-change: background-position-y; background-position-y: calc(50% + 0px);" data-uk-parallax="bgy: -100">
+                    <div class="uk-card-body">
+                        <div class="uk-child-width-1-3@m uk-text-center uk-margin-small-bottom uk-grid" data-uk-grid>
+                            @foreach (range(1,6) as $item)
+                            <div>
+                                <img src="{{ asset('assets_landing/img/blockit/in-team-1.png') }}" alt="image-team" width="200" height="200">
+                                <h4 class="uk-margin-small-top uk-margin-remove-bottom">Cynthia Dixon</h4>
+                                <span class="uk-label uk-text-small uk-border-rounded uk-margin-small-top uk-margin-small-bottom">Chief Executive Officer</span>
+                                <p>Omnis voluptas assumenda est dolor repellendus autem debit officiis</p>
+                                <div>
+                                    <a href="#" class="uk-link-muted">
+                                        <i class="fab fa-facebook-f uk-margin-small-right"></i>
+                                    </a>
+                                    <a href="#" class="uk-link-muted">
+                                        <i class="fab fa-twitter uk-margin-small-right"></i>
+                                    </a>
+                                    <a href="#" class="uk-link-muted">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+@endsection
+
 @section('script')
     <script>
         $(document).ready(function() {

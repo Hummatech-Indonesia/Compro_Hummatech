@@ -19,7 +19,7 @@
                                     <li><a href="/about/organizational-structure">Struktur Organisasi</a></li>
                                     <li><a href="/about/company-structure">Struktur Perusahaan</a></li>
                                     <li><a href="/about/logo">Logo</a></li>
-                                    <li><a href="contact.html">Tim</a></li>
+                                    <li><a href="/about/team">Tim</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -30,7 +30,7 @@
                                 </ul>
                             </div>
                         </li>
-                        
+
                         <li><a href="#">Portofolio<span data-uk-navbar-parent-icon></span></a>
                             <div class="uk-navbar-dropdown">
                                 <ul class="uk-nav uk-navbar-dropdown-nav">
