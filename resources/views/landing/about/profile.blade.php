@@ -79,8 +79,12 @@
     <div class="uk-container">
         <div class="uk-grid">
             <div class="uk-width-1-1">
-                <ul class="" style="padding-top: 13px;padding-bottom: 16px;color:white">
-                    <li ><a href="#" style="color: white">Profil</a></li>
+                <ul class="uk-breadcrumb">
+                    <li href="/">Beranda</li>
+                    <li href="#">Tentang</li>
+                    <li>
+                        <span>Profil</span>
+                    </li>
                 </ul>
             </div>
         </div>
