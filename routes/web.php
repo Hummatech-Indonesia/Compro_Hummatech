@@ -233,7 +233,7 @@ Route::get('services/magang-pkl', function() {
 //portofolio
 Route::get('/portfolio', [HomeProductController::class, 'portfolio']);
 
-
+//product
 Route::get('/product', [HomeProductController::class, 'index']);
 Route::get('data/product/kategori/{category:slug}',[HomeProductController::class,'productCategory']);
 
