@@ -235,7 +235,9 @@ Route::get('/product', [HomeProductController::class, 'index']);
 Route::get('data/product/kategori/{category:slug}',[HomeProductController::class,'productCategory']);
 
 // Detail Product
-Route::get('product/{product:slug}', [ProductController::class, 'showproduct'])->name('detail.product');
+Route::get('/product/detail', [ProductController::class, 'showproduct'])->name('detail.product');
+// Route::get('product/{product:slug}', [ProductController::class, 'showproduct'])->name('detail.product');
+
 Route::get('portfolio/{product:slug}', [ProductController::class, 'showproduct'])->name('detail.portfolio');
 Route::get('product/coming-soon/{ComingSoonProduct:slug}', [ProductController::class, 'showproductcommingsoon'])->name('detail.comming-soon');
 

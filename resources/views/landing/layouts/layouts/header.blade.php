@@ -34,8 +34,8 @@
                         <li><a href="#">Portofolio<span data-uk-navbar-parent-icon></span></a>
                             <div class="uk-navbar-dropdown">
                                 <ul class="uk-nav uk-navbar-dropdown-nav">
-                                    <li><a href="about.html">Produk</a></li>
-                                    <li><a href="about.html">Portofolio</a></li>
+                                    <li><a href="/product">Produk</a></li>
+                                    <li><a href="/portfolio">Portofolio</a></li>
                                 </ul>
                             </div>
                         </li>
