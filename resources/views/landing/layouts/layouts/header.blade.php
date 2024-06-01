@@ -41,7 +41,7 @@
                         </li>
                         <li><a href="markets.html">Berita</a>
                         </li>
-                        <li><a href="/contact">Hubungi</a>
+                        <li><a href="/contactUs">Hubungi</a>
                         </li>
                         <li><a href="markets.html">Lowongan</a>
                         </li>

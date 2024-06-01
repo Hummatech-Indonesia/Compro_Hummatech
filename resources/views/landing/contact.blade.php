@@ -27,165 +27,89 @@
     </style>
 @endsection
 
-@section('content')
-    <div class="breadcrumb-area text-center shadow dark text-light bg-cover"
-        style="background-image: url('{{ $background == null ? asset('assets-home/img/default-bg.png') : asset('storage/' . $background->image) }}');">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <h1>Hubungi Kami</h1>
-                    <ul class="breadcrumb">
-                        <li><a href="#"><i class="fas fa-home"></i> Beranda</a></li>
-                        <li class="active">Hubungi Kami</li>
-                    </ul>
-                </div>
+@section('header')
+<div class="uk-section uk-padding-remove-vertical in-equity-breadcrumb">
+    <div class="uk-container">
+        <div class="uk-grid">
+            <div class="uk-width-1-1">
+                <ul class="uk-breadcrumb">
+                    <li href="/">Hubungi</li>
+                    <li>
+                        <span>Hubungi</span>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
-    <!-- Start Contact Area ============================================= -->
-    <div class="contact-us-area default-padding mb-5">
-        <div class="container">
-            <div class="row align-center">
-                <div class="col-lg-5 info">
-                    <div class="content">
-                        <h2>Hubungi Kami</h2>
-                        <p>
-                            Kami di Sini untuk Anda! Hubungi Kami untuk Bantuan Langsung
-                        </p>
-                        <ul>
-                            <li>
-                                <div class="icon">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div class="content">
-                                    <h5>Address</h5>
-                                    <p>
-                                        @isset($profiles)
-                                            {{ $profiles->address }}
-                                        @else
-                                            Perum Permata Regency 1 Blok 10/28, Perun Gpa, Ngijo, Kec. Karang
-                                            Ploso, Kabupaten Malang, Jawa Timur 65152.
-                                            @endif
-                                        </p>
-                                    </div>
-                                </li>
-                                <li>
-                                    @if (isset($profile[0]) && !empty($profile[0]))
-                                    @if ($profile[0]->type != null)
-                                        <div class="icon">
-                                            <i
-                                                class="{{ $profile->type == 'wa' ? 'fab fa-whatsapp' : 'fas fa-phone' }}"></i>
-                                        </div>
-                                        <div class="content">
-                                            <strong>{{ $profile->type == 'wa' ? 'Whatsapp:' : 'Phone:' }}</strong>
+</div>
+@endsection
 
-                                            @php
-                                                $cleanPhone = str_replace(
-                                                    ['+', '-', ' '],
-                                                    '',
-                                                    $profile->phone,
-                                                );
+@section('content')
 
-                                                if (substr($cleanPhone, 0, 2) === '62') {
-                                                    $phoneNumber = '0' . substr($cleanPhone, 2);
-                                                    $waNumber = $cleanPhone;
-                                                } elseif (substr($cleanPhone, 0, 1) === '0') {
-                                                    $waNumber = '62' . substr($cleanPhone, 1);
-                                                    $phoneNumber = $cleanPhone;
-                                                } else {
-                                                    $phoneNumber = $cleanPhone;
-                                                }
-                                            @endphp
+<div class="uk-section">
+    <div class="uk-container">
+        <div class="uk-grid uk-flex uk-flex-center in-contact-6">
+            <div class="uk-width-1-1">
+                <iframe class="uk-width-1-1 uk-height-large uk-border-rounded" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10600.5248164368!2d144.95966577016594!3d-37.81707816290683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sEnvato!5e0!3m2!1sen!2sid!4v1645280096951!5m2!1sen!2sid" frameborder="0"></iframe>
+            </div>
 
-                                            <a href="{{ $profile->type == 'wa' ? 'https://wa.me/' . $waNumber : 'tel: ' . $phoneNumber }}"
-                                                target="_blank">{{ $phoneNumber }}</a>
-                                        </div>
-                                    @else
-                                        <div class="icon">
-                                            <i class="fas fa-phone"></i>
-                                        </div>
-                                        <div class="content">
-                                            <strong>Phone</strong>
-                                            <a href="tel: 085176777785">085176777785</a>
-                                        </div>
-                                    @endif
-                                @else
-                                    <div class="icon">
-                                        <i class="fas fa-phone"></i>
-                                    </div>
-                                    <div class="content">
-                                        <strong>Phone</strong> <br>
-                                        <a href="tel: 085176777785">085176777785</a>
-                                    </div>
-                                @endif
-                                </li>
-                                <li>
-                                    <div class="icon">
-                                        <i class="fas fa-envelope"></i>
-                                    </div>
-                                    <div class="content">
-                                        <h5>Email</h5>
-                                        <p>
-                                            @isset($profiles)
-                                                <a href="mailto:{{ $profiles->email }}">{{ $profiles->email }}</a>
-                                            @else
-                                                <a href="mailto:info@hummatech.com">info@hummatech.com</a>
-                                            @endisset
-                                        </p>
-                                    </div>
-                                </li>
-                            </ul>
+            <div class="uk-width-3-5@m">
+                <hr class="uk-margin-medium">
+                <p class="uk-margin-remove-bottom uk-text-lead uk-text-muted uk-text-center">Punya Pertanyaan?</p>
+                <h1 class="uk-margin-small-top uk-text-center">
+                    <span class="in-highlight">
+                        Hubungi Kami
+                    </span>
+                </h1>
+            </div>
+
+            <div class="uk-section">
+                <div class="uk-container uk-margin-top uk-margin-medium-bottom">
+                    <div class="uk-grid uk-child-width-1-2@m uk-grid-stack" data-uk-grid>
+                        <div class="uk-margin-medium-top " data-uk-grid>
+                            <div class="uk-width-1-1">
+                                <h5 class="uk-margin-remove-bottom">
+                                    <i class="fas fa-map-marker-alt fa-sm uk-margin-small-right"></i>
+                                    Alamat
+                                </h5>
+                                <p class="uk-margin-small-top uk-text-left">Satrio Tower 16th, Jl. Dr Satrio Kuningan, Jakarta</p>
+                            </div>
+                            <div class="uk-width-1-1">
+                                <h5 class="uk-margin-remove-bottom">
+                                    <i class="fas fa-envelope fa-sm uk-margin-small-right"></i>
+                                    Email
+                                </h5>
+                                <p class="uk-margin-small-top uk-text-left uk-margin-remove-bottom">hello@company.com</p>
+                                <p class="uk-text-small uk-text-muted uk-text-uppercase uk-margin-remove-top uk-text-left">for public inquiries</p>
+                            </div>
+                            <div class="uk-width-1-1">
+                                <h5 class="uk-margin-remove-bottom">
+                                    <i class="fas fa-phone-alt fa-sm uk-margin-small-right"></i>
+                                    Whatsapp
+                                </h5>
+                                <p class="uk-margin-small-top uk-text-left uk-margin-remove-bottom">(888)234-5686</p>
+                                <p class="uk-text-small uk-text-muted uk-text-uppercase uk-margin-remove-top uk-text-left">Mon - Fri, 9am - 5pm</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-lg-7 contact-form-box">
-                        <div class="form-box">
-                            <form action="{{ route('contact.store') }}" method="POST" class="contact-form">
-                                @csrf
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <input class="form-control" id="name" value="{{ old('name') }}"
-                                                name="name" placeholder="Name" type="text">
-                                            <span class="alert-error"></span>
-                                        </div>
-                                    </div>
+                        <div>
+                            <form action="" id="contact-form" class="uk-form uk-grid-small uk-margin-medium-top uk-grid uk-grid-stack" data-uk-grid>
+                                <div class="uk-width-3-5@s uk-inline">
+                                    <span class="uk-form-icon fas fa-user fa-sm"></span>
+                                    <input type="text" class="uk-input uk-border-rounded" id="name" name="name" placeholder="Nama lengkap">
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <input class="form-control" id="email" value="{{ old('email') }}"
-                                                name="email" placeholder="Email*" type="email">
-                                            <span class="alert-error"></span>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="form-group">
-                                            <input class="form-control" id="phone" value="{{ old('phone') }}"
-                                                name="phone" placeholder="Phone" type="text">
-                                            <span class="alert-error"></span>
-                                        </div>
-                                    </div>
+                                <div class="uk-width-2-5@s uk-inline">
+                                    <span class="uk-form-icon fas fa-envelope fa-sm"></span>
+                                    <input class="uk-input uk-border-rounded" id="email" name="email" type="email" placeholder="Alamat email">
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="form-group comments">
-                                            <textarea class="form-control" id="comments" name="comments" placeholder="Tell Us About Project *">{{ old('comments') }}</textarea>
-                                        </div>
-                                    </div>
+                                <div class="uk-width-1-1 uk-inline">
+                                    <span class="uk-form-icon fas fa-pen fa-sm"></span>
+                                    <input class="uk-input uk-border-rounded" id="subject" name="subject" type="text" placeholder="Judul">
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-12 mb-3">
-                                        <div id="cf-turnstile"></div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <button type="submit" name="submit" id="submit">
-                                            Send Message <i class="fa fa-paper-plane"></i>
-                                        </button>
-                                    </div>
-                                    <!-- Alert Message -->
-                                    <div class="col-lg-12 alert-notification">
-                                        <div id="message" class="alert-msg"></div>
-                                    </div>
+                                <div class="uk-width-1-1">
+                                    <textarea class="uk-textarea uk-border-rounded" id="message" name="message" rows="6" placeholder="Pesan"></textarea>
+                                </div>
+                                <div class="uk-width-1-1">
+                                    <button class="uk-width-1-1 uk-button uk-button-primary uk-border-rounded" id="sendemail" type="submit" name="submit">Kirim Pesan</button>
                                 </div>
                             </form>
                         </div>
@@ -193,18 +117,14 @@
                 </div>
             </div>
         </div>
-        <!-- End Contact Area -->
+    </div>
 
-        @if ($branches->count() > 0)
-            <!-- Star Google Maps ============================================= -->
-            <div class="maps-area">
-                <div class="google-maps">
-                    <div id="maps1"></div>
-                </div>
-            </div>
-            <!-- End Google Maps -->
-        @endif
-    @endsection
+</div>
+
+
+@endsection
+
+
 @section('script')
     <style>
         .leaflet-marker-icon {
