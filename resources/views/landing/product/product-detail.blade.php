@@ -2,52 +2,16 @@
 @section('title' , 'Detail Portofolio')
 @section('style')
     <style>
-        .subtitle {
-            text-transform: uppercase;
-            font-weight: 600;
-            color: #1273eb;
-            margin-top: -5px;
-            display: inline-block;
-            background: linear-gradient(90deg, rgba(18, 115, 235, 1) 30%, rgba(4, 215, 242, 1) 100%);
-            -webkit-background-clip: text;
-            -moz-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .uk-slider-items > div {
+            padding: 0 10px; /* Optional: adjust padding between slides */
+            margin-right: 20px; /* Adjust margin between slides */
+
         }
-
-        .about-us-area .thumb {
-            padding-left: unset;
-            padding-right: 50px;
-        }
-
-        .about-us-area .thumb::after {
-            right: 0;
-            top: 5rem !important;
-            left: unset !important;
-        }
-
-        .about-us-area .container {
-            position: relative;
-        }
-
-        .about-us-area .about-triangle {
-            position: absolute;
-            z-index: -1;
-            top: -7.5rem;
-            right: -7.5rem;
-        }
-
-        @media screen and (max-width: 992px) {
-            .about-us-area .about-triangle {
-                right: 0;
-            }
-
-            .about-us-area .thumb {
-                padding-top: 50px;
-                padding-right: unset;
-            }
+        .uk-slider-items * {
+            color: black !important;
         }
     </style>
+
 @endsection
 
 @section('seo')
@@ -87,177 +51,306 @@
     </script>
 @endsection
 
-@section('content')
-    <div class="thumb-services-area inc-thumbnail default-padding bottom-less">
-        <div class="container">
-            <div class="about-items">
-                <div class="row align-center">
-                    <div class="col-lg-5">
-                        <div class="thumb">
-                            <img src="{{ asset('storage/' . $product->image) }}" alt="Thumb">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 info">
-                        <h1>{{ $product->name }}</h1>
-                        <p>
-                            {{ $product->description }}
-                        </p>
-                        <a class="btn btn-gradient effect btn-md" target="_blank" href="{{ $product->link }}">Kunjungi website</a>
-                    </div>
-                </div>
+@section('header')
+<div class="uk-section uk-padding-remove-vertical in-equity-breadcrumb">
+    <div class="uk-container">
+        <div class="uk-grid">
+            <div class="uk-width-1-1">
+                <ul class="uk-breadcrumb">
+                    <li href="/">Beranda</li>
+                    <li>
+                        <span>Produk</span>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
-
-    <div class="services-area bg-gray default-padding bottom-less">
-        <div class="right-shape">
-            <img src="{{ asset('assets-home/img/shape/9.png') }}" alt="Shape">
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="site-heading text-center">
-                        <h4>FITUR-FITUR</h4>
-                        <h2>Fitur - Fitur {{ $product->name }} yang mungkin dapat membantu anda</h2>
-                        <div class="devider"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-full w-75">
-            <div class="services-items">
-                <div class="row">
-                    @foreach ($product->features as $item)
-                        <div class="col-lg-4 col-md-6 single-item">
-                            <div class="item">
-                                <div class="info">
-                                    <h4>{{ $item->title }}</h4>
-                                    <p>
-                                        {{ $item->name }}
-                                    </p>
-                                    <div class="bottom">
-                                        <span>0{{ str_pad($loop->iteration, 1, '0', STR_PAD_LEFT) }}</span>
-                                        <a href="">Fitur</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="testimonials-area default-padding">
-        <!-- Fixed Shape -->
-        <div class="fixed-shape" style="background-image: url(../assets-home/img/shape/circle.png);"></div>
-        <!-- End Fixed Shape -->
-        <div class="container">
-            <div class="testimonial-items bg-gradient-gray">
-                <div class="row align-center bg-gradient-gray">
-                    @forelse ($testimonial as $testi)
-                        <div class="col-lg-7 testimonials-content">
-                            <div class="testimonials-carousel owl-carousel owl-theme">
-                                <div class="item">
-                                    <div class="info">
-                                        <p>
-                                            {{ $testi->description }}
-                                        </p>
-                                        <div class="provider">
-                                            <div class="thumb">
-                                                <img src="{{ asset('storage/' . $testi->image) }}" alt="Author">
-                                            </div>
-                                            <div class="content">
-                                                <h4 class="text-primary">{{ $testi->name }}</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @empty
-                        <div class="col-7">
-                            <div class="d-flex justify-content-center">
-                                <img src="{{ asset('nodata-gif.gif') }}" alt="" width="800px">
-                            </div>
-                            <h4 class="text-center text-dark" style="font-weight:600">
-                                Belum ada Testimonial
-                            </h4>
-                        </div>
-                    @endforelse
-                    <div class="col-lg-5 info">
-                        <h4>Testimoni</h4>
-                        <h2>Testimoni Membuktikan Kualitas produk Kami</h2>
-                        <p>
-                            Tingkatkan Kepercayaan Anda: Dengarlah Suara Pelanggan Kami Melalui Testimoni Mereka
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End testimonials Area -->
-
-    <!-- start faq -->
-    <div class="faq-content-area mb-5 pb-5 pt-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="site-heading text-center">
-                        <h4>FAQ</h4>
-                        <h2>Temukan Jawaban Anda: FAQ Kami Memudahkan Anda Memahami Layanan Kami"</h2>
-                        <div class="devider"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container mb-5">
-            <div class="faq-items">
-                <div class="row align-center">
-
-                    <div class="col-lg-10 offset-lg-1">
-                        <div class="faq-content wow fadeInUp">
-                            <div class="accordion" id="accordionExample">
-                                @forelse ($faqs as $faq)
-                                    <div class="card">
-                                        <div class="card-header" id="headingFour{{ $loop->iteration }}">
-                                            <h4 class="mb-0 collapsed" data-toggle="collapse" data-target="#collapseFour"
-                                                aria-expanded="false" aria-controls="collapseFour">
-                                                {{ $faq->question }}
-                                            </h4>
-                                        </div>
-                                        <div id="collapseFour" class="collapse" aria-labelledby="headingFour{{ $loop->iteration }}"
-                                            data-parent="#accordionExample">
-                                            <div class="card-body">
-                                                <p>
-                                                    {{ $faq->answer }}
-                                                </p>
-                                                <div class="ask-question">
-                                                    <span>Still no luck?</span> <a href="#">Ask a question</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @empty
-                                <div class="col">
-                                    <div class="d-flex justify-content-center">
-                                        <img src="{{ asset('nodata-gif.gif') }}" alt="" width="400px">
-                                    </div>
-                                    <h4 class="text-center text-dark" style="font-weight:600">
-                                        Belum ada FAQ
-                                    </h4>
-                                </div>
-                                @endforelse
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Faq -->
+</div>
 @endsection
+
+@section('content')
+<div class="uk-section in-equity-16">
+    <div class="uk-container uk-margin-top uk-margin-large-bottom">
+        <div class="uk-grid uk-grid-large uk-flex uk-flex-middle" data-uk-grid>
+            <div class="uk-width-3-5@m uk-flex uk-flex-middle uk-margin-large-bottom">
+                <div class="in-equity-video">
+                    <img class="uk-border-rounded uk-width-1-1" src="{{ asset('assets_landing/img/blockit/in-gallery-image-2.jpg') }}" data-src="{{ asset('assets_landing/img/blockit/in-gallery-image-2.jpg') }}" alt="sample-images" width="433" height="255" data-uk-img>
+                </div>
+            </div>
+            <div class="uk-width-2-5@m uk-flex uk-flex-middle">
+                <div>
+                    <h3>Milink.id</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur. Tincidunt pellentesque pellentesque sed in. Sit nunc velit aliquam quis faucibus nibh nisl pellentesque. Massa natoque mattis quisque ut. Lorem ipsum dolor sit amet consectetur. Tincidunt pellentesque pellentesque sed in. Sit nunc velit aliquam quis faucibus nibh nisl pellentesque. Massa natoque mattis quisque ut Baca Selengkapnya...</p>
+                    <a href="/product/detail" class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-top">Detail
+                        <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                    </a>
+                    <a href="#" class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">Kunjungi Website
+                        <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="uk-section">
+    <div class="uk-container">
+        <div class="uk-grid">
+            <div class="uk-width-1-1 uk-flex uk-flex-center">
+                <div class="uk-width-3-5@m uk-text-center">
+                    <h1 class="uk-margin-remove-bottom">
+                        <span class="in-highlight">
+                            Fitur - Fitur
+                        </span>
+                    </h1>
+                    <p class="uk-text-lead">Fitur - Fitur Milink.id yang mungkin dapat membantu anda</p>
+                </div>
+            </div>
+            <div class="uk-grid uk-grid-large uk-child-width-1-3@m uk-margin-medium-top uk-grid-stack uk-flex-center" data-uk-grid>
+                <div class="uk-flex uk-flex-left uk-first-column">
+                    <div class="uk-margin-right">
+                        <div class="in-icon-wrap primary-color">
+                            {{-- <i class="fas fa-leaf fa-lg"></i> --}}
+                            01
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Kustom Tautan</h3>
+                        <p class="uk-margin-remove-bottom">
+                            At vero eos etme accusamus iusto odio ent dignissimos deleniti atque corrupti quos ducimus moll quilla blanditiis expedita est distinctio.
+                        </p>
+                    </div>
+                </div>
+                <div class="uk-flex uk-flex-left uk-grid-margin uk-first-column">
+                    <div class="uk-margin-right">
+                        <div class="in-icon-wrap primary-color">
+                            {{-- <i class="fas fa-hourglass-end fa-lg"></i> --}}
+                            02
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Kustom Tautan</h3>
+                        <p class="uk-margin-remove-bottom">
+                            At vero eos etme accusamus iusto odio ent dignissimos deleniti atque corrupti quos ducimus moll quilla blanditiis expedita est distinctio.
+                        </p>
+                    </div>
+                </div>
+                <div class="uk-flex uk-flex-left uk-grid-margin uk-first-column">
+                    <div class="uk-margin-right">
+                        <div class="in-icon-wrap primary-color">
+                            {{-- <i class="fas fa-hourglass-end fa-lg"></i> --}}
+                            03
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Kustom Tautan</h3>
+                        <p class="uk-margin-remove-bottom">
+                            At vero eos etme accusamus iusto odio ent dignissimos deleniti atque corrupti quos ducimus moll quilla blanditiis expedita est distinctio.
+                        </p>
+                    </div>
+                </div>
+                <div class="uk-flex uk-flex-left uk-grid-margin uk-first-column">
+                    <div class="uk-margin-right">
+                        <div class="in-icon-wrap primary-color">
+                            {{-- <i class="fas fa-hourglass-end fa-lg"></i> --}}
+                            04
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Kustom Tautan</h3>
+                        <p class="uk-margin-remove-bottom">
+                            At vero eos etme accusamus iusto odio ent dignissimos deleniti atque corrupti quos ducimus moll quilla blanditiis expedita est distinctio.
+                        </p>
+                    </div>
+                </div>
+                <div class="uk-flex uk-flex-left uk-grid-margin uk-first-column">
+                    <div class="uk-margin-right">
+                        <div class="in-icon-wrap primary-color">
+                            {{-- <i class="fas fa-hourglass-end fa-lg"></i> --}}
+                            05
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Kustom Tautan</h3>
+                        <p class="uk-margin-remove-bottom">
+                            At vero eos etme accusamus iusto odio ent dignissimos deleniti atque corrupti quos ducimus moll quilla blanditiis expedita est distinctio.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="uk-section in-equity-4">
+    <div class="uk-container uk-margin-top uk-margin-medium-bottom">
+        <div class="uk-grid uk-child-width-1-2@m in-testimonial-2 uk-grid-stack uk-slider-container-offset">
+
+            <div class="uk-width-1-1@m uk-text-center uk-first-column">
+                <h1><span class="in-highlight">Testimoni</span></h1>
+                <p class="uk-text-lead">Testimoni Membuktikan Kualitas produk Kami</p>
+            </div>
+            <div class="uk-grid-margin uk-first-column">
+                <div class="uk-background-contain uk-background-top-left" data-src="img/in-equity-4-blob-1.svg" data-uk-img style="background-image: url(&quot;https://www.indonez.com/html-demo/equity/img/in-equity-4-blob-1.svg&quot;);">
+                    <div class="uk-flex uk-flex-middle">
+                        <div class="uk-margin-right">
+                            <div class="uk-background-primary uk-border-pill">
+                                <img class="uk-align-center uk-border-pill" src="{{ asset('assets_landing/img/blockit/in-team-1.png') }}" data-src="{{ asset('assets_landing/img/blockit/in-team-1.png') }}" alt="client-1" width="100" height="100" data-uk-img>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="uk-margin-remove-bottom">Wade Palmer</h5>
+                            <p class="uk-text-muted uk-margin-remove-top">from United Kingdom</p>
+                        </div>
+                    </div>
+                    <blockquote>
+                        <p>Very convenience for trader, spread for gold is relatively low compare to other broker</p>
+                    </blockquote>
+                </div>
+            </div>
+            <div class="uk-grid-margin uk-first-column">
+                <div class="uk-background-contain uk-background-top-left" data-src="img/in-equity-4-blob-2.svg" data-uk-img style="background-image: url(&quot;https://www.indonez.com/html-demo/equity/img/in-equity-4-blob-2.svg&quot;);">
+                    <div class="uk-flex uk-flex-middle">
+                        <div class="uk-margin-right">
+                            <div class="uk-background-primary uk-border-pill">
+                                <img class="uk-align-center uk-border-pill" src="{{ asset('assets_landing/img/blockit/in-team-6.png') }}" data-src="{{ asset('assets_landing/img/blockit/in-team-6.png') }}" alt="client-2" width="100" height="100" data-uk-img>
+                            </div>
+                        </div>
+                        <div>
+                            <h5 class="uk-margin-remove-bottom">Wade Palmer</h5>
+                            <p class="uk-text-muted uk-margin-remove-top">from Germany</p>
+                        </div>
+                    </div>
+                    <blockquote>
+                        <p>Very convenience for trader, spread for gold is relatively low compare to other broker</p>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{{-- <div uk-slider>
+
+    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+
+        <div class="uk-slider-items uk-child-width-1-2 uk-child-width-1-2@s uk-child-width-1-2@m">
+            <div>
+                <div class="uk-grid-margin uk-first-column">
+                    <div class="uk-background-contain uk-background-top-left" data-src="img/in-equity-4-blob-2.svg" data-uk-img style="background-image: url('https://www.indonez.com/html-demo/equity/img/in-equity-4-blob-2.svg');">
+                        <div class="uk-flex uk-flex-middle">
+                            <div class="uk-margin-right">
+                                <div class="uk-background-primary uk-border-pill">
+                                    <img class="uk-align-center uk-border-pill" src="{{ asset('assets_landing/img/blockit/in-team-6.png') }}" data-src="{{ asset('assets_landing/img/blockit/in-team-6.png') }}" alt="client-2" width="100" height="100" data-uk-img>
+                                </div>
+                            </div>
+                            <div>
+                                <h5 class="uk-margin-remove-bottom">Wade Palmer</h5>
+                                <p class="uk-text-muted uk-margin-remove-top">from Germany</p>
+                            </div>
+                        </div>
+                        <blockquote>
+                            <p>Very convenience for trader, spread for gold is relatively low compare to other broker</p>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="uk-grid-margin uk-first-column">
+                    <div class="uk-background-contain uk-background-top-left" data-src="img/in-equity-4-blob-2.svg" data-uk-img style="background-image: url('https://www.indonez.com/html-demo/equity/img/in-equity-4-blob-2.svg');">
+                        <div class="uk-flex uk-flex-middle">
+                            <div class="uk-margin-right">
+                                <div class="uk-background-primary uk-border-pill">
+                                    <img class="uk-align-center uk-border-pill" src="{{ asset('assets_landing/img/blockit/in-team-6.png') }}" data-src="{{ asset('assets_landing/img/blockit/in-team-6.png') }}" alt="client-2" width="100" height="100" data-uk-img>
+                                </div>
+                            </div>
+                            <div>
+                                <h5 class="uk-margin-remove-bottom">Wade Palmer</h5>
+                                <p class="uk-text-muted uk-margin-remove-top">from Germany</p>
+                            </div>
+                        </div>
+                        <blockquote>
+                            <p>Very convenience for trader, spread for gold is relatively low compare to other broker</p>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="uk-grid-margin uk-first-column">
+                    <div class="uk-background-contain uk-background-top-left" data-src="img/in-equity-4-blob-2.svg" data-uk-img style="background-image: url('https://www.indonez.com/html-demo/equity/img/in-equity-4-blob-2.svg');">
+                        <div class="uk-flex uk-flex-middle">
+                            <div class="uk-margin-right">
+                                <div class="uk-background-primary uk-border-pill">
+                                    <img class="uk-align-center uk-border-pill" src="{{ asset('assets_landing/img/blockit/in-team-6.png') }}" data-src="{{ asset('assets_landing/img/blockit/in-team-6.png') }}" alt="client-2" width="100" height="100" data-uk-img>
+                                </div>
+                            </div>
+                            <div>
+                                <h5 class="uk-margin-remove-bottom">Wade Palmer</h5>
+                                <p class="uk-text-muted uk-margin-remove-top">from Germany</p>
+                            </div>
+                        </div>
+                        <blockquote>
+                            <p>Very convenience for trader, spread for gold is relatively low compare to other broker</p>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+    </div>
+
+    <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul>
+
+</div> --}}
+
+<div class="uk-section">
+    <div class="uk-width-1-1 uk-flex uk-flex-center">
+        <div class="uk-width-3-5@m uk-text-center">
+            <h1 class="uk-margin-remove-bottom">
+                <span class="in-highlight">
+                    FAQ
+                </span>
+            </h1>
+            <p class="uk-text-lead">FAQ Kami Memudahkan Anda Memahami Layanan Kami</p>
+        </div>
+    </div>
+    <aside class="uk-child-width-1-2 uk-flex uk-flex-center">
+        <div class="uk-card uk-card-default uk-card-body uk-border-rounded">
+            <ul class="uk-list uk-list-divider uk-list-large widget-latest">
+                <li>
+                    <h5 class="uk-text-uppercase uk-margin-remove-bottom">
+                        Why is collaborative learning so important?
+                    </h5>
+                    <p>Potter ipsum wand elf parchment wingardium. Suits the not releases do bean moon blue niffler. Pumpkin charm shack large time-turner bezoar. Bat doe through whomping seek from. Sound trevor horcrux seek boy slytherin’s weekly remus.</p>
+
+                </li>
+                <li>
+                    <h5 class="uk-text-uppercase uk-margin-remove-bottom">
+                        Do you offer free trials?
+                    </h5>
+                    <p>Potter ipsum wand elf parchment wingardium. Suits the not releases do bean moon blue niffler. Pumpkin charm shack large time-turner bezoar. Bat doe through whomping seek from. Sound trevor horcrux seek boy slytherin’s weekly remus.</p>
+                </li>
+                <li>
+                    <h5 class="uk-text-uppercase uk-margin-remove-bottom">
+                        What kind of support do you offer?
+                    </h5>
+                    <p>Potter ipsum wand elf parchment wingardium. Suits the not releases do bean moon blue niffler. Pumpkin charm shack large time-turner bezoar. Bat doe through whomping seek from. Sound trevor horcrux seek boy slytherin’s weekly remus.</p>
+                </li>
+            </ul>
+        </div>
+    </aside>
+</div>
+
+
+@endsection
+
+
 @section('script')
     <script>
         $('.testimonials-carousel').owlCarousel({

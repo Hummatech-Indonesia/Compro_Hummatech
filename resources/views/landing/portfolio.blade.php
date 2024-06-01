@@ -62,7 +62,7 @@
                 <div>
                     <h3>Tracer Study SMKN 2 Penajam Paser Utara</h3>
                     <p>Lorem ipsum dolor sit amet consectetur. Tincidunt pellentesque pellentesque sed in. Sit nunc velit aliquam quis faucibus nibh nisl pellentesque. Massa natoque mattis quisque ut. Lorem ipsum dolor sit amet consectetur. Tincidunt pellentesque pellentesque sed in. Sit nunc velit aliquam quis faucibus nibh nisl pellentesque. Massa natoque mattis quisque ut Baca Selengkapnya...</p>
-                    <a href="#" class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-top uk-margin-small-right">Detail
+                    <a href="/portfolio/detail" class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-top uk-margin-small-right">Detail
                         <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
                     </a>
                     <a href="#" class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">Kunjungi Website
@@ -76,7 +76,7 @@
                 <div>
                     <h3>Tracer Study SMKN 2 Penajam Paser Utara</h3>
                     <p>Lorem ipsum dolor sit amet consectetur. Tincidunt pellentesque pellentesque sed in. Sit nunc velit aliquam quis faucibus nibh nisl pellentesque. Massa natoque mattis quisque ut. Lorem ipsum dolor sit amet consectetur. Tincidunt pellentesque pellentesque sed in. Sit nunc velit aliquam quis faucibus nibh nisl pellentesque. Massa natoque mattis quisque ut Baca Selengkapnya...</p>
-                    <a href="#" class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-top uk-margin-small-right">Detail
+                    <a href="/portfolio/detail" class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-top uk-margin-small-right">Detail
                         <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
                     </a>
                     <a href="#" class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">Kunjungi Website
