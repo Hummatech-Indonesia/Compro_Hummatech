@@ -371,9 +371,9 @@
             </div>
         </div>
         <div class="uk-width-1-1@m uk-text-center uk-margin-medium-top">
-            <button class="uk-button uk-button-primary uk-border-rounded" style="background-color:#FCB42D; color:">
+            <a href="/mitra" class="uk-button uk-button-primary uk-border-rounded" style="background-color:#FCB42D; color:">
                 Selengkapnya <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
-            </button>
+            </a>
         </div>
     </div>
     <!-- section content end -->
