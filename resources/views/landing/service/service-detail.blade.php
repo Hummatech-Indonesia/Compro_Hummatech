@@ -46,40 +46,25 @@
                         <h4 class="uk-text-left">
                             <span class="in-highlight uk-padding-small uk-padding-remove-left uk-text-capitalize">produk yang dihasilkan</span>
                         </h4>
-                        <div class="uk-grid uk-grid-large uk-flex uk-flex-top" data-uk-grid>
-                            <div class="uk-width-2-5@m uk-flex uk-flex-top uk-margin-small-bottom">
-                                <div class="in-equity-video">
-                                    <img class="uk-border-rounded uk-width-1-1" src="{{ asset('assets/images/banner/3.jpg') }}" data-src="{{ asset('assets/images/banner/3.jpg') }}" alt="sample-images" width="433" height="255" data-uk-img>
+                        @foreach (range(1,2) as $key => $item)
+                            <div class="uk-grid uk-grid-large uk-flex uk-flex-top" data-uk-grid>
+                                <div class="uk-width-2-5@m uk-flex uk-flex-top uk-margin-small-bottom {{ $key % 2 == 1 ? 'uk-flex-last@m' : '' }}">
+                                    <div class="in-equity-video">
+                                        <img class="uk-border-rounded uk-width-1-1" src="{{ asset('assets/images/banner/3.jpg') }}" data-src="{{ asset('assets/images/banner/3.jpg') }}" alt="sample-images" width="433" height="255" data-uk-img>
+                                    </div>
+                                </div>
+                                <div class="uk-width-3-5@m uk-flex uk-flex-top {{ $key % 2 == 1 ? 'uk-flex-first@m': '' }}">
+                                    <div>
+                                        <h3 class="uk-margin-remove">Milink.id</h3>
+                                        <p class="uk-margin-remove">Lorem ipsum dolor sit amet consectetur. Tincidunt pellentesque pellentesque sed in. mattis quisque ut. Lorem ipsum dolor sit amet consectetur. Tincidunt pellentesque pellentesque sed in. mattis quisque ut Baca Selengkapnya...</p>
+                                        <a class="uk-padding-small uk-button uk-button-text" href="#">Lihat Detail<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                                        <a href="#" class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">Kunjungi Website
+                                            <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="uk-width-3-5@m uk-flex uk-flex-top">
-                                <div>
-                                    <h3 class="uk-margin-remove">Milink.id</h3>
-                                    <p class="uk-margin-remove">Lorem ipsum dolor sit amet consectetur. Tincidunt pellentesque pellentesque sed in. mattis quisque ut. Lorem ipsum dolor sit amet consectetur. Tincidunt pellentesque pellentesque sed in. mattis quisque ut Baca Selengkapnya...</p>
-                                    <a class="uk-padding-small uk-button uk-button-text" href="#">Lihat Detail<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
-                                    <a href="#" class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">Kunjungi Website
-                                        <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="uk-grid uk-grid-large uk-flex uk-flex-top" data-uk-grid>
-                            <div class="uk-width-2-5@m uk-flex uk-flex-middle uk-margin-small-bottom uk-flex-last@m">
-                                <div class="in-equity-video">
-                                    <img class="uk-border-rounded uk-width-1-1" src="{{ asset('assets/images/banner/3.jpg') }}" data-src="{{ asset('assets/images/banner/3.jpg') }}" alt="sample-images" width="433" height="255" data-uk-img>
-                                </div>
-                            </div>
-                            <div class="uk-width-3-5@m uk-flex uk-flex-top uk-flex-first@m">
-                                <div>
-                                    <h3 class="uk-margin-remove">Milink.id</h3>
-                                    <p class="uk-margin-remove">Lorem ipsum dolor sit amet consectetur. Tincidunt pellentesque pellentesque sed in. mattis quisque ut. Lorem ipsum dolor sit amet consectetur. Tincidunt pellentesque pellentesque sed in. mattis quisque ut Baca Selengkapnya...</p>
-                                    <a class="uk-padding-small uk-button uk-button-text" href="#">Lihat Detail<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
-                                    <a href="#" class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">Kunjungi Website
-                                        <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     {{-- products end --}}
 
@@ -119,7 +104,7 @@
                                     <h5 class="uk-margin-small">Inflation and sanctions weaken ruble against the dollar</h5>
                                     <p class="uk-text-small uk-text-muted uk-margin-remove">Lorem ipsum dolor sit amet consectetur. Lacinia nulla tortor interdum mauris in interdum risus. Laoreet arcu neque blandit vulputate auctor diam.</p>
                                     <div class="uk-flex uk-flex-middle uk-flex-between">
-                                        <a class="uk-padding-small uk-button uk-button-text" href="#">Lihat Detail<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                                        <a class="uk-padding-small uk-button uk-button-text" href="/services/magang-pkl/training">Lihat Detail<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
                                         <a href="#" class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">Ajukan proposal
                                             <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
                                         </a>
