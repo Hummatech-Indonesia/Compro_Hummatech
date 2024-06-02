@@ -1,234 +1,108 @@
 @extends('landing.layouts.layouts.app')
-@section('description')
-<meta name="description" content="Hummatech adalah perusahaan software development terbaik di Malang. Kami menyediakan solusi perangkat lunak yang inovatif dan berkualitas tinggi." />
+@section('header')
+<!-- header start -->
+<div class="uk-section uk-padding-remove-vertical in-equity-breadcrumb">
+    <div class="uk-container">
+        <div class="uk-grid">
+            <div class="uk-width-1-1">
+                <ul class="uk-breadcrumb">
+                    <li><a href="/">Beranda</a></li>
+                    <li><span>Berita</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- header end -->
 @endsection
-{{-- @section('title', $slugs->name) --}}
-@section('seo')
-    <meta name="title" content="Berita - Hummatech." />
-    <meta name="og:image" content="{{ asset('mobilelogo.png') }}" />
-    <meta name="twitter:image" content="{{ asset('mobilelogo.png') }}" />
-    <meta property="og:url" content="{{ url('/') }}" />
-    <meta property="og:type" content="website" />
-    <link rel="canonical" href="{{ url('/') }}" />
-@endsection
-@section('title', 'Berita')
-@section('style')
-    <style>
-        .custom-tabs {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            overflow: hidden;
-            overflow-x: auto;
-            padding-top: 2rem;
-            flex-wrap: nowrap;
-        }
-
-        .custom-tabs li a {
-            margin-right: 1rem;
-            text-transform: uppercase;
-            display: flex;
-            justify-content: center;
-            flex-wrap: nowrap;
-            white-space: nowrap;
-        }
-
-        .custom-tabs li:last-child a {
-            margin-right: 0;
-        }
-
-        .custom-tabs li.active a {
-            border-bottom: 4px solid #1273eb;
-            color: #1273eb;
-        }
-        .meta {
-            overflow: hidden;
-            padding: 10px;
-            box-sizing: border-box;
-        }
-
-        .meta ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .meta li {
-            display: flex;
-            align-items: center;
-        }
-
-        .meta img {
-            margin-right: 10px;
-        }
-
-        .categories {
-            flex-wrap: wrap;
-            display: flex;
-            gap: 0 5px;
-            align-items: center;
-        }
-
-        .category-link {
-            font-size: 12px;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .categories span {
-            margin: 0 5px;
-        }
-    </style>
-@endsection
-
 @section('content')
-    <div class="breadcrumb-area text-center shadow dark text-light bg-cover"
-        style="background-image: url('{{ $background == null ? asset('assets-home/img/default-bg.png') : asset('storage/' . $background->image) }}');">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <h1>Berita</h1>
-                    <ul class="breadcrumb">
-                        <li><a href="{{ url('/') }}"><i class="fas fa-home"></i> Beranda</a></li>
-                        <li class="active">Berita</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="blog-area right-sidebar full-blog mt-5">
-        <div class="container">
-            <div class="blog-items">
-                <div class="row">
-                    <div class="col-12 col-xl-3 mb-4">
-                        <!-- Start Sidebar -->
-                        <div class="sidebar wow fadeInLeft card item border-0 py-4">
-                            <aside>
-                                <div class="sidebar-item recent-post">
-                                    <div class="title">
-                                        <h4>Kategori berita</h4>
+<main data-title="blog">
+    <!-- blog content begin -->
+    <div class="uk-section uk-margin-small-top">
+        <div class="uk-container">
+            <div class="uk-grid" data-uk-grid="">
+                <div class="uk-width-2-3@m uk-first-column">
+                    <div class="in-blog-1 uk-grid uk-grid-stack" data-uk-grid="">
+                       @foreach (range(1, 2) as $item)
+                            <div class="in-stretch uk-first-column">
+                                <article class="uk-card uk-card-default uk-border-rounded">
+                                    <div class="uk-card-media-top">
+                                        <img class="uk-border-rounded uk-width-1-1" src="{{ asset('assets_landing/img/blockit/in-gallery-image-3.jpg') }}" alt="The typical U.S. household is spending $445 more a month due to inflation">
                                     </div>
-                                    <div class="sidebar-info">
-                                        <ul>
-                                            <li>
-                                                <a href="/news" class="{{ request()->is('news') ? 'text-primary' : '' }}">
-                                                    Semua
-                                                </a>
-                                            </li>
-                                            @foreach ($newsCategories as $category)
-                                                <li>
-                                                    <a class="{{ request()->is('news/category/' . $category->slug) ? 'active text-primary' : '' }}"
-                                                        href="{{ url("/news/category/{$category->slug}") }}">{{ $category->name }}</a>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                </div>
-                            </aside>
-                        </div>
-                        <!-- End Start Sidebar -->
-                    </div>
-                    <div class="col-12 col-xl-9">
-                        <div class="blog-item-box">
-                            <div class="row mb-5 mt-2">
-                                @forelse ($newses as $news)
-                                    @if ($news->news)
-                                        <div class="col-lg-6 col-md-6 mt-2">
-                                            <div class="item">
-                                                <div class="thumb">
-                                                    <a href="/news/{{ $news->news->slug }}">
-                                                        <img src="{{ asset('storage/' . $news->news->thumbnail) }}"
-                                                            alt="{{ $news->news->title }}" class="img-fluid"
-                                                            style="width: 500px; height: 200px; object-fit: cover;">
-                                                    </a>
-
-                                                    <time class="date"
-                                                        datetime="">{{ \Carbon\Carbon::parse($news->news->date)->locale('id_ID')->isoFormat('D MMMM Y') }}</time>
-                                                </div>
-                                                <div class="info">
-                                                    <div class="meta">
-                                                        <ul>
-                                                            <li>
-                                                                <img src="{{ asset('mobilelogo.png') }}" alt="Hummatech Logo" />
-                                                                @php
-                                                                    $newsCategories = App\Models\NewsCategory::where('news_id', $news->news->id)->get();
-                                                                @endphp
-                                                                <div class="categories">
-                                                                    @foreach ($newsCategories as $index => $newsCategory)
-                                                                        <p href="javascript:void(0)" class="category-link">{{ $newsCategory->category->name }}</p>
-                                                                        @if (!$loop->last)
-                                                                            <p>,</p>
-                                                                        @endif
-                                                                    @endforeach
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-
-                                                    <h4>
-                                                        <a
-                                                            href="/news/{{ $news->news->slug }}">{{ $news->news->title }}</a>
-                                                    </h4>
-
-                                                    <p class="">{!! Str::limit(strip_tags($news->news->description), 200) !!}</p>
-                                                </div>
+                                    <div class="uk-card-body">
+                                        <h3>
+                                            <a href="blog/the-typical-us-household-is-spending-445-more-a.html" class="link-primary text-decoration-none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, nesciunt.</a>
+                                        </h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, ducimus! Dignissimos id porro consequuntur quos voluptatem maiores deserunt dolore omni...</p>
+                                        <div class="uk-flex">
+                                            <div class="uk-margin-small-right">
+                                                <img class="uk-border-pill uk-background-muted" src="{{ asset('mobilelogo.png') }}" alt="image-team" width="32" height="32">
+                                            </div>
+                                            <div class="uk-flex uk-flex-middle">
+                                                <p class="uk-text-small uk-text-muted uk-margin-remove">
+                                                    31 Mei 2024
+                                                </p>
                                             </div>
                                         </div>
-                                    @else
-                                        <div class="col-lg-6 col-md-6 single-item mt-2">
-                                            <div class="item">
-                                                <div class="thumb">
-                                                    <a href="/news/{{ $news->slug }}"><img
-                                                            src="{{ asset('storage/' . $news->thumbnail) }}"
-                                                            alt="{{ $news->title }}" class="img-fluid"
-                                                            style="width: 500px; height: 200px; object-fit: cover;"></a>
-
-                                                    <time class="date"
-                                                        datetime="">{{ \Carbon\Carbon::parse($news->date)->locale('id_ID')->isoFormat('D MMMM Y') }}</time>
-                                                </div>
-                                                <div class="info">
-                                                    <div class="meta">
-                                                        <ul>
-                                                            <li>
-                                                                <img src="{{ asset('mobilelogo.png') }}" alt="Hummatech Logo" />
-                                                                @php
-                                                                    $newsCategories = App\Models\NewsCategory::where('news_id', $news->id)->get();
-                                                                @endphp
-                                                                <div class="categories">
-                                                                    @foreach ($newsCategories as $index => $newsCategory)
-                                                                        <a href="javascript:void(0)" class="category-link">{{ $newsCategory->category->name }}</a>
-                                                                        @if (!$loop->last)
-                                                                            <a>,</a>
-                                                                        @endif
-                                                                    @endforeach
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-
-                                                    <h4>
-                                                        <a href="/news/{{ $news->slug }}">{{ $news->title }}</a>
-                                                    </h4>
-                                                    <p class="">{!! Str::limit(strip_tags($news->description), 200) !!}</p>
-                                                    {{-- <p class="text-break justify-content-center">{!! Str::limit(strip_tags($news->description), 200) !!}</p> --}}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endif
-                                @empty
-                                    <div class="d-flex justify-content-center col-12 ">
-                                        <img src="{{ asset('nodata-gif.gif') }}" width="600px" alt=""
-                                            srcset="">
                                     </div>
-                                    <h4 class="fs-1 text-center text-dark col-12 " style="font-weight: 600">
-                                        Data Masih Kosong
-                                    </h4>
-                                @endforelse
+                                    <div class="uk-card-footer uk-clearfix">
+                                        <div class="uk-float-left">
+                                            <span class="uk-label uk-label-warning in-label-small">Prestasi</span>
+                                        </div>
+                                        <div class="uk-float-right">
+                                            <a href="blog/the-typical-us-household-is-spending-445-more-a.html" class="uk-button uk-button-text">Baca selengkapnya<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                                        </div>
+                                    </div>
+                                </article>
                             </div>
-                        </div>
+                       @endforeach
                     </div>
+                    <!-- pagination begin -->
+                    <ul class="uk-pagination uk-flex-center uk-margin-medium-top"><li class="uk-active"><a href="">1</a></li><li><a href="">2</a></li><li><a href="">3</a></li><li><a href="">4</a></li><li><a href="" aria-label="next"><span aria-hidden="true">»</span></a></li></ul>
+                    <!-- pagination end -->
+                </div>
+                <div class="uk-width-expand@m">
+                    <!-- widget search begin -->
+                    <aside class="uk-margin-medium-bottom">
+                        <form name="blog-search" class="uk-search uk-search-default uk-width-1-1">
+                            <a href="" class="uk-search-icon-flip uk-icon uk-search-icon" data-uk-search-icon="" aria-label="Submit Search"><svg width="20" height="20" viewBox="0 0 20 20"><circle fill="none" stroke="#000" stroke-width="1.1" cx="9" cy="9" r="7"></circle><path fill="none" stroke="#000" stroke-width="1.1" d="M14,14 L18,18 L14,14 Z"></path></svg></a>
+                            <input class="uk-input uk-border-rounded" type="search" placeholder="Cari berita...">
+                        </form>
+                    </aside>
+                    <!-- widget search end -->
+                    <!-- widget categories begin -->
+                    <aside class="uk-margin-medium-bottom">
+                        <div class="uk-card uk-card-default uk-card-body uk-border-rounded">        
+                            <h5 class="uk-heading-bullet uk-text-uppercase uk-margin-remove-bottom">Kategori</h5>
+                            <ul class="uk-list widget-categories">
+                                <li><a href="#">Semua<span class="uk-label in-label-small uk-float-right">8</span></a></li>
+                                <li><a href="#">Prestasi<span class="uk-label in-label-small uk-float-right">2</span></a></li>
+                                <li><a href="#">Kunjungan industri<span class="uk-label in-label-small uk-float-right">2</span></a></li>
+                                <li><a href="#">Kelas industri<span class="uk-label in-label-small uk-float-right">2</span></a></li>
+                                <li><a href="#">Magang<span class="uk-label in-label-small uk-float-right">2</span></a></li>
+                            </ul>
+                        </div>
+                    </aside>
+                    <!-- widget categories end -->
+                    <!-- widget lates begin -->
+                    <aside class="uk-margin-medium-bottom">
+                        <div class="uk-card uk-card-default uk-card-body uk-border-rounded">
+                            <h5 class="uk-heading-bullet uk-text-uppercase uk-margin-remove-bottom">Berita terbaru</h5>
+                            <ul class="uk-list uk-list-divider uk-list-large widget-latest">
+                                @foreach (range(1,3) as $item)
+                                    <li>
+                                        <a href="blog/the-typical-us-household-is-spending-445-more-a.html">Potter ipsum wand elf parchment wingardium.</a>
+                                        <span class="uk-article-meta uk-text-small"><br><i class="fas fa-clock fa-sm uk-margin-small-right"></i>2 Juni 2024</span>
+                                    </li>
+                                @endforeach
+                            </ul>        
+                        </div>
+                    </aside>
+                    <!-- widget lates end -->
                 </div>
             </div>
         </div>
     </div>
+    <!-- blog content end -->
+</main>
 @endsection

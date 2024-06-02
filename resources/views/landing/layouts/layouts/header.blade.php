@@ -39,7 +39,7 @@
                                 </ul>
                             </div>
                         </li>
-                        <li><a href="markets.html">Berita</a>
+                        <li><a href="/news  ">Berita</a>
                         </li>
                         <li><a href="/contactUs">Hubungi</a>
                         </li>
