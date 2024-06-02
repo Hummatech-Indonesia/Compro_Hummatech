@@ -221,6 +221,9 @@ Route::get('detail/profile', [AboutUsController::class, 'showPdf']);
 
 // Berita
 Route::get('news', [NewsController::class, 'news']);
+Route::get('news/Lorem-ipsum-dolor-sit-amet-consectetur-adipisicing-elit-Quia-nesciunt', function() {
+    return view('landing.news.detail');
+});
 Route::get('news/category/{category:slug}', [NewsController::class, 'newsCategory'])->name('news.category');
 Route::get('news/{slugnews}', [NewsController::class, 'showNews'])->name('news.view');
 

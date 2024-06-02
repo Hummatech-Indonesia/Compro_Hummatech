@@ -31,7 +31,7 @@
                                     </div>
                                     <div class="uk-card-body">
                                         <h3>
-                                            <a href="blog/the-typical-us-household-is-spending-445-more-a.html" class="link-primary text-decoration-none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, nesciunt.</a>
+                                            <a href="/news/Lorem-ipsum-dolor-sit-amet-consectetur-adipisicing-elit-Quia-nesciunt" class="link-primary text-decoration-none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, nesciunt.</a>
                                         </h3>
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, ducimus! Dignissimos id porro consequuntur quos voluptatem maiores deserunt dolore omni...</p>
                                         <div class="uk-flex">
@@ -50,7 +50,7 @@
                                             <span class="uk-label uk-label-warning in-label-small">Prestasi</span>
                                         </div>
                                         <div class="uk-float-right">
-                                            <a href="blog/the-typical-us-household-is-spending-445-more-a.html" class="uk-button uk-button-text">Baca selengkapnya<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                                            <a href="/news/Lorem-ipsum-dolor-sit-amet-consectetur-adipisicing-elit-Quia-nesciunt" class="uk-button uk-button-text">Baca selengkapnya<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
                                         </div>
                                     </div>
                                 </article>
@@ -91,7 +91,7 @@
                             <ul class="uk-list uk-list-divider uk-list-large widget-latest">
                                 @foreach (range(1,3) as $item)
                                     <li>
-                                        <a href="blog/the-typical-us-household-is-spending-445-more-a.html">Potter ipsum wand elf parchment wingardium.</a>
+                                        <a href="#">Potter ipsum wand elf parchment wingardium.</a>
                                         <span class="uk-article-meta uk-text-small"><br><i class="fas fa-clock fa-sm uk-margin-small-right"></i>2 Juni 2024</span>
                                     </li>
                                 @endforeach
