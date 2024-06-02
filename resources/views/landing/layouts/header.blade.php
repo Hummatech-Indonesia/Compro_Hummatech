@@ -43,7 +43,7 @@
                         </li>
                         <li><a href="/contactUs">Hubungi</a>
                         </li>
-                        <li><a href="markets.html">Lowongan</a>
+                        <li><a href="/job-vacancy">Lowongan</a>
                         </li>
                     </ul>
                 </div>

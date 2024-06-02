@@ -1,184 +1,30 @@
 @extends('landing.layouts.layouts.app')
 @section('title' , 'Job Vacancy')
 @section('style')
-    <style>
-        .subtitle {
-            text-transform: uppercase;
-            font-weight: 600;
-            color: #1273eb;
-            margin-top: -5px;
-            display: inline-block;
-            background: linear-gradient(90deg, rgba(18, 115, 235, 1) 30%, rgba(4, 215, 242, 1) 100%);
-            -webkit-background-clip: text;
-            -moz-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .about-us-area .thumb {
-            padding-left: unset;
-            padding-right: 50px;
-        }
-
-        .about-us-area .thumb::after {
-            right: 0;
-            top: 5rem !important;
-            left: unset !important;
-        }
-
-        .about-us-area .container {
-            position: relative;
-        }
-
-        .about-us-area .about-triangle {
-            position: absolute;
-            z-index: -1;
-            top: -7.5rem;
-            right: -7.5rem;
-        }
-
-
-        @media screen and (max-width: 992px) {
-            .about-us-area .about-triangle {
-                right: 0;
-            }
-
-            .about-us-area .thumb {
-                padding-top: 50px;
-                padding-right: unset;
-            }
-        }
-    </style>
-
-    <style>
-        /* Custom styles for the timeline */
-        .timeline {
-            position: relative;
-            padding: 40px 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            width: 4px;
-            height: 100%;
-            background: #ced4da;
-            left: 50%;
-            top: 0;
-            transform: translateX(-50%);
-        }
-
-        .timeline-item {
-            margin-bottom: 50px;
-            position: relative;
-        }
-
-        .timeline-item::after {
-            content: '';
-            display: table;
-            clear: both;
-        }
-
-        .timeline-item-content {
-            position: relative;
-            width: 45%;
-            border-radius: 5px;
-            float: left;
-            padding-right: 3rem;
-        }
-
-        .timeline-item-content h2 {
-            margin-top: 0;
-        }
-
-        @media screen and (max-width: 992px) {
-            .timeline-item-content {
-                padding-right: .75rem;
-            }
-
-            .timeline-item-content h2 {
-                font-size: 1rem;
-                font-weight: bold;
-                margin-bottom: .25rem;
-            }
-
-            .timeline-item-content p,
-            .timeline-item-content .timeline-item-date {
-                font-size: .75rem;
-                line-height: 1.25;
-                margin-bottom: 0;
-            }
-        }
-
-        .timeline-item-date {
-            font-size: 14px;
-            color: #6c757d;
-        }
-
-        .timeline-number {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 5rem;
-            height: 5rem;
-            background-color: #007bff;
-            color: #fff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.5rem;
-            font-family: 'Poppins', Arial, Helvetica, sans-serif;
-        }
-
-        @media screen and (max-width: 992px) {
-            .timeline-number {
-                width: 2rem;
-                height: 2rem;
-                font-size: .875rem;
-            }
-        }
-
-        /* Alternate the position of the timeline items */
-        .timeline .timeline-item:nth-child(even) .timeline-item-content {
-            float: right;
-            text-align: right;
-            padding-left: 3rem;
-            padding-right: 0;
-        }
-
-        @media screen and (max-width: 992px) {
-            .timeline .timeline-item:nth-child(even) .timeline-item-content {
-                padding-left: .75rem;
-                padding-right: 0;
-            }
-        }
-
-        .timeline .timeline-item:nth-child(even) .timeline-item-content::before {
-            right: 100%;
-            border-right: 8px solid #f8f9fa;
-            border-left: none;
-        }
-
-        .timeline .timeline-item:nth-child(odd) .timeline-item-content::before {
-            left: 100%;
-            border-left: 8px solid #f8f9fa;
-            border-right: none;
-        }
-
-        .timeline .timeline-item:nth-child(even) .timeline-item-content::after,
-        .timeline .timeline-item:nth-child(odd) .timeline-item-content::after {
-            display: none;
-        }
-
-        @media screen and (min-width: 992px) {
-            .text-lg-start {
-                text-align: left !important;
-            }
-        }
-    </style>
+<style>
+    .number-above-image {
+        position: relative;
+        display: inline-block;
+        width: 120px;
+        height: 130px;
+        margin-bottom: 30px;
+    }
+    .number-above-image h1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: black;
+    }
+    .number-above-image img {
+        width: 100%;
+        height: 100%;
+    }
+    .uk-card {
+        padding: 20px;
+        text-align: center;
+    }
+</style>
 @endsection
 
 @section('seo')
@@ -213,94 +59,128 @@
     </script>
 @endsection
 
+@section('header')
+<div class="uk-section uk-padding-remove-vertical in-equity-breadcrumb">
+    <div class="uk-container">
+        <div class="uk-grid">
+            <div class="uk-width-1-1">
+                <ul class="uk-breadcrumb">
+                    <li href="/">Hubungi</li>
+                    <li>
+                        <span>Hubungi</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
 @section('content')
-    <div class="breadcrumb-area text-center shadow dark text-light bg-cover"
-        style="background-image: url({{ $background == null ? asset('assets-home/img/default-bg.png') : asset('storage/'. $background->image) }});">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <h1>Lowongan</h1>
-                    <ul class="breadcrumb">
-                        <li><a href="#"><i class="fas fa-home"></i> Beranda</a></li>
-                        <li class="active">Lowongan</li>
-                    </ul>
+
+<div class="uk-section in-equity-4">
+    <div class="uk-container">
+        <div class="uk-grid">
+            <div class="uk-width-1-1 uk-flex uk-flex-center">
+                <div class="uk-width-3-5@m uk-text-center">
+                    <h1 class="uk-margin-remove-bottom">
+                        <span class="in-highlight">
+                            Lowongan
+                        </span>
+                    </h1>
                 </div>
             </div>
         </div>
-    </div>
 
-    @if ($vacancyData->count() > 0)
-    <div class="about-us-area default-padding">
-        <div class="container">
-            <img src="{{ asset('assets-home/img/about-polygon.svg') }}" class="about-triangle" alt="Polygon" />
-            <div class="about-items">
-                <div class="row align-center">
-                    <div class="col-lg-6 info text-center text-lg-start">
-                        <h4 class="subtitle text-break">{{ $vacancyData[0]->subtitle }}</h4>
-                        <h2>{{ $vacancyData[0]->title }}</h2>
-                        <img src="{{ asset('storage/' .$vacancyData[0]->image) }}"
-                            class="w-75 mx-auto d-block d-lg-none mb-3" alt="Thumb" />
-                        <p>{!! Str::limit($vacancyData[0]->description, 200) !!}</p>
-
-                        <a class="btn btn-gradient effect btn-md" target="_blank"
-                            href="{{ $vacancyData[0]->link }}">Kunjungi Website</a>
-                    </div>
-                    <div class="col-lg-6 d-none d-lg-block d-md-none">
-                        <div class="thumb">
-                            <img src="{{ asset('storage/' .$vacancyData[0]->image) }}" class="w-100" alt="Thumb" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    @else
-    <div class="d-flex justify-content-center col-12 ">
-        <img src="{{ asset('nodata-gif.gif') }}" width="600px" alt="" srcset="">
-    </div>
-    <h4 class="fs-1 text-center text-dark col-12 " style="font-weight: 600">
-        Data Masih Kosong
-    </h4>
-    @endif
-
-    <div class="work-process-area features-area default-padding-bottom py-5">
-        <div class="container pt-5">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2">
-                    <div class="site-heading text-center">
-                        <h4>Alur Kerja</h4>
-                        <h3>"Kendalikan Alur Kerja Anda: Strategi Efektif untuk Produktivitas dan Efisiensi"</h3>
-                        <div class="devider"></div>
-                    </div>
-                </div>
-
-                <div class="col-lg-12">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="timeline">
-                                @forelse ($workflows as $index=>$workflow)
-                                <div class="timeline-item">
-                                    <div class="timeline-number">{{ $index + 1 }}</div>
-                                    <div class="timeline-item-content">
-                                        <h2>{{ $workflow->name }}</h2>
-                                        <p>{{ $workflow->description }}</p>
-                                        {{-- <span class="timeline-item-date">{{ \Carbon\Carbon::parse($workflow->created_at)->locale('id_ID')->isoFormat('D MMMM Y') }}</span> --}}
+        <div class="uk-grid">
+            <div class="uk-width-1-1">
+                <table class="uk-table uk-table-middle uk-table-divider uk-table-responsive">
+                    <tbody>
+                        <tr>
+                            <td class="uk-width-1-3@m">
+                                <div class="uk-grid uk-grid-small uk-flex uk-flex-middle">
+                                    <div class="uk-width-expand">
+                                        <h3>Staf Marketing</h3>
                                     </div>
                                 </div>
-                                @empty
-                                <div class="d-flex justify-content-center col-12 ">
-                                    <img src="{{ asset('nodata-gif.gif') }}" width="600px" alt="" srcset="">
+                            </td>
+                            <td class="uk-width-1-5@m uk-text-right@m">
+                                <a href="#"  class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">
+                                    Lamar
+                                    <i class="fas fa-file uk-margin-small-left"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="uk-width-1-3@m">
+                                <div class="uk-grid uk-grid-small uk-flex uk-flex-middle">
+                                    <div class="uk-width-expand">
+                                        <h3>Resepsionis</h3>
+                                    </div>
                                 </div>
-                                <h4 class="fs-1 text-center text-dark col-12 " style="font-weight: 600">
-                                    Data Masih Kosong
-                                </h4>
-                                @endforelse
-                            </div>
-                        </div>
-                    </div>
+                            </td>
+                            <td class="uk-width-1-5@m uk-text-right@m">
+                                <a href="#"  class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">
+                                    Lamar
+                                    <i class="fas fa-file uk-margin-small-left"></i>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="uk-section">
+    <div class="uk-container">
+        <div class="uk-grid">
+            <div class="uk-width-1-1 uk-flex uk-flex-center">
+                <div class="uk-width-3-5@m uk-text-center">
+                    <h1 class="uk-margin-remove-bottom">
+                        <span class="in-highlight">
+                            Alur Kerja
+                        </span>
+                    </h1>
+                    <h4>Kendalikan Alur Kerja Anda: Strategi Efektif untuk Produktivitas dan Efisiensi</h4>
                 </div>
             </div>
         </div>
-
+        <div class="uk-grid-medium uk-child-width-1-3@m uk-child-width-1-2@s uk-margin-medium-top uk-grid" data-uk-grid>
+            <div>
+                <div class="uk-card uk-card-default uk-card-body uk-border-rounded uk-box-shadow-medium uk-text-center">
+                    <div class="number-above-image">
+                        <h1 class="uk-margin-medium-top">01</h1>
+                        <img class="uk-align-center" src="{{ asset('assets_landing/img/in-equity-7-icon-1.png') }}" data-src="{{ asset('assets_landing/img/in-equity-7-icon-1.png') }}" alt="icon-1" data-uk-img>
+                    </div>
+                    <h4 class="uk-margin-remove">Stocks & ETFs</h4>
+                    <p class="uk-margin-small-top uk-margin-small-bottom">Reprehenderit in voluptate velit esse anim cillum dolore fugiat nulla pariatur.</p>
+                </div>
+            </div>
+            <div>
+                <div class="uk-card uk-card-default uk-card-body uk-border-rounded uk-box-shadow-medium uk-text-center">
+                    <div class="number-above-image">
+                        <h1 class="uk-margin-medium-top">02</h1>
+                        <img class="uk-align-center" src="{{ asset('assets_landing/img/in-equity-7-icon-1.png') }}" data-src="{{ asset('assets_landing/img/in-equity-7-icon-1.png') }}" alt="icon-1" data-uk-img>
+                    </div>
+                    <h4 class="uk-margin-remove">Stocks & ETFs</h4>
+                    <p class="uk-margin-small-top uk-margin-small-bottom">Reprehenderit in voluptate velit esse anim cillum dolore fugiat nulla pariatur.</p>
+                </div>
+            </div>
+            <div>
+                <div class="uk-card uk-card-default uk-card-body uk-border-rounded uk-box-shadow-medium uk-text-center">
+                    <div class="number-above-image">
+                        <h1 class="uk-margin-medium-top">03</h1>
+                        <img class="uk-align-center" src="{{ asset('assets_landing/img/in-equity-7-icon-1.png') }}" data-src="{{ asset('assets_landing/img/in-equity-7-icon-1.png') }}" alt="icon-1" data-uk-img>
+                    </div>
+                    <h4 class="uk-margin-remove">Stocks & ETFs</h4>
+                    <p class="uk-margin-small-top uk-margin-small-bottom">Reprehenderit in voluptate velit esse anim cillum dolore fugiat nulla pariatur.</p>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+
+
 @endsection
