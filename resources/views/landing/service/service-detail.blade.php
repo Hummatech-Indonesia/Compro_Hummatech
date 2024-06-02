@@ -105,6 +105,95 @@
                         @endforeach
                     </div>
                     {{-- terms and conditions end --}}
+
+                    {{-- training list start --}}
+                    <div class="uk-container uk-margin-large-top uk-margin-large-bottom">
+                        <h4 class="uk-text-left">
+                            <span class="in-highlight uk-padding-small uk-padding-remove-left uk-text-capitalize">Daftar Pelatihan</span>
+                        </h4>
+                        <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
+                            @foreach (range(1, 2) as $item)
+                            <div>
+                                <div class="uk-card uk-card-body uk-border-rounded uk-card-default uk-padding-small">
+                                    <img class="uk-border-rounded uk-width-1-1 uk-card-title" src="{{ asset('assets_landing/img/blockit/in-gallery-image-5.jpg') }}" data-src="{{ asset('assets_landing/img/blockit/in-gallery-image-5.jpg') }}" width="340" height="400" data-uk-img="">
+                                    <h5 class="uk-margin-small">Inflation and sanctions weaken ruble against the dollar</h5>
+                                    <p class="uk-text-small uk-text-muted uk-margin-remove">Lorem ipsum dolor sit amet consectetur. Lacinia nulla tortor interdum mauris in interdum risus. Laoreet arcu neque blandit vulputate auctor diam.</p>
+                                    <div class="uk-flex uk-flex-middle uk-flex-between">
+                                        <a class="uk-padding-small uk-button uk-button-text" href="#">Lihat Detail<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                                        <a href="#" class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">Ajukan proposal
+                                            <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    {{-- training list end --}}
+
+                    {{-- mitra start --}}
+                    <div class="uk-container uk-margin-large-top uk-margin-large-bottom in-equity-18">
+                        <h4 class="uk-text-left">
+                            <span class="in-highlight uk-padding-small uk-padding-remove-left uk-text-capitalize">Mitra Kami</span>
+                        </h4>
+                        <div class="uk-card uk-card-default uk-card-body uk-border-rounded">
+                            <div class="uk-grid-collapse uk-child-width-2-6@s uk-child-width-1-4@m uk-text-center in-client-logo-6 uk-grid" data-uk-grid="">
+                                <div class="uk-tile uk-tile-default uk-first-column">
+                                    <img class="uk-margin-remove" src="{{ asset('assets_landing/img/mitra-1.png') }}" alt="client-logo" width="167" height="55">
+                                </div>
+                                <div class="uk-tile uk-tile-default">
+                                    <img class="uk-margin-remove" src="{{ asset('assets_landing/img/mitra-1.png') }}" alt="client-logo" width="167" height="55">
+                                </div>
+                                <div class="uk-tile uk-tile-default">
+                                    <img class="uk-margin-remove" src="{{ asset('assets_landing/img/mitra-1.png') }}" alt="client-logo" width="167" height="55">
+                                </div>
+                                <div class="uk-tile uk-tile-default">
+                                    <img class="uk-margin-remove" src="{{ asset('assets_landing/img/mitra-1.png') }}" alt="client-logo" width="167" height="55">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- mitra end --}}
+
+                    {{-- procedure start --}}
+                    <div class="uk-container uk-margin-large-top uk-margin-large-bottom in-equity-9">
+                        <h4 class="uk-text-left">
+                            <span class="in-highlight uk-padding-small uk-padding-remove-left uk-text-capitalize">Prosedur</span>
+                        </h4>
+                        <div class="uk-grid uk-child-width-1-3@s uk-child-width-1-3@m uk-text-center in-register" data-uk-grid="">
+                            <div class="uk-width-1-1 in-h-line uk-first-column">
+                                <span class="uk-padding"></span>
+                            </div>
+                            <div class="uk-grid-margin uk-first-column">
+                                <span class="in-icon-wrap circle">1</span>
+                                <p>Choose an account tier and submit your application</p>
+                            </div>
+                            <div class="uk-grid-margin">
+                                <span class="in-icon-wrap circle">2</span>
+                                <p>Add funds quickly and securely via debit card or bank transfer</p>
+                            </div>
+                            <div class="uk-grid-margin">
+                                <span class="in-icon-wrap circle">3</span>
+                                <p>Access 40,000+ instruments across all asset classes</p>
+                            </div>
+                        </div>
+                    </div>
+                    {{-- procedure end --}}
+
+                    {{-- gallery start --}}
+                    <div class="uk-container uk-margin-large-top uk-margin-large-bottom">
+                        <h4 class="uk-text-left">
+                            <span class="in-highlight uk-padding-small uk-padding-remove-left uk-text-capitalize">Galeri</span>
+                        </h4>
+                        <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
+                            @foreach (range(1, 4) as $item)
+                            <div>
+                                <img class="uk-border-rounded uk-width-1-1" src="{{ asset('assets_landing/img/blockit/in-gallery-image-2.jpg') }}" data-src="{{ asset('assets_landing/img/blockit/in-gallery-image-2.jpg') }}" width="340" height="400" data-uk-img="">
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    {{-- gallery end --}}
                 </div>
                 <div class="uk-width-expand@m">
                     <h4 class="uk-text-left">
