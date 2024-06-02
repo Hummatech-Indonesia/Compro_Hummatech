@@ -229,6 +229,9 @@ Route::get('news/{slugnews}', [NewsController::class, 'showNews'])->name('news.v
 Route::get('services/magang-pkl', function() {
     return view('landing.service.service-detail');
 });
+Route::get('services/magang-pkl/training', function() {
+    return view('landing.service.training-detail');
+});
 
 //portofolio
 Route::get('/portfolio', [HomeProductController::class, 'portfolio']);

@@ -1,154 +1,92 @@
 @extends('landing.layouts.layouts.app')
-@section('title' , 'Berita')
-@section('style')
-    <style>
-        .subtitle {
-            text-transform: uppercase;
-            font-weight: 600;
-            color: #1273eb;
-            margin-top: -5px;
-            display: inline-block;
-            background: linear-gradient(90deg, rgba(18, 115, 235, 1) 30%, rgba(4, 215, 242, 1) 100%);
-            -webkit-background-clip: text;
-            -moz-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .about-us-area .thumb {
-            padding-left: unset;
-            padding-right: 50px;
-        }
-
-        .about-us-area .thumb::after {
-            right: 0;
-            top: 5rem !important;
-            left: unset !important;
-        }
-
-        .about-us-area .container {
-            position: relative;
-        }
-
-        .about-us-area .about-triangle {
-            position: absolute;
-            z-index: -1;
-            top: -7.5rem;
-            right: -7.5rem;
-        }
-
-        @media screen and (max-width: 992px) {
-            .about-us-area .about-triangle {
-                right: 0;
-            }
-
-            .about-us-area .thumb {
-                padding-top: 50px;
-                padding-right: unset;
-            }
-        }
-    </style>
-@endsection
-
-@section('seo')
-    <!-- ========== Breadcrumb Markup (JSON-LD) ========== -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Beranda",
-          "item": "{{ url('/') }}"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Tentang Kami",
-          "item": "{{ url('/about-us') }}"
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "name": "Produk",
-          "item": "{{ url('/produk') }}"
-        },
-      ]
-    }
-    </script>
-@endsection
-
-@section('content')
-<div class="thumb-services-area inc-thumbnail p-5 bottom-less">
-    <div class="left-shape">
-        <img src="{{ asset('assets-home/img/shape/14.png') }}" alt="Shape" style="opacity: 20%; width: 20vw;">
-    </div>
-    <div class="container p-5">
-        <div class="about-items">
-            <div class="row align-center justify-content-center">
-                <div class="col-lg-5">
-                    <div class="thumb">
-                        <img src="{{ asset('assets_landing/produk/milink.png') }}" alt="Thumb" >
-                        <div class="shape" style="background-image: url(assets/img/shape/14.png);"></div>
-                    </div>
-                </div>
-                <div class="col-lg-6 info mx-3">
-                    <h1>Lorem ipsum vulputate</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur.
-                        Tincidunt pellentesque pellentesque sed in.
-                        Sit nunc velit aliquam quis faucibus nibh nisl pellentesque.
-                        Massa natoque mattis quisque ut molestie turpis at fusce integer.
-                        Tincidunt lorem egestas sed ipsum proin.
-                        Ac vestibulum euismod amet dignissim et lobortis blandit bibendum.
-                        Nulla venenatis vitae dui sapien duis dolor sed ut dictum.
-                        Neque diam senectus suspendisse id.
-                        Pretium congue erat pharetra aliquet.
-                        Platea aliquet aliquam ac vitae senectus quis.
-                    </p>
-                    <a class="btn btn-gradient effect btn-md" href="">Ajukan Proposal</a>
-                </div>
+@section('header')
+<!-- header start -->
+<div class="uk-section uk-padding-remove-vertical in-equity-breadcrumb">
+    <div class="uk-container">
+        <div class="uk-grid">
+            <div class="uk-width-1-1">
+                <ul class="uk-breadcrumb">
+                    <li><a href="/">Beranda</a></li>
+                    <li><span>Layanan</span></li>
+                    <li><span class="uk-text-capitalize">magang pkl</span></li>
+                </ul>
             </div>
         </div>
     </div>
 </div>
-
-<div class="thumb-services-area inc-thumbnail mb-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2">
-                <div class="site-heading text-center">
-                    <h4>PAKET PELATIHAN</h4>
-                    <h3>Berinvestasi dalam Kemampuan Anda: Paket Pelatihan Kami Membuka Pintu Menuju Sukses</h3>
-                    <div class="devider"></div>
+<!-- header end -->
+@endsection
+@section('content')
+<main data-title="blog">
+    <!-- blog content begin -->
+    <div class="uk-section uk-margin-small-top">
+        <div class="uk-container">
+            <div class="uk-grid uk-grid-large uk-flex uk-flex-top" data-uk-grid>
+                <div class="uk-width-1-2@m uk-flex uk-flex-top uk-margin-small-bottom">
+                    <div class="in-equity-video">
+                        <img class="uk-border-rounded uk-width-1-1" src="{{ asset('assets_landing/img/blockit/in-gallery-image-5.jpg') }}" data-src="{{ asset('assets_landing/img/blockit/in-gallery-image-5.jpg') }}" alt="sample-images" width="433" height="255" data-uk-img>
+                    </div>
+                </div>
+                <div class="uk-width-1-2@m uk-flex uk-flex-top">
+                    <div>
+                        <h3 class="uk-margin-remove">Inflation and sanctions weaken ruble against the dollar</h3>
+                        <p class="uk-margin-remove">
+                            Lorem ipsum dolor sit amet consectetur. Tincidunt pellentesque pellentesque sed in. Sit nunc velit aliquam quis faucibus nibh nisl pellentesque. Massa natoque mattis quisque ut. Lorem ipsum dolor sit amet consectetur. Tincidunt pellentesque pellentesque sed in. Sit nunc velit aliquam quis faucibus nibh nisl pellentesque. Massa natoque mattis quisque ut
+                        </p>   
+                        <a href="#" class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">Ajukan proposal
+                            <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="container pb-5">
-        <div class="services-items text-center">
-            <div class="row">
-                @foreach (range(1,3) as $item)
-                    <div class="col-lg-4 col-md-6 wow fadeInDown">
-                        <div class="package">
-                            <div class="package-name">
-                                <img src="{{ asset('assets-home/img/shape/23.png') }}">
-                                <h4>Basic</h4>
-                            </div>
-                            <div class="package-description">
-                                <p>Show social proof notifications to increase leads and sales.</p>
-                            </div>
-                            <div class="package-price">
-                                <h1>Rp. 99k <span class="per-month">/Bulan</span></h1>
-                            </div>
-                            <a href="" class="ajukan">Ajukan Proposal</a>
+        <div class="uk-container uk-margin-large uk-padding-large uk-padding-remove-top">
+            <div class="uk-grid-match uk-child-width-1-2@s uk-child-width-1-3@m in-card-10 uk-grid" data-uk-grid>
+                <div class="uk-width-1-3@m uk-flex uk-flex-top uk-margin-small-bottom">
+                    <div class="uk-card uk-card-default uk-card-body uk-box-shadow-medium uk-padding-small uk-border-rounded">
+                        <span class="uk-label in-label-small uk-margin-remove-bottom">Rp. 99.000</span>
+                        <h2 class="uk-margin-small uk-margin-remove-bottom">Basic</h2>
+                        <p style="font-size: 18px" class="uk-text-muted uk-margin-remove">Benefit from industry-leading entryv prices</p>
+                        <hr>
+                        <div class="uk-margin-remove">
+                            <a class="uk-button uk-button-default uk-border-rounded uk-width-expand uk-text-capitalize" href="#">ajukan proposal
+                                <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                            </a>
+
                         </div>
                     </div>
-                @endforeach
+                </div>
+                <div class="uk-width-1-3@m uk-flex uk-flex-top uk-margin-small-bottom">
+                    <div class="uk-card uk-card-default uk-card-body uk-box-shadow-medium uk-padding-small uk-border-rounded">
+                        <span class="uk-label in-label-small uk-margin-remove-bottom">Rp. 99.000</span>
+                        <h2 class="uk-margin-small uk-margin-remove-bottom">Standard</h2>
+                        <p style="font-size: 18px" class="uk-text-muted uk-margin-remove">Benefit from industry-leading entryv prices</p>
+                        <hr>
+                        <div class="uk-margin-remove">
+                            <a class="uk-button uk-button-default uk-border-rounded uk-width-expand uk-text-capitalize" href="#">ajukan proposal
+                                <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-width-1-3@m uk-flex uk-flex-top uk-margin-small-bottom">
+                    <div class="uk-card uk-card-default uk-card-body uk-box-shadow-medium uk-padding-small uk-border-rounded">
+                        <span class="uk-label in-label-small uk-margin-remove-bottom">Rp. 99.000</span>
+                        <h2 class="uk-margin-small uk-margin-remove-bottom">Professional</h2>
+                        <p style="font-size: 18px" class="uk-text-muted uk-margin-remove">Benefit from industry-leading entryv prices</p>
+                        <hr>
+                        <div class="uk-margin-remove">
+                            <a class="uk-button uk-button-default uk-border-rounded uk-width-expand uk-text-capitalize" href="#">ajukan proposal
+                                <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+    <!-- blog content end -->
+</main>
 @endsection
