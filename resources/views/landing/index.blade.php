@@ -92,13 +92,13 @@
                         <div class="uk-grid-large uk-flex-middle uk-grid uk-grid-stack" data-uk-grid>
                             <div class="uk-width-1-2@s in-slide-text uk-first-column">
                                 <h1 class="uk-heading-small">
-                                    The world's most
-                                    <span class="in-highlight">powerful</span>
-                                    trade app.
+                                    Maju Bersama
+                                    <span class="in-highlight">Berkembang </span>
+                                    Bersama
                                 </h1>
                                 <p class="uk-text-lead uk-visible@m">
-                                    Get the most accurate market data, alerts, conversions, tools and more — all within the same app.
-                                </p>
+                                    bertransformasi menjadi perusahaan yang mampu menjawab
+                                    tantangan di era revolusi industri 4.0                                </p>
                                 <div class="uk-grid-medium uk-child-width-1-3@m uk-child-width-1-2@s uk-margin-medium-top uk-visible@s uk-grid uk-grid-stack" data-uk-grid>
                                     <div>
                                         <button class="uk-button uk-button-primary uk-border-rounded"
