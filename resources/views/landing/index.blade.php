@@ -336,37 +336,23 @@
         <div class="uk-container  uk-padding-remove-vertical in-equity-18">
             <div class="uk-grid" data-uk-grid>
                 <div class="uk-width-1-1">
-                    <div class="uk-card uk-card-default uk-card-body uk-border-rounded">
-                        <div class="uk-grid-collapse uk-child-width-1-6@m uk-child-width-1-2@s uk-text-center in-client-logo-6"
-                            data-uk-grid>
-                            <div class="uk-tile uk-tile-default">
-                                <img class="uk-margin-remove" src="assets_landing/img/in-equity-payment-1.svg"
-                                    alt="client-logo" width="167" height="55">
+                    <div class="uk-card uk-card-body uk-border-rounded">
+                        <div uk-slider="autoplay: true; autoplay-interval: 2000">
+                            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+                                <div class="uk-slider-items uk-grid-collapse uk-child-width-1-6@m uk-child-width-1-2@s uk-text-center in-client-logo-6"
+                                    data-uk-grid>
+                                   @foreach (range(1,10) as $item)
+                                        <div class="uk-tile uk-tile-default" style="background-color: transparent">
+                                            <img class="uk-margin-remove" src="{{ asset('assets_landing/img/mitra-1.png') }}" alt="mitra" width="167" height="55">
+                                        </div>
+                                   @endforeach
+                                </div>
+                                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slider-item="previous"></a>
+                                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slider-item="next"></a>
                             </div>
-                            <div class="uk-tile uk-tile-default">
-                                <img class="uk-margin-remove" src="assets_landing/img/in-equity-payment-2.svg"
-                                    alt="client-logo" width="167" height="55">
-                            </div>
-                            <div class="uk-tile uk-tile-default">
-                                <img class="uk-margin-remove" src="assets_landing/img/in-equity-payment-3.svg"
-                                    alt="client-logo" width="167" height="55">
-                            </div>
-                            <div class="uk-tile uk-tile-default">
-                                <img class="uk-margin-remove" src="assets_landing/img/in-equity-payment-4.svg"
-                                    alt="client-logo" width="167" height="55">
-                            </div>
-                            <div class="uk-tile uk-tile-default">
-                                <img class="uk-margin-remove" src="assets_landing/img/in-equity-payment-5.svg"
-                                    alt="client-logo" width="167" height="55">
-                            </div>
-                            <div class="uk-tile uk-tile-default">
-                                <img class="uk-margin-remove" src="assets_landing/img/in-equity-payment-6.svg"
-                                    alt="client-logo" width="167" height="55">
-                            </div>
+                            {{-- <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul> --}}
                         </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
