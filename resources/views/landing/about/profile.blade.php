@@ -36,13 +36,48 @@
 
     .image-background {
         z-index: 1;
-        transform: translate(30px, -30px);
+        transform: translate(10%, -10%);
     }
 
     .image-foreground {
         z-index: 1;
     }
-    </style>
+
+    @media (max-width: 768px) {
+        .image-container {
+            padding-top: 100%;
+        }
+
+        .image-background {
+            width: 80%;
+            height: 80%;
+            transform: translate(10%, -10%);
+        }
+
+        .image-foreground {
+            width: 80%;
+            height: 80%;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .image-container {
+            padding-top: 100%;
+        }
+
+        .image-background {
+            width: 70%;
+            height: 70%;
+            transform: translate(15%, -15%);
+        }
+
+        .image-foreground {
+            width: 70%;
+            height: 70%;
+        }
+    }
+</style>
+
 
 
 @endsection
@@ -117,14 +152,14 @@
                 <p>
                     Hummatech juga telah melebarkan sayapnya, tidak hanya dikenal di Indonesia, tetapi juga dipercaya oleh mitra dari luar negeri, yaitu Belanda dalam mengembangan software dan integrated system.
                 </p>
-                <a href="#" class="uk-button uk-button-primary uk-border-rounded uk-margin-large-bottom">Lihat Profil Lengkap
+                <a href="#" class="uk-button uk-button-primary uk-border-rounded uk-margin-xlarge-bottom">Lihat Profil Lengkap
                     <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
                 </a>
             </div>
             <div class="uk-width-2-5@m uk-grid-margin uk-first-column">
                 <div class="image-container">
-                    <img src="{{ asset('assets/images/circle.png') }}" class="image-background" alt="">
-                    <img src="{{ asset('assets/images/Logo_HUMMATECH_700px.png') }}" class="image-foreground" alt="">
+                    <img src="{{ asset('assets/images/circle_black.png') }}" class="image-background" alt="">
+                    <img src="{{ asset('logo cakra.png') }}" class="image-foreground" alt="">
                 </div>
             </div>
         </div>

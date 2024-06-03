@@ -2,88 +2,64 @@
 @section('title', 'Product')
 
 @section('style')
-    <style>
-        .subtitle {
-            text-transform: uppercase;
-            font-weight: 600;
-            color: #1273eb;
-            margin-top: -5px;
-            display: inline-block;
-            background: linear-gradient(90deg, rgba(18, 115, 235, 1) 30%, rgba(4, 215, 242, 1) 100%);
-            -webkit-background-clip: text;
-            -moz-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+<style>
+    .uk-tab > li.uk-active > a {
+        color: #D7AC53;
+        border-radius: 5px;
+        position: relative;
+    }
 
-        .about-us-area .thumb {
-            padding-left: unset;
-            padding-right: 50px;
-        }
+    .uk-tab > li.uk-active > a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #D7AC53;
+    }
 
-        .about-us-area .thumb::after {
-            right: 0;
-            top: 5rem !important;
-            left: unset !important;
-        }
+    .uk-tab > li > a {
+        position: relative;
+        padding-bottom: 4px;
+    }
 
-        .about-us-area .container {
-            position: relative;
-        }
-
-        .about-us-area .about-triangle {
-            position: absolute;
-            z-index: -1;
-            top: -7.5rem;
-            right: -7.5rem;
-        }
-
-        @media screen and (max-width: 992px) {
-            .about-us-area .about-triangle {
-                right: 0;
-            }
-
-            .about-us-area .thumb {
-                padding-top: 50px;
-                padding-right: unset;
-            }
-        }
-
-        @media screen and (max-width: 992px) {
-            .about-items .btn {
-                padding: 1rem 1.5rem;
-            }
-        }
-    </style>
-    <style>
-        .custom-tabs {
+    @media (max-width: 768px) {
+        .uk-tab {
             display: flex;
+            flex-wrap: wrap;
             justify-content: space-between;
-            align-items: center;
-            overflow: hidden;
-            overflow-x: auto;
-            padding-top: 2rem;
-            flex-wrap: nowrap;
         }
 
-        .custom-tabs li a {
-            margin-right: 1rem;
-            text-transform: uppercase;
-            display: flex;
-            justify-content: center;
-            flex-wrap: nowrap;
-            white-space: nowrap;
+        .uk-tab > li {
+            flex: 1 1 auto;
+            text-align: center;
         }
 
-        .custom-tabs li:last-child a {
-            margin-right: 0;
+        .uk-tab > li > a {
+            padding: 10px 5px;
+            font-size: 14px;
         }
 
-        .custom-tabs li.active a {
-            border-bottom: 4px solid #1273eb;
-            color: #1273eb;
+        .uk-tab > li.uk-active > a::after {
+            bottom: -2px;
+            height: 1px;
         }
-    </style>
+    }
+
+    @media (max-width: 480px) {
+        .uk-tab > li > a {
+            padding: 8px 3px;
+            font-size: 12px;
+        }
+
+        .uk-tab > li.uk-active > a::after {
+            bottom: -1px;
+            height: 1px;
+        }
+    }
+
+</style>
 @endsection
 
 @section('seo')
@@ -134,10 +110,10 @@
 
 <div class="uk-section uk-container uk-margin-top uk-margin-large-bottom">
     <ul class="uk-child-width-expand" uk-tab>
-        <li><a href="#">Semua</a></li>
-        <li><a href="#">Kategori 1</a></li>
-        <li><a href="#">Kategori 2</a></li>
-        <li><a href="#">Kategori 3</a></li>
+        <li><a href="#"><b>Semua</b></a></li>
+        <li><a href="#"><b>Kategori 1</b></a></li>
+        <li><a href="#"><b>Kategori 2</b></a></li>
+        <li><a href="#"><b>Kategori 3</b></a></li>
     </ul>
 
     <ul class="uk-switcher uk-margin uk-margin-large-top">
