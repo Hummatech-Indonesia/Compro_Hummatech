@@ -64,42 +64,47 @@
             <div class="uk-container uk-margin-top">
                 <div class="uk-grid">
                     <div class="uk-width-2-3@m">
-                        <div class="uk-child-width-1-2@s uk-child-width-1-3@m" data-uk-grid="">
+                        <div class="uk-child-width-1-2@s uk-child-width-2-3@m" data-uk-grid="">
                             <div>
-                                <h5>Instruments</h5>
+                                <h4 class="uk-text-primary">Layanan</h4>
                                 <ul class="uk-list uk-link-text">
-                                    <li><a href="#">Stock</a></li>
-                                    <li><a href="#">Indexes</a></li>
-                                    <li><a href="#">Currencies</a></li>
-                                    <li><a href="#">Metals<span
-                                                class="uk-label uk-margin-small-left in-label-small">Popular</span></a>
-                                    </li>
-                                    <li><a href="#">Oil and gas</a></li>
-                                    <li><a href="#">Cryptocurrencies<span
-                                                class="uk-label uk-margin-small-left in-label-small">Popular</span></a>
-                                    </li>
+                                    <li><a href="#">Software Development</a></li>
+                                    <li><a href="#">Kelas Industri</a></li>
+                                    <li><a href="#">Pengadaan Hardware</a></li>
+                                    <li><a href="#">Magang/PKL</li>
+                                    <li><a href="#">Kunjungan Industri</a></li>
                                 </ul>
                             </div>
                             <div>
-                                <h5>Analytics</h5>
+                                <h4 class="uk-text-primary">Hubungi kami</h4>
                                 <ul class="uk-list uk-link-text">
-                                    <li><a href="#">World Markets</a></li>
-                                    <li><a href="#">Trading Central<span
-                                                class="uk-label uk-margin-small-left in-label-small">New</span></a>
+                                    <li>
+                                        <div class="uk-flex">
+                                            <i class="fas fa-home uk-margin-right uk-text-primary"></i>
+                                            <div class="">
+                                                <h5 class="uk-text-primary uk-margin-remove">Alamat</h5>
+                                                <p class="uk-margin-remove uk-text-muted">Perum. Permata Regency 1 Blok 10 No. 28 Ngijo, Kec. Karang Ploso, Kab. Malang, Jawa Timur, Indonesia, 65152</p>
+                                            </div>
+                                        </div>
                                     </li>
-                                    <li><a href="#">Forex charts online</a></li>
-                                    <li><a href="#">Market calendar</a></li>
-                                    <li><a href="#">Central banks<span
-                                                class="uk-label uk-margin-small-left in-label-small">New</span></a>
+                                    <li>
+                                        <div class="uk-flex">
+                                            <i class="fas fa-envelope uk-margin-right uk-text-primary"></i>
+                                            <div class="">
+                                                <h5 class="uk-text-primary uk-margin-remove">Email</h5>
+                                                <a href="#" class="uk-text-muted">info@hummatech.com</a>
+                                            </div>
+                                        </div>
                                     </li>
-                                </ul>
-                            </div>
-                            <div class="in-margin-top-60@s">
-                                <h5>Education</h5>
-                                <ul class="uk-list uk-link-text">
-                                    <li><a href="#">Basic course</a></li>
-                                    <li><a href="#">Introductory webinar</a></li>
-                                    <li><a href="#">About academy</a></li>
+                                    <li>
+                                        <div class="uk-flex">
+                                            <i style="font-size: 20px" class="fab fa-whatsapp uk-margin-right uk-text-primary"></i>
+                                            <div class="">
+                                                <h5 class="uk-text-primary uk-margin-remove">Whatsapp</h5>
+                                                <a href="#" class="uk-text-muted">085176777785</a>
+                                            </div>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -129,21 +134,11 @@
             <div class="uk-container">
                 <div class="uk-grid uk-flex uk-flex-middle">
                     <div class="uk-width-2-3@m uk-text-small">
-                        <ul class="uk-subnav uk-subnav-divider uk-visible@s" data-uk-margin="">
-                            <li><a href="#">Risk disclosure</a></li>
-                            <li><a href="#">Privacy policy</a></li>
-                            <li><a href="#">Return policy</a></li>
-                            <li><a href="#">Customer Agreement</a></li>
-                            <li><a href="#">AML policy</a></li>
-                        </ul>
-                        <p class="copyright-text">©2021 Equity Markets Incorporated. All Rights Reserved.</p>
+                        <p class="copyright-text">©Copyright 2024.  All Rights Reserved by <a href="#" class="uk-link-text uk-text-decoration-none uk-text-bolder">Hummatech</a></p>
                     </div>
                     <div class="uk-width-1-3@m uk-flex uk-flex-right uk-visible@m">
                         <span class="uk-margin-right"><img src="img/in-lazy.gif"
-                                data-src="img/in-footer-mastercard.svg" alt="footer-payment" width="34"
-                                height="21" data-uk-img=""></span>
-                        <span><img src="img/in-lazy.gif" data-src="img/in-footer-visa.svg" alt="footer-payment"
-                                width="50" height="16" data-uk-img=""></span>
+                                data-src="{{ asset('assets/images/LOGO-HUMMATECH_Putih.png') }}" alt="footer-payment" width="150px" data-uk-img=""></span>
                     </div>
                 </div>
             </div>
