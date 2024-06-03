@@ -23,8 +23,41 @@
             <div class="uk-grid" data-uk-grid="">
                 <div class="uk-width-2-3@m uk-first-column">
                     <div class="in-blog-1 uk-grid uk-grid-stack" data-uk-grid="">
-                       @foreach (range(1, 2) as $item)
+                       {{-- @foreach (range(1, 2) as $item)
                             <div class="in-stretch uk-first-column">
+                                <article class="uk-card uk-card-default uk-border-rounded">
+                                    <div class="uk-card-media-top">
+                                        <img class="uk-border-rounded uk-width-1-1" src="{{ asset('assets_landing/img/blockit/in-gallery-image-3.jpg') }}" alt="The typical U.S. household is spending $445 more a month due to inflation">
+                                    </div>
+                                    <div class="uk-card-body">
+                                        <h3>
+                                            <a href="/news/Lorem-ipsum-dolor-sit-amet-consectetur-adipisicing-elit-Quia-nesciunt" class="link-primary text-decoration-none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, nesciunt.</a>
+                                        </h3>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, ducimus! Dignissimos id porro consequuntur quos voluptatem maiores deserunt dolore omni...</p>
+                                        <div class="uk-flex">
+                                            <div class="uk-margin-small-right">
+                                                <img class="uk-border-pill uk-background-muted" src="{{ asset('mobilelogo.png') }}" alt="image-team" width="32" height="32">
+                                            </div>
+                                            <div class="uk-flex uk-flex-middle">
+                                                <p class="uk-text-small uk-text-muted uk-margin-remove">
+                                                    31 Mei 2024
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="uk-card-footer uk-clearfix">
+                                        <div class="uk-float-left">
+                                            <span class="uk-label uk-label-warning in-label-small">Prestasi</span>
+                                        </div>
+                                        <div class="uk-float-right">
+                                            <a href="/news/Lorem-ipsum-dolor-sit-amet-consectetur-adipisicing-elit-Quia-nesciunt" class="uk-button uk-button-text">Baca selengkapnya<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </div>
+                       @endforeach --}}
+                       @foreach (range(1, 4) as $item)
+                            <div class="uk-width-1-2@m uk-first-column">
                                 <article class="uk-card uk-card-default uk-border-rounded">
                                     <div class="uk-card-media-top">
                                         <img class="uk-border-rounded uk-width-1-1" src="{{ asset('assets_landing/img/blockit/in-gallery-image-3.jpg') }}" alt="The typical U.S. household is spending $445 more a month due to inflation">

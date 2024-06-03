@@ -131,7 +131,7 @@
 
 @section('content')
 
-<div class="uk-section in-equity-16">
+<div class="uk-section">
     <div class="uk-container uk-margin-top uk-margin-large-bottom">
         <div class="uk-grid uk-grid-large uk-flex uk-flex-middle" data-uk-grid>
             <div class="uk-width-3-5@m uk-flex uk-flex-middle uk-margin-large-bottom">
@@ -173,7 +173,5 @@
         </div>
     </div>
 </div>
-
-
 
 @endsection
