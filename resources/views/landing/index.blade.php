@@ -3,7 +3,6 @@
 
 <style>
     .uk-section {
-        background-color: #ffffff;
     }
     #particles-js {
         position: relative;
