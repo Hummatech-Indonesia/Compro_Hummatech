@@ -1,9 +1,16 @@
 @extends('landing.layouts.app')
 @section('style')
+
 <style>
     .uk-section {
+        background-color: #ffffff;
     }
-
+    #particles-js {
+        position: relative;
+        background-image: url('{{ asset('assets/images/mischool.jpg') }}');
+        background-size: cover;
+        background-position: center;
+    }
     #particles-js::before {
         content: "";
         position: absolute;
@@ -11,10 +18,27 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
         z-index: 1;
     }
+    .uk-slideshow-items,
+    .uk-container,
+    .in-slide-img,
+    .uk-slideshow-nav {
+        position: relative;
+        z-index: 1;
+    }
+    .in-slide-img img {
+        max-width: 100%;
+        height: auto;
+    }
+    @media screen and (max-width: 768px) {
+    #particles-js {
+        height: 500px; /* Sesuaikan tinggi gambar sesuai kebutuhan */
+    }
+}
 </style>
+
 @endsection
 @section('content')
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -60,7 +84,7 @@
     <!-- slideshow content begin -->
     <div class="uk-section uk-padding-remove-vertical in-slideshow-gradient">
         <div id="particles-js"  class="uk-light in-slideshow uk-background-contain uk-slideshow" data-src="img/in-equity-decor-1.svg" data-uk-img data-uk-slideshow role="region"
-        ariaroledescription="carousel" style="background-image: url('{{ asset('assets/images/mischool.jpg') }}'); background-size:cover; position: relative; max-height: 510px; background-position: center;">
+        ariaroledescription="carousel" style="background-image: url('{{ asset('assets/images/mischool.jpg') }}');">
             <hr>
             <ul class="uk-slideshow-items" aria-live="off" role="presentation" style="min-height: 440px;">
                 <li class="uk-flex uk-flex-middle" role="tabpanel" aria-label="1 of 2" tabindex="-1" id="uk-slideshow-7-item-0" style>
@@ -81,11 +105,16 @@
                                         style="background-color:#FCB42D; color:black">
                                         Selengkapnya <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
                                     </button>
+                                        {{-- <div class="uk-card uk-card-small uk-card-secondary uk-card-body uk-border-rounded uk-flex uk-flex-middle">
+                                            <div class="in-symbol-logo">
+                                                <img src="img/in-symbol-tesla.svg"  data-src="img/in-symbol-tesla.svg" alt="ticker" width="28" height="28" data-uk-img>
+                                            </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </div>
                             <div class="in-slide-img uk-first-column">
-                                <img src="{{ asset('assets_landing/img/in-equity-slide-1.png') }}" data-src="{{ asset('assets_landing/img/in-equity-slide-1.png') }}" alt="image-slide" width="390" height="746" data-uk-img>
+                                <img src="{{ asset('assets_landing/img/in-equity-slide-1.png') }}" data-src="{{ asset('assets_landing/img/in-equity-slide-1.png') }}" alt="image-slide" width="500" height="746" data-uk-img>
                             </div>
                         </div>
                     </div>
@@ -276,23 +305,37 @@
         <div class="uk-container  uk-padding-remove-vertical in-equity-18">
             <div class="uk-grid" data-uk-grid>
                 <div class="uk-width-1-1">
-                    <div class="uk-card uk-card-body uk-border-rounded">
-                        <div uk-slider="autoplay: true; autoplay-interval: 2000">
-                            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
-                                <div class="uk-slider-items uk-grid-collapse uk-child-width-1-6@m uk-child-width-1-2@s uk-text-center in-client-logo-6"
-                                    data-uk-grid>
-                                   @foreach (range(1,10) as $item)
-                                        <div class="uk-tile uk-tile-default" style="background-color: transparent">
-                                            <img class="uk-margin-remove" src="{{ asset('assets_landing/img/mitra-1.png') }}" alt="mitra" width="167" height="55">
-                                        </div>
-                                   @endforeach
-                                </div>
-                                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slider-item="previous"></a>
-                                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slider-item="next"></a>
+                    <div class="uk-card uk-card-default uk-card-body uk-border-rounded">
+                        <div class="uk-grid-collapse uk-child-width-1-6@m uk-child-width-1-2@s uk-text-center in-client-logo-6"
+                            data-uk-grid>
+                            <div class="uk-tile uk-tile-default">
+                                <img class="uk-margin-remove" src="assets_landing/img/in-equity-payment-1.svg"
+                                    alt="client-logo" width="167" height="55">
                             </div>
-                            {{-- <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul> --}}
+                            <div class="uk-tile uk-tile-default">
+                                <img class="uk-margin-remove" src="assets_landing/img/in-equity-payment-2.svg"
+                                    alt="client-logo" width="167" height="55">
+                            </div>
+                            <div class="uk-tile uk-tile-default">
+                                <img class="uk-margin-remove" src="assets_landing/img/in-equity-payment-3.svg"
+                                    alt="client-logo" width="167" height="55">
+                            </div>
+                            <div class="uk-tile uk-tile-default">
+                                <img class="uk-margin-remove" src="assets_landing/img/in-equity-payment-4.svg"
+                                    alt="client-logo" width="167" height="55">
+                            </div>
+                            <div class="uk-tile uk-tile-default">
+                                <img class="uk-margin-remove" src="assets_landing/img/in-equity-payment-5.svg"
+                                    alt="client-logo" width="167" height="55">
+                            </div>
+                            <div class="uk-tile uk-tile-default">
+                                <img class="uk-margin-remove" src="assets_landing/img/in-equity-payment-6.svg"
+                                    alt="client-logo" width="167" height="55">
+                            </div>
                         </div>
                     </div>
+
+
                 </div>
             </div>
         </div>
