@@ -1,125 +1,24 @@
 @extends('landing.layouts.app')
 @section('style')
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+<style>
+    .uk-section {
+    }
 
-        .container {
-            position: relative;
-            width: 1000px;
-            height: auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            grid-template-rows: 440px;
-            grid-gap: 40px;
-            grid-template-rows: repeat(3, auto);
-            grid-gap: 20px;
-        }
-
-        .container .card {
-            position: relative;
-            background: #000;
-            overflow: hidden;
-            border-radius: 10px;
-            transition: 0.5s;
-        }
-
-        .container .card:hover {
-            transform: translateY(-20px);
-            box-shadow: 0 20px 20px rgba(0, 0, 0, .2);
-        }
-
-        /* Usado apenas para as imagens na web. Recomendável usar imagens na pasta */
-        .container .card img {
-            width: 320px;
-            height: 450px;
-            object-fit: cover
-        }
-
-        .container .card .img-box {
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            transition: 0.5s;
-        }
-
-        .container .card:hover .img-box {
-            opacity: 0.5;
-        }
-
-        .container .card .img-box {
-            width: 100%;
-        }
-
-        .container .card .content {
-            position: absolute;
-            width: 100%;
-            height: 60%;
-            bottom: -100%;
-            padding: 20px;
-            box-sizing: border-box;
-            text-align: center;
-            transition: 0.5s;
-        }
-
-        .container .card:hover .content {
-            bottom: 0;
-        }
-
-        .container .card:nth-child(1) .content {
-            background: linear-gradient(0deg, #C21833, transparent);
-        }
-
-        .container .card:nth-child(2) .content {
-            background: linear-gradient(0deg, #8012A5, transparent);
-        }
-
-        .container .card:nth-child(3) .content {
-            background: linear-gradient(0deg, #3A414C, transparent);
-        }
-
-        .container .card .content h2 {
-            margin: 0 0 10px;
-            padding: 0;
-            color: #FFF;
-            font-size: 20px;
-        }
-
-        .container .card .content h2 span {
-            color: #FFEB3B;
-            font-size: 16px;
-        }
-
-        .container .card .content p {
-            margin: 0;
-            padding: 0;
-            color: #FFF;
-            font-size: 16px;
-        }
-
-        .container .card .content ul {
-            display: flex;
-            margin: 20px 0 0;
-            padding: 0;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .container .card .content ul li {
-            list-style: none;
-        }
-
-        .container .card .content ul li a {
-            color: #FFF;
-            padding: 0 10px;
-            font-size: 18px;
-            transition: 0.5s;
-        }
-    </style>
+    #particles-js::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+</style>
 @endsection
 @section('content')
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <div class="uk-section uk-padding-remove-vertical in-slideshow-gradient">
+    {{-- <div class="uk-section uk-padding-remove-vertical in-slideshow-gradient">
         <div id="particles-js" class="uk-light in-slideshow uk-background-contain" data-src="{{ asset('assets/images/mischool.jpg') }}"
             data-uk-img data-uk-slideshow>
             <hr>
@@ -156,9 +55,46 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
+    <!-- slideshow content begin -->
+    <div class="uk-section uk-padding-remove-vertical in-slideshow-gradient">
+        <div id="particles-js"  class="uk-light in-slideshow uk-background-contain uk-slideshow" data-src="img/in-equity-decor-1.svg" data-uk-img data-uk-slideshow role="region"
+        ariaroledescription="carousel" style="background-image: url('{{ asset('assets/images/mischool.jpg') }}'); background-size:cover; position: relative; max-height: 510px; background-position: center;">
+            <hr>
+            <ul class="uk-slideshow-items" aria-live="off" role="presentation" style="min-height: 440px;">
+                <li class="uk-flex uk-flex-middle" role="tabpanel" aria-label="1 of 2" tabindex="-1" id="uk-slideshow-7-item-0" style>
+                    <div class="uk-container">
+                        <div class="uk-grid-large uk-flex-middle uk-grid uk-grid-stack" data-uk-grid>
+                            <div class="uk-width-1-2@s in-slide-text uk-first-column">
+                                <h1 class="uk-heading-small">
+                                    The world's most
+                                    <span class="in-highlight">powerful</span>
+                                    trade app.
+                                </h1>
+                                <p class="uk-text-lead uk-visible@m">
+                                    Get the most accurate market data, alerts, conversions, tools and more — all within the same app.
+                                </p>
+                                <div class="uk-grid-medium uk-child-width-1-3@m uk-child-width-1-2@s uk-margin-medium-top uk-visible@s uk-grid uk-grid-stack" data-uk-grid>
+                                    <div>
+                                        <button class="uk-button uk-button-primary uk-border-rounded"
+                                        style="background-color:#FCB42D; color:black">
+                                        Selengkapnya <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                                    </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="in-slide-img uk-first-column">
+                                <img src="{{ asset('assets_landing/img/in-equity-slide-1.png') }}" data-src="{{ asset('assets_landing/img/in-equity-slide-1.png') }}" alt="image-slide" width="390" height="746" data-uk-img>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
     <!-- slideshow content end -->
+
     <!-- section content begin -->
     <div class="uk-section in-equity-3 in-offset-top-65">
         <div class="uk-container uk-margin-large-bottom">
@@ -183,6 +119,10 @@
         </div>
     </div>
     <!-- section content end -->
+
+
+
+
     <!-- section content begin -->
     <div class="uk-section uk-section-primary uk-preserve-color in-equity-1">
         <div class="uk-container">
