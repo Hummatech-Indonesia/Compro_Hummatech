@@ -121,20 +121,21 @@
                         <h4 class="uk-text-left">
                             <span class="in-highlight uk-padding-small uk-padding-remove-left uk-text-capitalize">Mitra Kami</span>
                         </h4>
-                        <div class="uk-card uk-card-default uk-card-body uk-border-rounded">
-                            <div class="uk-grid-collapse uk-child-width-2-6@s uk-child-width-1-4@m uk-text-center in-client-logo-6 uk-grid" data-uk-grid="">
-                                <div class="uk-tile uk-tile-default uk-first-column">
-                                    <img class="uk-margin-remove" src="{{ asset('assets_landing/img/mitra-1.png') }}" alt="client-logo" width="167" height="55">
+                        <div class="uk-card uk-card-body uk-border-rounded">
+                            <div uk-slider="autoplay: true; autoplay-interval: 2000">
+                                <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+                                    <div class="uk-slider-items uk-grid-collapse uk-child-width-2-6@s uk-child-width-1-4@m uk-text-center in-client-logo-6 uk-grid"
+                                        data-uk-grid>
+                                       @foreach (range(1,10) as $item)
+                                            <div class="uk-tile" style="background-color: transparent">
+                                                <img class="uk-margin-remove" src="{{ asset('assets_landing/img/mitra-1.png') }}" alt="mitra" width="167" height="55">
+                                            </div>
+                                       @endforeach
+                                    </div>
+                                    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slider-item="previous"></a>
+                                    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slider-item="next"></a>
                                 </div>
-                                <div class="uk-tile uk-tile-default">
-                                    <img class="uk-margin-remove" src="{{ asset('assets_landing/img/mitra-1.png') }}" alt="client-logo" width="167" height="55">
-                                </div>
-                                <div class="uk-tile uk-tile-default">
-                                    <img class="uk-margin-remove" src="{{ asset('assets_landing/img/mitra-1.png') }}" alt="client-logo" width="167" height="55">
-                                </div>
-                                <div class="uk-tile uk-tile-default">
-                                    <img class="uk-margin-remove" src="{{ asset('assets_landing/img/mitra-1.png') }}" alt="client-logo" width="167" height="55">
-                                </div>
+                                {{-- <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul> --}}
                             </div>
                         </div>
                     </div>
