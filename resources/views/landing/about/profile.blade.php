@@ -117,7 +117,7 @@
                 <p>
                     Hummatech juga telah melebarkan sayapnya, tidak hanya dikenal di Indonesia, tetapi juga dipercaya oleh mitra dari luar negeri, yaitu Belanda dalam mengembangan software dan integrated system.
                 </p>
-                <a href="#" class="uk-button uk-button-primary uk-border-rounded">Lihat Profil Lengkap
+                <a href="#" class="uk-button uk-button-primary uk-border-rounded uk-margin-large-bottom">Lihat Profil Lengkap
                     <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
                 </a>
             </div>
