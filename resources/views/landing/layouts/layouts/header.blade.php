@@ -4,9 +4,8 @@
         <nav class="uk-navbar-container" data-uk-sticky="show-on-up: true; animation: uk-animation-slide-top;">
             <div class="uk-container" data-uk-navbar>
                 <div class="uk-navbar-left">
-                    <a class="uk-navbar-item uk-logo" href="index.html">
-                        <img src="{{ asset('assets/images/LOGO-HUMMATECH_Putih.png') }}" alt="logo" width="146"
-                        height="40">
+                    <a class="uk-navbar-item uk-logo" href="/">
+                        <img src="{{ asset('cakra.png') }}" alt="logo" width="280">
                     </a>
                     <ul class="uk-navbar-nav uk-visible@m">
                         <li><a href="/">Dashboard</a>
