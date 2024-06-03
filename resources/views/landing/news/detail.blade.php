@@ -21,12 +21,12 @@
     <div class="uk-section uk-margin-small-top">
         <div class="uk-container">
             <div class="uk-grid" data-uk-grid="">
-                <img class="uk-border-rounded uk-width-1-1" src="{{ asset('assets_landing/img/blockit/in-gallery-image-3.jpg') }}" alt="The typical U.S. household is spending $445 more a month due to inflation">
                 <div class="uk-width-2-3@m uk-first-column">
                     <div class="in-blog-1 uk-grid uk-grid-stack" data-uk-grid="">
                         <div class="in-stretch uk-first-column">
                             <article class="uk-card uk-card-default uk-border-rounded">
                                 <div class="uk-card-body">
+                                    <img class="uk-border-rounded uk-width-1-1" src="{{ asset('assets_landing/img/blockit/in-gallery-image-3.jpg') }}" alt="The typical U.S. household is spending $445 more a month due to inflation">
                                     <h3>
                                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, nesciunt.
                                     </h3>
