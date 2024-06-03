@@ -29,7 +29,7 @@
         <h2 class="uk-text-center">
             Mewujudkan Visi Kami Melalui Misi yang Berkelanjutan dan Tindakan Nyata
         </h2> --}}
-        <div class="uk-grid-medium uk-child-width-1-2@m uk-grid uk-margin-small-top" data-uk-grid="">
+        <div class="uk-grid-medium uk-child-width-1-2@m uk-grid uk-padding-large uk-padding-remove-left uk-padding-remove-right" data-uk-grid="">
                 <div class="uk-first-column">
                     <div class="uk-card uk-card-secondary uk-card-body uk-border-rounded uk-box-shadow-large uk-background-contain uk-background-center-right" data-src="img/in-equity-9-bg-1.png" data-uk-img="" style="background-image: url(&quot;https://www.indonez.com/html-demo/equity/img/in-equity-9-bg-1.png&quot;);">
                         <div class="uk-flex uk-flex-middle">
