@@ -60,13 +60,13 @@
                             <div class="uk-width-1-2@m uk-first-column">
                                 <article class="uk-card uk-card-default uk-border-rounded">
                                     <div class="uk-card-media-top">
-                                        <img class="uk-border-rounded uk-width-1-1" src="{{ asset('assets_landing/img/blockit/in-gallery-image-3.jpg') }}" alt="The typical U.S. household is spending $445 more a month due to inflation">
+                                        <img class="uk-width-1-1" src="{{ asset('assets_landing/img/blockit/in-gallery-image-3.jpg') }}" style="height: 250px; object-fit:cover">
                                     </div>
                                     <div class="uk-card-body">
                                         <h3>
-                                            <a href="/news/Lorem-ipsum-dolor-sit-amet-consectetur-adipisicing-elit-Quia-nesciunt" class="link-primary text-decoration-none">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia, nesciunt.</a>
+                                            <a href="/news/Lorem-ipsum-dolor-sit-amet-consectetur-adipisicing-elit-Quia-nesciunt" class="link-primary text-decoration-none uk-text-right">Lorem ipsum dolor sit amet consectetur ...</a>
                                         </h3>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, ducimus! Dignissimos id porro consequuntur quos voluptatem maiores deserunt dolore omni...</p>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, ducimus! Dignissimos id porro dolore omni...</p>
                                         <div class="uk-flex">
                                             <div class="uk-margin-small-right">
                                                 <img class="uk-border-pill uk-background-muted" src="{{ asset('mobilelogo.png') }}" alt="image-team" width="32" height="32">
