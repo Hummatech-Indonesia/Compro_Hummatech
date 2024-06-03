@@ -102,7 +102,7 @@
                                 <div class="uk-grid-medium uk-child-width-1-3@m uk-child-width-1-2@s uk-margin-medium-top uk-visible@s uk-grid uk-grid-stack" data-uk-grid>
                                     <div>
                                         <button class="uk-button uk-button-primary uk-border-rounded"
-                                        style="background-color:#FCB42D; color:black">
+                                        style="background-color:#d7ac53; color:white">
                                         Selengkapnya <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
                                     </button>
                                         {{-- <div class="uk-card uk-card-small uk-card-secondary uk-card-body uk-border-rounded uk-flex uk-flex-middle">
@@ -134,7 +134,7 @@
                     <p class="uk-margin-top">Kini Hummatech bertransformasi menjadi perusahaan yang mampu
                         menjawab tantangan di era revolusi industri 4.0 dengan menciptakan produk berbasis
                         integrated system berupa perangkat lunak, seperti </p>
-                        <button class="uk-button uk-button-primary uk-border-rounded" style="background-color:#FCB42D; color:">
+                        <button class="uk-button uk-button-primary uk-border-rounded" style="background-color:#d7ac53; color:white">
                             Selengkapnya <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
                         </button>
                         <hr class="uk-margin-medium-top uk-margin-medium-bottom">
@@ -340,7 +340,7 @@
             </div>
         </div>
         <div class="uk-width-1-1@m uk-text-center uk-margin-medium-top">
-            <a href="/mitra" class="uk-button uk-button-primary uk-border-rounded" style="background-color:#FCB42D; color:">
+            <a href="/mitra" class="uk-button uk-button-primary uk-border-rounded" style="background-color:#d7ac53; color:white">
                 Selengkapnya <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
             </a>
         </div>
@@ -438,7 +438,7 @@ uk-child-width-1-3@m uk-margin-top"
                 </div>
                 <div class="uk-width-1-1@m uk-text-center uk-margin-medium-top">
                     <button class="uk-button uk-button-primary uk-border-rounded"
-                        style="background-color:#FCB42D; color:">
+                    style="background-color:#d7ac53; color:white">
                         Selengkapnya <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
                     </button>
                 </div>
@@ -488,7 +488,7 @@ uk-child-width-1-3@m uk-margin-top"
             </ul>
         </div>
         <div class="uk-width-1-1@m uk-text-center uk-margin-medium-top">
-            <button class="uk-button uk-button-primary uk-border-rounded" style="background-color:#FCB42D; color:">
+            <button class="uk-button uk-button-primary uk-border-rounded" style="background-color:#d7ac53; color:white">
                 Selengkapnya <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
             </button>
         </div>
