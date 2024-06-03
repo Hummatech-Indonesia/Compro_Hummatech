@@ -23,6 +23,42 @@
         position: relative;
         padding-bottom: 4px;
     }
+
+    @media (max-width: 768px) {
+        .uk-tab {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .uk-tab > li {
+            flex: 1 1 auto;
+            text-align: center;
+        }
+
+        .uk-tab > li > a {
+            padding: 10px 5px;
+            font-size: 14px;
+        }
+
+        .uk-tab > li.uk-active > a::after {
+            bottom: -2px;
+            height: 1px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .uk-tab > li > a {
+            padding: 8px 3px;
+            font-size: 12px;
+        }
+
+        .uk-tab > li.uk-active > a::after {
+            bottom: -1px;
+            height: 1px;
+        }
+    }
+
 </style>
 @endsection
 
