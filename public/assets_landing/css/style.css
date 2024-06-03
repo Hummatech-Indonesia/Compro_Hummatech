@@ -23715,8 +23715,12 @@ header .in-optional-nav .uk-button-text {
   padding-bottom: 16px;
 }
 
+footer .uk-link-text li a {
+  color: #999999;
+  text-decoration: none;
+}
 footer .uk-link-text li a:hover {
-  color: #e89903;
+  color: #fff;
   text-decoration: none;
 }
 footer .social-media-list {
