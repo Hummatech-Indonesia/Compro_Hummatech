@@ -55,7 +55,7 @@
         <div class="uk-grid uk-grid-large uk-flex uk-flex-middle" data-uk-grid>
             <div class="uk-width-3-5@m uk-flex uk-flex-middle uk-margin-large-bottom">
                 <div class="in-equity-video">
-                    <img class="uk-border-rounded uk-width-1-1" src="{{ asset('assets_landing/img/blockit/image.png') }}" data-src="{{ asset('assets_landing/img/blockit/image.png') }}" alt="sample-images" width="433" height="255" data-uk-img>
+                    <img class="uk-border-rounded uk-width-1-1" src="{{ asset('assets_landing/img/blockit/in-gallery-image-2.jpg') }}" data-src="{{ asset('assets_landing/img/blockit/in-gallery-image-2.jpg') }}" alt="sample-images" width="433" height="255" data-uk-img>
                 </div>
             </div>
             <div class="uk-width-2-5@m uk-flex uk-flex-middle">
@@ -86,7 +86,7 @@
             </div>
             <div class="uk-width-3-5@m uk-flex uk-flex-middle uk-margin-large-bottom">
                 <div class="in-equity-video">
-                    <img class="uk-border-rounded uk-width-1-1" src="{{ asset('assets_landing/img/blockit/image.png') }}" data-src="{{ asset('assets_landing/img/blockit/image.png') }}" alt="sample-images" width="433" height="255" data-uk-img>
+                    <img class="uk-border-rounded uk-width-1-1" src="{{ asset('assets_landing/img/blockit/in-gallery-image-2.jpg') }}" data-src="{{ asset('assets_landing/img/blockit/in-gallery-image-2.jpg') }}" alt="sample-images" width="433" height="255" data-uk-img>
                 </div>
             </div>
         </div>
