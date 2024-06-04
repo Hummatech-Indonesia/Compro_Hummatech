@@ -17,32 +17,24 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
         z-index: 1;
     }
+    .uk-slideshow-items,
     .uk-container,
+    .in-slide-img,
     .uk-slideshow-nav {
         position: relative;
         z-index: 1;
     }
     .in-slide-img img {
         max-width: 100%;
-        height: 100%;
+        height: auto;
     }
-    .uk-slideshow-items {
-    height: 100vh;
-}
-
-.in-slide-img img {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-}
-
     @media screen and (max-width: 768px) {
-        #particles-js {
-            height: 500px;
-        }
+    #particles-js {
+        height: 500px; /* Sesuaikan tinggi gambar sesuai kebutuhan */
+    }
     }
 
     .news-title,
@@ -172,9 +164,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="in-slide-img uk-first-column">
-                                <img src="{{ asset('assets_landing/img/in-equity-slide-1.png') }}" data-src="{{ asset('assets_landing/img/in-equity-slide-1.png') }}" alt="image-slide" width="500" height="746" data-uk-img>
-                            </div>
+
                         </div>
                     </div>
                 </li>
@@ -206,12 +196,7 @@
             </div>
 
             @empty
-            <div class="uk-flex uk-flex-center">
-                <img src="{{ asset('empty.png') }}" alt="" srcset="">
-            </div>
-            <h2 class="uk-text-center">
-                No data
-            </h2>
+
             @endforelse
         </div>
     </div>
@@ -243,12 +228,7 @@
                         </div>
                     </div>
                 @empty
-                <div class="uk-flex uk-flex-center uk-flex-middle uk-width-1-1">
-                    <div class="uk-text-center">
-                        <img src="{{ asset('empty.png') }}" alt="No data" srcset="">
-                        <h2>No data</h2>
-                    </div>
-                </div>
+
                 @endforelse
             </div>
         </div>
@@ -282,12 +262,7 @@
                         </div>
                     </div>
                     @empty
-                    <div class="uk-flex uk-flex-center uk-flex-middle uk-width-1-1">
-                        <div class="uk-text-center">
-                            <img src="{{ asset('empty.png') }}" alt="No data" srcset="">
-                            <h2>No data</h2>
-                        </div>
-                    </div>
+
                     @endforelse
             </div>
         </div>
@@ -311,12 +286,7 @@
                                             <img class="uk-margin-remove" src="{{ asset('storage/' . $mitra->image) }}" alt="{{ $mitra->name }}" width="167" height="55">
                                         </div>
                                     @empty
-                                    <div class="uk-flex uk-flex-center uk-flex-middle uk-width-1-1">
-                                        <div class="uk-text-center">
-                                            <img src="{{ asset('empty.png') }}" alt="No data" srcset="">
-                                            <h2 style="color: black">No data</h2>
-                                        </div>
-                                    </div>
+
                                     @endforelse
                                 </div>
                                 <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slider-item="previous"></a>
@@ -376,12 +346,7 @@
                                     </div>
                                 @endif
                             @empty
-                                <div class="uk-flex uk-flex-center uk-flex-middle uk-width-1-1">
-                                    <div class="uk-text-center">
-                                        <img src="{{ asset('empty.png') }}" alt="No data" srcset="">
-                                        <h2>No data</h2>
-                                    </div>
-                                </div>
+
                             @endforelse
 
                             @if ($news->count() > 3)
@@ -417,12 +382,7 @@
                     </li>
                     @endif
                 @empty
-                <div class="uk-flex uk-flex-center uk-flex-middle uk-width-1-1">
-                    <div class="uk-text-center">
-                        <img src="{{ asset('empty.png') }}" alt="No data" srcset="">
-                        <h2>No data</h2>
-                    </div>
-                </div>
+
                 @endforelse
             </ul>
         </div>
