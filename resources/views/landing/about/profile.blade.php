@@ -1,17 +1,16 @@
 @extends('landing.layouts.layouts.app')
-@section('title' , 'About Company')
+@section('title', 'About Company')
 @section('seo')
 @section('seo')
-@foreach ($profiles as $profile)
-<meta name="title" content="{{ $profile->title }}" />
-<meta name="description"
-    content="{{ $profile->subtitle }}" />
-<meta name="og:image" content="{{ asset('mobilelogo.png') }}" />
-<meta name="twitter:image" content="{{ asset('mobilelogo.png') }}" />
-<meta property="og:url" content="{{ url('/') }}" />
-<meta property="og:type" content="website" />
-<link rel="canonical" href="{{ url('/') }}" />
-@endforeach
+    @foreach ($profiles as $profile)
+        <meta name="title" content="{{ $profile->title }}" />
+        <meta name="description" content="{{ $profile->subtitle }}" />
+        <meta name="og:image" content="{{ asset('mobilelogo.png') }}" />
+        <meta name="twitter:image" content="{{ asset('mobilelogo.png') }}" />
+        <meta property="og:url" content="{{ url('/') }}" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="{{ url('/') }}" />
+    @endforeach
 @endsection
 @endsection
 
@@ -83,8 +82,8 @@
 @endsection
 
 @section('seo')
-    <!-- ========== Breadcrumb Markup (JSON-LD) ========== -->
-    <script type="application/ld+json">
+<!-- ========== Breadcrumb Markup (JSON-LD) ========== -->
+<script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
@@ -128,41 +127,46 @@
 @endsection
 
 @section('content')
-
-<div class="uk-section in-content-3 uk-background-contain uk-background-center" data-src="img/in-equity-2-bg.png" data-uk-img="" style="background-image: url(&quot;https://www.indonez.com/html-demo/equity/img/in-equity-2-bg.png&quot;);">
+<div class="uk-section in-content-3 uk-background-contain uk-background-center" data-src="img/in-equity-2-bg.png"
+    data-uk-img=""
+    style="background-image: url(&quot;https://www.indonez.com/html-demo/equity/img/in-equity-2-bg.png&quot;);">
     <div class="uk-container">
-        <div class="uk-grid uk-grid-stack uk-flex-middle" data-uk-grid>
-            <div class="uk-width-3-5@m uk-first-column">
-                <h3 class="uk-margin-remove">
-                    <span class="in-highlight">
-                        Profile Perusahaan
-                    </span>
-                </h3>
-                <h1>PT Humma Teknologi Indonesia</h1>
-                <p>
-                    <span class="uk-text-warning">HUMMATECH</span> merupakan perusahaan yang bergerak di bidang teknologi informasi yang berdiri sejak 21 Mei 2013. Hummatech dinaungi oleh badan hukum
-                    <span class="uk-text-warning">PT. HUMMA TEKNOLOGI INDONESIA</span> dan telah disahkan oleh KEMENKUMHAM Republik Indonesia Nomor AHU-0057079.AH.01.01.
-                </p>
-                <p>
-                    Hummatech melayani jasa pengembangan perangkat lunak, baik berbasis desktop, web, dan mobile apps. Mitra kami meliputi perorangan, swasta, bahkan juga lembaga pemerintahan.
-                </p>
-                <p>
-                    Kini Hummatech bertransformasi menjadi perusahaan yang mampu menjawab tantangan di era revolusi industri 4.0 dengan menciptakan produk berbasis integrated system berupa perangkat lunak berbasis web dan mobile, Internet of Things (IoT), Artificial Intelligence (AI), Game, dan Augmented Reality.
-                </p>
-                <p>
-                    Hummatech juga telah melebarkan sayapnya, tidak hanya dikenal di Indonesia, tetapi juga dipercaya oleh mitra dari luar negeri, yaitu Belanda dalam mengembangan software dan integrated system.
-                </p>
-                <a href="#" class="uk-button uk-button-primary uk-border-rounded uk-margin-xlarge-bottom">Lihat Profil Lengkap
-                    <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
-                </a>
-            </div>
-            <div class="uk-width-2-5@m uk-grid-margin uk-first-column">
-                <div class="image-container">
-                    <img src="{{ asset('assets/images/circle_black.png') }}" class="image-background" alt="">
-                    <img src="{{ asset('logo cakra.png') }}" class="image-foreground" alt="">
+        <h3 class="uk-margin-remove ">
+            <span class="in-highlight">
+                Profile Perusahaan
+            </span>
+        </h3>
+        @forelse ($profiles as $profile)
+            <div class="uk-grid uk-grid-stack uk-flex-middle uk-margin-medium-top" data-uk-grid>
+                <div class="uk-width-3-5@m uk-first-column">
+                    <h1>{{ $profile->title }}</h1>
+                    <p class="uk-text-justify">
+                        {!! $profile->description !!}
+                    </p>
+                    @if ($profile->proposal)
+                    <a target="_blank" href="{{ $profile->proposal }}"
+                        class="uk-button uk-button-primary uk-border-rounded uk-margin-xlarge-bottom">Lihat
+                        Profil Lengkap
+                        <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                    </a>
+                    @endif
+                </div>
+                <div class="uk-width-2-5@m uk-grid-margin uk-first-column">
+                    <div class="image-container">
+                        <img src="{{ asset('assets/images/circle_black.png') }}" class="image-background"
+                            alt="">
+                        <img src="{{ asset('storage/' . $profile->image) }}" class="image-foreground" alt="">
+                    </div>
                 </div>
             </div>
-        </div>
+        @empty
+            <div class="uk-flex uk-flex-center">
+                <img src="{{ asset('empty.png') }}" alt="" srcset="">
+            </div>
+            <h2 class="uk-text-center">
+                No data
+            </h2>
+        @endforelse
     </div>
 </div>
 
@@ -170,13 +174,13 @@
 
 
 @section('script')
-    <script>
-        $(document).ready(function() {
-            var delay = 500;
-            $('[class^="wow fadeInRight"]').each(function(index) {
-                $(this).attr('data-wow-delay', delay + 'ms');
-                delay += 300;
-            });
+<script>
+    $(document).ready(function() {
+        var delay = 500;
+        $('[class^="wow fadeInRight"]').each(function(index) {
+            $(this).attr('data-wow-delay', delay + 'ms');
+            delay += 300;
         });
-    </script>
+    });
+</script>
 @endsection
