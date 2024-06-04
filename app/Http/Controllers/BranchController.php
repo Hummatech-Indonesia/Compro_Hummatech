@@ -27,8 +27,6 @@ class BranchController extends Controller
 
         $branches = $this->branch->get();
         $branches = $this->branch->search($request);
-
-
         return view('admin.pages.branch.index' , compact('branches'));
     }
 

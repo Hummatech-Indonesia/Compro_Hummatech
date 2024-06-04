@@ -10,7 +10,7 @@ class StructureRepository extends BaseRepository implements StructureInterface
     {
         $this->model = $structure;
     }
-
+    
     public function get(): mixed
     {
         return $this->model->query()->get();

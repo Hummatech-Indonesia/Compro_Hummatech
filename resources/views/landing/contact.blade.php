@@ -45,12 +45,20 @@
 @endsection
 
 @section('content')
-
 <div class="uk-section">
     <div class="uk-container">
         <div class="uk-grid uk-flex uk-flex-center in-contact-6">
             <div class="uk-width-1-1">
-                <iframe class="uk-width-1-1 uk-height-large uk-border-rounded" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10600.5248164368!2d144.95966577016594!3d-37.81707816290683!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d4c2b349649%3A0xb6899234e561db11!2sEnvato!5e0!3m2!1sen!2sid!4v1645280096951!5m2!1sen!2sid" frameborder="0"></iframe>
+
+                @if ($branches->count() > 0)
+                <!-- Star Google Maps ============================================= -->
+                <div class="maps-area">
+                    <div class="google-maps">
+                        <div id="maps1"></div>
+                    </div>
+                </div>
+                <!-- End Google Maps -->
+                @endif
             </div>
 
             <div class="uk-width-3-5@m">
@@ -132,8 +140,9 @@
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
-            width: 60px;
-            height: 60px;
+            object-fit:contain;
+            width: 50px;
+            height: 50px;
         }
     </style>
 

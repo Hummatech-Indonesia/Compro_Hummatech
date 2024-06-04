@@ -38,9 +38,9 @@
                                 </ul>
                             </div>
                         </li>
-                        <li><a href="/news  ">Berita</a>
+                        <li><a href="/news">Berita</a>
                         </li>
-                        <li><a href="/contactUs">Hubungi</a>
+                        <li><a href="/contact">Hubungi</a>
                         </li>
                         <li><a href="/job-vacancy">Lowongan</a>
                         </li>

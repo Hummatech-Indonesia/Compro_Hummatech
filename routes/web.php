@@ -257,7 +257,6 @@ Route::controller(ContactUsController::class)->name('contact.')->group(function(
     Route::post('contact/store', 'store')->name('store');
 });
 
-Route::get('contactUs', [HomeContactController::class, 'index']);
 
 
 Route::get('mitra',  [HomePageController::class , 'mitra']);

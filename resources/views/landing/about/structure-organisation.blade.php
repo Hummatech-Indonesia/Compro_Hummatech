@@ -23,9 +23,18 @@
                 <h2 class="uk-text-center">
                     Fondasi Keberhasilan dan Kolaborasi di Tempat Kerja
                 </h2>
+                @if ($imageStructure)
                 <div class="uk-flex uk-flex-center">
-                    <img src="{{ asset('assets_landing/img/structure_organisasi.png') }}" alt="" srcset="">
+                    <img src="{{ asset('storage/' . $imageStructure->image) }}" alt="" srcset="">
                 </div>
+                @else
+                <div class="uk-flex uk-flex-center">
+                    <img src="{{ asset('empty.png') }}" alt="" srcset="">
+                </div>
+                <h2 class="uk-text-center">
+                    No data
+                </h2>
+                @endif
             </div>
         </div>
     </div>

@@ -23,9 +23,17 @@
                 <h2 class="uk-text-center">
                     Struktur perusahaan yang Membawa Inovasi dan Keberlanjutan
                 </h2>
+                @if ($imageStructure)
                 <div class="uk-flex uk-flex-center">
-                    <img src="{{ asset('assets_landing/img/structure_business-Hummatech.jpg') }}" alt="" srcset="">
+                    <img src="{{ asset('storage/'.$imageStructure->image) }}" alt="" srcset="">
                 </div>
+                @else
+                <div class="uk-flex uk-flex-center">
+                    <img src="{{ asset('empty.png') }}" alt="" srcset="">
+                </div>
+                <h2 class="uk-text-center">Data masih kosong</h2>
+                @endif
+
             </div>
         </div>
     </div>
