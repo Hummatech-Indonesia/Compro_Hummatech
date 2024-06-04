@@ -4272,6 +4272,7 @@ select.uk-form-width-xsmall {
 .uk-sticky.uk-active.uk-navbar-container,
 .uk-sticky.uk-active .uk-navbar-nav {
   height: 70px;
+  z-index: 10000;
 }
 .uk-sticky.uk-active .uk-navbar-nav > li > a,
 .uk-sticky.uk-active .uk-navbar-item {
