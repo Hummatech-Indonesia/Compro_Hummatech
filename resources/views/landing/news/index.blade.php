@@ -131,9 +131,6 @@
                                 <div class="uk-flex uk-flex-center">
                                     <img src="{{ asset('empty.png') }}" alt="" srcset="">
                                 </div>
-                                <h2 class="uk-text-center">
-                                    No data
-                                </h2>
                             @endforelse
                         </div>
                     </div>
