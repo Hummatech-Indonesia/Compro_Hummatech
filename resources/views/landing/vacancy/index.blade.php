@@ -152,7 +152,8 @@
                     </div>
                 </div>
             </div>
-            <div class="uk-grid-medium uk-child-width-1-3@m uk-child-width-1-2@s uk-margin-medium-top uk-grid"
+            <div class="uk-grid-medium uk-child-width-1-3@m uk-child-width-1-2@s
+uk-margin-medium-top uk-grid"
                 data-uk-grid>
                 @forelse ($workflows as $index=>$workflow)
                     <div>
@@ -169,20 +170,11 @@
                         </div>
                     </div>
                 @empty
+                    <div class="uk-flex uk-flex-center">
+                        <img src="{{ asset('empty.png') }}" alt="" srcset="">
+                    </div>
                 @endforelse
             </div>
-            @if ($workflows)
-
-            @else
-
-            <div class="uk-flex uk-flex-center">
-                <img src="{{ asset('empty.png') }}" alt="" srcset="">
-            </div>
-            <h2 class="uk-text-center">
-                No data
-            </h2>
-            @endif
-
         </div>
     </div>
 @endsection
