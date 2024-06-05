@@ -66,9 +66,9 @@
                         </div>
                         <div class="uk-width-2-5@m uk-flex uk-flex-middle">
                             <div>
-                                <h3 style="color: black">
+                                <h1 style="color: black">
                                     <a style="color: black" href="/portfolio/{{ $portfolio->slug }}">{{ $portfolio->name }}</a>
-                                </h3>
+                                </h1>
                                 <p>  {{ $portfolio->description }}</p>
                                 <a href="/portfolio/{{ $portfolio->slug }}"
                                     class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-top uk-margin-small-right">Detail
@@ -87,9 +87,9 @@
                     <div class="uk-grid uk-grid-large uk-flex uk-flex-middle" data-uk-grid>
                         <div class="uk-width-2-5@m uk-flex uk-flex-middle">
                             <div>
-                                <h3 style="color: black">
+                                <h1 style="color: black">
                                     <a style="color: black" href="/portfolio/{{ $portfolio->slug }}">{{ $portfolio->name }}</a>
-                                </h3>
+                                </h1>
                                 <p>  {{ $portfolio->description }}</p>
                                 <a href="/portfolio/{{ $portfolio->slug }}"
                                     class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-top uk-margin-small-right">Detail
