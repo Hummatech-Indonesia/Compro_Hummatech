@@ -100,11 +100,10 @@
                                         @endforeach
                                     </ul>
                                 @else
-                                    <div class="mx-auto uk-flex uk-flex-column uk-flex-center uk-text-center">
-                                        <img src="{{ asset('nodata-gif-post.gif') }}" alt="No Data" height="200"
-                                            class="uk-flex uk-flex-cente" width="200" />
-                                        <p class="uk-text-center">Belum ada berita</p>
+                                    <div class="uk-flex uk-flex-center">
+                                        <img src="{{ asset('empty.png') }}" alt="" srcset="">
                                     </div>
+                                    <p class="uk-text-center">Belum ada berita</p>
                                 @endif
                             </div>
                         </aside>
