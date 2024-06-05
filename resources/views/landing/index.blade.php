@@ -176,9 +176,9 @@
     <!-- slideshow content end -->
 
     <!-- section content begin -->
-    @forelse ($profile as $profile)
     <div class="uk-section in-equity-3 in-offset-top-65">
         <div class="uk-container uk-margin-large-bottom">
+            @forelse ($profile as $profile)
             <div class="uk-grid uk-flex uk-flex-middle">
                 <div class="uk-width-expand@m">
                     <h1 class="uk-margin-small-bottom"><span class="in-highlight">{{$profile->title}}</span></h1>
@@ -196,18 +196,25 @@
                 </div>
             </div>
 
+            @empty
+
+            <div class="uk-grid uk-flex uk-flex-middle">
+                <div class="uk-width-expand@m">
+                    <h1 class="uk-margin-small-bottom"><span class="in-highlight">Profile Perusahaan</span></h1>
+
+                </div>
+
+            </div>
+
+            @endforelse
         </div>
     </div>
-    @empty
-
-    @endforelse
     <!-- section content end -->
 
 
 
 
     <!-- section content begin -->
-    @forelse ($service as $service)
     <div class="uk-section uk-section-primary uk-preserve-color in-equity-1">
         <div class="uk-container">
             <div class="uk-grid">
@@ -217,6 +224,7 @@
             </div>
             <div class="uk-grid-match uk-grid-medium uk-child-width-1-3@m uk-child-width-1-2@s uk-margin-bottom"
                 data-uk-grid>
+                @forelse ($service as $service)
                     <div>
                         <div class="uk-card uk-card-body uk-card-default uk-border-rounded">
                             <div class="uk-flex uk-flex-middle">
@@ -228,14 +236,13 @@
                                 Selengkapnya<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
                         </div>
                     </div>
-                </div>
+                @empty
+
+                @endforelse
             </div>
         </div>
-        @empty
-
-        @endforelse
+    </div>
     <!-- section content end -->
-    @forelse ($product as $produk)
     <div class="uk-section">
         <div class="uk-container">
             <div class="uk-grid-match uk-child-width-1-2@s uk-child-width-1-3@m in-card-10" data-uk-grid>
@@ -246,6 +253,7 @@
                         terdepan, memenuhi kebutuhan dan harapan konsumen dengan sempurna.
                     </p>
                 </div>
+                @forelse ($product as $produk)
 
                     <div>
                         <div
@@ -262,14 +270,13 @@
                             </p>
                         </div>
                     </div>
-                </div>
+                    @empty
+
+                    @endforelse
             </div>
         </div>
-        @empty
-
-        @endforelse
+    </div>
     <!-- section content begin -->
-    @forelse ($mitras as $mitra)
     <div class="uk-section" style="background-color: #edeff1">
         <div class="uk-width-1-1@m uk-text-center ">
             <h1><span class="in-highlight">MITRA KAMI</span></h1>
@@ -283,30 +290,31 @@
                             <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
                                 <div class="uk-slider-items uk-flex uk-flex-center uk-grid-collapse uk-child-width-1-6@m uk-child-width-1-2@s uk-text-center in-client-logo-6"
                                     data-uk-grid>
+                                    @forelse ($mitras as $mitra)
                                         <div class="uk-tile uk-tile-default" style="background-color: transparent">
                                             <img class="uk-margin-remove" src="{{ asset('storage/' . $mitra->image) }}" alt="{{ $mitra->name }}" width="167" height="55">
                                         </div>
-                                    </div>
-                                    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slider-item="previous"></a>
-                                    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slider-item="next"></a>
+                                    @empty
+
+                                    @endforelse
                                 </div>
-                                {{-- <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul> --}}
+                                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slider-item="previous"></a>
+                                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slider-item="next"></a>
                             </div>
+                            {{-- <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul> --}}
                         </div>
                     </div>
                 </div>
             </div>
-            @if (count($mitra) > 6)
+        </div>
+        @if (count($mitras) > 6)
 
-            <div class="uk-width-1-1@m uk-text-center uk-margin-medium-top">
-                <a href="/mitra" class="uk-button uk-button-primary uk-border-rounded" style="background-color:#d7ac53; color:white">
-                    Selengkapnya <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
-                </a>
-            </div>
-            @endif
-    @empty
-
-    @endforelse
+        <div class="uk-width-1-1@m uk-text-center uk-margin-medium-top">
+            <a href="/mitra" class="uk-button uk-button-primary uk-border-rounded" style="background-color:#d7ac53; color:white">
+                Selengkapnya <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+            </a>
+        </div>
+        @endif
     </div>
     <!-- section content begin -->
     <div class="uk-section in-equity-13">
@@ -367,7 +375,6 @@
 
 
     <!-- section content begin -->
-    @forelse ($portfolios as $index => $portfolio)
     <div class="uk-section" style="background-color: #edeff1">
         <div class="uk-width-1-1@m uk-text-center ">
             <h1><span class="in-highlight">PORTOFOLIO</span></h1>
@@ -375,6 +382,7 @@
         </div>
         <div class="uk-container">
             <ul class="uk-grid-small uk-flex uk-flex-center uk-child-width-1-3@m uk-child-width-1-2@s uk-text-center" data-uk-grid="masonry: true">
+                @forelse ($portfolios as $index => $portfolio)
                     @if ($index < 6)
                     <li>
                         <div class="uk-inline-clip uk-transition-toggle uk-border-rounded " tabindex="0">
@@ -382,11 +390,11 @@
                         </div>
                     </li>
                     @endif
-                </ul>
-            </div>
-            @empty
+                @empty
 
-            @endforelse
+                @endforelse
+            </ul>
+        </div>
 
         @if (count($portfolios) > 6)
         <div class="uk-width-1-1@m uk-text-center uk-margin-medium-top">
