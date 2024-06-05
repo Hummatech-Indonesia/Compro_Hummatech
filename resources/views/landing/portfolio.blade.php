@@ -69,7 +69,7 @@
                                 <h1 style="color: black">
                                     <a style="color: black" href="/portfolio/{{ $portfolio->slug }}">{{ $portfolio->name }}</a>
                                 </h1>
-                                <p>  {{ $portfolio->description }}</p>
+                                <p class="uk-text-justify">  {{ $portfolio->description }}</p>
                                 <a href="/portfolio/{{ $portfolio->slug }}"
                                     class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-top uk-margin-small-right">Detail
                                     <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
@@ -90,7 +90,7 @@
                                 <h1 style="color: black">
                                     <a style="color: black" href="/portfolio/{{ $portfolio->slug }}">{{ $portfolio->name }}</a>
                                 </h1>
-                                <p>  {{ $portfolio->description }}</p>
+                                <p class="uk-text-justify">{{ $portfolio->description }}</p>
                                 <a href="/portfolio/{{ $portfolio->slug }}"
                                     class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-top uk-margin-small-right">Detail
                                     <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
