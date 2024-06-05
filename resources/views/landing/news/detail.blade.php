@@ -102,8 +102,8 @@
                                 @else
                                     <div class="mx-auto uk-flex uk-flex-column uk-flex-center uk-text-center">
                                         <img src="{{ asset('nodata-gif-post.gif') }}" alt="No Data" height="200"
-                                            class="mx-auto" width="200" />
-                                        <p class="text-muted">Belum ada berita</p>
+                                            class="uk-flex uk-flex-cente" width="200" />
+                                        <p class="uk-text-center">Belum ada berita</p>
                                     </div>
                                 @endif
                             </div>
