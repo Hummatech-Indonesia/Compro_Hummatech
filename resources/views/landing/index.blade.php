@@ -44,16 +44,17 @@
         overflow-wrap: break-word;
     }
 
-    .uk-grid > div {
+    /* .uk-grid > div {
         display: flex;
         flex-direction: column;
-    }
+    } */
 
     .uk-grid > div article {
         flex: 1;
         display: flex;
         flex-direction: column;
     }
+
 
 </style>
 
@@ -181,7 +182,7 @@
             <div class="uk-grid uk-flex uk-flex-middle">
                 <div class="uk-width-expand@m">
                     <h1 class="uk-margin-small-bottom"><span class="in-highlight">{{$profile->title}}</span></h1>
-                    <p class="uk-margin-top">Kini Hummatech bertransformasi menjadi perusahaan yang mampu
+                    <p class="uk-margin-top">
                         {{$profile->subtitle}}</p>
                         <a href="/about/profile" class="uk-button uk-button-primary uk-border-rounded" style="background-color:#d7ac53; color:white">
                             Selengkapnya <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
@@ -196,6 +197,14 @@
             </div>
 
             @empty
+
+            <div class="uk-grid uk-flex uk-flex-middle">
+                <div class="uk-width-expand@m">
+                    <h1 class="uk-margin-small-bottom"><span class="in-highlight">Profile Perusahaan</span></h1>
+
+                </div>
+
+            </div>
 
             @endforelse
         </div>
