@@ -140,7 +140,7 @@
                     </div>
                     <div class="uk-width-1-3@m uk-flex uk-flex-right uk-visible@m">
                         <span class="uk-margin-right"><img src="img/in-lazy.gif"
-                                data-src="{{ asset('assets/images/LOGO-HUMMATECH_Putih.png') }}" alt="footer-payment" width="150px" data-uk-img=""></span>
+                                data-src="{{ asset('cakra.png') }}" alt="footer-payment" width="150px" data-uk-img=""></span>
                     </div>
                 </div>
             </div>
