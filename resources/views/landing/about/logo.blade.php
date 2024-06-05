@@ -34,7 +34,12 @@
 uk-text-center in-feature-box"
                             data-uk-grid="">
                             <div class="uk-first-column">
-                                <img src="{{ asset('storage/' . $logo->image) }}" alt="{{ $logo->title }}" width="300px">
+                                <div class="image-container">
+                                    <img src="{{ asset('assets/images/circle_black.png') }}" class="image-background"
+                                        alt="">
+                                    <img src="{{ asset('storage/' . $profile->image) }}" class="image-foreground"
+                                        alt="">
+                                </div>
                             </div>
                             <div class="uk-text-left">
                                 <p>
