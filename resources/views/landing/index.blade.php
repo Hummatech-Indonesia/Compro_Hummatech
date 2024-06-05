@@ -340,47 +340,47 @@
 
     @endforelse
         <!-- section content begin -->
-    @forelse ($mitras as $mitra)
-    <div class="uk-section" style="background-color: #edeff1">
-        <div class="uk-width-1-1@m uk-text-center ">
-            <h1><span class="in-highlight">MITRA KAMI</span></h1>
-            <p class="uk-text-lead uk-margin-remove-top "> Tumbuh bersama: Kolaborasi menuju kesuksesan</p>
-        </div>
-        <div class="uk-container  uk-padding-remove-vertical in-equity-18">
-            <div class="uk-grid" data-uk-grid>
-                <div class="uk-width-1-1">
-                    <div class="uk-card uk-card-body uk-border-rounded">
-                        <div uk-slider="autoplay: true; autoplay-interval: 2000">
-                            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
-                                <div class="uk-slider-items uk-flex uk-flex-center uk-grid-collapse uk-child-width-1-6@m uk-child-width-1-2@s uk-text-center in-client-logo-6"
-                                    data-uk-grid>
-                                        <div class="uk-tile uk-tile-default" style="background-color: transparent">
-                                            <img class="uk-margin-remove" src="{{ asset('storage/' . $mitra->image) }}" alt="{{ $mitra->name }}" width="167" height="55">
+        <div class="uk-section" style="background-color: #edeff1">
+            @if ($mitras->isNotEmpty())
+                <div class="uk-width-1-1@m uk-text-center">
+                    <h1><span class="in-highlight">MITRA KAMI</span></h1>
+                    <p class="uk-text-lead uk-margin-remove-top">Tumbuh bersama: Kolaborasi menuju kesuksesan</p>
+                </div>
+                <div class="uk-container uk-padding-remove-vertical in-equity-18">
+                    <div class="uk-grid" data-uk-grid>
+                        <div class="uk-width-1-1">
+                            <div class="uk-card uk-card-body uk-border-rounded">
+                                <div uk-slider="autoplay: true; autoplay-interval: 2000">
+                                    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+                                        <div class="uk-slider-items uk-flex uk-flex-center uk-grid-collapse uk-child-width-1-6@m uk-child-width-1-2@s uk-text-center in-client-logo-6" data-uk-grid>
+                                            @forelse ($mitras as $mitra)
+                                                <div class="uk-tile uk-tile-default" style="background-color: transparent">
+                                                    <img class="uk-margin-remove" src="{{ asset('storage/' . $mitra->image) }}" alt="{{ $mitra->name }}" width="167" height="55">
+                                                </div>
+                                            @empty
+                                                <!-- Tidak ada data mitra -->
+                                            @endforelse
                                         </div>
+                                        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slider-item="previous"></a>
+                                        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slider-item="next"></a>
                                     </div>
-                                    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slider-item="previous"></a>
-                                    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slider-item="next"></a>
                                 </div>
-                                {{-- <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul> --}}
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @endif
 
+            @if (count($mitras) > 6)
+                <div class="uk-width-1-1@m uk-text-center uk-margin-medium-top">
+                    <a href="/mitra" class="uk-button uk-button-primary uk-border-rounded" style="background-color:#d7ac53; color:white">
+                        Selengkapnya <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                    </a>
+                </div>
+            @endif
         </div>
-    @empty
 
-    @endforelse
 
-    @if (count($mitras) > 6)
-
-            <div class="uk-width-1-1@m uk-text-center uk-margin-medium-top">
-                <a href="/mitra" class="uk-button uk-button-primary uk-border-rounded" style="background-color:#d7ac53; color:white">
-                    Selengkapnya <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
-                </a>
-            </div>
-    @endif
 
 
     <!-- section content begin -->
