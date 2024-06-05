@@ -33,12 +33,11 @@
                         <div class="uk-grid uk-child-width-1-2@m uk-child-width-1-1@s
 uk-text-center in-feature-box"
                             data-uk-grid="">
-                            <div class="uk-first-column">
+                            <div class="uk-width-2-5@m uk-grid-margin uk-first-column">
                                 <div class="image-container">
                                     <img src="{{ asset('assets/images/circle_black.png') }}" class="image-background"
                                         alt="">
-                                    <img src="{{ asset('storage/' . $profile->image) }}" class="image-foreground"
-                                        alt="">
+                                    <img src="{{ asset('storage/' . $profile->image) }}" class="image-foreground" alt="">
                                 </div>
                             </div>
                             <div class="uk-text-left">
