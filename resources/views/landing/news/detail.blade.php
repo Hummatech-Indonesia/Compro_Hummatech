@@ -78,7 +78,7 @@
                                     <ul class="uk-list uk-list-divider uk-list-large widget-latest">
                                         @foreach ($otherNews as $news)
                                             <li>
-                                                <a href="href="{{ url("news/{$news->slug}") }}"">{{ $news->title }}</a>
+                                                <a href="{{ url("news/{$news->slug}") }}">{{ $news->title }}</a>
                                                 <span class="uk-article-meta uk-text-small"><br><i
                                                         class="fas fa-clock fa-sm uk-margin-small-right"></i>
                                                     {{ \Carbon\Carbon::parse($news->date)->locale('id_ID')->isoFormat('D MMMM Y') }}</span>
