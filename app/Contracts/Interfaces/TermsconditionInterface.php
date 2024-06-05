@@ -11,5 +11,6 @@ use App\Contracts\Interfaces\Eloquent\SearchInterface;
 
 interface TermsconditionInterface extends GetInterface, StoreInterface, UpdateInterface, DeleteInterface, CustomPaginationInterface, SearchInterface
 {
+    public function getByServiceId(mixed $id): mixed;
 
 }

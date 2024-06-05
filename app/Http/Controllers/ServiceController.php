@@ -15,6 +15,7 @@ use App\Contracts\Interfaces\SaleInterface;
 use App\Contracts\Interfaces\ServiceInterface;
 use App\Contracts\Interfaces\ServiceMitraInterface;
 use App\Contracts\Interfaces\SosialMediaInterface;
+use App\Contracts\Interfaces\TermsconditionInterface;
 use App\Contracts\Interfaces\TestimonialInterface;
 use App\Contracts\Repositories\FaqRepository;
 use App\Contracts\Repositories\ProductRepository;
@@ -68,6 +69,7 @@ class ServiceController extends Controller
         $this->serviceMitra = $serviceMitra;
         $this->misionItems = $misionItems;
         $this->sosmed = $sosmed;
+        $this->termscondition = $termscondition;
     }
     /**
      * Display a listing of the resource.
@@ -138,7 +140,10 @@ class ServiceController extends Controller
         $background = $this->background->getByServiceId($slugs->id);
         $galeries = $this->galleryImage->whereIn('gallery_id',$galerys->pluck('id'))->get();
         $instagram = $this->sosmed->instagram();
-        return view('landing.service.service-detail', compact('instagram', 'servicemitras','slugs', 'services', 'products', 'testimonials', 'faqs', 'procedures', 'sales', 'profile', 'galeries', 'background'));
+        $termsconditions = $this->termscondition->where('service_id', $slugs->id)->get();
+
+
+        return view('landing.service.service-detail', compact('instagram','termsconditions', 'servicemitras','slugs', 'services', 'products', 'testimonials', 'faqs', 'procedures', 'sales', 'profile', 'galeries', 'background'));
     }
     /**
      * Update the specified resource in storage.
