@@ -99,19 +99,18 @@
                                         class="uk-label uk-text-small uk-border-rounded uk-margin-small-top uk-margin-small-bottom">{{ $team->position->name }}</span>
                                 </div>
                             @empty
-
                             @endforelse
                         </div>
                     </div>
                 </div>
             </div>
-            @if ($teams)
-            <div class="uk-flex uk-flex-center">
-                <img src="{{ asset('empty.png') }}" alt="" srcset="">
-            </div>
-            <h2 class="uk-text-center">
-                No data
-            </h2>
+            @if (count($teams) == 0)
+                <div class="uk-flex uk-flex-center">
+                    <img src="{{ asset('empty.png') }}" alt="" srcset="">
+                </div>
+                <h2 class="uk-text-center">
+                    No data
+                </h2>
             @endif
             {{-- <div class="uk-grid">
             <div class="uk-width-1-1">
