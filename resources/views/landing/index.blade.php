@@ -9,6 +9,8 @@
         background-image: url('{{ asset('assets/images/mischool.jpg') }}');
         background-size: cover;
         background-position: center;
+        height: 500px; /* Default height for the element */
+
     }
     #particles-js::before {
         content: "";
@@ -31,11 +33,19 @@
         max-width: 100%;
         height: auto;
     }
+
     @media screen and (max-width: 768px) {
+        #particles-js {
+            height: 450px; /* Sesuaikan tinggi gambar untuk tampilan tablet */
+        }
+    }
+
+    @media screen and (max-width: 576px) {
     #particles-js {
-        height: 500px; /* Sesuaikan tinggi gambar sesuai kebutuhan */
+        height: 500px; /* Sesuaikan tinggi gambar untuk tampilan ponsel */
     }
-    }
+}
+
 
     .news-title,
     .news-description {
@@ -275,34 +285,41 @@
 
 
     <!-- section content begin -->
-    @forelse ($service as $service)
-    <div class="uk-section uk-section-primary uk-preserve-color in-equity-1">
-        <div class="uk-container">
-            <div class="uk-grid">
-                <div class="uk-width-1-1">
-                    <h1>Layanan Kami</h1>
-                </div>
-            </div>
-            <div class="uk-grid-match uk-grid-medium uk-child-width-1-3@m uk-child-width-1-2@s uk-margin-bottom" data-uk-grid>
-                <div>
-                    <div class="uk-card uk-card-body uk-card-default uk-border-rounded">
-                        <div class="uk-flex uk-flex-middle">
-                            <span class="in-product-name red">{{ strtoupper(Str::substr($service->name, 0, 2)) }}</span>
-                            <h5 class="uk-margin-remove">{{ $service->name }}</h5>
-                        </div>
-                        <p>{!! Str::limit(strip_tags($service->description), 200) !!}</p>
-                        <a href="/services/{{ $service->slug }}" class="uk-button uk-button-text uk-float-right uk-position-bottom-right">
-                            Lihat Selengkapnya
-                            <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
-                        </a>
+    @php
+    $hasServices = $service->isNotEmpty();
+    @endphp
+
+    @if ($hasServices)
+        <div class="uk-section uk-section-primary uk-preserve-color in-equity-1">
+            <div class="uk-container">
+                <div class="uk-grid">
+                    <div class="uk-width-1-1">
+                        <h1>Layanan Kami</h1>
                     </div>
+                </div>
+                <div class="uk-grid-match uk-grid-medium uk-child-width-1-3@m uk-child-width-1-2@s uk-margin-bottom" data-uk-grid>
+                    @forelse ($service as $serviceItem)
+                        <div>
+                            <div class="uk-card uk-card-body uk-card-default uk-border-rounded">
+                                <div class="uk-flex uk-flex-middle">
+                                    <span class="in-product-name red">{{ strtoupper(Str::substr($serviceItem->name, 0, 2)) }}</span>
+                                    <h5 class="uk-margin-remove">{{ $serviceItem->name }}</h5>
+                                </div>
+                                <p>{!! Str::limit(strip_tags($serviceItem->description), 200) !!}</p>
+                                <a href="/services/{{ $serviceItem->slug }}" class="uk-button uk-button-text uk-float-right uk-position-bottom-right">
+                                    Lihat Selengkapnya
+                                    <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                                </a>
+                            </div>
+                        </div>
+                    @empty
+                        <!-- Tidak ada layanan -->
+                    @endforelse
                 </div>
             </div>
         </div>
-    </div>
-    @empty
+    @endif
 
-    @endforelse
 
 
     <!-- section content end -->
@@ -443,13 +460,12 @@
     @endif
 
     <!-- section content begin -->
+    @if (count($portfolios) > 0)
     <div class="uk-section" style="background-color: #edeff1">
-        @if (count($portfolios) > 0)
-            <div class="uk-width-1-1@m uk-text-center">
-                <h1><span class="in-highlight">PORTOFOLIO</span></h1>
-                <h3 class="uk-text-lead uk-margin-remove-top">Inspirasi dari Karya: Portfolio Hummatech Menggambarkan Keunggulan Produk</h3>
-            </div>
-        @endif
+        <div class="uk-width-1-1@m uk-text-center">
+            <h1><span class="in-highlight">PORTOFOLIO</span></h1>
+            <h3 class="uk-text-lead uk-margin-remove-top">Inspirasi dari Karya: Portfolio Hummatech Menggambarkan Keunggulan Produk</h3>
+        </div>
         <div class="uk-container">
             <ul class="uk-grid-small uk-flex uk-flex-center uk-child-width-1-3@m uk-child-width-1-2@s uk-text-center" data-uk-grid="masonry: true">
                 @forelse ($portfolios as $index => $portfolio)
@@ -461,6 +477,7 @@
                         </li>
                     @endif
                 @empty
+                    <!-- Tidak ada data portofolio -->
                 @endforelse
             </ul>
         </div>
@@ -473,6 +490,8 @@
             </div>
         @endif
     </div>
+@endif
+
 
 
 
