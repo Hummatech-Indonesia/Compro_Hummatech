@@ -26,7 +26,13 @@
                         <li><a href="#">Layanan<span data-uk-navbar-parent-icon></span></a>
                             <div class="uk-navbar-dropdown">
                                 <ul class="uk-nav uk-navbar-dropdown-nav">
-                                    <li><a href="/services/magang-pkl">Magang pkl</a></li>
+                                    @forelse ($services as $service)
+                                        <li class="{{ request()->is('/services/' . $service->slug) ? 'active' : '' }}">
+                                            <a href="/services/{{ $service->slug }}">{{ $service->name }}</a>
+                                        </li>
+                                    @empty
+                                        <li><a href="javascript:void(0)">Layanan Masih Kosong</a></li>
+                                    @endforelse
                                 </ul>
                             </div>
                         </li>
