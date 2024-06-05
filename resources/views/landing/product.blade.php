@@ -145,7 +145,10 @@
                     </div>
                 </div>
             @empty
-            
+                <div class="uk-flex uk-flex-center">
+                    <img src="{{ asset('empty.png') }}" alt="" width="300px" srcset="">
+                </div>
+                <h4 class="uk-text-center">No Data</h4>
             @endforelse
         </li>
 
@@ -174,9 +177,11 @@
                             </div>
                         </div>
                     </div>
-                    
                 @empty
-                    
+                    <div class="uk-flex uk-flex-center">
+                        <img src="{{ asset('empty.png') }}" alt="" width="300px" srcset="">
+                    </div>
+                    <h4 class="uk-text-center">No Data</h4>
                 @endforelse
             </li>
         @empty
