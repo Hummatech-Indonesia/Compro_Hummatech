@@ -104,15 +104,14 @@
                     </div>
                 </div>
             </div>
-            @isset($teams)
-            @else
+            @if (count($teams) == 0)
                 <div class="uk-flex uk-flex-center">
                     <img src="{{ asset('empty.png') }}" alt="" srcset="">
                 </div>
                 <h2 class="uk-text-center">
                     No data
                 </h2>
-            @endisset
+            @endif
             {{-- <div class="uk-grid">
             <div class="uk-width-1-1">
                 <div class="uk-card uk-card-default uk-border-rounded uk-background-center uk-background-contain uk-background-image@m"
