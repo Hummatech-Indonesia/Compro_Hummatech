@@ -162,7 +162,7 @@
 
         $('.btn-delete').on('click', function() {
             var id = $(this).data('id');
-            $('#form-delete').attr('action', '/product/' + id);
+            $('#form-delete').attr('action', '/admin/product/' + id);
             $('#modal-delete').modal('show');
         });
 
