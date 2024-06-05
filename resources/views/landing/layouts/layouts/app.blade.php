@@ -148,7 +148,7 @@
                             </p>
                         @else
                             <p class="copyright-text">©Copyright 2024. All Rights Reserved by <a href="/"
-                                    class="uk-link-text uk-text-decoration-none uk-text-bolder">company</a></p>
+                                    class="uk-link-text uk-text-decoration-none uk-text-bolder">Company</a></p>
                         @endisset
                     </div>
                     <div class="uk-width-1-3@m uk-flex uk-flex-right uk-visible@m">
