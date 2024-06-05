@@ -70,11 +70,14 @@
                             <div>
                                 <h4 class="uk-text-primary">Layanan</h4>
                                 <ul class="uk-list uk-link-text">
-                                    <li><a href="#">Software Development</a></li>
-                                    <li><a href="#">Kelas Industri</a></li>
-                                    <li><a href="#">Pengadaan Hardware</a></li>
-                                    <li><a href="#">Magang/PKL</li>
-                                    <li><a href="#">Kunjungan Industri</a></li>
+                                    @forelse ($services as $service)
+                                        <li>
+                                            <a href="{{ url("/services/{$service->slug}") }}"><i
+                                                    class="fas fa-angle-right"></i> {{ $service->name }}</a>
+                                        </li>
+                                    @empty
+                                        <li>Belum ada data layanan</li>
+                                    @endforelse
                                 </ul>
                             </div>
                             <div>
