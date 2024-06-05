@@ -142,7 +142,7 @@
             <div class="uk-container">
                 <div class="uk-grid uk-flex uk-flex-middle">
                     <div class="uk-width-2-3@m uk-text-small">
-                        @isset($profiles)
+                        @isset($profile)
                             <p class="copyright-text">©Copyright 2024. All Rights Reserved by <a href="/"
                                     class="uk-link-text uk-text-decoration-none uk-text-bolder">{{ $profile->title }}</a>
                             </p>
