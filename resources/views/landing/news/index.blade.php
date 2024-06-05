@@ -40,7 +40,7 @@
                                                 <div class="uk-flex">
                                                     <div class="uk-margin-small-right">
                                                         <img class="uk-border-pill uk-background-muted"
-                                                            src="{{ asset('storage' , $profile->image) }}" alt="image-team"
+                                                            src="{{ asset('storage/' . $profile->image) }}" alt="image-team"
                                                             width="32" height="32">
                                                     </div>
                                                     <div class="uk-flex uk-flex-middle">
@@ -91,7 +91,7 @@
                                                 <div class="uk-flex">
                                                     <div class="uk-margin-small-right">
                                                         <img class="uk-border-pill uk-background-muted"
-                                                            src="{{ asset('storage' , $profile->image) }}" alt="image-team"
+                                                            src="{{ asset('storage/' . $profile->image) }}" alt="image-team"
                                                             width="32" height="32">
                                                     </div>
                                                     <div class="uk-flex uk-flex-middle">
