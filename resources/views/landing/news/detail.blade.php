@@ -103,7 +103,7 @@
                                     <div class="uk-flex uk-flex-center">
                                         <img src="{{ asset('empty.png') }}" alt="" srcset="">
                                     </div>
-                                    <p class="uk-text-center">Belum ada berita</p>
+                                    <h4 class="uk-text-center">Belum ada berita</h4>
                                 @endif
                             </div>
                         </aside>
