@@ -88,7 +88,9 @@
                                             <i class="fas fa-home uk-margin-right uk-text-primary"></i>
                                             <div class="">
                                                 <h5 class="uk-text-primary uk-margin-remove">Alamat</h5>
-                                                <p class="uk-margin-remove uk-text-muted">Perum. Permata Regency 1 Blok 10 No. 28 Ngijo, Kec. Karang Ploso, Kab. Malang, Jawa Timur, Indonesia, 65152</p>
+                                                <p class="uk-margin-remove uk-text-muted">Perum. Permata Regency 1 Blok
+                                                    10 No. 28 Ngijo, Kec. Karang Ploso, Kab. Malang, Jawa Timur,
+                                                    Indonesia, 65152</p>
                                             </div>
                                         </div>
                                     </li>
@@ -103,7 +105,8 @@
                                     </li>
                                     <li>
                                         <div class="uk-flex">
-                                            <i style="font-size: 20px" class="fab fa-whatsapp uk-margin-right uk-text-primary"></i>
+                                            <i style="font-size: 20px"
+                                                class="fab fa-whatsapp uk-margin-right uk-text-primary"></i>
                                             <div class="">
                                                 <h5 class="uk-text-primary uk-margin-remove">Whatsapp</h5>
                                                 <a href="#" class="uk-text-muted">085176777785</a>
@@ -120,8 +123,8 @@
                             <div><a href="https://www.facebook.com/indonez"
                                     class="color-facebook text-decoration-none"><i class="fab fa-facebook-square"></i>
                                     Facebook</a></div>
-                            <div><a href="https://twitter.com/indonez_tw"
-                                    class="color-twitter text-decoration-none"><i class="fab fa-twitter"></i>
+                            <div><a href="https://twitter.com/indonez_tw" class="color-twitter text-decoration-none"><i
+                                        class="fab fa-twitter"></i>
                                     Twitter</a></div>
                             <div><a href="https://www.instagram.com/indonez_ig"
                                     class="color-instagram text-decoration-none"><i class="fab fa-instagram"></i>
@@ -139,11 +142,18 @@
             <div class="uk-container">
                 <div class="uk-grid uk-flex uk-flex-middle">
                     <div class="uk-width-2-3@m uk-text-small">
-                        <p class="copyright-text">©Copyright 2024.  All Rights Reserved by <a href="/" class="uk-link-text uk-text-decoration-none uk-text-bolder"></a></p>
+                        @isset($profiles)
+                            <p class="copyright-text">©Copyright 2024. All Rights Reserved by <a href="/"
+                                    class="uk-link-text uk-text-decoration-none uk-text-bolder">{{ $profile->title }}</a>
+                            </p>
+                        @else
+                            <p class="copyright-text">©Copyright 2024. All Rights Reserved by <a href="/"
+                                    class="uk-link-text uk-text-decoration-none uk-text-bolder">company</a></p>
+                        @endisset
                     </div>
                     <div class="uk-width-1-3@m uk-flex uk-flex-right uk-visible@m">
-                        <span class="uk-margin-right"><img src="img/in-lazy.gif"
-                                data-src="{{ asset('cakra.png') }}" alt="footer-payment" width="250px" data-uk-img=""></span>
+                        <span class="uk-margin-right"><img src="img/in-lazy.gif" data-src="{{ asset('cakra.png') }}"
+                                alt="footer-payment" width="250px" data-uk-img=""></span>
                     </div>
                 </div>
             </div>
