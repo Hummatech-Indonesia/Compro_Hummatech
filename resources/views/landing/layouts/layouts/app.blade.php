@@ -70,11 +70,14 @@
                             <div>
                                 <h4 class="uk-text-primary">Layanan</h4>
                                 <ul class="uk-list uk-link-text">
-                                    <li><a href="#">Software Development</a></li>
-                                    <li><a href="#">Kelas Industri</a></li>
-                                    <li><a href="#">Pengadaan Hardware</a></li>
-                                    <li><a href="#">Magang/PKL</li>
-                                    <li><a href="#">Kunjungan Industri</a></li>
+                                    @forelse ($services as $service)
+                                        <li>
+                                            <a href="{{ url("/services/{$service->slug}") }}"><i
+                                                    class="fas fa-angle-right"></i> {{ $service->name }}</a>
+                                        </li>
+                                    @empty
+                                        <li>Belum ada data layanan</li>
+                                    @endforelse
                                 </ul>
                             </div>
                             <div>
@@ -136,7 +139,7 @@
             <div class="uk-container">
                 <div class="uk-grid uk-flex uk-flex-middle">
                     <div class="uk-width-2-3@m uk-text-small">
-                        <p class="copyright-text">©Copyright 2024.  All Rights Reserved by <a href="#" class="uk-link-text uk-text-decoration-none uk-text-bolder">Hummatech</a></p>
+                        <p class="copyright-text">©Copyright 2024.  All Rights Reserved by <a href="/" class="uk-link-text uk-text-decoration-none uk-text-bolder"></a></p>
                     </div>
                     <div class="uk-width-1-3@m uk-flex uk-flex-right uk-visible@m">
                         <span class="uk-margin-right"><img src="img/in-lazy.gif"
