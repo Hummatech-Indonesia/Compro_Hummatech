@@ -70,20 +70,6 @@
                         </div>
                     </div>
                     <div class="uk-width-expand@m">
-                        <!-- widget search begin -->
-                        <aside class="uk-margin-medium-bottom">
-                            <form name="blog-search" class="uk-search uk-search-default uk-width-1-1">
-                                <a href="" class="uk-search-icon-flip uk-icon uk-search-icon" data-uk-search-icon=""
-                                    aria-label="Submit Search"><svg width="20" height="20" viewBox="0 0 20 20">
-                                        <circle fill="none" stroke="#000" stroke-width="1.1" cx="9"
-                                            cy="9" r="7"></circle>
-                                        <path fill="none" stroke="#000" stroke-width="1.1" d="M14,14 L18,18 L14,14 Z">
-                                        </path>
-                                    </svg></a>
-                                <input class="uk-input uk-border-rounded" type="search" placeholder="Cari berita...">
-                            </form>
-                        </aside>
-                        <!-- widget search end -->
                         <!-- widget lates begin -->
                         <aside class="uk-margin-medium-bottom">
                             <div class="uk-card uk-card-default uk-card-body uk-border-rounded">
