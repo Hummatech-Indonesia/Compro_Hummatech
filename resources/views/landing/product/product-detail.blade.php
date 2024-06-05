@@ -79,7 +79,7 @@
             </div>
             <div class="uk-width-2-5@m uk-flex uk-flex-middle">
                 <div>
-                    <h3>Milink.id</h3>
+                    <h3>{{ $product->name }}</h3>
                     <p>Lorem ipsum dolor sit amet consectetur. Tincidunt pellentesque pellentesque sed in. Sit nunc velit aliquam quis faucibus nibh nisl pellentesque. Massa natoque mattis quisque ut. Lorem ipsum dolor sit amet consectetur. Tincidunt pellentesque pellentesque sed in. Sit nunc velit aliquam quis faucibus nibh nisl pellentesque. Massa natoque mattis quisque ut Baca Selengkapnya...</p>
                     <a href="/product/detail" class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-top">Detail
                         <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>

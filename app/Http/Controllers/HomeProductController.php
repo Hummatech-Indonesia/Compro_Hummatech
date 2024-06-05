@@ -27,7 +27,8 @@ class HomeProductController extends Controller
 
     public function index()
     {
-        $products = $this->product->getByType('company');
+        $products = $this->product->product();
+        // dd($products);
         $background = $this->background->getByType('Portofolio');
         $categories = $this->categoryProduct->get();
         $comingProducts = $this->comingProduct->get();

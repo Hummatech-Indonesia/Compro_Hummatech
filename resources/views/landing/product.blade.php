@@ -111,79 +111,77 @@
 <div class="uk-section uk-container uk-margin-top uk-margin-large-bottom">
     <ul class="uk-child-width-expand" uk-tab>
         <li><a href="#"><b>Semua</b></a></li>
-        <li><a href="#"><b>Kategori 1</b></a></li>
-        <li><a href="#"><b>Kategori 2</b></a></li>
-        <li><a href="#"><b>Kategori 3</b></a></li>
+        @forelse ($categories as $category)
+            <li><a href="#{{ $category->slug }}"><b>{{ $category->name }}</b></a></li>
+        @empty
+            
+        @endforelse
     </ul>
 
     <ul class="uk-switcher uk-margin uk-margin-large-top">
         <li>
-            <div class="uk-container uk-margin-top uk-margin-large-bottom">
-                <div class="uk-grid uk-grid-large uk-flex uk-flex-middle" data-uk-grid>
-                    <div class="uk-width-3-5@m uk-flex uk-flex-middle uk-margin-large-bottom">
-                        <div class="in-equity-video">
-                            <img class="uk-border-rounded uk-width-1-1" src="{{ asset('assets_landing/img/blockit/in-gallery-image-2.jpg') }}" data-src="{{ asset('assets_landing/img/blockit/in-gallery-image-2.jpg') }}" alt="sample-images" width="433" height="255" data-uk-img>
+            @forelse ($products as $key => $product)
+                <div class="uk-container uk-margin-top uk-margin-large-bottom">
+                    <div class="uk-grid uk-grid-large uk-flex uk-flex-middle" data-uk-grid>
+                        <div class="uk-width-3-5@m uk-flex uk-flex-middle uk-margin-large-bottom {{ $key % 2 == 1 ? 'uk-flex-last@m' : '' }}">
+                            <div class="in-equity-video">
+                                <img class="uk-border-rounded uk-width-1-1" src="{{ asset('storage/'. $product->image) }}" data-src="{{ asset('storage/'. $product->image) }}" alt="sample-images" width="433" height="255" data-uk-img>
+                            </div>
                         </div>
-                    </div>
-                    <div class="uk-width-2-5@m uk-flex uk-flex-middle">
-                        <div>
-                            <h3>Milink.id</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur. Tincidunt pellentesque pellentesque sed in. Sit nunc velit aliquam quis faucibus nibh nisl pellentesque. Massa natoque mattis quisque ut. Lorem ipsum dolor sit amet consectetur. Tincidunt pellentesque pellentesque sed in. Sit nunc velit aliquam quis faucibus nibh nisl pellentesque. Massa natoque mattis quisque ut Baca Selengkapnya...</p>
-                            <a href="/product/detail" class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-top uk-margin-small-right">Detail
-                                <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
-                            </a>
-                            <a href="#" class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">Kunjungi Website
-                                <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="uk-container uk-margin-top uk-margin-large-bottom">
-                <div class="uk-grid uk-grid-large uk-flex uk-flex-middle" data-uk-grid>
-                    <div class="uk-width-2-5@m uk-flex uk-flex-middle">
-                        <div>
-                            <h3>Milink.id</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur. Tincidunt pellentesque pellentesque sed in. Sit nunc velit aliquam quis faucibus nibh nisl pellentesque. Massa natoque mattis quisque ut. Lorem ipsum dolor sit amet consectetur. Tincidunt pellentesque pellentesque sed in. Sit nunc velit aliquam quis faucibus nibh nisl pellentesque. Massa natoque mattis quisque ut Baca Selengkapnya...</p>
-                            <a href="/product/detail" class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-top uk-margin-small-right">Detail
-                                <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
-                            </a>
-                            <a href="#" class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">Kunjungi Website
-                                <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="uk-width-3-5@m uk-flex uk-flex-middle uk-margin-large-bottom">
-                        <div class="in-equity-video">
-                            <img class="uk-border-rounded uk-width-1-1" src="{{ asset('assets_landing/img/blockit/in-gallery-image-2.jpg') }}" data-src="{{ asset('assets_landing/img/blockit/in-gallery-image-2.jpg') }}" alt="sample-images" width="433" height="255" data-uk-img>
+                        <div class="uk-width-2-5@m uk-flex uk-flex-middle {{ $key % 2 == 1 ? 'uk-flex-first@m': '' }}">
+                            <div>   
+                                <h3>{{ $product->name }}</h3>
+                                <p>{!! $product->description !!}</p>
+                                <a href="{{ route('detail.product', $product->slug) }}" class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-top uk-margin-small-right">Detail
+                                    <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                                </a>
+                                @if ($product->link != null)
+                                    <a href="{{ $product->link }}" target="_blank" class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">Kunjungi Website
+                                        <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                                    </a>
+                                @endif
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            @empty
+            
+            @endforelse
         </li>
-        <li>
-            <div class="uk-container uk-margin-top uk-margin-large-bottom">
-                <div class="uk-grid uk-grid-large uk-flex uk-flex-middle" data-uk-grid>
-                    <div class="uk-width-3-5@m uk-flex uk-flex-middle uk-margin-large-bottom">
-                        <div class="in-equity-video">
-                            <img class="uk-border-rounded uk-width-1-1" src="{{ asset('assets_landing/img/blockit/in-gallery-image-2.jpg') }}" data-src="{{ asset('assets_landing/img/blockit/in-gallery-image-2.jpg') }}" alt="sample-images" width="433" height="255" data-uk-img>
+
+        
+        @forelse ($categories as $key => $category)
+            <li>
+                @forelse (App\Models\Product::where('type', '!=', 'portfolio')->where('category_product_id', $category->id)->get() as $product)
+                    <div class="uk-container uk-margin-top uk-margin-large-bottom">
+                        <div class="uk-grid uk-grid-large uk-flex uk-flex-middle" data-uk-grid>
+                            <div class="uk-width-3-5@m uk-flex uk-flex-middle uk-margin-large-bottom {{ $key % 2 == 1 ? 'uk-flex-last@m' : '' }}">
+                                <div class="in-equity-video">
+                                    <img class="uk-border-rounded uk-width-1-1" src="{{ asset('storage/'. $product->image) }}" data-src="{{ asset('storage/'. $product->image) }}" alt="sample-images" width="433" height="255" data-uk-img>
+                                </div>
+                            </div>
+                            <div class="uk-width-2-5@m uk-flex uk-flex-middle {{ $key % 2 == 1 ? 'uk-flex-first@m': '' }}">
+                                <div>   
+                                    <h3>{{ $product->name }}</h3>
+                                    <p>{!! $product->description !!}</p>
+                                    <a href="/product/detail" class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-top uk-margin-small-right">Detail
+                                        <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                                    </a>
+                                    <a href="#" class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">Kunjungi Website
+                                        <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="uk-width-2-5@m uk-flex uk-flex-middle">
-                        <div>
-                            <h3>Milink.id</h3>
-                            <p>Lorem ipsum dolor sit amet consectetur. Tincidunt pellentesque pellentesque sed in. Sit nunc velit aliquam quis faucibus nibh nisl pellentesque. Massa natoque mattis quisque ut. Lorem ipsum dolor sit amet consectetur. Tincidunt pellentesque pellentesque sed in. Sit nunc velit aliquam quis faucibus nibh nisl pellentesque. Massa natoque mattis quisque ut Baca Selengkapnya...</p>
-                            <a href="/product/detail" class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-top uk-margin-small-right">Detail
-                                <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
-                            </a>
-                            <a href="#" class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">Kunjungi Website
-                                <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </li>
+                    
+                @empty
+                    
+                @endforelse
+            </li>
+        @empty
+            
+        @endforelse
     </ul>
 </div>
 

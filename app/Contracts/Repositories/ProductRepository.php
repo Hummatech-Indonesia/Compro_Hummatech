@@ -59,5 +59,9 @@ class ProductRepository extends BaseRepository implements ProductInterface
             })
             ->get();
     }
+    public function product()
+    {
+        return $this->model->query()->where('type','!=', 'portfolio')->get();
+    }
 }
 
