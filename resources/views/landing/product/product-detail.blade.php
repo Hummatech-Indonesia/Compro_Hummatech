@@ -108,7 +108,7 @@
             </div>
             <div class="uk-grid uk-grid-large uk-child-width-1-3@m uk-margin-medium-top uk-grid-stack uk-flex-center" data-uk-grid>
                 @foreach ($product->features as $feature)
-                    <div class="uk-flex uk-flex-left uk-first-column">
+                    <div class="uk-first-column uk-flex uk-flex-center">
                         <div class="uk-margin-right">
                             <div class="in-icon-wrap primary-color">
                                 {{-- <i class="fas fa-leaf fa-lg"></i> --}}
