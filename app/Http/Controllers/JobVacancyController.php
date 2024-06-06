@@ -56,7 +56,7 @@ class JobVacancyController extends Controller
      */
     public function show(JobVacancy $jobVacancy)
     {
-        //
+        // 
     }
 
     /**
