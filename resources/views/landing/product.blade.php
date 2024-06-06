@@ -132,7 +132,7 @@
                             <div>
                                 <h3>{{ $product->name }}</h3>
                                 <p>{!! $product->description !!}</p>
-                                <a href="{{ $compact == $comingProducts ? '/product/coming-soon/'$product->slug : '/product/' $product->slug }}"                                    class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-top uk-margin-small-right">Detail
+                                <a href="{{ $compact == $comingProducts ? '/product/coming-soon/'$product->slug : 'product/' $product->slug }}"class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-top uk-margin-small-right">Detail
                                     <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
                                 </a>
                                 @if ($product->link != null)
@@ -167,7 +167,7 @@
                                 <div>
                                     <h3>{{ $product->name }}</h3>
                                     <p>{!! $product->description !!}</p>
-                                    <a href="{{ $compact == $comingProducts ? '/product/coming-soon/'$product->slug : '/product/' $product->slug }}"
+                                    <a href="{{ $compact == $comingProducts ? '/product/coming-soon/'$product->slug : 'product/' $product->slug }}"
                                         class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-top uk-margin-small-right">Detail
                                         <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
                                     </a>
