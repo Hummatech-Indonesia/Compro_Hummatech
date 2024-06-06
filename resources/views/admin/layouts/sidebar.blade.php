@@ -227,18 +227,6 @@
     </li>
     <li class="sidebar-list">
         <i class="fa fa-thumb-tack"></i>
-        <a class="sidebar-link sidebar-title link-nav" href="{{ route('job-vacancy.index') }}">
-            <svg class="stroke-icon">
-                <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-builders') }}"></use>
-            </svg>
-            <svg class="fill-icon">
-                <use href="{{ asset('assets/svg/icon-sprite.svg#fill-builders') }}"></use>
-            </svg>
-            <span>Lowongan</span>
-        </a>
-    </li>
-    {{-- <li class="sidebar-list">
-        <i class="fa fa-thumb-tack"></i>
         <a class="sidebar-link sidebar-title" href="#">
             <svg class="stroke-icon">
                 <use href="{{ asset('assets/svg/icon-sprite.svg#stroke-builders') }}"></use>
@@ -250,13 +238,13 @@
         </a>
         <ul class="sidebar-submenu">
             <li>
-                <a href="/vacancy">Profile</a>
+                <a href="{{ route('job-vacancy.index') }}">Lowongan</a>
             </li>
             <li>
                 <a href="/workflow">Alur Kerja</a>
             </li>
         </ul>
-    </li> --}}
+    </li>
     {{-- <li class="sidebar-list">
         <i class="fa fa-thumb-tack"></i>
         <a class="sidebar-link sidebar-title" href="#">
