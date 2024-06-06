@@ -5,6 +5,7 @@ use App\Http\Controllers\CategoryProductController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\HomeDescriptionController;
 use App\Http\Controllers\HomeProductController;
+use App\Http\Controllers\JobVacancyController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -39,3 +40,8 @@ Route::get('admin/portfolio', [PortfolioController::class, 'index'])->name('port
 Route::post('admin/portfolio', [PortfolioController::class, 'store'])->name('portfolio.store');
 Route::put('admin/portfolio/update/{product}', [PortfolioController::class, 'update'])->name('portfolio.update');
 Route::delete('admin/portfolio/{product}', [PortfolioController::class, 'destroy'])->name('portfolio.destroy');
+
+Route::get('admin/job-vacancy', [JobVacancyController::class, 'index'])->name('job-vacancy.index');
+Route::post('admin/job-vacancy/store', [JobVacancyController::class, 'store'])->name('job-vacancy.store');
+Route::put('admin/job-vacancy/{jobVacancy}', [JobVacancyController::class, 'update'])->name('job-vacancy.update');
+Route::delete('admin/job-vacancy/{jobVacancy}', [JobVacancyController::class, 'destroy'])->name('job-vacancy.destroy');

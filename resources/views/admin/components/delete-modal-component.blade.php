@@ -16,7 +16,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger text-white font-medium waves-effect"
                         data-bs-dismiss="modal">
-                        Close
+                        Tutup
                     </button>
                     <button style="background-color: #1B3061" type="submit" class="btn text-white btn-create">
                         Hapus
