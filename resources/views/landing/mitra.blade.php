@@ -140,18 +140,18 @@
                                                 <div class="uk-tile uk-tile-default uk-first-column uk-flex uk-flex-center">
                                                     <img class="uk-margin-remove"
                                                         src="{{ asset('storage/' . $collab->image) }}" alt="equity-press"
-                                                        width="170" height="68" style="object-fit: contain">
-                                                    </div>
-                                                    <h4 class="uk-text-center">
-                                                        {{ $collab->name }}
-                                                    </h4>
+                                                        width="170" height="68" style="object-fit: contain"><br>
+                                                        <h4 class="uk-text-center">
+                                                            {{ $collab->name }}
+                                                        </h4>
+                                                </div>
                                             @empty
-                                            <div class="uk-flex uk-flex-center">
-                                                <img src="{{ asset('empty.png') }}" alt="" srcset="">
-                                            </div>
-                                            <h2 class="uk-text-center">
-                                               Belum ada Mitra
-                                            </h2>
+                                                <div class="uk-flex uk-flex-center">
+                                                    <img src="{{ asset('empty.png') }}" alt="" srcset="">
+                                                </div>
+                                                <h2 class="uk-text-center">
+                                                    Belum ada Mitra
+                                                </h2>
                                             @endforelse
                                         </div>
                                     </div>
@@ -163,12 +163,12 @@
             </div>
         </div>
     @empty
-    <div class="uk-flex uk-flex-center">
-        <img src="{{ asset('empty.png') }}" alt="" srcset="">
-    </div>
-    <h2 class="uk-text-center">
-       Belum ada Mitra
-    </h2>
+        <div class="uk-flex uk-flex-center">
+            <img src="{{ asset('empty.png') }}" alt="" srcset="">
+        </div>
+        <h2 class="uk-text-center">
+            Belum ada Mitra
+        </h2>
     @endforelse
 
 
