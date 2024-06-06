@@ -138,7 +138,7 @@
         <div id="particles-js" class="uk-light in-slideshow uk-background-contain uk-slideshow" data-uk-img data-uk-slideshow role="region" aria-roledescription="carousel" autoplay>
             <ul class="uk-slideshow-items" aria-live="off" role="presentation">
                 @forelse ($section as $key => $sectionItem)
-                    <li class="uk-flex uk-flex-middle uk-active uk-transition-active" role="tabpanel" aria-label="1 of 2" tabindex="-1" style="background-image: url('{{ asset('storage/' . $sectionItem->image) }}'); background-size: cover; background-position: center; height: 75vh; width: 100%; margin: 0; padding: 0;">
+                    <li class="uk-flex uk-flex-middle uk-active uk-transition-active" role="tabpanel" aria-label="1 of 2" tabindex="-1" style="background-image: url('{{ asset('storage/' . $sectionItem->image) }}'); background-size: cover; background-position: center; height: 100vh; width: 100%; margin: 0; padding: 0;">
                         <div class="uk-container" style="height: 100%;">
                             <div class="uk-grid-large uk-flex-middle uk-grid" data-uk-grid style="height: 100%;">
                                 <div class="uk-width-1-2@s in-slide-text">
