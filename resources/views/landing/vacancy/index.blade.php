@@ -105,16 +105,7 @@
                         </div>
                     </div>
                 @empty
-                    <div class="uk-card uk-card-default uk-card-body uk-border-rounded uk-box-shadow-medium uk-text-center">
-                        <div class="number-above-image">
-                            <h1 class="uk-margin-medium-top">{{ $index + 1 }}</h1>
-                            <img class="uk-align-center" src="{{ asset('assets_landing/img/in-equity-7-icon-1.png') }}"
-                                data-src="{{ asset('assets_landing/img/in-equity-7-icon-1.png') }}" alt="icon-1"
-                                data-uk-img>
-                        </div>
-                        <h4 class="uk-margin-remove">{{ $workflow->name }}</h4>
-                        <p class="uk-margin-small-top uk-margin-small-bottom">{{ $workflow->description }}</p>
-                    </div>
+                
                 @endforelse
             </div>
         </div>
@@ -135,8 +126,7 @@
                     </div>
                 </div>
             </div>
-            <div class="uk-grid-medium uk-child-width-1-3@m uk-child-width-1-2@s
-uk-margin-medium-top uk-grid"
+            <div class="uk-grid-medium uk-child-width-1-3@m uk-child-width-1-2@s uk-margin-medium-top uk-grid"
                 data-uk-grid>
                 @forelse ($workflows as $index=>$workflow)
                     <div>
