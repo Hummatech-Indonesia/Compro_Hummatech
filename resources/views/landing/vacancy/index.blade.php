@@ -80,63 +80,46 @@
 @endsection
 
 @section('content')
-
-    <div class="uk-section ">
-        <div class="uk-container">
-            <div class="uk-grid">
-                <div class="uk-width-1-1 uk-flex uk-flex-center">
-                    <div class="uk-width-3-5@m uk-text-center">
-                        <h1 class="uk-margin-remove-bottom">
-                            <span class="in-highlight">
-                                Lowongan
-                            </span>
-                        </h1>
-                    </div>
-                </div>
-            </div>
-
-            <div class="uk-grid">
-                <div class="uk-width-1-1">
-                    <table class="uk-table uk-table-middle uk-table-divider uk-table-responsive">
-                        <tbody>
-                            <tr>
-                                <td class="uk-width-1-3@m">
-                                    <div class="uk-grid uk-grid-small uk-flex uk-flex-middle">
-                                        <div class="uk-width-expand">
-                                            <h3>Staf Marketing</h3>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="uk-width-1-5@m uk-text-right@m">
-                                    <a href="#"
-                                        class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">
-                                        Lamar
-                                        <i class="fas fa-file uk-margin-small-left"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="uk-width-1-3@m">
-                                    <div class="uk-grid uk-grid-small uk-flex uk-flex-middle">
-                                        <div class="uk-width-expand">
-                                            <h3>Resepsionis</h3>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="uk-width-1-5@m uk-text-right@m">
-                                    <a href="#"
-                                        class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">
-                                        Lamar
-                                        <i class="fas fa-file uk-margin-small-left"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+<div class="uk-section ">
+    <div class="uk-container">
+        <div class="uk-grid">
+            <div class="uk-width-1-1 uk-flex uk-flex-center">
+                <div class="uk-width-3-5@m uk-text-center">
+                    <h1 class="uk-margin-remove-bottom">
+                        <span class="in-highlight">
+                            Lowongan Pekerjaan
+                        </span>
+                    </h1>
                 </div>
             </div>
         </div>
+        <div class="uk-container uk-padding">
+            <div class="uk-grid" data-uk-grid="">
+                @forelse ($jobVacancies as $jobVacancy)
+                    <div class="uk-width-1-3@m uk-first-column">
+                        <div class="uk-card uk-card-default uk-card-body uk-border-rounded uk-text-left">                    
+                            <h3 class="uk-margin-remove-bottom">{{ $jobVacancy->name }}</h3>
+                            <p class="uk-margin-small-top">{!! $jobVacancy->description !!}</p>
+                            <h4>Rp. {{ number_format($jobVacancy->salary, 0, ',', '.') }}</h4>
+                            <a class="uk-button uk-width-full uk-button-primary uk-border-rounded" href="#">Detail<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                        </div>
+                    </div>
+                @empty
+                    <div class="uk-card uk-card-default uk-card-body uk-border-rounded uk-box-shadow-medium uk-text-center">
+                        <div class="number-above-image">
+                            <h1 class="uk-margin-medium-top">{{ $index + 1 }}</h1>
+                            <img class="uk-align-center" src="{{ asset('assets_landing/img/in-equity-7-icon-1.png') }}"
+                                data-src="{{ asset('assets_landing/img/in-equity-7-icon-1.png') }}" alt="icon-1"
+                                data-uk-img>
+                        </div>
+                        <h4 class="uk-margin-remove">{{ $workflow->name }}</h4>
+                        <p class="uk-margin-small-top uk-margin-small-bottom">{{ $workflow->description }}</p>
+                    </div>
+                @endforelse
+            </div>
+        </div>
     </div>
+</div>
 
     <div class="uk-section in-equity-4">
         <div class="uk-container">

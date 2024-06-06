@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contracts\Interfaces\BackgroundInterface;
+use App\Contracts\Interfaces\JobVacancyInterface;
 use App\Contracts\Interfaces\ProfileInterface;
 use App\Contracts\Interfaces\VacancyInterface;
 use App\Contracts\Interfaces\WorkFlowInterface;
@@ -14,17 +15,19 @@ class HomeVacancyController extends Controller
     private VacancyInterface $vacancyData;
     private WorkFlowInterface $workflow;
     private BackgroundInterface $background;
+    private JobVacancyInterface $jobVacancy;
 
     /**
      * Constructor for the class.
      *
      * @param VacancyInterface $vacancyInterface the data vacancy from database.
      */
-    public function __construct(VacancyInterface $vacancyInterface , WorkFlowInterface $workflow, BackgroundInterface $background)
+    public function __construct(VacancyInterface $vacancyInterface , WorkFlowInterface $workflow, BackgroundInterface $background, JobVacancyInterface $jobVacancy)
     {
         $this->vacancyData = $vacancyInterface;
         $this->workflow = $workflow;
         $this->background = $background;
+        $this->jobVacancy = $jobVacancy;
     }
 
     /**
@@ -37,7 +40,8 @@ class HomeVacancyController extends Controller
         $workflows = $this->workflow->get();
         $vacancyData = $this->vacancyData->get();
         $background = $this->background->getByType('Lowongan');
+        $jobVacancies = $this->jobVacancy->get();
 
-        return view('landing.vacancy.index', compact('vacancyData' ,'workflows', 'background'));
+        return view('landing.vacancy.index', compact('vacancyData' ,'workflows', 'background', 'jobVacancies'));
     }
 }
