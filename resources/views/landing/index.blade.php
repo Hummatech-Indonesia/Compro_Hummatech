@@ -16,7 +16,6 @@
         top: 0;
         left: 0;
         right: 0;
-        bottom: 20%;
         background: rgba(0, 0, 0, 0.5);
         z-index: 1;
     }
@@ -137,9 +136,9 @@
 
     <div class="uk-section uk-padding-remove-vertical in-slideshow-gradient">
         <div id="particles-js" class="uk-light in-slideshow uk-background-contain uk-slideshow" data-uk-img data-uk-slideshow role="region" aria-roledescription="carousel" autoplay>
-            <ul class="uk-slideshow-items" aria-live="off" role="presentation" style="min-height: 100vh; height: 100vh; margin: 0; padding: 0;">
+            <ul class="uk-slideshow-items" aria-live="off" role="presentation">
                 @forelse ($section as $key => $sectionItem)
-                    <li class="uk-flex uk-flex-middle uk-active uk-transition-active" role="tabpanel" aria-label="1 of 2" tabindex="-1" style="background-image: url('{{ asset('storage/' . $sectionItem->image) }}'); background-size: cover; background-position: center; height: 90vh; width: 100%; margin: 0; padding: 0;">
+                    <li class="uk-flex uk-flex-middle uk-active uk-transition-active" role="tabpanel" aria-label="1 of 2" tabindex="-1" style="background-image: url('{{ asset('storage/' . $sectionItem->image) }}'); background-size: cover; background-position: center; height: 75vh; width: 100%; margin: 0; padding: 0;">
                         <div class="uk-container" style="height: 100%;">
                             <div class="uk-grid-large uk-flex-middle uk-grid" data-uk-grid style="height: 100%;">
                                 <div class="uk-width-1-2@s in-slide-text">
@@ -187,7 +186,7 @@
 
     <!-- section content begin -->
     @forelse ($profile as $profile)
-    <div class="uk-section in-content-3 uk-background-contain uk-background-center uk-margin-xlarge-top" data-src="img/in-equity-2-bg.png"
+    <div class="uk-section in-content-3 uk-background-contain uk-background-center uk-margin-large-top" data-src="img/in-equity-2-bg.png"
         data-uk-img=""style="background-image: url(&quot;https://www.indonez.com/html-demo/equity/img/in-equity-2-bg.png&quot;);">
         <div class="uk-container">
             <div class="uk-grid uk-grid-stack uk-flex-middle uk-margin-medium-top" data-uk-grid>
