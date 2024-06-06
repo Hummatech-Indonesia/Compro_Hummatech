@@ -140,15 +140,18 @@
                                                 <div class="uk-tile uk-tile-default uk-first-column uk-flex uk-flex-center">
                                                     <img class="uk-margin-remove"
                                                         src="{{ asset('storage/' . $collab->image) }}" alt="equity-press"
-                                                        width="170" height="68">
+                                                        width="170" height="68" style="object-fit: cover">
                                                     <p class="uk-text-center">
                                                         {{ $collab->name }}
                                                     </p>
                                                 </div>
                                             @empty
-                                                <h4 class="text-center text-dark" style="font-weight:600">
-                                                    Belum ada Mitra
-                                                </h4>
+                                            <div class="uk-flex uk-flex-center">
+                                                <img src="{{ asset('empty.png') }}" alt="" srcset="">
+                                            </div>
+                                            <h2 class="uk-text-center">
+                                               Belum ada Mitra
+                                            </h2>
                                             @endforelse
                                         </div>
                                     </div>
@@ -160,9 +163,12 @@
             </div>
         </div>
     @empty
-        <h4 class="text-center text-dark" style="font-weight:600">
-            Belum ada Mitra
-        </h4>
+    <div class="uk-flex uk-flex-center">
+        <img src="{{ asset('empty.png') }}" alt="" srcset="">
+    </div>
+    <h2 class="uk-text-center">
+       Belum ada Mitra
+    </h2>
     @endforelse
 
 
