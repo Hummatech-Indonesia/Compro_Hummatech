@@ -7,6 +7,7 @@ use App\Contracts\Interfaces\JobVacancyInterface;
 use App\Contracts\Interfaces\ProfileInterface;
 use App\Contracts\Interfaces\VacancyInterface;
 use App\Contracts\Interfaces\WorkFlowInterface;
+use App\Models\JobVacancy;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
@@ -43,5 +44,10 @@ class HomeVacancyController extends Controller
         $jobVacancies = $this->jobVacancy->get();
 
         return view('landing.vacancy.index', compact('vacancyData' ,'workflows', 'background', 'jobVacancies'));
+    }
+
+    public function show(JobVacancy $jobVacancy)
+    {
+        return view('landing.vacancy.detail', compact('jobVacancy'));
     }
 }

@@ -101,7 +101,7 @@
                             <h3 class="uk-margin-remove-bottom">{{ $jobVacancy->name }}</h3>
                             <p class="uk-margin-small-top">{!! $jobVacancy->description !!}</p>
                             <h4>Rp. {{ number_format($jobVacancy->salary, 0, ',', '.') }}</h4>
-                            <a class="uk-button uk-width-full uk-button-primary uk-border-rounded" href="#">Detail<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                            <a class="uk-button uk-width-full uk-button-primary uk-border-rounded" href="{{ route('vacancy.detail', $jobVacancy->slug) }}">Detail<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
                         </div>
                     </div>
                 @empty
