@@ -91,6 +91,7 @@
         </div>
     </div>
 </div>
+@if (!$product->features->isEmpty())
 
 <div class="uk-section">
     <div class="uk-container">
@@ -124,6 +125,7 @@
         </div>
     </div>
 </div>
+@endif
 
 @if (!$testimonials->isEmpty())
 <div class="uk-section in-equity-4">
