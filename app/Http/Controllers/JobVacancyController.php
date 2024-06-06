@@ -6,14 +6,17 @@ use App\Contracts\Interfaces\JobVacancyInterface;
 use App\Models\JobVacancy;
 use App\Http\Requests\StoreJobVacancyRequest;
 use App\Http\Requests\UpdateJobVacancyRequest;
+use App\Services\JobVacancyService;
 
 class JobVacancyController extends Controller
 {
     private JobVacancyInterface $jobVacancy;
+    private JobVacancyService $service;
 
-    public function __construct(JobVacancyInterface $jobVacancy,)
+    public function __construct(JobVacancyInterface $jobVacancy, JobVacancyService $service)
     {
         $this->jobVacancy = $jobVacancy;
+        $this->service = $service;
     }
 
     /**
@@ -38,8 +41,10 @@ class JobVacancyController extends Controller
      */
     public function store(StoreJobVacancyRequest $request)
     {
+
         try {
-            $this->jobVacancy->store($request->validated());
+            $data = $this->service->store($request);
+            $this->jobVacancy->store($data);
             return back()->with('success' , 'Berhasil menambahkan lowongan');
         } catch (\Throwable $th) {
             return back()->with('danger' , $th->getMessage());
@@ -68,7 +73,8 @@ class JobVacancyController extends Controller
     public function update(UpdateJobVacancyRequest $request, JobVacancy $jobVacancy)
     {
         try {
-            $this->jobVacancy->update($jobVacancy->id, $request->validated());
+            $data = $this->service->update($jobVacancy, $request);
+            $this->jobVacancy->update($jobVacancy->id, $data);
             return back()->with('success', 'Lowongan berhasil diperbarui');
         } catch (\Throwable $th) {
             return back()->with('danger' , $th->getMessage());
