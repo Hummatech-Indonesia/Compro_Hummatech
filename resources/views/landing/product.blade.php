@@ -114,7 +114,7 @@
         @forelse ($categories as $category)
             <li><a href="#{{ $category->slug }}"><b>{{ $category->name }}</b></a></li>
         @empty
-            
+
         @endforelse
     </ul>
 
@@ -129,10 +129,10 @@
                             </div>
                         </div>
                         <div class="uk-width-2-5@m uk-flex uk-flex-middle {{ $key % 2 == 1 ? 'uk-flex-first@m': '' }}">
-                            <div>   
+                            <div>
                                 <h3>{{ $product->name }}</h3>
                                 <p>{!! $product->description !!}</p>
-                                <a href="{{ route('detail.product', $product->slug) }}" class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-top uk-margin-small-right">Detail
+                                <a href="{{ $compact == $comingProducts ? '/product/coming-soon/'$product->slug : '/product/' $product->slug }}"                                    class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-top uk-margin-small-right">Detail
                                     <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
                                 </a>
                                 @if ($product->link != null)
@@ -152,7 +152,7 @@
             @endforelse
         </li>
 
-        
+
         @forelse ($categories as $key => $category)
             <li>
                 @forelse (App\Models\Product::where('type', '!=', 'portfolio')->where('category_product_id', $category->id)->get() as $product)
@@ -164,10 +164,11 @@
                                 </div>
                             </div>
                             <div class="uk-width-2-5@m uk-flex uk-flex-middle {{ $key % 2 == 1 ? 'uk-flex-first@m': '' }}">
-                                <div>   
+                                <div>
                                     <h3>{{ $product->name }}</h3>
                                     <p>{!! $product->description !!}</p>
-                                    <a href="/product/detail" class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-top uk-margin-small-right">Detail
+                                    <a href="{{ $compact == $comingProducts ? '/product/coming-soon/'$product->slug : '/product/' $product->slug }}"
+                                        class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-top uk-margin-small-right">Detail
                                         <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
                                     </a>
                                     <a href="#" class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">Kunjungi Website
@@ -185,7 +186,7 @@
                 @endforelse
             </li>
         @empty
-            
+
         @endforelse
     </ul>
 </div>
