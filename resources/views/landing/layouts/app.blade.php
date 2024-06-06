@@ -125,7 +125,7 @@
                             @forelse ($socmed as $social)
                             <a href="{{$social->link}}" class="text-decoration-none uk-text-primary uk-margin-small-bottom uk-display-inline-block uk-padding-small uk-background-muted uk-border-rounded">
                                 {{$social->platform}}
-                                <img src="{{ asset('storage/' . $mitra->image) }}" alt="{{$social->platform}}" style="width: 20px; height: 20px; margin-left: 5px;">
+                                <img src="{{ asset('storage/' . $social->image) }}" alt="{{$social->platform}}" style="width: 20px; height: 20px; margin-left: 5px;">
                             </a>
 
                             @empty
