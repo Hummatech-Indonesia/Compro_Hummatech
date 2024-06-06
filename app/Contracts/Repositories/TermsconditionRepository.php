@@ -46,4 +46,8 @@ class TermsconditionRepository extends BaseRepository implements TermsconditionI
         })
         ->get();
     }
+    public function getByServiceId(mixed $id): mixed
+    {
+        return $this->model->query()->where('service_id', $id)->get();
+    }
 }

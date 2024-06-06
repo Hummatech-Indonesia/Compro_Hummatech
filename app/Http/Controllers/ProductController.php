@@ -194,7 +194,7 @@ class ProductController extends Controller
     {
         $id  = $product->id;
         $testimonials = $this->testimonial->ServiceProductShow('product_id', $id);
-        $faqs = $this->faq->ServiceProductShow('product_id', $id);  
+        $faqs = $this->faq->ServiceProductShow('product_id', $id);
 
         return view('landing.product.product-detail', compact('product', 'testimonials', 'faqs'));
     }

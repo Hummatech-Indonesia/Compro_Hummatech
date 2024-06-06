@@ -6,20 +6,18 @@
     }
     #particles-js {
         position: relative;
-        background-image: url('{{ asset('assets/images/mischool.jpg') }}');
         background-size: cover;
         background-position: center;
-        height: 500px; /* Default height for the element */
-
     }
+
     #particles-js::before {
         content: "";
         position: absolute;
         top: 0;
         left: 0;
         right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.5); /* Adjust the opacity as needed */
+        bottom: 20%;
+        background: rgba(0, 0, 0, 0.5);
         z-index: 1;
     }
     .uk-slideshow-items,
@@ -33,48 +31,36 @@
         max-width: 100%;
         height: auto;
     }
-
     @media screen and (max-width: 768px) {
         #particles-js {
-            height: 450px; /* Sesuaikan tinggi gambar untuk tampilan tablet */
+            height: 100vh;
         }
     }
-
     @media screen and (max-width: 576px) {
-    #particles-js {
-        height: 500px; /* Sesuaikan tinggi gambar untuk tampilan ponsel */
+        #particles-js {
+            height: 100vh;
+        }
     }
-}
-
-
     .news-title,
     .news-description {
         word-wrap: break-word;
         word-break: break-word;
         overflow-wrap: break-word;
     }
-
-    /* .uk-grid > div {
-        display: flex;
-        flex-direction: column;
-    } */
-
     .uk-grid > div article {
         flex: 1;
         display: flex;
         flex-direction: column;
     }
-
-
-</style>
-
-<style>
+    .slide-background {
+        background-size: cover;
+        background-position: center;
+    }
     .image-container {
         position: relative;
         width: 100%;
         padding-top: 100%;
     }
-
     .image-background,
     .image-foreground {
         position: absolute;
@@ -84,44 +70,47 @@
         height: 90%;
         object-fit: cover;
     }
-
     .image-background {
         z-index: 1;
         transform: translate(10%, -10%);
     }
-
     .image-foreground {
         z-index: 1;
     }
+    .uk-slideshow-items li::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+
 
     @media (max-width: 768px) {
         .image-container {
             padding-top: 100%;
         }
-
         .image-background {
             width: 80%;
             height: 80%;
             transform: translate(10%, -10%);
         }
-
         .image-foreground {
             width: 80%;
             height: 80%;
         }
     }
-
     @media (max-width: 480px) {
         .image-container {
             padding-top: 100%;
         }
-
         .image-background {
             width: 70%;
             height: 70%;
             transform: translate(15%, -15%);
         }
-
         .image-foreground {
             width: 70%;
             height: 70%;
@@ -129,131 +118,69 @@
     }
 </style>
 
+
 @endsection
 @section('content')
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    {{-- <div class="uk-section uk-padding-remove-vertical in-slideshow-gradient">
-        <div id="particles-js" class="uk-light in-slideshow uk-background-contain" data-src="{{ asset('assets/images/mischool.jpg') }}"
-            data-uk-img data-uk-slideshow>
-            <hr>
-            <ul class="uk-slideshow-items">
-                <li class="uk-flex uk-flex-middle">
-                    <div class="uk-container">
-                        <div class="uk-grid-large uk-flex-middle" data-uk-grid>
-                            <div class="uk-width-1-2@s in-slide-text">
-                                <h1 class="uk-heading-small">Maju Bersama Berkembang Bersama.</h1>
-                                <p class="uk-text-lead uk-visible@m">bertransformasi menjadi perusahaan yang mampu menjawab
-                                    tantangan di era revolusi industri 4.0.</p>
-                                <div class="uk-grid-medium uk-child-width-1-3@m uk-child-width-1-2@s uk-margin-medium-top uk-visible@s"
-                                    data-uk-grid>
-                                    <div class="uk-visible@m">
-                                        <button class="uk-button uk-button-primary uk-border-rounded"
-                                            style="background-color:#FCB42D; color:">
-                                            Selengkapnya <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="in-slide-img">
-                                <img src="assets_landing/img/in-lazy.gif"
-                                    data-src="{{ asset('assets_landing/img/in-equity-slide-1.png') }}" alt="image-slide"
-                                    width="500" height="746" data-uk-img>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-            <div class="uk-container">
-                <div class="uk-position-relative" data-uk-grid>
-                    <ul class="uk-slideshow-nav uk-dotnav uk-position-bottom-right uk-flex uk-flex-middle"></ul>
-                </div>
-            </div>
-        </div>
-    </div> --}}
 
-    <!-- slideshow content begin -->
-    @forelse ($section as $key => $sectionItem)
-
-        <div class="uk-section uk-padding-remove-vertical in-slideshow-gradient">
-            <div id="particles-js"  class="uk-light in-slideshow uk-background-contain uk-slideshow" data-src="{{ asset('storage/' . $sectionItem->image) }}" data-uk-img data-uk-slideshow role="region"
-            ariaroledescription="carousel" style="background-image: url('{{ asset('storage/' . $sectionItem->image) }}');">
-                <hr>
-                <ul class="uk-slideshow-items" aria-live="off" role="presentation" style="min-height: 440px;">
-                    <li class="uk-flex uk-flex-middle" role="tabpanel" aria-label="1 of 2" tabindex="-1" id="uk-slideshow-7-item-0" style>
-                        <div class="uk-container">
-                            <div class="uk-grid-large uk-flex-middle uk-grid uk-grid-stack" data-uk-grid>
-                                <div class="uk-width-1-2@s in-slide-text uk-first-column">
+    <div class="uk-section uk-padding-remove-vertical in-slideshow-gradient">
+        <div id="particles-js" class="uk-light in-slideshow uk-background-contain uk-slideshow" data-uk-img data-uk-slideshow role="region" aria-roledescription="carousel" autoplay>
+            <ul class="uk-slideshow-items" aria-live="off" role="presentation" style="min-height: 100vh; height: 100vh; margin: 0; padding: 0;">
+                @forelse ($section as $key => $sectionItem)
+                    <li class="uk-flex uk-flex-middle uk-active uk-transition-active" role="tabpanel" aria-label="1 of 2" tabindex="-1" style="background-image: url('{{ asset('storage/' . $sectionItem->image) }}'); background-size: cover; background-position: center; height: 100vh; width: 100%; margin: 0; padding: 0;">
+                        <div class="uk-container" style="height: 100%;">
+                            <div class="uk-grid-large uk-flex-middle uk-grid" data-uk-grid style="height: 100%;">
+                                <div class="uk-width-1-2@s in-slide-text">
                                     <h1 class="uk-heading-small">
-
-                                        <span class="in-highlight">{{ $sectionItem->title }} </span>
+                                        <span class="in-highlight">{{ $sectionItem->title }}</span>
                                     </h1>
                                     <p class="uk-text-lead uk-visible@m">
                                         {{ $sectionItem->subtitle }}
                                     </p>
-                                    <div class="uk-grid-medium uk-child-width-1-3@m uk-child-width-1-2@s uk-margin-medium-top uk-visible@s uk-grid uk-grid-stack" data-uk-grid>
+                                    <div class="uk-grid-medium uk-child-width-1-3@m uk-child-width-1-2@s uk-margin-medium-top uk-visible@s uk-grid" data-uk-grid>
                                         <div>
                                             @if (!empty($sectionItem->link))
-                                                <a href="{{ $sectionItem->link }}" class="uk-button uk-button-primary uk-border-rounded"
-                                                    style="background-color:#d7ac53; color:white">
+                                                <a href="{{ $sectionItem->link }}" class="uk-button uk-button-primary uk-border-rounded" style="background-color:#d7ac53; color:white">
                                                     Selengkapnya <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                                                </a>
                                             @endif
-
-                                        </a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </li>
-                </ul>
-            </div>
-        </div>
-
-    @empty
-    <div class="uk-section uk-padding-remove-vertical in-slideshow-gradient">
-        <div id="particles-js"  class="uk-light in-slideshow uk-background-contain uk-slideshow" data-src="img/in-equity-decor-1.svg" data-uk-img data-uk-slideshow role="region"
-        ariaroledescription="carousel" style="background-image: url('{{ asset('assets/images/mischool.jpg') }}');">
-            <hr>
-            <ul class="uk-slideshow-items" aria-live="off" role="presentation" style="min-height: 440px;">
-                <li class="uk-flex uk-flex-middle" role="tabpanel" aria-label="1 of 2" tabindex="-1" id="uk-slideshow-7-item-0" style>
-                    <div class="uk-container">
-                        <div class="uk-grid-large uk-flex-middle uk-grid uk-grid-stack" data-uk-grid>
-                            <div class="uk-width-1-2@s in-slide-text uk-first-column">
-                                <h1 class="uk-heading-small">
-                                    Maju Bersama
-                                    <span class="in-highlight">Berkembang </span>
-                                    Bersama
-                                </h1>
-                                <p class="uk-text-lead uk-visible@m">
-                                    bertransformasi menjadi perusahaan yang mampu menjawab
-                                    tantangan di era revolusi industri 4.0                                </p>
-                                <div class="uk-grid-medium uk-child-width-1-3@m uk-child-width-1-2@s uk-margin-medium-top uk-visible@s uk-grid uk-grid-stack" data-uk-grid>
-                                    <div>
-                                        <button class="uk-button uk-button-primary uk-border-rounded"
-                                        style="background-color:#d7ac53; color:white">
-                                        Selengkapnya <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
-                                    </button>
-                                    </div>
+                @empty
+                    <li class="uk-flex uk-flex-middle uk-active uk-transition-active" role="tabpanel" aria-label="1 of 2" tabindex="-1" style="background-image: url('{{ asset('assets/images/default-background.jpg') }}'); background-size: cover; background-position: center; height: 100vh; width: 100%; margin: 0; padding: 0;">
+                        <div class="uk-container" style="height: 100%;">
+                            <div class="uk-grid-large uk-flex-middle uk-grid" data-uk-grid style="height: 100%;">
+                                <div class="uk-width-1-2@s in-slide-text">
+                                    <h1 class="uk-heading-small">
+                                        The world's most
+                                        <span class="in-highlight">powerful</span>
+                                        trade app.
+                                    </h1>
+                                    <p class="uk-text-lead uk-visible@m">
+                                        Get the most accurate market data, alerts, conversions, tools and more — all within the same app.
+                                    </p>
                                 </div>
                             </div>
-
                         </div>
-                    </div>
-                </li>
+                    </li>
+                @endforelse
             </ul>
         </div>
     </div>
-    @endforelse
-    <!-- slideshow content end -->
+
 
     <!-- section content begin -->
     @forelse ($profile as $profile)
-    <div class="uk-section in-content-3 uk-background-contain uk-background-center" data-src="img/in-equity-2-bg.png"
+    <div class="uk-section in-content-3 uk-background-contain uk-background-center uk-margin-xlarge-top" data-src="img/in-equity-2-bg.png"
     data-uk-img=""
     style="background-image: url(&quot;https://www.indonez.com/html-demo/equity/img/in-equity-2-bg.png&quot;);">
     <div class="uk-container">
             <div class="uk-grid uk-grid-stack uk-flex-middle uk-margin-medium-top" data-uk-grid>
-                <div class="uk-width-3-5@m uk-first-column">
+                <div class="uk-width-3-5@m uk-first-column uk-margin-xlarge-top">
                     <h1>{{ $profile->title }}</h1>
                     <p class="uk-text-justify">
                         {!! $profile->description !!}
@@ -290,7 +217,7 @@
     @endphp
 
     @if ($hasServices)
-        <div class="uk-section uk-section-primary uk-preserve-color in-equity-1">
+        <div class="uk-section uk-section-primary uk-preserve-color in-equity-1 ">
             <div class="uk-container">
                 <div class="uk-grid">
                     <div class="uk-width-1-1">
@@ -323,42 +250,46 @@
 
 
     <!-- section content end -->
-    @forelse ($product as $produk)
-    <div class="uk-section">
-        <div class="uk-container">
-            <div class="uk-grid-match uk-child-width-1-2@s uk-child-width-1-3@m in-card-10" data-uk-grid>
-                <div class="uk-width-1-1">
-                    <h1 class="uk-margin-remove uk-text-center">Menghadirkan produk dengan kualitas dan inovasi terbaik</h1>
-                    <p class="uk-text-center">
-                        Kami berkomitmen untuk menghadirkan produk-produk berkualitas tinggi yang dipadukan dengan inovasi
-                        terdepan, memenuhi kebutuhan dan harapan konsumen dengan sempurna.
-                    </p>
-                </div>
-
-                    <div>
-                        <div
-                            class="uk-card uk-card-default uk-card-body uk-box-shadow-small uk-border-rounded uk-light in-card-green">
-                            <div class="in-icon-wrap uk-margin-bottom">
-                                <i class="fas fa-seedling fa-lg"></i>
-                            </div>
-                            <h4 class="uk-margin-top">
-                                <a href="{{ route('detail.product', $produk->slug) }}">{{ $produk->name }}<i class="fas fa-chevron-right uk-float-right"></i></a>
-                            </h4>
-                            <hr>
-                            <p>
-                                {!! Str::words(html_entity_decode($produk['description']), 160, '') !!}
-                            </p>
-                        </div>
+    @if ($product->isNotEmpty())
+        <div class="uk-section">
+            <div class="uk-container">
+                <div class="uk-grid-match uk-child-width-1-2@s uk-child-width-1-3@m in-card-10" data-uk-grid>
+                    <div class="uk-width-1-1">
+                        <h1 class="uk-margin-remove uk-text-center">Menghadirkan produk dengan kualitas dan inovasi terbaik</h1>
+                        <p class="uk-text-center">
+                            Kami berkomitmen untuk menghadirkan produk-produk berkualitas tinggi yang dipadukan dengan inovasi
+                            terdepan, memenuhi kebutuhan dan harapan konsumen dengan sempurna.
+                        </p>
                     </div>
+
+                    @forelse ($product as $produk)
+                        <div>
+                            <div class="uk-card uk-card-default uk-card-body uk-box-shadow-small uk-border-rounded uk-light in-card-green">
+                                <div class="in-icon-wrap uk-margin-bottom">
+                                    <i class="fas fa-seedling fa-lg"></i>
+                                </div>
+                                <h4 class="uk-margin-top">
+                                    <a href="{{ route('detail.product', $produk->slug) }}">{{ $produk->name }}<i class="fas fa-chevron-right uk-float-right"></i></a>
+                                </h4>
+                                <hr>
+                                <p>
+                                    {!! Str::words(html_entity_decode($produk['description']), 160, '') !!}
+                                </p>
+                            </div>
+                        </div>
+                    @empty
+                        <!-- Tidak ada produk -->
+                    @endforelse
+                </div>
             </div>
         </div>
-    </div>
-    @empty
+    @endif
 
-    @endforelse
+
+
         <!-- section content begin -->
+        @if ($mitras->isNotEmpty())
         <div class="uk-section" style="background-color: #edeff1">
-            @if ($mitras->isNotEmpty())
                 <div class="uk-width-1-1@m uk-text-center">
                     <h1><span class="in-highlight">MITRA KAMI</span></h1>
                     <p class="uk-text-lead uk-margin-remove-top">Tumbuh bersama: Kolaborasi menuju kesuksesan</p>
@@ -371,7 +302,7 @@
                                     <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
                                         <div class="uk-slider-items uk-flex uk-flex-center uk-grid-collapse uk-child-width-1-6@m uk-child-width-1-2@s uk-text-center in-client-logo-6" data-uk-grid>
                                             @forelse ($mitras as $mitra)
-                                                <div class="uk-tile uk-tile-default" style="background-color: transparent">
+                                                <div class="uk-tile uk-tile-default " style="background-color: transparent">
                                                     <img class="uk-margin-remove" src="{{ asset('storage/' . $mitra->image) }}" alt="{{ $mitra->name }}" width="167" height="55">
                                                 </div>
                                             @empty
@@ -472,7 +403,9 @@
                     @if ($index < 6)
                         <li>
                             <div class="uk-inline-clip uk-transition-toggle uk-border-rounded" tabindex="0">
-                                <img class="uk-transition-scale-up uk-transition-opaque" src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->name }}">
+                                <a href="{{ route('detail.portfolio', $portfolio->slug) }}"> <!-- Tautan ke halaman detail portofolio -->
+                                    <img class="uk-transition-scale-up uk-transition-opaque" src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->name }}">
+                                </a>
                             </div>
                         </li>
                     @endif
@@ -496,4 +429,13 @@
 
 
     <!-- section content end -->
+@endsection
+
+@section('script')
+<script>
+    // Inisialisasi corousel untuk setiap elemen dengan class "uk-slideshow"
+    document.querySelectorAll('.uk-slideshow').forEach(function(element) {
+        UIkit.slideshow(element);
+    });
+</script>
 @endsection

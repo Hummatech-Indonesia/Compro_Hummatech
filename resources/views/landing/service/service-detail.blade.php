@@ -16,6 +16,21 @@
 </div>
 <!-- header end -->
 @endsection
+
+@section('style')
+<style>
+.active-card {
+    background-color: #D7AC53;
+    color: #ffffff;
+}
+
+.active-card .black-color i {
+    color: #000000;
+}
+
+</style>
+@endsection
+
 @section('content')
 <main data-title="blog">
     <!-- blog content begin -->
@@ -26,73 +41,86 @@
                     {{-- service start --}}
                     <div class="in-blog-1 uk-grid uk-grid-stack" data-uk-grid="">
                         <div class="in-stretch uk-first-column">
-                            <img src="{{ asset('assets/images/banner/2.jpg') }}">
+                            <img src="{{ asset('storage/' . $slugs->image) }}">
                             <div class="">
                                 <h3>
-                                    <h3>Magang PKL</h3>
+                                    <h3>{{ $slugs->name }}</h3>
                                 </h3>
-                                <p>Lorem ipsum dolor sit amet consectetur. Tincidunt pellentesque pellentesque sed in. Sit nunc velit aliquam quis faucibus nibh nisl pellentesque. Massa natoque mattis quisque ut. Lorem ipsum dolor sit amet consectetur. Tincidunt pellentesque pellentesque sed in. Sit nunc velit aliquam quis faucibus nibh nisl pellentesque. Massa natoque mattis quisque ut</p>
-                                <a class="uk-button uk-button-primary uk-border-rounded" href="#">
-                                    Kunjungi website
-                                    <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
-                                </a>
-                            </div>                           
+                                <p>{!! $slugs->description !!}</p>
+                                @if ($slugs->link)
+                                    <a href="{{ $slugs->link }}" target="_blank" class="uk-button uk-button-primary uk-border-rounded"
+                                        href="">Kunjungi website
+                                        <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                                    </a>
+                                @endif
+                            </div>
                         </div>
                     </div>
                     {{-- service end --}}
 
                     {{-- products start --}}
+                    @if (!$products->isEmpty())
                     <div class="uk-container uk-margin-large-top uk-margin-large-bottom">
                         <h4 class="uk-text-left">
                             <span class="in-highlight uk-padding-small uk-padding-remove-left uk-text-capitalize">produk yang dihasilkan</span>
                         </h4>
-                        @foreach (range(1,2) as $key => $item)
+                        @forelse ($products as $key => $product)
                             <div class="uk-grid uk-grid-large uk-flex uk-flex-top" data-uk-grid>
                                 <div class="uk-width-2-5@m uk-flex uk-flex-top uk-margin-small-bottom {{ $key % 2 == 1 ? 'uk-flex-last@m' : '' }}">
                                     <div class="in-equity-video">
-                                        <img class="uk-border-rounded uk-width-1-1" src="{{ asset('assets/images/banner/3.jpg') }}" data-src="{{ asset('assets/images/banner/3.jpg') }}" alt="sample-images" width="433" height="255" data-uk-img>
+                                        <img class="uk-border-rounded uk-width-1-1" src="{{ asset('storage/' . $product->image) }}" data-src="{{ asset('storage/' . $product->image) }}" alt="sample-images" width="433" height="255" data-uk-img>
                                     </div>
                                 </div>
                                 <div class="uk-width-3-5@m uk-flex uk-flex-top {{ $key % 2 == 1 ? 'uk-flex-first@m': '' }}">
                                     <div>
-                                        <h3 class="uk-margin-remove">Milink.id</h3>
-                                        <p class="uk-margin-remove">Lorem ipsum dolor sit amet consectetur. Tincidunt pellentesque pellentesque sed in. mattis quisque ut. Lorem ipsum dolor sit amet consectetur. Tincidunt pellentesque pellentesque sed in. mattis quisque ut Baca Selengkapnya...</p>
-                                        <a class="uk-padding-small uk-button uk-button-text" href="#">Lihat Detail<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
-                                        <a href="#" class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">Kunjungi Website
+                                        <h3 class="uk-margin-remove">{{ $product->name }}</h3>
+                                        <p class="uk-margin-remove">{{ $product->description }}</p>
+                                        <a class="uk-padding-small uk-button uk-button-text" href="/product/{{ $product->slug }}">Lihat Detail<i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                                        <a href="{{ $product->link }}" class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">Kunjungi Website
                                             <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
                                         </a>
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
+                        @empty
+
+                        @endforelse
                     </div>
+                    @endif
+
                     {{-- products end --}}
 
                     {{-- terms and conditions start --}}
+
+                    @if (!$products->isEmpty())
                     <div class="uk-container uk-margin-large-top uk-margin-large-bottom">
                         <h4 class="uk-text-left">
                             <span class="in-highlight uk-padding-small uk-padding-remove-left uk-text-capitalize">Syarat dan Ketentuan</span>
                         </h4>
-                        @foreach (range(1, 2) as $key => $item)
-                            <div class="uk-grid uk-grid-large uk-flex uk-flex-top" data-uk-grid>
-                                <div class="uk-grid uk-grid-small uk-flex uk-flex-middle">
-                                    <div class="uk-width-auto">
-                                    <div class="in-icon-wrap primary-color">
-                                        <i class="">0{{ ++$key }}</i>
-                                    </div>
-                                    </div>
-                                    <div class="uk-width-expand">
-                                        <p>Condimentum vitae sapien pellentesque habitant. Lectus sit amet est placerat. Vitae proin sagittis nisl rhoncus mattis rhoncus urna
-                                            neque. General Disclaimer</p>
-                                    </div>
+                        @forelse ($termsconditions as $key => $termscondition)
+                        <div class="uk-grid uk-grid-large uk-flex uk-flex-top" data-uk-grid>
+                            <div class="uk-grid uk-grid-small uk-flex uk-flex-middle">
+                                <div class="uk-width-auto">
+                                <div class="in-icon-wrap primary-color">
+                                    <i class="">0{{ ++$key }}</i>
+                                </div>
+                                </div>
+                                <div class="uk-width-expand">
+                                    <p>{{$termscondition->termcondition}}</p>
                                 </div>
                             </div>
-                        @endforeach
+                        </div>
+                        @empty
+
+                        @endforelse
                     </div>
+
+                    @endif
                     {{-- terms and conditions end --}}
 
                     {{-- training list start --}}
-                    <div class="uk-container uk-margin-large-top uk-margin-large-bottom">
+
+                    {{-- <div class="uk-container uk-margin-large-top uk-margin-large-bottom">
                         <h4 class="uk-text-left">
                             <span class="in-highlight uk-padding-small uk-padding-remove-left uk-text-capitalize">Daftar Pelatihan</span>
                         </h4>
@@ -113,72 +141,80 @@
                             </div>
                             @endforeach
                         </div>
-                    </div>
+                    </div> --}}
+
                     {{-- training list end --}}
 
                     {{-- mitra start --}}
-                    <div class="uk-container uk-margin-large-top uk-margin-large-bottom in-equity-18">
-                        <h4 class="uk-text-left">
-                            <span class="in-highlight uk-padding-small uk-padding-remove-left uk-text-capitalize">Mitra Kami</span>
-                        </h4>
-                        <div class="uk-card uk-card-body uk-border-rounded">
-                            <div uk-slider="autoplay: true; autoplay-interval: 2000">
-                                <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
-                                    <div class="uk-slider-items uk-grid-collapse uk-child-width-2-6@s uk-child-width-1-4@m uk-text-center in-client-logo-6 uk-grid"
-                                        data-uk-grid>
-                                       @foreach (range(1,10) as $item)
-                                            <div class="uk-tile" style="background-color: transparent">
-                                                <img class="uk-margin-remove" src="{{ asset('assets_landing/img/mitra-1.png') }}" alt="mitra" width="167" height="55">
-                                            </div>
-                                       @endforeach
+                    @if (!$servicemitras->isEmpty())
+                        <div class="uk-container uk-margin-large-top uk-margin-large-bottom in-equity-18">
+                            <h4 class="uk-text-left">
+                                <span class="in-highlight uk-padding-small uk-padding-remove-left uk-text-capitalize">Mitra Kami</span>
+                            </h4>
+                            <div class="uk-card uk-card-body uk-border-rounded">
+                                <div uk-slider="autoplay: true; autoplay-interval: 2000">
+                                    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+                                        <div class="uk-slider-items uk-grid-collapse uk-child-width-2-6@s uk-child-width-1-4@m uk-text-center in-client-logo-6 uk-grid"
+                                            data-uk-grid>
+                                            @forelse ($servicemitras as $mitra)
+                                                <div class="uk-tile" style="background-color: transparent">
+                                                    <img class="uk-margin-remove" src="{{ asset('storage/' . $mitra->mitra->image) }}" alt="mitra" width="167" height="55">
+                                                </div>
+                                            @empty
+
+                                            @endforelse
+
+                                        </div>
+                                        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slider-item="previous"></a>
+                                        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slider-item="next"></a>
                                     </div>
-                                    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slider-item="previous"></a>
-                                    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href uk-slidenav-next uk-slider-item="next"></a>
+                                    {{-- <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul> --}}
                                 </div>
-                                {{-- <ul class="uk-slider-nav uk-dotnav uk-flex-center uk-margin"></ul> --}}
                             </div>
                         </div>
-                    </div>
+                    @endif
                     {{-- mitra end --}}
 
                     {{-- procedure start --}}
-                    <div class="uk-container uk-margin-large-top uk-margin-large-bottom in-equity-9">
-                        <h4 class="uk-text-left">
-                            <span class="in-highlight uk-padding-small uk-padding-remove-left uk-text-capitalize">Prosedur</span>
-                        </h4>
-                        <div class="uk-grid uk-child-width-1-3@s uk-child-width-1-3@m uk-text-center in-register" data-uk-grid="">
-                            <div class="uk-width-1-1 in-h-line uk-first-column">
-                                <span class="uk-padding"></span>
-                            </div>
-                            <div class="uk-grid-margin uk-first-column">
-                                <span class="in-icon-wrap circle">1</span>
-                                <p>Choose an account tier and submit your application</p>
-                            </div>
-                            <div class="uk-grid-margin">
-                                <span class="in-icon-wrap circle">2</span>
-                                <p>Add funds quickly and securely via debit card or bank transfer</p>
-                            </div>
-                            <div class="uk-grid-margin">
-                                <span class="in-icon-wrap circle">3</span>
-                                <p>Access 40,000+ instruments across all asset classes</p>
+                    @if (!$procedures->isEmpty())
+                        <div class="uk-container uk-margin-large-top uk-margin-large-bottom in-equity-9">
+                            <h4 class="uk-text-left">
+                                <span class="in-highlight uk-padding-small uk-padding-remove-left uk-text-capitalize">Prosedur</span>
+                            </h4>
+                            <div class="uk-grid uk-child-width-1-3@s uk-child-width-1-3@m uk-text-center in-register" data-uk-grid="">
+                                <div class="uk-width-1-1 in-h-line uk-first-column">
+                                    <span class="uk-padding"></span>
+                                </div>
+                                @forelse ($procedures as $index => $procedure)
+                                    <div class="uk-grid-margin uk-first-column">
+                                        <span class="in-icon-wrap circle">{{++$index}}</span>
+                                        <p>{{ $procedure->description }}</p>
+                                    </div>
+                                @empty
+
+                                @endforelse
                             </div>
                         </div>
-                    </div>
+                    @endif
                     {{-- procedure end --}}
 
                     {{-- gallery start --}}
-                    <div class="uk-container uk-margin-large-top uk-margin-large-bottom">
-                        <h4 class="uk-text-left">
-                            <span class="in-highlight uk-padding-small uk-padding-remove-left uk-text-capitalize">Galeri</span>
-                        </h4>
-                        <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
-                            @foreach (range(1, 4) as $item)
-                            <div>
-                                <img class="uk-border-rounded uk-width-1-1" src="{{ asset('assets_landing/img/blockit/in-gallery-image-2.jpg') }}" data-src="{{ asset('assets_landing/img/blockit/in-gallery-image-2.jpg') }}" width="340" height="400" data-uk-img="">
+                    @if (!$galeries->isEmpty())
+                        <div class="uk-container uk-margin-large-top uk-margin-large-bottom">
+                            <h4 class="uk-text-left">
+                                <span class="in-highlight uk-padding-small uk-padding-remove-left uk-text-capitalize">Galeri</span>
+                            </h4>
+                            <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
+                                @forelse ($galeries as $galery)
+                                <div>
+                                    <img class="uk-border-rounded uk-width-1-1" src="{{ asset('storage/' . $galery->image) }}" data-src="{{ asset('storage/' . $galery->image) }}" width="340" height="400" data-uk-img="">
+                                </div>
+                                @empty
+
+                                @endforelse
                             </div>
-                            @endforeach
                         </div>
-                    </div>
+                    @endif
                     {{-- gallery end --}}
                 </div>
                 <div class="uk-width-expand@m">
@@ -186,22 +222,28 @@
                         <span class="in-highlight uk-padding-small uk-padding-remove-left uk-text-capitalize">daftar layanan</span>
                     </h4>
                     <!-- widget lates begin -->
-                    <aside class="uk-margin-medium-bottom">
-                        <a href="" class="uk-text-decoration-none">
-                            <div class="uk-card uk-card-default uk-card-body uk-padding-small uk-border-rounded">
+                    @forelse ($services as $service)
+                    <aside class="uk-margin-small-bottom">
+                        <a href="/services/{{ $service->slug }}" class="uk-text-decoration-none">
+                            <div class="uk-card uk-card-default uk-card-body uk-padding-small uk-border-rounded {{ request()->is('services/' . $service->slug) ? 'active-card' : '' }}">
                                 <div class="uk-grid uk-grid-small uk-flex uk-flex-middle">
                                     <div class="uk-width-auto">
-                                      <div class="in-icon-wrap primary-color">
-                                        <i class="fas fa-users fa-lg"></i>
-                                      </div>
+                                        <div class="in-icon-wrap black-color">
+                                            <i class="fas fa-users fa-lg"></i>
+                                        </div>
                                     </div>
                                     <div class="uk-width-expand">
-                                        <h4>Magang PKL</h4>
+                                        <h4>{{ $service->name }}</h4>
                                     </div>
                                 </div>
                             </div>
                         </a>
                     </aside>
+
+
+                    @empty
+
+                    @endforelse
                     <!-- widget lates end -->
                     <!-- widget tags begin -->
                     <aside class="uk-margin-medium-bottom">
@@ -211,11 +253,53 @@
                                 <b>Perlu bantuan?</b>
                                 <p class="uk-margin-remove">Kami siap melayani 24 jam, silahkan hubungi layanan call center kami melalui:</p>
                                 <ul type="none" class="uk-padding-remove-left">
-                                    <li>WhatsApp: <b>085176777785</b></li>
-                                    <li>Email: <b>info@hummatech.com</b></li>
-                                    <li>DM Instagram: <b>@hummatech</b></li>
+                                    <li>
+                                        @if (isset($profile) && $profile->type != null)
+                                    @php
+                                        $cleanPhone = str_replace(['+', '-', ' '], '', $profile->phone);
+
+                                        if (substr($cleanPhone, 0, 2) === '62') {
+                                            $phoneNumber = '0' . substr($cleanPhone, 2);
+                                            $waNumber = $cleanPhone;
+                                        } elseif (substr($cleanPhone, 0, 1) === '0') {
+                                            $waNumber = '62' . substr($cleanPhone, 1);
+                                            $phoneNumber = $cleanPhone;
+                                        } else {
+                                            $phoneNumber = $cleanPhone;
+                                        }
+                                    @endphp
+                                    <p class="mb-0 pb-0 uk-text-emphasis">{{ $profile->type == 'wa' ? 'WhatsApp: ' : 'Phone:' }}
+                                        <a href="{{ $profile->type == 'wa' ? 'https://wa.me/' . $waNumber : 'tel: ' . $phoneNumber }}" class="uk-text-emphasis"
+                                            target="_blank">{{ $phoneNumber }}</a>
+                                    </p>
+                                @else
+                                    <p class="mb-0 pb-0 ">Phone:
+                                        <a href="https://wa.me/6285176777785" class="uk-text-emphasis text-decpration-none">085176777785</a>
+                                    </p>
+                                @endif
+                                    </li>
+                                    <li>Email: <b>
+                                        @isset($profile)
+                                            <a href="mailto:{{ $profile->email }}" class="uk-text-emphasis">{{ $profile->email }}</a>
+                                        @else
+                                            <a href="mailto:info@hummatech.com" class="uk-text-emphasis">info@hummatech.com</a>
+                                        @endisset
+                                    </b></li>
+                                    @if ($instagram)
+                                         <li>DM Instagram:
+                                            <b><a href="{{ $instagram->link }}" class="uk-text-emphasis"
+                                                target="_blank">{{ '@' . Illuminate\Support\Str::after($instagram->link, 'instagram.com/') }}</a></b>
+                                        </li>
+                                    @endif
                                 </ul>
-                                <p class="uk-margin-remove">Alamat: Perum. Permata Regency 1 Blok 10 No. 28 Ngijo, Kec. Karang Ploso, Kab. Malang, Jawa Timur, Indonesia, 65152</p>
+                                <p class="uk-margin-remove">Alamat:
+                                    @isset($profile)
+                                        {{ $profile->address }}
+                                    @else
+                                        Perum Permata Regency 1 Blok 10/28, Perun Gpa, Ngijo, Kec. Karang
+                                        Ploso, Kabupaten Malang, Jawa Timur 65152.
+                                    @endisset
+                                </p>
                             </div>
                         </div>
                     </aside>

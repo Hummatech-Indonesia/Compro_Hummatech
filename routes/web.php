@@ -229,9 +229,11 @@ Route::get('news/{slugnews}', [NewsController::class, 'showNews'])->name('news.v
 
 //showService
 Route::get('services/{slugService}', [ServiceController::class, 'ShowService']);
+
 // Route::get('services/magang-pkl', function() {
 //     return view('landing.service.service-detail');
 // });
+
 Route::get('services/magang-pkl/training', function() {
     return view('landing.service.training-detail');
 });
@@ -244,10 +246,7 @@ Route::get('/product', [HomeProductController::class, 'index']);
 Route::get('data/product/kategori/{category:slug}',[HomeProductController::class,'productCategory']);
 
 // Detail Product
-// Route::get('/product/detail', [ProductController::class, 'showproduct'])->name('detail.product');
 Route::get('product/{product:slug}', [ProductController::class, 'showproduct'])->name('detail.product');
-
-// Route::get('portfolio/detail', [ProductController::class, 'showproduct'])->name('detail.portfolio');
 Route::get('portfolio/{product:slug}', [ProductController::class, 'showproduct'])->name('detail.portfolio');
 Route::get('product/coming-soon/{ComingSoonProduct:slug}', [ProductController::class, 'showproductcommingsoon'])->name('detail.comming-soon');
 
