@@ -140,11 +140,11 @@
                                                 <div class="uk-tile uk-tile-default uk-first-column uk-flex uk-flex-center">
                                                     <img class="uk-margin-remove"
                                                         src="{{ asset('storage/' . $collab->image) }}" alt="equity-press"
-                                                        width="170" height="68" style="object-fit: cover">
-                                                    <p class="uk-text-center">
+                                                        width="170" height="68" style="object-fit: contain">
+                                                    </div>
+                                                    <h4 class="uk-text-center">
                                                         {{ $collab->name }}
-                                                    </p>
-                                                </div>
+                                                    </h4>
                                             @empty
                                             <div class="uk-flex uk-flex-center">
                                                 <img src="{{ asset('empty.png') }}" alt="" srcset="">
