@@ -81,57 +81,69 @@
                             </div>
                             <div>
                                 <h4 class="uk-text-primary">Hubungi kami</h4>
-                                <ul class="uk-list uk-link-text">
-                                    <li>
-                                        <div class="uk-flex">
-                                            <i class="fas fa-home uk-margin-right uk-text-primary"></i>
-                                            <div class="">
-                                                <h5 class="uk-text-primary uk-margin-remove">Alamat</h5>
-                                                <p class="uk-margin-remove uk-text-muted">Perum. Permata Regency 1 Blok
-                                                    10 No. 28 Ngijo, Kec. Karang Ploso, Kab. Malang, Jawa Timur,
-                                                    Indonesia, 65152</p>
+                                @if ($profile)
+                                    <ul class="uk-list uk-link-text">
+                                        <li>
+                                            <div class="uk-flex">
+                                                <i class="fas fa-home uk-margin-right uk-text-primary"></i>
+                                                <div class="">
+                                                    <h5 class="uk-text-primary uk-margin-remove">Alamat</h5>
+                                                    <p class="uk-margin-remove uk-text-muted">{{$profile->address}}</p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="uk-flex">
-                                            <i class="fas fa-envelope uk-margin-right uk-text-primary"></i>
-                                            <div class="">
-                                                <h5 class="uk-text-primary uk-margin-remove">Email</h5>
-                                                <a href="#" class="uk-text-muted">info@hummatech.com</a>
+                                        </li>
+                                        <li>
+                                            <div class="uk-flex">
+                                                <i class="fas fa-envelope uk-margin-right uk-text-primary"></i>
+                                                <div class="">
+                                                    <h5 class="uk-text-primary uk-margin-remove">Email</h5>
+                                                    <a href="#" class="uk-text-muted">{{$profile->email}}</a>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="uk-flex">
-                                            <i style="font-size: 20px"
-                                                class="fab fa-whatsapp uk-margin-right uk-text-primary"></i>
-                                            <div class="">
-                                                <h5 class="uk-text-primary uk-margin-remove">Whatsapp</h5>
-                                                <a href="#" class="uk-text-muted">085176777785</a>
+                                        </li>
+                                        <li>
+                                            <div class="uk-flex">
+                                                <i style="font-size: 20px"
+                                                    class="fab fa-whatsapp uk-margin-right uk-text-primary"></i>
+                                                <div class="">
+                                                    <h5 class="uk-text-primary uk-margin-remove">Whatsapp</h5>
+                                                    <a href="#" class="uk-text-muted">{{$profile->phone}}</a>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                </ul>
+                                        </li>
+                                    </ul>
+
+                                @else
+
+                                @endif
                             </div>
                         </div>
                     </div>
                     <div class="uk-width-1-3@m uk-flex uk-flex-right@m">
                         <!-- social media begin -->
                         <div class="uk-flex uk-flex-column social-media-list">
-                            <div><a href="https://www.facebook.com/indonez"
-                                    class="color-facebook text-decoration-none"><i class="fab fa-facebook-square"></i>
-                                    Facebook</a></div>
-                            <div><a href="https://twitter.com/indonez_tw" class="color-twitter text-decoration-none"><i
-                                        class="fab fa-twitter"></i>
-                                    Twitter</a></div>
-                            <div><a href="https://www.instagram.com/indonez_ig"
-                                    class="color-instagram text-decoration-none"><i class="fab fa-instagram"></i>
-                                    Instagram</a></div>
-                            <div><a href="#some-link" class="color-telegram text-decoration-none"><i
-                                        class="fab fa-telegram"></i> Telegram</a></div>
-                            <div><a href="#some-link" class="color-youtube text-decoration-none"><i
-                                        class="fab fa-youtube"></i> Youtube</a></div>
+                            @forelse ($socmed as $social)
+                            <a href="{{$social->link}}" class="text-decoration-none uk-text-primary uk-margin-small-bottom uk-display-inline-block uk-padding-small uk-background-muted uk-border-rounded">
+                                {{$social->platform}}
+                                <img src="{{ asset('storage/' . $mitra->image) }}" alt="{{$social->platform}}" style="width: 20px; height: 20px; margin-left: 5px;">
+                            </a>
+
+                            @empty
+
+                                <div><a href="https://www.facebook.com/indonez"
+                                        class="color-facebook text-decoration-none"><i class="fab fa-facebook-square"></i>
+                                        Facebook</a></div>
+                                <div><a href="https://twitter.com/indonez_tw" class="color-twitter text-decoration-none"><i
+                                            class="fab fa-twitter"></i>
+                                        Twitter</a></div>
+                                <div><a href="https://www.instagram.com/indonez_ig"
+                                        class="color-instagram text-decoration-none"><i class="fab fa-instagram"></i>
+                                        Instagram</a></div>
+                                <div><a href="#some-link" class="color-telegram text-decoration-none"><i
+                                            class="fab fa-telegram"></i> Telegram</a></div>
+                                <div><a href="#some-link" class="color-youtube text-decoration-none"><i
+                                            class="fab fa-youtube"></i> Youtube</a></div>
+                            @endforelse
                         </div>
                         <!-- social media end -->
                     </div>
@@ -141,9 +153,9 @@
             <div class="uk-container">
                 <div class="uk-grid uk-flex uk-flex-middle">
                     <div class="uk-width-2-3@m uk-text-small">
-                        @isset($profile)
+                        @isset($profiles)
                             <p class="copyright-text">©Copyright 2024. All Rights Reserved by <a href="/"
-                                    class="uk-link-text uk-text-decoration-none uk-text-bolder">{{ $profile->title }}</a>
+                                    class="uk-link-text uk-text-decoration-none uk-text-bolder">{{ $profiles->title }}</a>
                             </p>
                         @else
                             <p class="copyright-text">©Copyright 2024. All Rights Reserved by <a href="/"
