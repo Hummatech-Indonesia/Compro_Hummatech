@@ -137,7 +137,7 @@
                                         <div
                                             class="uk-grid-medium uk-child-width-1-6@m uk-child-width-1-2@s uk-text-center in-client-logo-3 uk-grid uk-grid-stack">
                                             @forelse ($mitraCategory->collab as $collab)
-                                                <div class="">
+                                                <div class=" uk-first-column uk-flex uk-flex-center">
                                                     <img class="uk-margin-remove"
                                                         src="{{ asset('storage/' . $collab->image) }}" alt="equity-press"
                                                         width="170" height="68" style="object-fit: contain"><br>
