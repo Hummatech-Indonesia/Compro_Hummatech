@@ -131,7 +131,7 @@
                 <div class="uk-container">
                     <div class="uk-grid uk-grid-stack" data-uk-grid>
                         <div class="uk-width-1-1 uk-first-column">
-                            <div class="uk-card uk-card-default uk-card-body uk-border-rounded">
+                            <div class="">
                                 <div class="uk-grid-divider uk-grid uk-grid-stack" data-uk-grid>
                                     <div class="uk-width-expand@m uk-grid-margin uk-first-column">
                                         <div
@@ -141,9 +141,6 @@
                                                     <img class="uk-margin-remove"
                                                         src="{{ asset('storage/' . $collab->image) }}" alt="equity-press"
                                                         width="170" height="68" style="object-fit: contain"><br>
-                                                        <h4 class="uk-text-center">
-                                                            {{ $collab->name }}
-                                                        </h4>
                                                 </div>
                                             @empty
                                                 <div class="uk-flex uk-flex-center">
