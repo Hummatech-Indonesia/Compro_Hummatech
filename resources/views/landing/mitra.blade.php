@@ -1,5 +1,5 @@
 @extends('landing.layouts.layouts.app')
-@section('title' , 'Mitra')
+@section('title', 'Mitra')
 
 @section('style')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" />
@@ -93,53 +93,65 @@
 @endsection
 
 @section('header')
-<div class="uk-section uk-padding-remove-vertical in-equity-breadcrumb">
-    <div class="uk-container">
-        <div class="uk-grid">
-            <div class="uk-width-1-1">
-                <ul class="uk-breadcrumb">
-                    <li href="/">Mitra</li>
-                    <li>
-                        <span>Hubungi</span>
-                    </li>
-                </ul>
+    <div class="uk-section uk-padding-remove-vertical in-equity-breadcrumb">
+        <div class="uk-container">
+            <div class="uk-grid">
+                <div class="uk-width-1-1">
+                    <ul class="uk-breadcrumb">
+                        <li href="/">Mitra</li>
+                        <li>
+                            <span>Hubungi</span>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
 
 @section('content')
-
-<div class="uk-section">
-    <div class="uk-container">
-        <div class="uk-grid">
-            <div class="uk-width-1-1 uk-flex uk-flex-center">
-                <div class="uk-width-3-5@m uk-text-center">
-                    <h1 class="uk-margin-remove-bottom">
-                        <span class="in-highlight">
-                            Mitra Kami
-                        </span>
-                    </h1>
-                    <h4 class=" uk-margin-small-top">SEKOLAH</h4>
+    @forelse ($mitraCategories as $mitraCategory)
+        <div class="uk-section">
+            <div class="uk-container">
+                <div class="uk-grid">
+                    <div class="uk-width-1-1 uk-flex uk-flex-center">
+                        <div class="uk-width-3-5@m uk-text-center">
+                            <h1 class="uk-margin-remove-bottom">
+                                <span class="in-highlight">
+                                    Mitra Kami
+                                </span>
+                            </h1>
+                            <h4 class=" uk-margin-small-top">{{ $mitraCategory->name }}</h4>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class="uk-section uk-padding-remove-vertical in-equity-10">
-        <div class="uk-container">
-            <div class="uk-grid uk-grid-stack" data-uk-grid>
-                <div class="uk-width-1-1 uk-first-column">
-                    <div class="uk-card uk-card-default uk-card-body uk-border-rounded">
-                        <div class="uk-grid-divider uk-grid uk-grid-stack" data-uk-grid>
-                            <div class="uk-width-expand@m uk-grid-margin uk-first-column">
-                                <div class="uk-grid-medium uk-child-width-1-6@m uk-child-width-1-2@s uk-text-center in-client-logo-3 uk-grid uk-grid-stack">
-                                    @foreach (range(1,10) as $item)
-                                        <div class="uk-tile uk-tile-default uk-first-column">
-                                            <img class="uk-margin-remove" src="{{ asset('assets_landing/img/mitra-1.png') }}" alt="equity-press" width="170" height="68">
+            <div class="uk-section uk-padding-remove-vertical in-equity-10">
+                <div class="uk-container">
+                    <div class="uk-grid uk-grid-stack" data-uk-grid>
+                        <div class="uk-width-1-1 uk-first-column">
+                            <div class="uk-card uk-card-default uk-card-body uk-border-rounded">
+                                <div class="uk-grid-divider uk-grid uk-grid-stack" data-uk-grid>
+                                    <div class="uk-width-expand@m uk-grid-margin uk-first-column">
+                                        <div
+                                            class="uk-grid-medium uk-child-width-1-6@m uk-child-width-1-2@s uk-text-center in-client-logo-3 uk-grid uk-grid-stack">
+                                            @forelse ($mitraCategory->collab as $collab)
+                                                <div class="uk-tile uk-tile-default uk-first-column uk-flex uk-flex-center">
+                                                    <img class="uk-margin-remove"
+                                                        src="{{ asset('storage/' . $collab->image) }}" alt="equity-press"
+                                                        width="170" height="68">
+                                                    <p class="uk-text-center">
+                                                        {{ $collab->name }}
+                                                    </p>
+                                                </div>
+                                            @empty
+                                                <h4 class="text-center text-dark" style="font-weight:600">
+                                                    Belum ada Mitra
+                                                </h4>
+                                            @endforelse
                                         </div>
-                                    @endforeach
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -147,48 +159,12 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    @empty
+        <h4 class="text-center text-dark" style="font-weight:600">
+            Belum ada Mitra
+        </h4>
+    @endforelse
 
-
-<div class="uk-section">
-    <div class="uk-container">
-        <div class="uk-grid">
-            <div class="uk-width-1-1 uk-flex uk-flex-center">
-                <div class="uk-width-3-5@m uk-text-center">
-                    <h1 class="uk-margin-remove-bottom">
-                        <span class="in-highlight">
-                            Mitra Kami
-                        </span>
-                    </h1>
-                    <h4 class=" uk-margin-small-top">UNIVERSITAS</h4>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="uk-section uk-padding-remove-vertical in-equity-10">
-        <div class="uk-container">
-            <div class="uk-grid uk-grid-stack" data-uk-grid>
-                <div class="uk-width-1-1 uk-first-column">
-                    <div class="uk-card uk-card-default uk-card-body uk-border-rounded">
-                        <div class="uk-grid-divider uk-grid uk-grid-stack" data-uk-grid>
-                            <div class="uk-width-expand@m uk-grid-margin uk-first-column">
-                                <div class="uk-grid-medium uk-child-width-1-6@m uk-child-width-1-2@s uk-text-center in-client-logo-3 uk-grid uk-grid-stack">
-                                    @foreach (range(1,10) as $item)
-                                        <div class="uk-tile uk-tile-default uk-first-column">
-                                            <img class="uk-margin-remove" src="{{ asset('assets_landing/img/mitra-1.png') }}" alt="equity-press" width="170" height="68">
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 @endsection
 @section('script')
