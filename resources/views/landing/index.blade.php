@@ -116,6 +116,18 @@
             height: 70%;
         }
     }
+    @media screen and (max-width: 768px) {
+    .uk-slideshow-items li {
+        background-size: contain;
+        background-position: top;
+    }
+}
+@media screen and (max-width: 768px) {
+    li.uk-slideshow-items {
+        background-size: contain;
+    }
+}
+
 </style>
 
 
@@ -127,7 +139,7 @@
         <div id="particles-js" class="uk-light in-slideshow uk-background-contain uk-slideshow" data-uk-img data-uk-slideshow role="region" aria-roledescription="carousel" autoplay>
             <ul class="uk-slideshow-items" aria-live="off" role="presentation" style="min-height: 100vh; height: 100vh; margin: 0; padding: 0;">
                 @forelse ($section as $key => $sectionItem)
-                    <li class="uk-flex uk-flex-middle uk-active uk-transition-active" role="tabpanel" aria-label="1 of 2" tabindex="-1" style="background-image: url('{{ asset('storage/' . $sectionItem->image) }}'); background-size: cover; background-position: center; height: 100vh; width: 100%; margin: 0; padding: 0;">
+                    <li class="uk-flex uk-flex-middle uk-active uk-transition-active" role="tabpanel" aria-label="1 of 2" tabindex="-1" style="background-image: url('{{ asset('storage/' . $sectionItem->image) }}'); background-size: cover; background-position: center; height: 90vh; width: 100%; margin: 0; padding: 0;">
                         <div class="uk-container" style="height: 100%;">
                             <div class="uk-grid-large uk-flex-middle uk-grid" data-uk-grid style="height: 100%;">
                                 <div class="uk-width-1-2@s in-slide-text">
@@ -176,9 +188,8 @@
     <!-- section content begin -->
     @forelse ($profile as $profile)
     <div class="uk-section in-content-3 uk-background-contain uk-background-center uk-margin-xlarge-top" data-src="img/in-equity-2-bg.png"
-    data-uk-img=""
-    style="background-image: url(&quot;https://www.indonez.com/html-demo/equity/img/in-equity-2-bg.png&quot;);">
-    <div class="uk-container">
+        data-uk-img=""style="background-image: url(&quot;https://www.indonez.com/html-demo/equity/img/in-equity-2-bg.png&quot;);">
+        <div class="uk-container">
             <div class="uk-grid uk-grid-stack uk-flex-middle uk-margin-medium-top" data-uk-grid>
                 <div class="uk-width-3-5@m uk-first-column uk-margin-xlarge-top">
                     <h1>{{ $profile->title }}</h1>
@@ -251,39 +262,48 @@
 
     <!-- section content end -->
     @if ($product->isNotEmpty())
-        <div class="uk-section">
-            <div class="uk-container">
-                <div class="uk-grid-match uk-child-width-1-2@s uk-child-width-1-3@m in-card-10" data-uk-grid>
-                    <div class="uk-width-1-1">
-                        <h1 class="uk-margin-remove uk-text-center">Menghadirkan produk dengan kualitas dan inovasi terbaik</h1>
-                        <p class="uk-text-center">
-                            Kami berkomitmen untuk menghadirkan produk-produk berkualitas tinggi yang dipadukan dengan inovasi
-                            terdepan, memenuhi kebutuhan dan harapan konsumen dengan sempurna.
+    <div class="uk-section">
+        <div class="uk-container">
+            <div class="uk-grid-match uk-child-width-1-2@s uk-child-width-1-3@m in-card-10" data-uk-grid>
+                <div class="uk-width-1-1">
+                    <h1 class="uk-margin-remove uk-text-center">Menghadirkan produk dengan kualitas dan inovasi terbaik</h1>
+                    <p class="uk-text-center">
+                        Kami berkomitmen untuk menghadirkan produk-produk berkualitas tinggi yang dipadukan dengan inovasi
+                        terdepan, memenuhi kebutuhan dan harapan konsumen dengan sempurna.
+                    </p>
+                </div>
+
+                @forelse ($product as $index => $produk)
+                <div>
+                    <div class="uk-card uk-card-default uk-card-body uk-box-shadow-small uk-border-rounded uk-light
+                        @if($index % 3 == 0)
+                            in-card-green
+                        @elseif($index % 3 == 1)
+                            in-card-blue
+                        @else
+                            in-card-red
+                        @endif">
+                        <div class="in-icon-wrap uk-margin-bottom">
+                            <i class="fas fa-seedling fa-lg"></i>
+                        </div>
+                        <h4 class="uk-margin-top">
+                            <a href="{{ route('detail.product', $produk->slug) }}">{{ $produk->name }}<i class="fas fa-chevron-right uk-float-right"></i></a>
+                        </h4>
+                        <hr>
+                        <p>
+                            {!! Str::words(html_entity_decode($produk->description), 160, '') !!}
                         </p>
                     </div>
-
-                    @forelse ($product as $produk)
-                        <div>
-                            <div class="uk-card uk-card-default uk-card-body uk-box-shadow-small uk-border-rounded uk-light in-card-green">
-                                <div class="in-icon-wrap uk-margin-bottom">
-                                    <i class="fas fa-seedling fa-lg"></i>
-                                </div>
-                                <h4 class="uk-margin-top">
-                                    <a href="{{ route('detail.product', $produk->slug) }}">{{ $produk->name }}<i class="fas fa-chevron-right uk-float-right"></i></a>
-                                </h4>
-                                <hr>
-                                <p>
-                                    {!! Str::words(html_entity_decode($produk['description']), 160, '') !!}
-                                </p>
-                            </div>
-                        </div>
-                    @empty
-                        <!-- Tidak ada produk -->
-                    @endforelse
                 </div>
+            @empty
+                <!-- Tidak ada produk -->
+            @endforelse
+
+
             </div>
         </div>
-    @endif
+    </div>
+@endif
 
 
 
