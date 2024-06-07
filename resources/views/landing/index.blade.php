@@ -246,7 +246,7 @@
                                     <span class="in-product-name red">{{ strtoupper(Str::substr($serviceItem->name, 0, 2)) }}</span>
                                     <h5 class="uk-margin-remove">{{ $serviceItem->name }}</h5>
                                 </div>
-                                <p>{!! Str::limit(strip_tags($serviceItem->description), 200) !!}</p>
+                                <p>{!! $serviceItem->short_description !!}</p>
                                 <a href="/services/{{ $serviceItem->slug }}" class="uk-button uk-button-text uk-float-right uk-position-bottom-right">
                                     Lihat Selengkapnya
                                     <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
