@@ -197,10 +197,10 @@
                 <div class="uk-width-3-5@m uk-first-column uk-margin-xlarge-top">
                     <h1>{{ $profile->title }}</h1>
                     <p class="uk-text-justify">
-                        {!! $profile->description !!}
+                        {!! $profile->subtitle !!}
                     </p>
                     @if ($profile->proposal)
-                    <a target="_blank" href="{{ $profile->proposal }}"
+                    <a  href="/about/profile"
                         class="uk-button uk-button-primary uk-border-rounded uk-margin-xlarge-bottom">Lihat
                         Profil Lengkap
                         <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>

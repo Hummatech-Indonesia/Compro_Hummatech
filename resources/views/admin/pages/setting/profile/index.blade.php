@@ -86,7 +86,7 @@
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                    <div class="my-1">
+                                    <div class="my-1 mb-4">
                                         <div class="d-flex justify-content-between">
                                             <label for="shortDesciption" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                                 Deskripsi singkat <span style="font-size: .6875rem"
@@ -97,8 +97,8 @@
                                                 <span id="char">0</span>
                                             </span>
                                         </div>
-                                        <textarea name="subtitle" class="form-control" id="shortDescription" name="subtitle" oninput="Count()"
-                                         rows="3">{{ old('subtitle', $profil->subtitle) }}</textarea>
+                                        <div class="wysiwyg" style="height: 100px" oninput="Count()">{!! old('subtitle', $profil->subtitle) !!}</div>
+                                        <textarea name="subtitle" id="shortDescription" class="d-none wysiwyg-area" placeholder="Jelaskan deskripsi produknya" oninput="Count()">{!! old('subtitle', $profil->subtitle) !!}</textarea>
                                          @error('subtitle')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
@@ -197,7 +197,7 @@
                                         @enderror
                                     </div>
 
-                                    <div class="my-1">
+                                    <div class="my-1 mb-4">
                                         <div class="d-flex justify-content-between">
                                             <label for="shortDesciption" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                                                 Deskripsi singkat <span style="font-size: .6875rem"
@@ -208,9 +208,9 @@
                                                 <span id="char">0</span>
                                             </span>
                                         </div>
-                                        <textarea name="subtitle" class="form-control" id="shortDescription" name="subtitle" oninput="Count()"
-                                        rows="3">{{ old('subtitle') }}</textarea>
-                                        @error('subtitle')
+                                        <div class="wysiwyg" style="height: 100px" oninput="Count()">{!! old('subtitle') !!}</div>
+                                        <textarea name="subtitle" id="shortDescription" class="d-none wysiwyg-area" placeholder="Jelaskan deskripsi produknya" oninput="Count()">{!! old('subtitle') !!}</textarea>
+                                         @error('subtitle')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -282,6 +282,72 @@
     <script src="https://cdn.jsdelivr.net/npm/@yaireo/tagify/dist/tagify.polyfills.min.js"></script>
 
     <script>
+        $(document).ready(function() {
+            let customToolbar = [
+                [{ 'font': [] }],
+                [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                [{ 'script': 'sub'}, { 'script': 'super' }],
+                [{ 'indent': '-1'}, { 'indent': '+1' }],
+                [{ 'direction': 'rtl' }],
+                [{ 'color': [] }, { 'background': [] }],
+                [{ 'align': [] }],
+                ['link'],
+                ['clean'],
+            ];
+
+            $('.wysiwyg').each(function() {
+                let quill = new Quill(this, {
+                    theme: 'snow',
+                    placeholder: "Masukkan deskripsi",
+                    modules: {
+                        toolbar: {
+                            container: customToolbar,
+                            handlers: {
+                                'html': function() {
+                                    var html = prompt('Edit HTML:', quill.root.innerHTML);
+                                    if (html) {
+                                        quill.root.innerHTML = html;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+
+            quill.on('text-change', function() {
+                $('.wysiwyg-area').val(quill.root.innerHTML);
+            });
+        });
+        // $(document).ready(function() {
+        //     let customToolbar = [
+        //         ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+        //         ['link'],
+        //         [{ 'color': [] }, { 'background': [] }],
+        //         [{ 'font': [] }],
+        //         [{ 'align': [] }],
+        //         ['clean'],
+        //     ];
+
+        //     $('.wysiwyg-address').each(function() {
+        //         lt quill = new Quill(this, {
+        //             theme: 'snow',
+        //             placeholder: "Masukkan alamat lengkap",
+        //             modules: {
+        //                 toolbar: customToolbar
+        //             }
+        //         });
+
+        //         quill.on('text-change', (eventName, ...args) => {
+        //             $('.wysiwyg-area-address').val(quill.root.innerHTML);
+        //         });
+        //     });
+        });
+    </script>
+
+
+    <script>
         function displayImage(event) {
             const input = event.target;
             const imageContainer = document.getElementById('imageContainer');
@@ -331,6 +397,8 @@
             phoneInput.value = formattedPhone;
         }
     </script>
+
+
 
 
     <script>
