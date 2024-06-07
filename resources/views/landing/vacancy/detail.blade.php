@@ -105,7 +105,7 @@
                                 </li>
                             </ul>
                             <div class="uk-width-1-1@m uk-text-center uk-margin-medium-top">
-                                <a href="{{ $jobVacancy->whatsapp }}" class="uk-button uk-button-primary uk-border-rounded" target="_blank" style="background-color:#d7ac53; color:white">
+                                <a href="https://wa.me/{{ $jobVacancy->whatsapp }}" class="uk-button uk-button-primary uk-border-rounded" target="_blank" style="background-color:#d7ac53; color:white">
                                     Lamar <i class="fas fa-file uk-margin-small-left"></i>
                                 </a>
                             </div>
