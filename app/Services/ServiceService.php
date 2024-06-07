@@ -43,7 +43,7 @@ class ServiceService
     public function store(StoreServiceRequest $request): array|bool
     {
         $data = $request->validated();
-        // $data['slug'] = Str::slug($request->slug);
+        $data['slug'] = Str::slug($request->slug);
 
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $data['image'] = $request->file('image')->store($data['name'],TypeEnum::SERVICE->value, 'public');
@@ -85,7 +85,7 @@ class ServiceService
             $data['proposal'] = $service->proposal;
         }
 
-        // $data['slug'] = Str::slug($request->slug);
+        $data['slug'] = Str::slug($request->slug);
         return $data;
     }
     public function delete(Service $service)
