@@ -49,8 +49,9 @@ class GaleryService
         $data = $request->validated();
         // dd($data);
         $images = [];
-        foreach ($data['image'] as $image) {
-            array_push($images, $image->store(UploadDiskEnum::NEWS->value, 'public'));
+        foreach ($data['image'] as $key => $image) {
+            $fileName = $data['name'].'-'.++$key;
+            array_push($images, $image->store($fileName ,UploadDiskEnum::GALERY->value, 'public'));
         }
         $data['image'] = $images;
 
@@ -73,7 +74,7 @@ class GaleryService
 
         if ($request->hasFile('image') && $request->file('image')->isValid()) {
             $this->remove($galeryImage->image);
-            $data['image'] = $request->file('image')->store(TypeEnum::NEWS->value, 'public');
+            $data['image'] = $request->file('image')->store($galeryImage->name, TypeEnum::GALLERY->value, 'public');
         } else {
             $data['image'] = $galeryImage->image;
         }
