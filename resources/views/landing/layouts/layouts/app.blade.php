@@ -7,8 +7,11 @@
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
 <head>
-    @yield('title')
-    <!-- meta tags -->
+    @hasSection('title')
+        <title>{!! "{$__env->yieldContent('title')} &mdash; " . config('app.name', 'Laravel') !!}</title>
+    @else
+        <title>{{ config('app.name', 'Laravel') }}</title>
+    @endif    <!-- meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#FCB42D">
