@@ -11,7 +11,7 @@
     @hasSection('title')
         <title>{!! "{$__env->yieldContent('title')} &mdash; " !!}
             @isset($profile)
-                {{ $profile->title }}
+                {{ $profile[0]->title }}
             @else
             Company
             @endisset
