@@ -11,6 +11,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#FCB42D">
+    @yield('seo')
     <!-- preload assets -->
     <link rel="preload" href="{{ asset('assets_landing/fonts/fa-brands-400.woff2') }}" as="font" type="font/woff2"
         crossorigin>
@@ -34,7 +35,6 @@
     <link rel="shortcut icon" href="{{ asset('icon.png') }}" type="image/x-icon">
     @yield('style')
     @yield('title')
-    @yield('seo')
 </head>
 
 <body>
