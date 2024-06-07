@@ -107,7 +107,7 @@
                 <div>
                     <div class="logo-wrapper"><a href="/home">
                             <img class="img-fluid" src="{{ asset('cakra.png') }}"
-                                style="height: 45px; width: 160px;" alt=""></a>
+                            style="height: 45px;w;width: 250px;object-fit: cover;" alt=""></a>
                         <div class="toggle-sidebar">
                             <svg class="sidebar-toggle">
                                 <use href="{{ asset('assets/svg/icon-sprite.svg#toggle-icon') }}">
