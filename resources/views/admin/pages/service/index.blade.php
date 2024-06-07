@@ -31,7 +31,7 @@
             <li class="nav-item"><a class="nav-link txt-primary" id="contact-tab" data-bs-toggle="tab"
                     href="#draf" role="tab" aria-controls="contact" aria-selected="false">Draf</a>
             </li>
-        </div>  
+        </div>
     </ul>
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active py-3" id="service" role="tabpanel">
@@ -45,11 +45,11 @@
                             {{ $service->name }}</div>
                         <div class="card-body">
                             <p>
-                                {!! $service->short_description == null ? 
-                                    Str::words(html_entity_decode($service->description), 15, '') : 
-                                    $service->short_description !!}      
+                                {!! $service->short_description == null ?
+                                    Str::words(html_entity_decode($service->description), 15, '') :
+                                    $service->short_description !!}
                             </p>
-        
+
                             <div class="gap-2 d-flex">
                                 <div class="d-grid flex-grow-1">
                                     <a href="/detail/service/{{ $service->id }}" class="btn btn-light-primary btn-mini">Lihat Detail</a>
@@ -88,11 +88,11 @@
                             {{ $draft->name }}</div>
                         <div class="card-body">
                             <p>
-                                {!! $draft->short_description == null ? 
-                                    Str::words(html_entity_decode($draft->description), 15, '') : 
-                                    $draft->short_description !!}      
+                                {!! $draft->short_description == null ?
+                                    Str::words(html_entity_decode($draft->description), 15, '') :
+                                    $draft->short_description !!}
                             </p>
-        
+
                             <div class="gap-2 d-flex">
                                 <div class="d-grid flex-grow-1">
                                     <button class="btn btn-light-primary btn-publish btn-mini" type="button"
@@ -102,7 +102,7 @@
                                     <button class="btn btn-light-danger px-3 m-0 btn-delete" type="button"
                                         data-id="{{ $draft->id }}"><i class="fas fa-trash"></i></button>
                                 </div>
-                                
+
                             </div>
                         </div>
                     </div>
@@ -167,8 +167,8 @@
                                     <span class="char">0</span>
                                 </span>
                             </div>
-                            <textarea class="form-control shortDescription" id="short_description-edit" name="short_description" oninput="Count()"
-                             rows="2">{{ old('short_decription') }}</textarea>
+                            <div class="wysiwyg_1" style="height: 100px" oninput="Count()" id="short-description-wysiwyg"> {!! old('short_description') !!}</div>
+                            <textarea name="short_description" id="short-description-edit" class="d-none wysiwyg-area shortDescription" placeholder="Jelaskan deskripsi produknya" oninput="Count()">{!! old('short_description') !!}</textarea>
                              @error('short_decription')
                                 <div class="text-danger">{{ $message }}</div>
                             @enderror
@@ -331,9 +331,11 @@
         var description = $(this).data('description');
         var link = $(this).data('link');
         quill2.root.innerHTML = description;
+        quill2.root.innerHTML = description;
         $('#form-update').attr('action', '/service/' + id);
         $('.name-edit').val(name);
-        $('#short_description-edit').val(short_description);
+        $('#short-description-edit').val(short_description);
+        console.log(short_description);
         $('.slug-edit').val(slug);
         $('.link-edit').val(link);
         $('.image-show').attr('src', 'storage/' + image);
