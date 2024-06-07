@@ -11,6 +11,7 @@
     <meta property="og:url" content="{{ url('/') }}" />
     <meta property="og:type" content="website" />
     <link rel="canonical" href="{{ url('/') }}" />
+
 @endsection
 
 @section('style')
@@ -47,11 +48,26 @@
     @media screen and (max-width: 768px) {
         #particles-js {
             height: 100vh;
+            margin-bottom: 20%
+        }
+        .uk-slideshow-items li {
+            height: auto;
+        }
+        .in-slide-text {
+            margin-top: 20%;
         }
     }
+
     @media screen and (max-width: 576px) {
         #particles-js {
             height: 100vh;
+            margin-bottom: 50%
+        }
+        .uk-slideshow-items li {
+            height: auto;
+        }
+        .in-slide-text {
+            margin-top: 50%;
         }
     }
     .news-title,
@@ -133,6 +149,49 @@
 
 </style>
 
+<style>
+    @media screen and (max-width: 959px) {
+        .uk-width-3-5\@m {
+            width: 100%;
+        }
+        .uk-width-2-5\@m {
+            width: 100%;
+            margin-top: 2rem;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        /* Styles for small devices */
+        .uk-width-3-5\@m,
+        .uk-width-2-5\@m {
+            width: 100%;
+            margin-top: 2rem;
+        }
+    }
+</style>
+
+<style>
+    @media screen and (max-width: 1000px) {
+        .uk-slideshow-items li {
+            height: 60vh;
+        }
+        .in-slide-text {
+            padding: 20px;
+        }
+        .in-slide-text {
+            text-align: center;
+        }
+        .uk-margin-xlarge-top {
+            margin-top: 150px !important;
+        }
+        .image-foreground {
+            max-width: 100%;
+        }
+    }
+    </style>
+
+
+
 
 @endsection
 @section('content')
@@ -188,42 +247,43 @@
     </div>
 
 
+
     <!-- section content begin -->
     @forelse ($profile as $profile)
-    <div class="uk-section in-content-3 uk-background-contain uk-background-center uk-margin-large-top" data-src="img/in-equity-2-bg.png"
-        data-uk-img=""style="background-image: url(&quot;https://www.indonez.com/html-demo/equity/img/in-equity-2-bg.png&quot;);">
-        <div class="uk-container">
-            <div class="uk-grid uk-grid-stack uk-flex-middle uk-margin-medium-top" data-uk-grid>
-                <div class="uk-width-3-5@m uk-first-column uk-margin-xlarge-top">
-                    <h1>{{ $profile->title }}</h1>
-                    <p class="uk-text-justify">
-                        {!! $profile->subtitle !!}
-                    </p>
-                    @if ($profile->proposal)
-                    <a  href="/about/profile"
-                        class="uk-button uk-button-primary uk-border-rounded uk-margin-xlarge-bottom">Lihat
-                        Profil Lengkap
-                        <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
-                    </a>
-                    @endif
-                </div>
-                <div class="uk-width-2-5@m uk-grid-margin uk-first-column uk-margin-large-top">
-                    <div class="image-container">
-                        <img src="{{ asset('assets/images/circle_black.png') }}" class="image-background"
-                            alt="">
-                        <img src="{{ asset('storage/' . $profile->image) }}" class="image-foreground" alt="">
+        <div class="uk-section in-content-3 uk-background-contain uk-background-center uk-margin-xlarge-top" data-src="img/in-equity-2-bg.png"
+            data-uk-img="" style="background-image: url(&quot;https://www.indonez.com/html-demo/equity/img/in-equity-2-bg.png&quot;);">
+            <div class="uk-container">
+                <div class="uk-grid uk-grid-stack uk-flex-middle uk-margin-medium-top" data-uk-grid>
+                    <div class="uk-width-3-5@m uk-first-column uk-margin-xlarge-top">
+                        <h1>{{ $profile->title }}</h1>
+                        <p class="uk-text-justify">
+                            {!! $profile->subtitle !!}
+                        </p>
+                        @if ($profile->proposal)
+                        <a href="/about/profile"
+                            class="uk-button uk-button-primary uk-border-rounded uk-margin-xlarge-bottom">Lihat
+                            Profil Lengkap
+                            <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                        </a>
+                        @endif
+                    </div>
+                    <div class="uk-width-2-5@m uk-grid-margin uk-first-column uk-margin-large-top">
+                        <div class="image-container">
+                            <img src="{{ asset('assets/images/circle_black.png') }}" class="image-background"
+                                alt="">
+                            <img src="{{ asset('storage/' . $profile->image) }}" class="image-foreground" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    @empty
-    <div class="uk-flex uk-flex-center uk-margin-xlarge-top">
-        <img src="{{ asset('empty.png') }}" alt="" srcset="">
-    </div>
-    <h2 class="uk-text-center">
-        Belum ada data
-    </h2>
+        @empty
+        <div class="uk-flex uk-flex-center uk-margin-xlarge-top">
+            <img src="{{ asset('empty.png') }}" alt="" srcset="">
+        </div>
+        <h2 class="uk-text-center">
+            Belum ada data
+        </h2>
     @endforelse
     <!-- section content end -->
 
@@ -246,7 +306,9 @@
                                     <span class="in-product-name red">{{ strtoupper(Str::substr($serviceItem->name, 0, 2)) }}</span>
                                     <h5 class="uk-margin-remove">{{ $serviceItem->name }}</h5>
                                 </div>
-                                <p>{!! $serviceItem->short_description !!}</p>
+                                <div style="word-break: break-all;"> <!-- Ganti overflow menjadi word-break: break-all -->
+                                    <p class="uk-text-break uk-margin-remove">{!! $serviceItem->short_description !!}</p>
+                                </div>
                                 <a href="/services/{{ $serviceItem->slug }}" class="uk-button uk-button-text uk-float-right uk-position-bottom-right">
                                     Lihat Selengkapnya
                                     <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
@@ -262,6 +324,8 @@
                     </div>
                     @endforelse
                 </div>
+
+
             </div>
         </div>
 
