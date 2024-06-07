@@ -8,10 +8,16 @@
 
 <head>
     @hasSection('title')
-        <title>{!! "{$__env->yieldContent('title')} &mdash; " . $profile->title    !!}</title>
+        <title>{!! "{$__env->yieldContent('title')} &mdash; " !!}
+            @isset($profile)
+                {{ $profile->title }}
+            @else
+            Company
+            @endisset
+        </title>
     @else
         <title>{{ config('app.name', 'Laravel') }}</title>
-    @endif    <!-- meta tags -->
+    @endif <!-- meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#FCB42D">
@@ -83,38 +89,41 @@
                             <div>
                                 <h4 class="uk-text-primary">Hubungi kami</h4>
                                 @if ($profile)
-                                <ul class="uk-list uk-link-text">
-                                    <li>
-                                        <div class="uk-flex">
-                                            <i class="fas fa-home uk-margin-right uk-text-primary"></i>
-                                            <div class="">
-                                                <h5 class="uk-text-primary uk-margin-remove">Alamat</h5>
-                                                <p class="uk-margin-remove uk-text-muted">{{ optional($profile)->address ?? 'Contoh Alamat, Jalan Dummy No. 123, Kota, Negara' }}</p>
+                                    <ul class="uk-list uk-link-text">
+                                        <li>
+                                            <div class="uk-flex">
+                                                <i class="fas fa-home uk-margin-right uk-text-primary"></i>
+                                                <div class="">
+                                                    <h5 class="uk-text-primary uk-margin-remove">Alamat</h5>
+                                                    <p class="uk-margin-remove uk-text-muted">
+                                                        {{ optional($profile)->address ?? 'Contoh Alamat, Jalan Dummy No. 123, Kota, Negara' }}
+                                                    </p>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="uk-flex">
-                                            <i class="fas fa-envelope uk-margin-right uk-text-primary"></i>
-                                            <div class="">
-                                                <h5 class="uk-text-primary uk-margin-remove">Email</h5>
-                                                <a href="#" class="uk-text-muted">{{ optional($profile)->email ?? 'dummy@example.com' }}</a>
+                                        </li>
+                                        <li>
+                                            <div class="uk-flex">
+                                                <i class="fas fa-envelope uk-margin-right uk-text-primary"></i>
+                                                <div class="">
+                                                    <h5 class="uk-text-primary uk-margin-remove">Email</h5>
+                                                    <a href="#"
+                                                        class="uk-text-muted">{{ optional($profile)->email ?? 'dummy@example.com' }}</a>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="uk-flex">
-                                            <i style="font-size: 20px" class="fab fa-whatsapp uk-margin-right uk-text-primary"></i>
-                                            <div class="">
-                                                <h5 class="uk-text-primary uk-margin-remove">Whatsapp</h5>
-                                                <a href="#" class="uk-text-muted">{{ optional($profile)->phone ?? '+62 812-3456-7890' }}</a>
+                                        </li>
+                                        <li>
+                                            <div class="uk-flex">
+                                                <i style="font-size: 20px"
+                                                    class="fab fa-whatsapp uk-margin-right uk-text-primary"></i>
+                                                <div class="">
+                                                    <h5 class="uk-text-primary uk-margin-remove">Whatsapp</h5>
+                                                    <a href="#"
+                                                        class="uk-text-muted">{{ optional($profile)->phone ?? '+62 812-3456-7890' }}</a>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </li>
-                                </ul>
-
+                                        </li>
+                                    </ul>
                                 @else
-
                                 @endif
                             </div>
                         </div>
@@ -123,19 +132,23 @@
                         <!-- social media begin -->
                         <div class="uk-flex uk-flex-column social-media-list">
                             @forelse ($socmed as $social)
-                            <a href="{{$social->link}}" class="text-decoration-none uk-margin-small-bottom uk-display-inline-block uk-background-muted color-{{$social->platform}} uk-border-rounded" style="color: white; padding: 9px 10px;">
-                                {{$social->platform}}
-                                <img src="{{ asset('storage/' . $social->image) }}" alt="{{$social->platform}}" style="width: 20px; height: 20px; margin-left: 5px;">
-                            </a>
+                                <a href="{{ $social->link }}"
+                                    class="text-decoration-none uk-margin-small-bottom uk-display-inline-block uk-background-muted color-{{ $social->platform }} uk-border-rounded"
+                                    style="color: white; padding: 9px 10px;">
+                                    {{ $social->platform }}
+                                    <img src="{{ asset('storage/' . $social->image) }}" alt="{{ $social->platform }}"
+                                        style="width: 20px; height: 20px; margin-left: 5px;">
+                                </a>
 
 
                             @empty
 
                                 <div><a href="https://www.facebook.com/indonez"
-                                        class="color-facebook text-decoration-none"><i class="fab fa-facebook-square"></i>
+                                        class="color-facebook text-decoration-none"><i
+                                            class="fab fa-facebook-square"></i>
                                         Facebook</a></div>
-                                <div><a href="https://twitter.com/indonez_tw" class="color-twitter text-decoration-none"><i
-                                            class="fab fa-twitter"></i>
+                                <div><a href="https://twitter.com/indonez_tw"
+                                        class="color-twitter text-decoration-none"><i class="fab fa-twitter"></i>
                                         Twitter</a></div>
                                 <div><a href="https://www.instagram.com/indonez_ig"
                                         class="color-instagram text-decoration-none"><i class="fab fa-instagram"></i>
