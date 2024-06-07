@@ -197,10 +197,10 @@
                 <div class="uk-width-3-5@m uk-first-column uk-margin-xlarge-top">
                     <h1>{{ $profile->title }}</h1>
                     <p class="uk-text-justify">
-                        {!! $profile->description !!}
+                        {!! $profile->subtitle !!}
                     </p>
                     @if ($profile->proposal)
-                    <a target="_blank" href="{{ $profile->proposal }}"
+                    <a  href="/about/profile"
                         class="uk-button uk-button-primary uk-border-rounded uk-margin-xlarge-bottom">Lihat
                         Profil Lengkap
                         <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
@@ -246,7 +246,7 @@
                                     <span class="in-product-name red">{{ strtoupper(Str::substr($serviceItem->name, 0, 2)) }}</span>
                                     <h5 class="uk-margin-remove">{{ $serviceItem->name }}</h5>
                                 </div>
-                                <p>{!! Str::limit(strip_tags($serviceItem->description), 200) !!}</p>
+                                <p>{!! $serviceItem->short_description !!}</p>
                                 <a href="/services/{{ $serviceItem->slug }}" class="uk-button uk-button-text uk-float-right uk-position-bottom-right">
                                     Lihat Selengkapnya
                                     <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>

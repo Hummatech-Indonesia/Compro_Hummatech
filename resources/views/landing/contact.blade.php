@@ -100,7 +100,8 @@
                             </div>
                         </div>
                         <div>
-                            <form action="" id="contact-form" class="uk-form uk-grid-small uk-margin-medium-top uk-grid uk-grid-stack" data-uk-grid>
+                            <form action="{{ route('contact.send') }}" method="post" class="uk-form uk-grid-small uk-margin-medium-top uk-grid uk-grid-stack" data-uk-grid>
+                                @csrf
                                 <div class="uk-width-3-5@s uk-inline">
                                     <span class="uk-form-icon fas fa-user fa-sm"></span>
                                     <input type="text" class="uk-input uk-border-rounded" id="name" name="name" placeholder="Nama lengkap">
@@ -117,7 +118,7 @@
                                     <textarea class="uk-textarea uk-border-rounded" id="message" name="message" rows="6" placeholder="Pesan"></textarea>
                                 </div>
                                 <div class="uk-width-1-1">
-                                    <button class="uk-width-1-1 uk-button uk-button-primary uk-border-rounded" id="sendemail" type="submit" name="submit">Kirim Pesan</button>
+                                    <button class="uk-width-1-1 uk-button uk-button-primary uk-border-rounded" type="submit" name="submit">Kirim Pesan</button>
                                 </div>
                             </form>
                         </div>
