@@ -162,21 +162,19 @@
 
     <script>
         var customToolbar = [
-            ['bold', 'italic', 'underline', 'strike', 'blockquote', 'image'],
-
-            [{
-                'color': []
-            }, {
-                'background': []
-            }],
-            [{
-                'font': []
-            }],
-            [{
-                'align': [],
-            }],
-
+            [{ 'font': [] }],
+            [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+            ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+            [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+            [{ 'script': 'sub'}, { 'script': 'super' }],
+            [{ 'indent': '-1'}, { 'indent': '+1' }],
+            [{ 'direction': 'rtl' }],
+            [{ 'color': [] }, { 'background': [] }],
+            [{ 'align': [] }],
+            ['link'],
             ['clean'],
+            ['code-block'],
+            [{ 'html': 'HTML' }]
         ];
 
         const quill = new Quill('#editor', {
