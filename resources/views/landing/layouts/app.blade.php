@@ -9,15 +9,7 @@
 <head>
     <!-- meta tags -->
     @hasSection('title')
-        <title>{!! "{$__env->yieldContent('title')} &mdash; " !!}
-            @isset($profile)
-                @foreach ($profile as $profile)
-                    {{ $profile->title }}
-                @endforeach
-            @else
-                Company
-            @endisset
-        </title>
+        <title>{!! "{$__env->yieldContent('title')} &mdash; " !!}</title>
     @else
         <title>{{ config('app.name', 'Laravel') }}</title>
     @endif
