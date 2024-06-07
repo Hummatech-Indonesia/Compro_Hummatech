@@ -39,7 +39,7 @@ Route::get('data/product/coming-soon', [HomeProductController::class, 'productCo
 Route::get('admin/portfolio', [PortfolioController::class, 'index'])->name('portfolio.index');
 Route::post('admin/portfolio', [PortfolioController::class, 'store'])->name('portfolio.store');
 Route::put('admin/portfolio/update/{product}', [PortfolioController::class, 'update'])->name('portfolio.update');
-Route::delete('admin/portfolio/{product}', [PortfolioController::class, 'destroy'])->name('portfolio.destroy');
+Route::delete('admin/portfolio/{id}', [PortfolioController::class, 'destroy'])->name('portfolio.destroy');
 
 Route::get('admin/job-vacancy', [JobVacancyController::class, 'index'])->name('job-vacancy.index');
 Route::post('admin/job-vacancy/store', [JobVacancyController::class, 'store'])->name('job-vacancy.store');
