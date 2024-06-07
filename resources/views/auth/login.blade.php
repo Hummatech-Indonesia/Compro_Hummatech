@@ -10,8 +10,8 @@
     <meta name="description" content="Hummatech adalah perusahaan software development terbaik di Malang. Kami menyediakan solusi perangkat lunak yang inovatif dan berkualitas tinggi.">
     <meta name="keywords" content="Hummatech, Hummatech adalah perusahaan software development terbaik di Malang. Kami menyediakan solusi perangkat lunak yang inovatif dan berkualitas tinggi.">
     <meta name="author" content="pixelstrap">
-    <link rel="icon" href="{{ asset('logofavicon.png') }}" type="image/x-icon">
-    <link rel="shortcut icon" href="{{ asset('logofavicon.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('icon.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('icon.png') }}" type="image/x-icon">
     <title>Hummatech</title>
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Outfit:400,400i,500,500i,700,700i&amp;display=swap" rel="stylesheet">
