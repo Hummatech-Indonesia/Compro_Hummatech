@@ -42,7 +42,7 @@
         <div class="col-12 p-0">
           <div class="login-card login-dark">
             <div>
-              <div><a class="logo" href="index.html"><img class="img-fluid for-light" src="{{ asset('assets/images/LOGO-HUMMATECH_Hitam.png') }}" style="width: 200px;height: auto;" alt="looginpage"><img class="img-fluid for-dark" src="../assets/images/logo/logo.png" alt="looginpage"></a></div>
+              <div><a class="logo" href="index.html"><img class="img-fluid for-light" src="{{ asset('cakra.png') }}" style="width: 250px;height: auto;" alt="looginpage"><img class="img-fluid for-dark" src="../assets/images/logo/logo.png" alt="looginpage"></a></div>
               <div class="login-main">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
