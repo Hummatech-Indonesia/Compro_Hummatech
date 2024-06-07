@@ -106,8 +106,8 @@
             <div class="sidebar-wrapper" data-layout="fill-svg">
                 <div>
                     <div class="logo-wrapper"><a href="/home">
-                            <img class="img-fluid" src="{{ asset('assets/images/LOGO-HUMMATECH_Putih.png') }}"
-                                style="height: 35px; width: 160px;" alt=""></a>
+                            <img class="img-fluid" src="{{ asset('cakra.png') }}"
+                                style="height: 45px; width: 160px;" alt=""></a>
                         <div class="toggle-sidebar">
                             <svg class="sidebar-toggle">
                                 <use href="{{ asset('assets/svg/icon-sprite.svg#toggle-icon') }}">
@@ -115,7 +115,7 @@
                             </svg>
                         </div>
                     </div>
-                    <div class="logo-icon-wrapper"><a href="index.html"><img class="img-fluid"
+                    <div class="logo-icon-wrapper"><a href="/home"><img class="img-fluid"
                                 src="{{ asset('cakra.png') }}" style="height: 50px"
                                 alt=""></a></div>
                     <nav class="sidebar-main">
