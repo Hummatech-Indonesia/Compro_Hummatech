@@ -6,8 +6,10 @@
 @endsection
 
 @section('seo')
-    <meta name="description" content="Portofolio Hummatech." />
-    <meta name="title" content="Portofolio - Hummatech" />
+<meta name="title" content="Portofolio" />
+<meta name="description" content="Portofolio PT CAKRA PARAMA INDONESIA." />
+    <meta name="og:image" content="{{ asset('icon.png') }}" />
+    <meta name="twitter:image" content="{{ asset('icon.png') }}" />
     <!-- ========== Breadcrumb Markup (JSON-LD) ========== -->
     <script type="application/ld+json">
 {
@@ -69,7 +71,7 @@
                                 <h1 style="color: black">
                                     <a style="color: black" href="/portfolio/{{ $portfolio->slug }}">{{ $portfolio->name }}</a>
                                 </h1>
-                                <p class="uk-text-justify">  {{ $portfolio->description }}</p>
+                                <p class="uk-text-justify">  {!! $portfolio->description !!}</p>
                                 <a href="/portfolio/{{ $portfolio->slug }}"
                                     class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-top uk-margin-small-right">Detail
                                     <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
@@ -90,7 +92,7 @@
                                 <h1 style="color: black">
                                     <a style="color: black" href="/portfolio/{{ $portfolio->slug }}">{{ $portfolio->name }}</a>
                                 </h1>
-                                <p class="uk-text-justify">{{ $portfolio->description }}</p>
+                                <p class="uk-text-justify">{!! $portfolio->description !!}</p>
                                 <a href="/portfolio/{{ $portfolio->slug }}"
                                     class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-top uk-margin-small-right">Detail
                                     <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>

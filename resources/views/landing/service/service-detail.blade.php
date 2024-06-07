@@ -1,4 +1,31 @@
 @extends('landing.layouts.layouts.app')
+@section('title', $slugs->name)
+@section('seo')
+    <meta name="publisher" content="hummatech.com" />
+    <meta name="keywords" content="Hummatech,Layanan Hummatech,{{ $slugs->name }}," />
+    <meta name="description" itemprop="description"
+        content="{!! strip_tags($slugs->description)!!}" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@dailysocial" />
+    <meta name="twitter:creator" content="@dailysocial" />
+    <meta name="twitter:url"
+        content="/services/{{ $slugs->slug }}" />
+    <meta name="twitter:title"
+        content="{{ $slugs->name }} - Layanan Hummatech" />
+    <meta name="twitter:description"
+        content="{!! strip_tags($slugs->description)!!}" />
+    <meta name="twitter:image"
+        content="{{ asset('storage/' . $slugs->image) }}" />
+    <meta property="og:title"
+        content="{{ $slugs->name }}" />
+    <meta property="og:description"
+        content="{!! strip_tags($slugs->description)!!}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url"
+        content="/services/{{ $slugs->slug }}" />
+    <meta property="og:image"
+        content="{{ asset('storage/' . $slugs->image) }}" />
+@endsection
 @section('header')
 <!-- header start -->
 <div class="uk-section uk-padding-remove-vertical in-equity-breadcrumb">

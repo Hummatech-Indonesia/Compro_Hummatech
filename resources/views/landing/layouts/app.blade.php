@@ -125,35 +125,26 @@
                     <div class="uk-width-1-3@m uk-flex uk-flex-right@m">
                         <!-- social media begin -->
                         <div class="uk-flex uk-flex-column social-media-list">
-                            @forelse ($socmed as $social)
-                                <a href="{{ $social->link }}"
-                                    class="text-decoration-none uk-margin-small-bottom uk-display-inline-block uk-background-muted color-{{ $social->platform }} uk-border-rounded"
-                                    style="color: white; padding: 9px 10px;">
-                                    {{ $social->platform }}
-                                    <img src="{{ asset('storage/' . $social->image) }}" alt="{{ $social->platform }}"
-                                        style="width: 20px; height: 20px; margin-left: 5px;">
-                                </a>
-
-                            @empty
-
-                                <div><a href="https://www.facebook.com/indonez"
-                                        class="color-facebook text-decoration-none"><i
-                                            class="fab fa-facebook-square"></i>
-                                        Facebook</a></div>
-                                <div><a href="https://twitter.com/indonez_tw"
-                                        class="color-twitter text-decoration-none"><i class="fab fa-twitter"></i>
-                                        Twitter</a></div>
-                                <div><a href="https://www.instagram.com/indonez_ig"
-                                        class="color-instagram text-decoration-none"><i class="fab fa-instagram"></i>
-                                        Instagram</a></div>
-                                <div><a href="#some-link" class="color-telegram text-decoration-none"><i
-                                            class="fab fa-telegram"></i> Telegram</a></div>
-                                <div><a href="#some-link" class="color-youtube text-decoration-none"><i
-                                            class="fab fa-youtube"></i> Youtube</a></div>
-                            @endforelse
+                            <div>
+                                <h4 class="uk-text-primary">Sosial Media</h4>
+                                <ul class="uk-list uk-link-text uk-text-muted uk-margin-remove">
+                                    @forelse ($socmed as $socmed)
+                                        <li class="uk-margin-small">
+                                            <h6><a href="{{ $socmed->link }}" target="_blank" class="uk-flex uk-flex-middle uk-text-muted uk-text-small" style="gap: .5rem; text-align: left;">
+                                                <i class="fas fa-angle-right"></i>
+                                                <img alt="{{ $socmed->platform }} Logo" src="{{ asset("storage/{$socmed->image}") }}" height="16px" width="16px" class="mb-0" />
+                                                {{ $socmed->platform }}
+                                            </a></h6>
+                                        </li>
+                                    @empty
+                                        <li class="uk-text-muted">Belum ada data layanan</li>
+                                    @endforelse
+                                </ul>
+                            </div>
                         </div>
                         <!-- social media end -->
                     </div>
+
                 </div>
             </div>
             <hr class="uk-margin-large">
