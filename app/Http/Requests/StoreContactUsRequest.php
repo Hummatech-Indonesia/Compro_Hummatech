@@ -24,8 +24,8 @@ class StoreContactUsRequest extends FormRequest
         return [
             'name' => 'required|max:100',
             'email' => 'required|max:255|email',
-            'phone' => 'required',
-            'comment' => 'required|max:10000',
+            'subject' => 'required|max:255',
+            'messages' => 'required|max:10000',
         ];
     }
 }
