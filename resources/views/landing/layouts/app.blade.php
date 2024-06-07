@@ -10,9 +10,6 @@
     <!-- meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Hummatech ">
-    <meta name="keywords" content="blockit, uikit3, indonez, handlebars, scss, javascript">
-    <meta name="author" content="Indonez">
     <meta name="theme-color" content="#FCB42D">
     <!-- preload assets -->
     <link rel="preload" href="{{ asset('assets_landing/fonts/fa-brands-400.woff2') }}" as="font" type="font/woff2"
@@ -35,13 +32,12 @@
     <script src="{{ asset('assets_landing/js/vendors/uikit.min.js') }}"></script>
     <!-- favicon -->
     <link rel="shortcut icon" href="{{ asset('icon.png') }}" type="image/x-icon">
-    <!-- touch icon -->
-    <link rel="apple-touch-icon-precomposed" href="{{ asset('icon.png') }}">
     @yield('style')
+    @yield('title')
+    @yield('seo')
 </head>
 
 <body>
-    @yield('seo')
     <!-- page loader begin -->
     <div class="page-loader">
         <div></div>
