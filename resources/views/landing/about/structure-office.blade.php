@@ -1,6 +1,5 @@
 @extends('landing.layouts.layouts.app')
 @section('header')
-
     <div class="uk-section uk-padding-remove-vertical in-equity-breadcrumb">
         <div class="uk-container">
             <div class="uk-grid">

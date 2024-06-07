@@ -1,12 +1,13 @@
 @extends('landing.layouts.app')
+@section('title' , 'PT Cakra Parama Indonesia')
 @section('seo')
-    <meta name="title" content="Hummatech - Perusahaan Software Terbaik di Malang" />
+    <meta name="title" content="PT Cakra Parama Indonesia - Layanan Outsourcing Profesional" />
     <meta name="description"
-        content="Hummatech adalah perusahaan software development terbaik di Malang. Kami menyediakan solusi perangkat lunak yang inovatif dan berkualitas tinggi." />
+        content="PT Cakra Parama Indonesia menawarkan solusi outsourcing terbaik, termasuk penyediaan tenaga kerja, manajemen penggajian, dan dukungan logistik. Kami memastikan layanan yang efisien dan hemat biaya yang disesuaikan dengan kebutuhan bisnis Anda." />
     <meta name="og:description"
-        content="Hummatech adalah perusahaan software development terbaik di Malang. Kami menyediakan solusi perangkat lunak yang inovatif dan berkualitas tinggi." />
-    <meta name="og:image" content="{{ asset('mobilelogo.png') }}" />
-    <meta name="twitter:image" content="{{ asset('mobilelogo.png') }}" />
+        content="PT Cakra Parama Indonesia menawarkan solusi outsourcing terbaik, termasuk penyediaan tenaga kerja, manajemen penggajian, dan dukungan logistik. Kami memastikan layanan yang efisien dan hemat biaya yang disesuaikan dengan kebutuhan bisnis Anda." />
+    <meta name="og:image" content="{{ asset('icon.png') }}" />
+    <meta name="twitter:image" content="{{ asset('icon.png') }}" />
     <meta property="og:url" content="{{ url('/') }}" />
     <meta property="og:type" content="website" />
     <link rel="canonical" href="{{ url('/') }}" />

@@ -1,4 +1,44 @@
 @extends('landing.layouts.layouts.app')
+@section('title', 'Vision & Mision')
+@section('seo')
+    <!-- ========== Breadcrumb Markup (JSON-LD) ========== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Beranda",
+          "item": "{{ url('/') }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tentang Kami",
+          "item": "{{ url('/about-us') }}"
+        },
+      ]
+    }
+</script>
+
+    <meta name="og:image" content="{{ asset('icon.png') }}" />
+    <meta name="twitter:image" content="{{ asset('icon.png') }}" />
+    <meta name="title"
+        content="Visi Misi
+        @isset($profile)
+        - {{ $profile->title }}
+@else
+Company
+@endisset" />
+    <meta name="description" content="PT Cakra Parama Indonesia menawarkan solusi outsourcing terbaik, termasuk penyediaan tenaga kerja, manajemen penggajian, dan dukungan logistik. Kami memastikan layanan yang efisien dan hemat biaya yang disesuaikan dengan kebutuhan bisnis Anda." />
+    <meta name="og:description" content="PT Cakra Parama Indonesia menawarkan solusi outsourcing terbaik, termasuk penyediaan tenaga kerja, manajemen penggajian, dan dukungan logistik. Kami memastikan layanan yang efisien dan hemat biaya yang disesuaikan dengan kebutuhan bisnis Anda." />
+    <meta property="og:url" content="{{ url('https://compro.mijurnal.com/about/vision-mision') }}" />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="{{ url('https://compro.mijurnal.com/about/vision-mision') }}" />
+@endsection
+
 @section('header')
     <div class="uk-section uk-padding-remove-vertical in-equity-breadcrumb">
         <div class="uk-container">
