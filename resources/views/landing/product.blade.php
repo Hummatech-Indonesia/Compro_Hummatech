@@ -63,8 +63,10 @@
 @endsection
 
 @section('seo')
-    <meta name="description" content="Product Hummatech adalah product terbaik." />
-    <meta name="title" content="Produk - Hummatech" />
+<meta name="title" content="Produk" />
+<meta name="description" content="Produk PT CAKRA PARAMA INDONESIA" />
+<meta name="og:image" content="{{ asset('icon.png') }}" />
+<meta name="twitter:image" content="{{ asset('icon.png') }}" />
     <!-- ========== Breadcrumb Markup (JSON-LD) ========== -->
     <script type="application/ld+json">
 {
