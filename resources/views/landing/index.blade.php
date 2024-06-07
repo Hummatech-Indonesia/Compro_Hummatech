@@ -217,11 +217,11 @@
         </div>
     </div>
     @empty
-    <div class="uk-flex uk-flex-center">
+    <div class="uk-flex uk-flex-center uk-margin-xlarge-top">
         <img src="{{ asset('empty.png') }}" alt="" srcset="">
     </div>
     <h2 class="uk-text-center">
-        Belum ada Mitra
+        Belum ada data
     </h2>
     @endforelse
     <!-- section content end -->
@@ -256,7 +256,7 @@
                     <div class="uk-flex uk-flex-center uk-flex-middle uk-width-1-1">
                         <div class="uk-text-center">
                             <img src="{{ asset('empty.png') }}" alt="No data" srcset="">
-                            <h2>No data</h2>
+                            <h2>Belum ada data</h2>
                         </div>
                     </div>
                     @endforelse
@@ -304,7 +304,7 @@
                 <div class="uk-flex uk-flex-center uk-flex-middle uk-width-1-1">
                     <div class="uk-text-center">
                         <img src="{{ asset('empty.png') }}" alt="No data" srcset="">
-                        <h2>No data</h2>
+                        <h2>Belum ada data</h2>
                     </div>
                 </div>
                 @endforelse
@@ -339,7 +339,7 @@
                                             <div class="uk-flex uk-flex-center uk-flex-middle uk-width-1-1">
                                                 <div class="uk-text-center">
                                                     <img src="{{ asset('empty.png') }}" alt="No data" srcset="">
-                                                    <h2 style="color: black">No data</h2>
+                                                    <h2 style="color: black">Belum ada data</h2>
                                                 </div>
                                             </div>
                                             @endforelse
@@ -410,7 +410,7 @@
                         <div class="uk-flex uk-flex-center uk-flex-middle uk-width-1-1">
                             <div class="uk-text-center">
                                 <img src="{{ asset('empty.png') }}" alt="No data" srcset="">
-                                <h2>No data</h2>
+                                <h2>Belum ada data</h2>
                             </div>
                         </div>
                         @endforelse
@@ -451,7 +451,7 @@
                 <div class="uk-flex uk-flex-center uk-flex-middle uk-width-1-1">
                     <div class="uk-text-center">
                         <img src="{{ asset('empty.png') }}" alt="No data" srcset="">
-                        <h2>No data</h2>
+                        <h2>Belum ada data</h2>
                     </div>
                 </div>
                 @endforelse
