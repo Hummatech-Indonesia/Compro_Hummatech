@@ -32,7 +32,7 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class ContactService
 {
-    public function sendMail(Request $request)
+    public function sendMail(Request $request, $mail)
     {
         $data = $request->all();
         $data = [
@@ -41,7 +41,7 @@ class ContactService
             'subject' => $request->subject,
             'message' => $request->message,
         ];
-        Mail::to('ardiansupriadi464@gmail.com')->send(new SendEmail($data));
+        Mail::to($mail)->send(new SendEmail($data));
         return $data;
     }
 }
