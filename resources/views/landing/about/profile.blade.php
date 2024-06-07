@@ -4,8 +4,8 @@
     @foreach ($profiles as $profile)
         <meta name="title" content="{{ $profile->title }}" />
         <meta name="description" content="{{ $profile->subtitle }}" />
-        <meta name="og:image" content="{{ asset('mobilelogo.png') }}" />
-        <meta name="twitter:image" content="{{ asset('mobilelogo.png') }}" />
+        <meta name="og:image" content="{{ asset('icon.png') }}" />
+        <meta name="twitter:image" content="{{ asset('icon.png') }}" />
         <meta property="og:url" content="{{ url('/') }}" />
         <meta property="og:type" content="website" />
         <link rel="canonical" href="{{ url('/') }}" />
