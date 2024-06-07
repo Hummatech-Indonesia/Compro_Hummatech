@@ -41,6 +41,7 @@
 </head>
 
 <body>
+    @yield('seo')
     <!-- page loader begin -->
     <div class="page-loader">
         <div></div>
