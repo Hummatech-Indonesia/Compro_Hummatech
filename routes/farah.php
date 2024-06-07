@@ -47,12 +47,10 @@ Route::post('admin/job-vacancy/store', [JobVacancyController::class, 'store'])->
 Route::put('admin/job-vacancy/{jobVacancy}', [JobVacancyController::class, 'update'])->name('job-vacancy.update');
 Route::delete('admin/job-vacancy/{jobVacancy}', [JobVacancyController::class, 'destroy'])->name('job-vacancy.destroy');
 
-Route::delete('admin/portfolio/{product}', [PortfolioController::class, 'destroy'])->name('portfolio.destroy');
-
 Route::post('admin/product/publish/{id}', [ProductController::class, 'publishProduct'])->name('product.publish');
-Route::delete('admin/product/draft/{product}', [ProductController::class, 'draft'])->name('product.draft'); 
-Route::post('coming-soon-product/publish/{id}', [ProductController::class, 'publishProductComing'])->name('product-coming.publish'); 
-Route::delete('coming-soon-product/draft/{comingSoonProduct}', [ProductController::class, 'comingDraft'])->name('product-coming.draft'); 
+Route::delete('admin/product/draft/{product}', [ProductController::class, 'draft'])->name('product.draft');
+Route::post('coming-soon-product/publish/{id}', [ProductController::class, 'publishProductComing'])->name('product-coming.publish');
+Route::delete('coming-soon-product/draft/{comingSoonProduct}', [ProductController::class, 'comingDraft'])->name('product-coming.draft');
 
 Route::delete('service/draft/{service}', [ServiceController::class, 'draft'])->name('service.draft');
 Route::post('service/publish/{id}', [ServiceController::class, 'publish'])->name('service.publish');
