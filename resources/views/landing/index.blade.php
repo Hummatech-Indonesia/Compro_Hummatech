@@ -193,7 +193,7 @@
                     </a>
                     @endif
                 </div>
-                <div class="uk-width-2-5@m uk-grid-margin uk-first-column">
+                <div class="uk-width-2-5@m uk-grid-margin uk-first-column uk-margin-large-top">
                     <div class="image-container">
                         <img src="{{ asset('assets/images/circle_black.png') }}" class="image-background"
                             alt="">
