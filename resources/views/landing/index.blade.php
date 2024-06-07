@@ -200,7 +200,7 @@
                         {!! $profile->subtitle !!}
                     </p>
                     @if ($profile->proposal)
-                    <a target="_blank" href="{{ $profile->proposal }}"
+                    <a  href="/about/profile"
                         class="uk-button uk-button-primary uk-border-rounded uk-margin-xlarge-bottom">Lihat
                         Profil Lengkap
                         <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
