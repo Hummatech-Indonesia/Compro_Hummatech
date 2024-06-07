@@ -8,25 +8,31 @@
 <meta name="twitter:image" content="{{ asset('storage/'. $imageStructure->image) }}" />
     <!-- ========== Breadcrumb Markup (JSON-LD) ========== -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
         {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Beranda",
-          "item": "{{ url('/') }}"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Tentang Kami",
-          "item": "{{ url('/about-us') }}"
-        },
-      ]
-    }
-</script>
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Beranda",
+              "item": "{{ url('/') }}"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Tentang Kami",
+              "item": "{{ url('/about-us') }}"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Struktur perusahaan",
+              "item": "{{ url('/company-structure') }}"
+            },
+          ]
+        }
+    </script>
 
 <meta name="description" content="PT Cakra Parama Indonesia menawarkan solusi outsourcing terbaik, termasuk penyediaan tenaga kerja, manajemen penggajian, dan dukungan logistik. Kami memastikan layanan yang efisien dan hemat biaya yang disesuaikan dengan kebutuhan bisnis Anda." />
 <meta name="og:description" content="PT Cakra Parama Indonesia menawarkan solusi outsourcing terbaik, termasuk penyediaan tenaga kerja, manajemen penggajian, dan dukungan logistik. Kami memastikan layanan yang efisien dan hemat biaya yang disesuaikan dengan kebutuhan bisnis Anda." />
@@ -36,8 +42,10 @@
         <div class="uk-container">
             <div class="uk-grid">
                 <div class="uk-width-1-1">
-                    <ul class="" style="padding-top: 13px;padding-bottom: 16px;color:white">
-                        <li ><a href="#" style="color: white">Home</a></li>
+                    <ul class="uk-breadcrumb">
+                        <li><a href="/">Beranda</a></li>
+                        <li><span>Tentang</span></li>
+                        <li><span>Struktur perusahaan</span></li>
                     </ul>
                 </div>
             </div>

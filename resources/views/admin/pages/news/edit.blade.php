@@ -62,10 +62,11 @@
                                         @php
                                             $currentCategory = $news->newsCategories->pluck('id')->toArray();
                                         @endphp
+                                        {{-- @dd($currentCategory) --}}
                                         <select class="js-example-basic-multiple col-sm-12" multiple="multiple"
                                             name="category[]">
                                             @forelse ($categories as $category)
-                                                <option {{ in_array($category->id, $currentCategory) ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->name }}</option>
+                                                <option {{ $category->id == $currentCategory ? 'selected' : '' }} value="{{ $category->id }}">{{ $category->name }}</option>
                                             @empty
                                                 <option disabled>Belum ada kategori berita</option>
                                             @endforelse

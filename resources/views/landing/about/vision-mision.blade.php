@@ -3,25 +3,31 @@
 @section('seo')
     <!-- ========== Breadcrumb Markup (JSON-LD) ========== -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
         {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Beranda",
-          "item": "{{ url('/') }}"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Tentang Kami",
-          "item": "{{ url('/about-us') }}"
-        },
-      ]
-    }
-</script>
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Beranda",
+              "item": "{{ url('/') }}"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Tentang Kami",
+              "item": "{{ url('/about-us') }}"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "Visi misi",
+              "item": "{{ url('/vision-mision') }}"
+            },
+          ]
+        }
+    </script>
 
     <meta name="og:image" content="{{ asset('icon.png') }}" />
     <meta name="twitter:image" content="{{ asset('icon.png') }}" />
@@ -44,8 +50,10 @@ Company
         <div class="uk-container">
             <div class="uk-grid">
                 <div class="uk-width-1-1">
-                    <ul class="" style="padding-top: 13px;padding-bottom: 16px;color:white">
-                        <li><a href="#" style="color: white">Home</a></li>
+                    <ul class="uk-breadcrumb">
+                        <li><a href="/">Beranda</a></li>
+                        <li><span>Tentang</span></li>
+                        <li><span>Visi misi</span></li>
                     </ul>
                 </div>
             </div>

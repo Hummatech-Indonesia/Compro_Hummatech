@@ -26,6 +26,32 @@
     <meta property="og:image"
         content="{{ asset('storage/' . $slugs->image) }}" />
 @endsection
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Beranda",
+          "item": "{{ url('/') }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tentang Kami",
+          "item": "{{ url('/service') }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": $slugs->name,
+          "item": "{{ url('/'. $slugs->name) }}"
+        },
+      ]
+    }
+</script>
 @section('header')
 <!-- header start -->
 <div class="uk-section uk-padding-remove-vertical in-equity-breadcrumb">
@@ -35,7 +61,7 @@
                 <ul class="uk-breadcrumb">
                     <li><a href="/">Beranda</a></li>
                     <li><span>Layanan</span></li>
-                    <li><span class="uk-text-capitalize">magang pkl</span></li>
+                    <li><span class="uk-text-capitalize">{{ $slugs->name }}</span></li>
                 </ul>
             </div>
         </div>

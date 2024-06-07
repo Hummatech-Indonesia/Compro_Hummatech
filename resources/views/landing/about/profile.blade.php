@@ -98,6 +98,12 @@
           "name": "Tentang Kami",
           "item": "{{ url('/about-us') }}"
         },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Profil",
+          "item": "{{ url('/profile') }}"
+        },
       ]
     }
 </script>
