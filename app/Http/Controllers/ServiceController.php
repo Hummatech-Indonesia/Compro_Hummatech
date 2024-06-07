@@ -15,7 +15,6 @@ use App\Contracts\Interfaces\SaleInterface;
 use App\Contracts\Interfaces\ServiceInterface;
 use App\Contracts\Interfaces\ServiceMitraInterface;
 use App\Contracts\Interfaces\SosialMediaInterface;
-use App\Contracts\Interfaces\TermsconditionInterface;
 use App\Contracts\Interfaces\TestimonialInterface;
 use App\Contracts\Repositories\FaqRepository;
 use App\Contracts\Repositories\ProductRepository;
@@ -69,7 +68,6 @@ class ServiceController extends Controller
         $this->serviceMitra = $serviceMitra;
         $this->misionItems = $misionItems;
         $this->sosmed = $sosmed;
-        $this->termscondition = $termscondition;
     }
     /**
      * Display a listing of the resource.
@@ -78,7 +76,8 @@ class ServiceController extends Controller
     {
         $search = $request->name;
         $services = $this->service->search($request)->get();
-        return view('admin.pages.service.index', compact('services' , 'search'));
+        $drafts = $this->service->draf();
+        return view('admin.pages.service.index', compact('services' , 'search', 'drafts'));
     }
 
     /**
@@ -140,10 +139,7 @@ class ServiceController extends Controller
         $background = $this->background->getByServiceId($slugs->id);
         $galeries = $this->galleryImage->whereIn('gallery_id',$galerys->pluck('id'))->get();
         $instagram = $this->sosmed->instagram();
-        $termsconditions = $this->termscondition->where('service_id', $slugs->id)->get();
-
-
-        return view('landing.service.service-detail', compact('instagram','termsconditions', 'servicemitras','slugs', 'services', 'products', 'testimonials', 'faqs', 'procedures', 'sales', 'profile', 'galeries', 'background'));
+        return view('landing.service.service-detail', compact('instagram', 'servicemitras','slugs', 'services', 'products', 'testimonials', 'faqs', 'procedures', 'sales', 'profile', 'galeries', 'background'));
     }
     /**
      * Update the specified resource in storage.
@@ -159,12 +155,30 @@ class ServiceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Service $service)
+    public function destroy($id)
     {
-        $this->serviceService->delete($service);
-        $this->service->delete($service->id);
+        $findDraft = $this->service->findDraft($id);
+
+        $findDraft->forceDelete();
+        $this->serviceService->delete($findDraft);
         return back()->with('success', 'Layanan Berhasil Di Hapus');
     }
 
+    public function draft(Service $service)
+    {
+        $this->service->delete($service->id);
+        return back()->with('success', 'Berhasil menyimpan di draf');
+    }
+
+    public function publish($id)
+    {
+        $findDraft = $this->service->findDraft($id);
+        if($findDraft->trashed()){
+            $findDraft->restore();
+            return redirect()->back()->with('success', 'Draf berhasil di publish');
+        } else {
+            return redirect()->back()->with('warning', 'Draf tidak ditemukan');
+        }
+    }
 
 }

@@ -2,10 +2,63 @@
 
 @section('subcontent')
 <div class="py-4">
-        <div class="text-end me-4">
-            <a href="/" target="_blank" class="btn btn-primary m-0">Lihat Website</a>
+    <div class="m-5 px-4">
+        <div class="d-flex gap-2 justify-content-between">
+            <h3>Slider</h3>
+            <div class="text-end gap-2">
+                <a href="/" target="_blank" class="btn btn-primary m-0">Lihat Website</a>
+                <a class="btn btn-primary m-0" href="{{ url('/hero-section/create') }}" >Tambah</a>
+            </div>
+            </div>
         </div>
-        <div class="px-4 m-5">
+        <div class="tab-pane fade show active py-3" id="section" role="tabpanel">
+            <div class="row">
+                @forelse ($sections as $section)
+                    <div class="col-md-12 col-12 col-xl-6">
+                        <div class="card rounded-4" style="height: 350px">
+                            <div class="product-box rounded-4">
+                                <div class="product-img">
+                                    <img class="img-fluid" src="{{ asset('storage/' . $section->image) }}"
+                                        alt="" />
+
+                                    <div class="content-center">
+                                        <h3 class="title">{{ $section->title }}</h3>
+                                        <p class="subtitle fs-5 mb-0 pb-0">{{ $section->subtitle }}</p>
+                                        <p style="font-size: 13px">{{ $section->information }}</p>
+                                        @if ($section->link != null)
+                                        <div class="btn btn-lg btn-primary">Lihat Selengkapnya</div>
+                                        @endif
+                                    </div>
+
+                                    <div class="product-hover">
+                                        <ul>
+                                            <li>
+                                                <a href="{{ route('hero.edit', $section->id) }}"><i
+                                                        class="fas fa-pencil"></i></a>
+                                            </li>
+                                            <li>
+                                                <a class="btn-delete" data-id="{{ $section->id }}"><i
+                                                        class="fas fa-trash"></i></a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @empty
+                    <div class="mt-5">
+                        <div class="d-flex justify-content-center">
+                            <img src="{{ asset('nodata.jpg') }}" alt="" width="300px">
+                        </div>
+                        <h5 class="text-center">
+                            Data Masih Kosong
+                        </h5>
+                    </div>
+                @endforelse
+            </div>
+        </div>
+        {{-- <div class="px-4 m-5">
             <ul class="simple-wrapper nav nav-tabs justify-content-between" id="myTab" role="tablist">
                 <div class="d-flex">
                     <li class="nav-item"><a class="nav-link active txt-primary" id="profile-tabs" data-bs-toggle="tab"
@@ -122,7 +175,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 @endsection
 @section('header-style')

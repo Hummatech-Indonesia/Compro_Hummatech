@@ -27,11 +27,19 @@ class ComingSoonProductRepository extends BaseRepository implements ComingSoonPr
     }
     public function delete(mixed $id): mixed
     {
-        return $this->model->query()->findOrFail($id)->delete($id);
+        return $this->model->query()->withTrashed()->findOrFail($id)->delete($id);
     }
     public function show(mixed $id): mixed
     {
         return $this->model->query()->findOrFail($id);
     }
+    public function draf()
+    {
+        return $this->model->query()->onlyTrashed()->paginate(10);
+    }   
+    public function findDraft(mixed $id)
+    {
+        return $this->model->query()->withTrashed()->findOrFail($id);
+    } 
 }
 

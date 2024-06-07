@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeProductController;
 use App\Http\Controllers\JobVacancyController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/category-product', [CategoryProductController::class, 'index'])->name('category-product.index');
@@ -39,9 +40,20 @@ Route::get('data/product/coming-soon', [HomeProductController::class, 'productCo
 Route::get('admin/portfolio', [PortfolioController::class, 'index'])->name('portfolio.index');
 Route::post('admin/portfolio', [PortfolioController::class, 'store'])->name('portfolio.store');
 Route::put('admin/portfolio/update/{product}', [PortfolioController::class, 'update'])->name('portfolio.update');
-Route::delete('admin/portfolio/{product}', [PortfolioController::class, 'destroy'])->name('portfolio.destroy');
+Route::delete('admin/portfolio/{id}', [PortfolioController::class, 'destroy'])->name('portfolio.destroy');
 
 Route::get('admin/job-vacancy', [JobVacancyController::class, 'index'])->name('job-vacancy.index');
 Route::post('admin/job-vacancy/store', [JobVacancyController::class, 'store'])->name('job-vacancy.store');
 Route::put('admin/job-vacancy/{jobVacancy}', [JobVacancyController::class, 'update'])->name('job-vacancy.update');
 Route::delete('admin/job-vacancy/{jobVacancy}', [JobVacancyController::class, 'destroy'])->name('job-vacancy.destroy');
+
+Route::delete('admin/portfolio/{product}', [PortfolioController::class, 'destroy'])->name('portfolio.destroy');
+
+Route::post('admin/product/publish/{id}', [ProductController::class, 'publishProduct'])->name('product.publish');
+Route::delete('admin/product/draft/{product}', [ProductController::class, 'draft'])->name('product.draft'); 
+Route::post('coming-soon-product/publish/{id}', [ProductController::class, 'publishProductComing'])->name('product-coming.publish'); 
+Route::delete('coming-soon-product/draft/{comingSoonProduct}', [ProductController::class, 'comingDraft'])->name('product-coming.draft'); 
+
+Route::delete('service/draft/{service}', [ServiceController::class, 'draft'])->name('service.draft');
+Route::post('service/publish/{id}', [ServiceController::class, 'publish'])->name('service.publish');
+Route::delete('service/delete/{id}', [ServiceController::class, 'destroy']);

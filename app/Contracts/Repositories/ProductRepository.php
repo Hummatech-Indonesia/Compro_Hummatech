@@ -27,7 +27,7 @@ class ProductRepository extends BaseRepository implements ProductInterface
     }
     public function delete(mixed $id): mixed
     {
-        return $this->model->query()->findOrFail($id)->delete($id);
+        return $this->model->query()->withTrashed()->findOrFail($id)->delete($id);
     }
     public function show(mixed $id): mixed
     {
@@ -62,6 +62,14 @@ class ProductRepository extends BaseRepository implements ProductInterface
     public function product()
     {
         return $this->model->query()->where('type','!=', 'portfolio')->get();
+    }
+    public function draf($operator, $value)
+    {
+        return $this->model->query()->where('type', $operator, $value)->onlyTrashed()->paginate(10);
+    }
+    public function findDraft(mixed $id)
+    {
+        return $this->model->query()->withTrashed()->findOrFail($id);
     }
 }
 
