@@ -8,6 +8,7 @@
 
 <head>
     <!-- meta tags -->
+    @yield('title')
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#FCB42D">
@@ -34,7 +35,6 @@
     <!-- favicon -->
     <link rel="shortcut icon" href="{{ asset('icon.png') }}" type="image/x-icon">
     @yield('style')
-    @yield('title')
 </head>
 
 <body>
