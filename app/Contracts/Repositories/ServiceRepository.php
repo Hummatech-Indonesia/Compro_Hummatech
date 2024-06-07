@@ -35,7 +35,7 @@ class ServiceRepository extends BaseRepository implements ServiceInterface
 
     public function delete(mixed $id): mixed
     {
-        return $this->model->query()->findOrFail($id)->delete($id);
+        return $this->model->query()->withTrashed()->findOrFail($id)->delete($id);
     }
     public function slug(mixed $slug): mixed
     {
@@ -54,4 +54,12 @@ class ServiceRepository extends BaseRepository implements ServiceInterface
                 $query->where('name', 'LIKE', '%' . $request->name . '%');
             });
     }
+    public function draf()
+    {
+        return $this->model->query()->onlyTrashed()->paginate(10);
+    }   
+    public function findDraft(mixed $id)
+    {
+        return $this->model->query()->withTrashed()->findOrFail($id);
+    } 
 }
