@@ -11,7 +11,7 @@
         content="Hummatech Perusahaan software terbaik di jawa timur">
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="{{ asset('icon.png') }}" type="image/x-icon">
-    <title>Hummatech</title>
+    <title>PT CAKRA PARAMA INDONESIA</title>
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Outfit:400,400i,500,500i,700,700i&amp;display=swap"
         rel="stylesheet">
