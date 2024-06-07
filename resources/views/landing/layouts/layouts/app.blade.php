@@ -82,36 +82,35 @@
                             <div>
                                 <h4 class="uk-text-primary">Hubungi kami</h4>
                                 @if ($profile)
-                                    <ul class="uk-list uk-link-text">
-                                        <li>
-                                            <div class="uk-flex">
-                                                <i class="fas fa-home uk-margin-right uk-text-primary"></i>
-                                                <div class="">
-                                                    <h5 class="uk-text-primary uk-margin-remove">Alamat</h5>
-                                                    <p class="uk-margin-remove uk-text-muted">{{$profile->address}}</p>
-                                                </div>
+                                <ul class="uk-list uk-link-text">
+                                    <li>
+                                        <div class="uk-flex">
+                                            <i class="fas fa-home uk-margin-right uk-text-primary"></i>
+                                            <div class="">
+                                                <h5 class="uk-text-primary uk-margin-remove">Alamat</h5>
+                                                <p class="uk-margin-remove uk-text-muted">{{ optional($profile)->address ?? 'Contoh Alamat, Jalan Dummy No. 123, Kota, Negara' }}</p>
                                             </div>
-                                        </li>
-                                        <li>
-                                            <div class="uk-flex">
-                                                <i class="fas fa-envelope uk-margin-right uk-text-primary"></i>
-                                                <div class="">
-                                                    <h5 class="uk-text-primary uk-margin-remove">Email</h5>
-                                                    <a href="#" class="uk-text-muted">{{$profile->email}}</a>
-                                                </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-flex">
+                                            <i class="fas fa-envelope uk-margin-right uk-text-primary"></i>
+                                            <div class="">
+                                                <h5 class="uk-text-primary uk-margin-remove">Email</h5>
+                                                <a href="#" class="uk-text-muted">{{ optional($profile)->email ?? 'dummy@example.com' }}</a>
                                             </div>
-                                        </li>
-                                        <li>
-                                            <div class="uk-flex">
-                                                <i style="font-size: 20px"
-                                                    class="fab fa-whatsapp uk-margin-right uk-text-primary"></i>
-                                                <div class="">
-                                                    <h5 class="uk-text-primary uk-margin-remove">Whatsapp</h5>
-                                                    <a href="#" class="uk-text-muted">{{$profile->phone}}</a>
-                                                </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-flex">
+                                            <i style="font-size: 20px" class="fab fa-whatsapp uk-margin-right uk-text-primary"></i>
+                                            <div class="">
+                                                <h5 class="uk-text-primary uk-margin-remove">Whatsapp</h5>
+                                                <a href="#" class="uk-text-muted">{{ optional($profile)->phone ?? '+62 812-3456-7890' }}</a>
                                             </div>
-                                        </li>
-                                    </ul>
+                                        </div>
+                                    </li>
+                                </ul>
 
                                 @else
 
