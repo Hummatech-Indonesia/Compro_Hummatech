@@ -116,7 +116,7 @@
                         </div>
                     </div>
                     <div class="logo-icon-wrapper"><a href="index.html"><img class="img-fluid"
-                                src="{{ asset('assets/images/Logo_HUMMATECH_700px.png') }}" style="height: 35px"
+                                src="{{ asset('cakra.png') }}" style="height: 50px"
                                 alt=""></a></div>
                     <nav class="sidebar-main">
                         <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
