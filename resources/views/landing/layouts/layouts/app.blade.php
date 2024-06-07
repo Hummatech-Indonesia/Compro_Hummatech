@@ -10,10 +10,8 @@
     <!-- meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Hummatech ">
-    <meta name="keywords" content="blockit, uikit3, indonez, handlebars, scss, javascript">
-    <meta name="author" content="Indonez">
     <meta name="theme-color" content="#FCB42D">
+    @yield('seo')
     <!-- preload assets -->
     <link rel="preload" href="{{ asset('assets_landing/fonts/fa-brands-400.woff2') }}" as="font" type="font/woff2"
         crossorigin>
@@ -36,8 +34,8 @@
     <!-- favicon -->
     <link rel="shortcut icon" href="{{ asset('icon.png') }}" type="image/x-icon">
     <!-- touch icon -->
-    <link rel="apple-touch-icon-precomposed" href="{{ asset('icon.png') }}">
     @yield('style')
+    @yield('title')
 </head>
 
 <body>
@@ -82,36 +80,35 @@
                             <div>
                                 <h4 class="uk-text-primary">Hubungi kami</h4>
                                 @if ($profile)
-                                    <ul class="uk-list uk-link-text">
-                                        <li>
-                                            <div class="uk-flex">
-                                                <i class="fas fa-home uk-margin-right uk-text-primary"></i>
-                                                <div class="">
-                                                    <h5 class="uk-text-primary uk-margin-remove">Alamat</h5>
-                                                    <p class="uk-margin-remove uk-text-muted">{{$profile->address}}</p>
-                                                </div>
+                                <ul class="uk-list uk-link-text">
+                                    <li>
+                                        <div class="uk-flex">
+                                            <i class="fas fa-home uk-margin-right uk-text-primary"></i>
+                                            <div class="">
+                                                <h5 class="uk-text-primary uk-margin-remove">Alamat</h5>
+                                                <p class="uk-margin-remove uk-text-muted">{{ optional($profile)->address ?? 'Contoh Alamat, Jalan Dummy No. 123, Kota, Negara' }}</p>
                                             </div>
-                                        </li>
-                                        <li>
-                                            <div class="uk-flex">
-                                                <i class="fas fa-envelope uk-margin-right uk-text-primary"></i>
-                                                <div class="">
-                                                    <h5 class="uk-text-primary uk-margin-remove">Email</h5>
-                                                    <a href="#" class="uk-text-muted">{{$profile->email}}</a>
-                                                </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-flex">
+                                            <i class="fas fa-envelope uk-margin-right uk-text-primary"></i>
+                                            <div class="">
+                                                <h5 class="uk-text-primary uk-margin-remove">Email</h5>
+                                                <a href="#" class="uk-text-muted">{{ optional($profile)->email ?? 'dummy@example.com' }}</a>
                                             </div>
-                                        </li>
-                                        <li>
-                                            <div class="uk-flex">
-                                                <i style="font-size: 20px"
-                                                    class="fab fa-whatsapp uk-margin-right uk-text-primary"></i>
-                                                <div class="">
-                                                    <h5 class="uk-text-primary uk-margin-remove">Whatsapp</h5>
-                                                    <a href="#" class="uk-text-muted">{{$profile->phone}}</a>
-                                                </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="uk-flex">
+                                            <i style="font-size: 20px" class="fab fa-whatsapp uk-margin-right uk-text-primary"></i>
+                                            <div class="">
+                                                <h5 class="uk-text-primary uk-margin-remove">Whatsapp</h5>
+                                                <a href="#" class="uk-text-muted">{{ optional($profile)->phone ?? '+62 812-3456-7890' }}</a>
                                             </div>
-                                        </li>
-                                    </ul>
+                                        </div>
+                                    </li>
+                                </ul>
 
                                 @else
 
@@ -123,10 +120,11 @@
                         <!-- social media begin -->
                         <div class="uk-flex uk-flex-column social-media-list">
                             @forelse ($socmed as $social)
-                            <a href="{{$social->link}}" class="text-decoration-none uk-text-primary uk-margin-small-bottom uk-display-inline-block uk-padding-small uk-background-muted uk-border-rounded">
+                            <a href="{{$social->link}}" class="text-decoration-none uk-margin-small-bottom uk-display-inline-block uk-background-muted color-{{$social->platform}} uk-border-rounded" style="color: white; padding: 9px 10px;">
                                 {{$social->platform}}
                                 <img src="{{ asset('storage/' . $social->image) }}" alt="{{$social->platform}}" style="width: 20px; height: 20px; margin-left: 5px;">
                             </a>
+
 
                             @empty
 

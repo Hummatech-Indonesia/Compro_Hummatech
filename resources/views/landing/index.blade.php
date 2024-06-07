@@ -1,4 +1,17 @@
 @extends('landing.layouts.app')
+@section('seo')
+    <meta name="title" content="Hummatech - Perusahaan Software Terbaik di Malang" />
+    <meta name="description"
+        content="Hummatech adalah perusahaan software development terbaik di Malang. Kami menyediakan solusi perangkat lunak yang inovatif dan berkualitas tinggi." />
+    <meta name="og:description"
+        content="Hummatech adalah perusahaan software development terbaik di Malang. Kami menyediakan solusi perangkat lunak yang inovatif dan berkualitas tinggi." />
+    <meta name="og:image" content="{{ asset('mobilelogo.png') }}" />
+    <meta name="twitter:image" content="{{ asset('mobilelogo.png') }}" />
+    <meta property="og:url" content="{{ url('/') }}" />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="{{ url('/') }}" />
+@endsection
+
 @section('style')
 
 <style>
@@ -193,7 +206,7 @@
                     </a>
                     @endif
                 </div>
-                <div class="uk-width-2-5@m uk-grid-margin uk-first-column">
+                <div class="uk-width-2-5@m uk-grid-margin uk-first-column uk-margin-large-top">
                     <div class="image-container">
                         <img src="{{ asset('assets/images/circle_black.png') }}" class="image-background"
                             alt="">
@@ -204,7 +217,12 @@
         </div>
     </div>
     @empty
-
+    <div class="uk-flex uk-flex-center uk-margin-xlarge-top">
+        <img src="{{ asset('empty.png') }}" alt="" srcset="">
+    </div>
+    <h2 class="uk-text-center">
+        Belum ada data
+    </h2>
     @endforelse
     <!-- section content end -->
 
@@ -212,11 +230,6 @@
 
 
     <!-- section content begin -->
-    @php
-    $hasServices = $service->isNotEmpty();
-    @endphp
-
-    @if ($hasServices)
         <div class="uk-section uk-section-primary uk-preserve-color in-equity-1 ">
             <div class="uk-container">
                 <div class="uk-grid">
@@ -240,17 +253,20 @@
                             </div>
                         </div>
                     @empty
-                        <!-- Tidak ada layanan -->
+                    <div class="uk-flex uk-flex-center uk-flex-middle uk-width-1-1">
+                        <div class="uk-text-center">
+                            <img src="{{ asset('empty.png') }}" alt="No data" srcset="">
+                            <h2>Belum ada data</h2>
+                        </div>
+                    </div>
                     @endforelse
                 </div>
             </div>
         </div>
-    @endif
 
 
 
     <!-- section content end -->
-    @if ($product->isNotEmpty())
     <div class="uk-section">
         <div class="uk-container">
             <div class="uk-grid-match uk-child-width-1-2@s uk-child-width-1-3@m in-card-10" data-uk-grid>
@@ -285,19 +301,24 @@
                         </div>
                     </div>
                 @empty
-                    <!-- Tidak ada produk -->
+                <div class="uk-flex uk-flex-center uk-flex-middle uk-width-1-1">
+                    <div class="uk-text-center">
+                        <img src="{{ asset('empty.png') }}" alt="No data" srcset="">
+                        <h2>Belum ada data</h2>
+                    </div>
+                </div>
                 @endforelse
 
 
             </div>
         </div>
     </div>
-@endif
+
 
 
 
         <!-- section content begin -->
-        @if ($mitras->isNotEmpty())
+
         <div class="uk-section" style="background-color: #edeff1">
                 <div class="uk-width-1-1@m uk-text-center">
                     <h1><span class="in-highlight">MITRA KAMI</span></h1>
@@ -315,7 +336,12 @@
                                                     <img class="uk-margin-remove" src="{{ asset('storage/' . $mitra->image) }}" alt="{{ $mitra->name }}" width="167" height="55">
                                                 </div>
                                             @empty
-                                                <!-- Tidak ada data mitra -->
+                                            <div class="uk-flex uk-flex-center uk-flex-middle uk-width-1-1">
+                                                <div class="uk-text-center">
+                                                    <img src="{{ asset('empty.png') }}" alt="No data" srcset="">
+                                                    <h2 style="color: black">Belum ada data</h2>
+                                                </div>
+                                            </div>
                                             @endforelse
                                         </div>
                                         <a class="uk-position-center-left uk-position-small uk-hidden-hover" href uk-slidenav-previous uk-slider-item="previous"></a>
@@ -326,7 +352,6 @@
                         </div>
                     </div>
                 </div>
-            @endif
 
             @if (count($mitras) > 6)
                 <div class="uk-width-1-1@m uk-text-center uk-margin-medium-top">
@@ -341,7 +366,6 @@
 
 
     <!-- section content begin -->
-    @if ($news->count() > 0)
         <div class="uk-section in-equity-13">
             <div class="uk-container uk-margin-medium-bottom">
                 <div class="uk-grid uk-flex uk-flex-center">
@@ -356,7 +380,7 @@
                 </div>
                 <div class="uk-width-5-6@m">
                     <div class="uk-child-width-1-2@s uk-child-width-1-3@m uk-margin-top uk-flex uk-flex-center" data-uk-grid>
-                        @foreach ($news as $index => $newsItem)
+                        @forelse ($news as $index => $newsItem)
                             @if ($index < 3)
                                 <div>
                                     <span class="uk-label in-label-small uk-margin-remove-bottom">News</span>
@@ -382,7 +406,14 @@
                                     </article>
                                 </div>
                             @endif
-                        @endforeach
+                        @empty
+                        <div class="uk-flex uk-flex-center uk-flex-middle uk-width-1-1">
+                            <div class="uk-text-center">
+                                <img src="{{ asset('empty.png') }}" alt="No data" srcset="">
+                                <h2>Belum ada data</h2>
+                            </div>
+                        </div>
+                        @endforelse
                     </div>
                 </div>
             </div>
@@ -395,12 +426,10 @@
                 </a>
             </div>
         @endif
-    @else
 
-    @endif
 
     <!-- section content begin -->
-    @if (count($portfolios) > 0)
+
     <div class="uk-section" style="background-color: #edeff1">
         <div class="uk-width-1-1@m uk-text-center">
             <h1><span class="in-highlight">PORTOFOLIO</span></h1>
@@ -419,7 +448,12 @@
                         </li>
                     @endif
                 @empty
-                    <!-- Tidak ada data portofolio -->
+                <div class="uk-flex uk-flex-center uk-flex-middle uk-width-1-1">
+                    <div class="uk-text-center">
+                        <img src="{{ asset('empty.png') }}" alt="No data" srcset="">
+                        <h2>Belum ada data</h2>
+                    </div>
+                </div>
                 @endforelse
             </ul>
         </div>
@@ -432,7 +466,6 @@
             </div>
         @endif
     </div>
-@endif
 
 
 

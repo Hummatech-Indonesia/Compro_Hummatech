@@ -10,8 +10,8 @@
     <meta name="description" content="Hummatech adalah perusahaan software development terbaik di Malang. Kami menyediakan solusi perangkat lunak yang inovatif dan berkualitas tinggi.">
     <meta name="keywords" content="Hummatech, Hummatech adalah perusahaan software development terbaik di Malang. Kami menyediakan solusi perangkat lunak yang inovatif dan berkualitas tinggi.">
     <meta name="author" content="pixelstrap">
-    <link rel="icon" href="{{ asset('logofavicon.png') }}" type="image/x-icon">
-    <link rel="shortcut icon" href="{{ asset('logofavicon.png') }}" type="image/x-icon">
+    <link rel="icon" href="{{ asset('icon.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('icon.png') }}" type="image/x-icon">
     <title>Hummatech</title>
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Outfit:400,400i,500,500i,700,700i&amp;display=swap" rel="stylesheet">
@@ -42,7 +42,7 @@
         <div class="col-12 p-0">
           <div class="login-card login-dark">
             <div>
-              <div><a class="logo" href="index.html"><img class="img-fluid for-light" src="{{ asset('assets/images/LOGO-HUMMATECH_Hitam.png') }}" style="width: 200px;height: auto;" alt="looginpage"><img class="img-fluid for-dark" src="../assets/images/logo/logo.png" alt="looginpage"></a></div>
+              <div><a class="logo" href="/"><img class="img-fluid for-light" src="{{ asset('Cakra Hitam.png') }}" style="width: 170px;height: auto;" alt="looginpage"><img class="img-fluid for-dark" src="../assets/images/logo/logo.png" alt="looginpage"></a></div>
               <div class="login-main">
                 <form method="POST" action="{{ route('login') }}">
                     @csrf

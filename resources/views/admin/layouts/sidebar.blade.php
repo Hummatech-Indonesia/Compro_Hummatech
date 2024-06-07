@@ -1,7 +1,7 @@
 <ul class="sidebar-links" id="simple-bar">
     <li class="back-btn">
         <a href="index.html">
-            <img class="img-fluid" src="{{ asset('assets/images/logo/logo-icon.png') }}" alt="">
+            <img class="img-fluid" src="{{ asset('icon.png') }}" alt="">
         </a>
         <div class="mobile-back text-end">
             <span>Back</span>

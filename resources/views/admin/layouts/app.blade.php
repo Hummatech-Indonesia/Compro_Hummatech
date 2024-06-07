@@ -10,8 +10,8 @@
     <meta name="keywords"
         content="Hummatech Perusahaan software terbaik di jawa timur">
     <meta name="author" content="pixelstrap">
-    <link rel="icon" href="{{ asset('logofavicon.png') }}" type="image/x-icon">
-    <title>Hummatech</title>
+    <link rel="icon" href="{{ asset('icon.png') }}" type="image/x-icon">
+    <title>PT CAKRA PARAMA INDONESIA</title>
     <!-- Google font-->
     <link href="https://fonts.googleapis.com/css?family=Outfit:400,400i,500,500i,700,700i&amp;display=swap"
         rel="stylesheet">
@@ -106,8 +106,8 @@
             <div class="sidebar-wrapper" data-layout="fill-svg">
                 <div>
                     <div class="logo-wrapper"><a href="/home">
-                            <img class="img-fluid" src="{{ asset('assets/images/LOGO-HUMMATECH_Putih.png') }}"
-                                style="height: 35px; width: 160px;" alt=""></a>
+                            <img class="img-fluid" src="{{ asset('cakra.png') }}"
+                            style="height: 45px;w;width: 250px;object-fit: cover;" alt=""></a>
                         <div class="toggle-sidebar">
                             <svg class="sidebar-toggle">
                                 <use href="{{ asset('assets/svg/icon-sprite.svg#toggle-icon') }}">
@@ -115,8 +115,8 @@
                             </svg>
                         </div>
                     </div>
-                    <div class="logo-icon-wrapper"><a href="index.html"><img class="img-fluid"
-                                src="{{ asset('assets/images/Logo_HUMMATECH_700px.png') }}" style="height: 35px"
+                    <div class="logo-icon-wrapper"><a href="/home"><img class="img-fluid"
+                                src="{{ asset('cakra.png') }}" style="height: 50px"
                                 alt=""></a></div>
                     <nav class="sidebar-main">
                         <div class="left-arrow" id="left-arrow"><i data-feather="arrow-left"></i></div>
