@@ -4,7 +4,7 @@
         </div>
     <li class="profile-nav onhover-dropdown p-0">
         <div class="d-flex align-items-center profile-media"><img class="b-r-10 img-40"
-                src="{{ asset('cakra.png') }}" alt="">
+                src="{{ asset('icon.png') }}" alt="">
             <div class="flex-grow-1"><span>{{ auth()->user()->name }}</span>
                 <p class="mb-0">{{ auth()->user()->role }} <i class="middle fa-solid fa-chevron-down"></i></p>
             </div>
