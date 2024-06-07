@@ -1,7 +1,6 @@
 @extends('landing.layouts.layouts.app')
 @section('title', 'About Company')
 @section('seo')
-@section('seo')
     @foreach ($profiles as $profile)
         <meta name="title" content="{{ $profile->title }}" />
         <meta name="description" content="{{ $profile->subtitle }}" />
@@ -11,7 +10,6 @@
         <meta property="og:type" content="website" />
         <link rel="canonical" href="{{ url('/') }}" />
     @endforeach
-@endsection
 @endsection
 
 @section('style')

@@ -38,10 +38,11 @@
     <!-- touch icon -->
     <link rel="apple-touch-icon-precomposed" href="{{ asset('icon.png') }}">
     @yield('style')
+    @yield('title')
+    @yield('seo')
 </head>
 
 <body>
-    @yield('seo')
     <!-- page loader begin -->
     <div class="page-loader">
         <div></div>
