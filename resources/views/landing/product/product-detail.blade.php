@@ -1,5 +1,5 @@
 @extends('landing.layouts.layouts.app')
-@section('title' , 'Detail Portofolio {{ $product->name }}')
+@section('title' , 'Detail Portofolio '$product->name)
 @section('style')
     <style>
         .uk-slider-items > div {
