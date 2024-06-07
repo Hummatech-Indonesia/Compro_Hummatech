@@ -23,9 +23,9 @@
 @endsection
 
 @section('seo')
-    <meta name="title" content="Team - Profil Hummatech" />
-    <meta name="og:image" content="{{ asset('mobilelogo.png') }}" />
-    <meta name="twitter:image" content="{{ asset('mobilelogo.png') }}" />
+    <meta name="title" content="Team - Profil" />
+    <meta name="og:image" content="{{ asset('icon.png') }}" />
+    <meta name="twitter:image" content="{{ asset('icon.png') }}" />
     <!-- ========== Breadcrumb Markup (JSON-LD) ========== -->
     <script type="application/ld+json">
     {
@@ -48,8 +48,8 @@
     }
 </script>
 
-    <meta name="description" content="Perusahaan Software House terbaik se-Jawa Timur" />
-    <meta name="og:description" content="Perusahaan Software House terbaik se-Jawa Timur" />
+    <meta name="description" content="PT Cakra Parama Indonesia menawarkan solusi outsourcing terbaik, termasuk penyediaan tenaga kerja, manajemen penggajian, dan dukungan logistik. Kami memastikan layanan yang efisien dan hemat biaya yang disesuaikan dengan kebutuhan bisnis Anda." />
+    <meta name="og:description" content="PT Cakra Parama Indonesia menawarkan solusi outsourcing terbaik, termasuk penyediaan tenaga kerja, manajemen penggajian, dan dukungan logistik. Kami memastikan layanan yang efisien dan hemat biaya yang disesuaikan dengan kebutuhan bisnis Anda." />
 @endsection
 
 @section('header')
