@@ -8,7 +8,7 @@
 
 <head>
     @hasSection('title')
-        <title>{!! "{$__env->yieldContent('title')} &mdash; " !!}</title>
+        <title>{!! "{$__env->yieldContent('title')}" !!}</title>
     @else
         <title>{{ config('app.name', 'Laravel') }}</title>
     @endif <!-- meta tags -->
