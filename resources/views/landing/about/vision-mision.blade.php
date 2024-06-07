@@ -34,6 +34,9 @@ Company
 @endisset" />
     <meta name="description" content="PT Cakra Parama Indonesia menawarkan solusi outsourcing terbaik, termasuk penyediaan tenaga kerja, manajemen penggajian, dan dukungan logistik. Kami memastikan layanan yang efisien dan hemat biaya yang disesuaikan dengan kebutuhan bisnis Anda." />
     <meta name="og:description" content="PT Cakra Parama Indonesia menawarkan solusi outsourcing terbaik, termasuk penyediaan tenaga kerja, manajemen penggajian, dan dukungan logistik. Kami memastikan layanan yang efisien dan hemat biaya yang disesuaikan dengan kebutuhan bisnis Anda." />
+    <meta property="og:url" content="{{ url('https://compro.mijurnal.com/about/vision-mision') }}" />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="{{ url('https://compro.mijurnal.com/about/vision-mision') }}" />
 @endsection
 
 @section('header')
