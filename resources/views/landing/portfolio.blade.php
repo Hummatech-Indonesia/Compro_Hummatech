@@ -6,8 +6,10 @@
 @endsection
 
 @section('seo')
-    <meta name="description" content="Portofolio Hummatech." />
-    <meta name="title" content="Portofolio - Hummatech" />
+<meta name="title" content="Portofolio" />
+<meta name="description" content="Portofolio PT CAKRA PARAMA INDONESIA." />
+    <meta name="og:image" content="{{ asset('icon.png') }}" />
+    <meta name="twitter:image" content="{{ asset('icon.png') }}" />
     <!-- ========== Breadcrumb Markup (JSON-LD) ========== -->
     <script type="application/ld+json">
 {
