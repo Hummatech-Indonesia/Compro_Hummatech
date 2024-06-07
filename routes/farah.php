@@ -4,6 +4,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\BackgroundController;
 use App\Http\Controllers\CategoryProductController;
 use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\HomeContactController;
 use App\Http\Controllers\HomeDescriptionController;
 use App\Http\Controllers\HomeProductController;
 use App\Http\Controllers\JobVacancyController;
@@ -60,3 +61,5 @@ Route::delete('service/delete/{id}', [ServiceController::class, 'destroy']);
 Route::delete('admin/news/draft/{news}', [NewsController::class, 'draft'])->name('news.draft');
 Route::post('admin/news/publish/{id}', [NewsController::class, 'publish'])->name('news.publish');
 Route::delete('admin/news/delete/{id}', [NewsController::class, 'destroy'])->name('news.delete');
+
+Route::post('contact/store', [HomeContactController::class, 'store'])->name('contact.send');

@@ -3,15 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Contracts\Interfaces\BackgroundInterface;
+use App\Http\Requests\StoreContactUsRequest;
+use App\Services\ContactService;
 use Illuminate\Http\Request;
 
 class HomeContactController extends Controller
 {
     private BackgroundInterface $background;
+    private ContactService $service;
 
-    public function __construct(BackgroundInterface $background)
+    public function __construct(BackgroundInterface $background, ContactService $service)
     {
         $this->background = $background;
+        $this->service = $service;
     }
     /**
      * Display a listing of the resource.
@@ -36,7 +40,8 @@ class HomeContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $this->service->sendMail($request);
+        return back()->with('success','Pesan anda sudah terkirim!');
     }
 
     /**
