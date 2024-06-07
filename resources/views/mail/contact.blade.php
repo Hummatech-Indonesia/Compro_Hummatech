@@ -222,12 +222,13 @@
               <tr>
                 <td
                   style="
-                    background-color: #90c1fa;
+                    background-color: #000000;
                     text-align: center;
                     vertical-align: top;
                     direction: ltr;
                     font-size: 0px;
-                    padding: 57px;
+                    padding: 4px;
+                    padding-left: 90px;
                   "
                 >
                   <!--[if mso | IE]>
@@ -236,7 +237,7 @@
                   <div
                     style="
                       cursor: auto;
-                      color: #1b3061;
+                      color: #000000;
                       font-family: Whitney, Helvetica Neue, Helvetica, Arial,
                         Lucida Grande, sans-serif;
                       font-size: 36px;
@@ -246,8 +247,8 @@
                     "
                   >
                     <img
-                      src="https://i.postimg.cc/66jQPG8Q/Logo.png"
-                      width="200px"
+                      src="https://i.postimg.cc/WbNrGnW4/cakra.png"
+                      width="400px"
                       alt=""
                     />
                   </div>
@@ -276,7 +277,7 @@
             role="presentation"
             cellpadding="0"
             cellspacing="0"
-            style="font-size: 0px; width: 100%; background: #ffffff"
+            style="font-size: 0px; width: 100%; background: #fffefd"
             align="center"
             border="0"
           >
@@ -326,7 +327,7 @@
                             <div
                               style="
                                 cursor: auto;
-                                color: #737f8d;
+                                color: #000000;
                                 font-family: Whitney, Helvetica Neue, Helvetica,
                                   Arial, Lucida Grande, sans-serif;
                                 font-size: 16px;
@@ -342,16 +343,18 @@
                                     Helvetica, Arial, Lucida Grande, sans-serif;
                                   font-weight: 500;
                                   font-size: 20px;
-                                  color: #4f545c;
+                                  color: #000000;
                                   letter-spacing: 0.27px;
                                 "
                               >
-                                Admin, anda dikirimi sebuah pesan melalui website cakra.compro.com
+                                Anda mendapatkan sebuah pesan!
                               </h2>
-                              <h4>Nama pengirim: {{ $data['name'] }}</h4>
-                              <h4>Email pengirim: {{ $data['email'] }}</h4>
-                              <h4>Subjek: {{ $data['subject'] }}</h4>
-                              <p>
+                              <h4 style="margin: 0px; font-weight: 800; color: #000;">Pengirim</h4>
+                              <p style="margin: 0px;">Nama: {{ $data['name'] }}</p>
+                              <p style="margin: 0px;">Email: {{ $data['email'] }}</p>
+                              <p style="margin: 0px;">Judul: {{ $data['subject'] }}</p>
+                              <h4 style="margin-bottom: 0px; color: #000;">Pesan:</h4>
+                              <p style="margin: 0px; color: #000;">
                                 {{ $data['message'] }}
                               </p>
                             </div>
@@ -366,32 +369,6 @@
                             "
                             align="center"
                           >
-                            <table
-                              role="presentation"
-                              cellpadding="0"
-                              cellspacing="0"
-                              style="border-collapse: separate"
-                              align="center"
-                              border="0"
-                            >
-                              <tbody>
-                                <tr>
-                                  <td
-                                    style="
-                                      border: none;
-                                      border-radius: 3px;
-                                      color: white;
-                                      cursor: auto;
-                                      padding: 15px 19px;
-                                    "
-                                    align="center"
-                                    valign="middle"
-                                    bgcolor="#3d92e2"
-                                  >
-                                  </td>
-                                </tr>
-                              </tbody>
-                            </table>
                           </td>
                         </tr>
                       </tbody>

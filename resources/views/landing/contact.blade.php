@@ -80,22 +80,52 @@
                                     <i class="fas fa-map-marker-alt fa-sm uk-margin-small-right"></i>
                                     Alamat
                                 </h5>
-                                <p class="uk-margin-small-top uk-text-left">Satrio Tower 16th, Jl. Dr Satrio Kuningan, Jakarta</p>
+                                <p class="uk-margin-small-top uk-text-left">
+                                    @isset($profile)
+                                        {{ $profile->address }}
+                                    @else
+                                        Juanda Regency D 22, Sidoarjo
+                                    @endisset
+                                </p>
                             </div>
                             <div class="uk-width-1-1">
                                 <h5 class="uk-margin-remove-bottom">
                                     <i class="fas fa-envelope fa-sm uk-margin-small-right"></i>
                                     Email
                                 </h5>
-                                <p class="uk-margin-small-top uk-text-left uk-margin-remove-bottom">hello@company.com</p>
+                                @isset($profile)
+                                    <p class="uk-margin-small-top uk-text-left uk-margin-remove-bottom">{{ $profile->email }}</p>
+                                @else
+                                    <p class="uk-margin-small-top uk-text-left uk-margin-remove-bottom">cakra.paramaindonesia@gmail.com</p>
+                                @endisset
                                 <p class="uk-text-small uk-text-muted uk-text-uppercase uk-margin-remove-top uk-text-left">for public inquiries</p>
                             </div>
                             <div class="uk-width-1-1">
-                                <h5 class="uk-margin-remove-bottom">
-                                    <i class="fas fa-phone-alt fa-sm uk-margin-small-right"></i>
-                                    Whatsapp
-                                </h5>
-                                <p class="uk-margin-small-top uk-text-left uk-margin-remove-bottom">(888)234-5686</p>
+                                @if (isset($profile) && $profile->type != null)
+                                    @php
+                                        $cleanPhone = str_replace(['+', '-', ' '], '', $profile->phone);
+
+                                        if (substr($cleanPhone, 0, 2) === '62') {
+                                            $phoneNumber = '0' . substr($cleanPhone, 2);
+                                            $waNumber = $cleanPhone;
+                                        } elseif (substr($cleanPhone, 0, 1) === '0') {
+                                            $waNumber = '62' . substr($cleanPhone, 1);
+                                            $phoneNumber = $cleanPhone;
+                                        } else {
+                                            $phoneNumber = $cleanPhone;
+                                        }
+                                    @endphp
+                                    <h5 class="uk-margin-remove-bottom">
+                                        <i class="fas fa-phone-alt fa-sm uk-margin-small-right"></i>
+                                        {{ $profile->type == 'wa' ? 'WhatsApp: ' : 'Phone:' }}
+                                    </h5>
+                                    <a class="uk-margin-small-top uk-text-left uk-margin-remove-bottom" href="{{ $profile->type == 'wa' ? 'https://wa.me/' . $waNumber : 'tel: ' . $phoneNumber }}" class="uk-text-emphasis"
+                                    target="_blank">{{ $phoneNumber }}</a>
+                                @else
+                                    <p class="mb-0 pb-0 ">Phone:
+                                        <a href="https://wa.me/6285176777785" class="uk-text-emphasis text-decpration-none">085176777785</a>
+                                    </p>
+                                @endif
                                 <p class="uk-text-small uk-text-muted uk-text-uppercase uk-margin-remove-top uk-text-left">Mon - Fri, 9am - 5pm</p>
                             </div>
                         </div>
