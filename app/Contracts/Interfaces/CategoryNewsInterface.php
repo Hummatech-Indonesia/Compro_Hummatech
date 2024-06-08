@@ -9,4 +9,7 @@ use App\Contracts\Interfaces\Eloquent\UpdateInterface;
 use App\Contracts\Interfaces\Eloquent\WhereClauseInterface;
 
 interface CategoryNewsInterface extends GetInterface, StoreInterface, DeleteInterface, UpdateInterface, WhereClauseInterface, SearchInterface
-{}
+{
+    public function wheredata($id);
+
+}
