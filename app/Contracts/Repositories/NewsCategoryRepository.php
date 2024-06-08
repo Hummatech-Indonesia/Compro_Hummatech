@@ -46,4 +46,9 @@ class NewsCategoryRepository extends BaseRepository implements NewsCategoryInter
             ->findOrFail($id)
             ->delete();
     }
+
+    public function deleteByNewsId($id)
+    {
+        return $this->model->query()->delete($id);
+    }
 }
