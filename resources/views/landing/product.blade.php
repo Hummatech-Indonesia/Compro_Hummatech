@@ -3,62 +3,68 @@
 
 @section('style')
 <style>
-    .uk-tab > li.uk-active > a {
-        color: #D7AC53;
-        border-radius: 5px;
-        position: relative;
+    .uk-tab {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 0;
+        margin: 0;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .uk-tab li {
+        flex: 0 0 auto;
+        margin-right: 1rem;
+        list-style-type: none;
+        overflow-wrap: break-word;
+    }
+
+    .uk-tab li:last-child {
+        margin-right: 0;
+    }
+
+    .uk-tab li a {
+        padding: 10px 5px;
+        font-size: 14px;
     }
 
     .uk-tab > li.uk-active > a::after {
         content: "";
         position: absolute;
-        bottom: -4px;
+        bottom: 0px;
         left: 0;
         width: 100%;
         height: 2px;
         background-color: #D7AC53;
     }
 
-    .uk-tab > li > a {
+    .uk-tab li.active a {
+        color: #D7AC53;
+        border-radius: 5px;
         position: relative;
-        padding-bottom: 4px;
     }
 
-    @media (max-width: 768px) {
-        .uk-tab {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+    @media screen and (max-width: 768px) {
+        .uk-tab li {
+            margin-right: 4rem;
+            max-width: 150px;
+            white-space: normal;
+            text-overflow: ellipsis;
+            overflow-wrap: break-word; /* Memastikan pematahan kata */
         }
 
-        .uk-tab > li {
-            flex: 1 1 auto;
-            text-align: center;
-        }
-
-        .uk-tab > li > a {
-            padding: 10px 5px;
-            font-size: 14px;
-        }
-
-        .uk-tab > li.uk-active > a::after {
-            bottom: -2px;
-            height: 1px;
+        .uk-tab li a {
+            font-size: 0.75rem;
+            padding: 5px 10px;
         }
     }
 
-    @media (max-width: 480px) {
-        .uk-tab > li > a {
-            padding: 8px 3px;
-            font-size: 12px;
-        }
-
-        .uk-tab > li.uk-active > a::after {
-            bottom: -1px;
-            height: 1px;
+    @media screen and (min-width: 769px) {
+        .uk-tab li {
+            margin-right: 6rem;
         }
     }
-
 </style>
 @endsection
 
