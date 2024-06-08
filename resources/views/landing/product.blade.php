@@ -47,7 +47,7 @@
 
     @media screen and (max-width: 768px) {
         .uk-tab li {
-            margin-right: 4rem;
+            margin-right: 1rem;
             max-width: 150px;
             white-space: normal;
             text-overflow: ellipsis;
@@ -62,7 +62,7 @@
 
     @media screen and (min-width: 769px) {
         .uk-tab li {
-            margin-right: 6rem;
+            margin-right: 1rem;
         }
     }
 </style>
