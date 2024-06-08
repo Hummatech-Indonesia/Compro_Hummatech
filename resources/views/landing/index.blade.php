@@ -213,7 +213,7 @@
                                     <script>
                                         var typed = new Typed('.js-type-text', {
                                             strings: ['{{ $sectionItem->title }}'],
-                                            typeSpeed: 50,
+                                            typeSpeed: 100,
                                             loop: false,
                                             showCursor: false
                                         });
