@@ -206,8 +206,18 @@
                             <div class="uk-grid-large uk-flex-middle uk-grid" data-uk-grid style="height: 100%;">
                                 <div class="uk-width-1-2@s in-slide-text">
                                     <h1 class="uk-heading-small">
-                                        <span class="in-highlight">{{ $sectionItem->title }}</span>
+                                        <span class="in-highlight js-type-text"></span>
                                     </h1>
+
+                                    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+                                    <script>
+                                        var typed = new Typed('.js-type-text', {
+                                            strings: ['{{ $sectionItem->title }}'],
+                                            typeSpeed: 50,
+                                            loop: false,
+                                            showCursor: false
+                                        });
+                                    </script>
                                     <p class="uk-text-lead uk-visible@m">
                                         {{ $sectionItem->subtitle }}
                                     </p>
