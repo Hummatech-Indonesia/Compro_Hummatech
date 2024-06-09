@@ -23,43 +23,46 @@
     <meta property="og:type" content="website" />
     <link rel="canonical" href="{{ url('/') }}" />
     <!-- ========== Breadcrumb Markup (JSON-LD) ========== -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Beranda",
-          "item": "{{ url('/') }}"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Tentang Kami",
-          "item": "{{ url('/about-us') }}"
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "name": "Produk",
-          "item": "{{ url('/produk') }}"
-        },
-      ]
-    }
-    </script>
 @endsection
-
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+    {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "{{ url('/') }}"
+    },
+    {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Produk",
+        "item": "{{ url('/product') }}"
+    },
+    {
+        "@type": "ListItem",
+        "position": 3,
+        "name": $product->name,
+        "item": "{{ url('/'. $product->name) }}"
+    },
+    ]
+}
+</script>
+    
 @section('header')
 <div class="uk-section uk-padding-remove-vertical in-equity-breadcrumb">
     <div class="uk-container">
         <div class="uk-grid">
             <div class="uk-width-1-1">
-                <ul class="uk-breadcrumb">
-                    <li href="/">Beranda</li>
+                <ul class="uk-breadcrumb-custom">
+                    <li href="/">Home</li>
                     <li>
-                        <span>Produk</span>
+                        <span>{{ $product->type == 'portfolio' ? 'Portfolio' : 'Produk' }}</span>
+                    </li>
+                    <li>
+                        <span>{{ $product->name }}</span>
                     </li>
                 </ul>
             </div>
@@ -82,7 +85,7 @@
                     <h3>{{ $product->name }}</h3>
                     <p>{!! $product->description !!}</p>
                     @if ($product->link != null)
-                        <a href="{{ $product->link }}" class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">Kunjungi Website
+                        <a href="{{ $product->link }}" target="_blank" class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">Kunjungi Website
                             <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
                         </a>
                     @endif

@@ -40,7 +40,7 @@
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "Tentang Kami",
+          "name": "Layanan",
           "item": "{{ url('/service') }}"
         },
         {
