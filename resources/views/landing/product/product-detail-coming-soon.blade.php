@@ -51,34 +51,66 @@
 @endsection
 
 @section('seo')
-    <!-- ========== Breadcrumb Markup (JSON-LD) ========== -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Beranda",
-          "item": "{{ url('/') }}"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Tentang Kami",
-          "item": "{{ url('/about-us') }}"
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "name": "Produk",
-          "item": "{{ url('/produk') }}"
-        },
-      ]
-    }
-    </script>
+    
+    
 @endsection
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Beranda",
+            "item": "{{ url('/') }}"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Produk",
+            "item": "{{ url('/product') }}"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Coming Soon",
+            "item": "{{ url('/coming-soon') }}"
+        },
+        {
+            "@type": "ListItem",
+            "position": 4,
+            "name": "detail.comming-soon",
+            "item": "{{ url('/' . $ComingSoonProduct->slug) }}"
+        }
+    ]
+}
+    </script>
+    
+        
+    @section('header')
+    <div class="uk-section uk-padding-remove-vertical in-equity-breadcrumb">
+        <div class="uk-container">
+            <div class="uk-grid">
+                <div class="uk-width-1-1">
+                    <ul class="uk-breadcrumb-custom">
+                        <li href="/">Home</li>
+                        <li>
+                            <span>Produk</span>
+                        </li>
+                        <li>
+                            <span>Segera hadir</span>
+                        </li>
+                        <li>
+                            <span>{{ $ComingSoonProduct->name }}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endsection
 
 @section('content')
 <div class="uk-section uk-margin-large-top uk-margin-large-bottom">
