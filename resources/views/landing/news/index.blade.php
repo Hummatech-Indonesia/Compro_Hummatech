@@ -39,8 +39,8 @@
                                     <div class="uk-width-1-2@m uk-first-column">
                                         <article class="uk-card uk-card-default uk-border-rounded">
                                             <div class="uk-card-media-top">
-                                                <img class="uk-width-1-1" src="{{ asset('storage/' . ($news->news ? $news->news->thumbnail : $news->thumbnail)) }}"
-                                                    alt="{{ $news->title }}" style="height: 250px; object-fit: cover;">
+                                                <img class="uk-width-1-1" src="{{ asset('storage/' . $news->news->thumbnail) }}"
+                                                alt="{{ $news->news->title }}" style="height: 250px; object-fit:cover">
                                             </div>
                                             <div class="uk-card-body">
                                                 <h3 class="card-title">
@@ -61,34 +61,35 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="uk-card-footer uk-clearfix">
+                                            <div class="uk-card-footer uk-clearfix uk-flex uk-flex-between">
                                                 <div class="uk-float-left">
                                                     @php
                                                         $newsCategories = App\Models\NewsCategory::where('news_id', $news->id)->get();
                                                     @endphp
                                                     <div class="categories">
                                                         @foreach ($newsCategories as $index => $newsCategory)
-                                                        <a href="/news/category/{{ $newsCategory->category->slug }}"
-                                                            class="uk-text-decoration-none uk-label uk-label-warning in-label-small">{{ $newsCategory->category->name }}</a>
+                                                            <a href="/news/category/{{ $newsCategory->category->slug }}" class="uk-text-decoration-none uk-label uk-label-warning in-label-small">{{ $newsCategory->category->name }}</a>
                                                             @if (!$loop->last)
                                                                 <span></span>
                                                             @endif
                                                         @endforeach
                                                     </div>
                                                 </div>
-                                                <div class="uk-float-right">
-                                                    <a href="/news/{{ $news->slug }}" class="uk-button uk-button-text">Baca selengkapnya
-                                                        <i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                                                <div class="uk-float-right uk-margin-small-top">
+                                                    <a href="/news/{{ $news->news->slug }}" class="uk-button uk-button-text">Baca selengkapnya
+                                                        <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                                                    </a>
                                                 </div>
                                             </div>
+
                                         </article>
                                     </div>
                                 @else
                                     <div class="uk-width-1-2@m uk-first-column">
                                         <article class="uk-card uk-card-default uk-border-rounded">
                                             <div class="uk-card-media-top">
-                                                <img class="uk-width-1-1" src="{{ asset('storage/' . ($news->news ? $news->news->thumbnail : $news->thumbnail)) }}"
-                                                    alt="{{ $news->title }}" style="height: 250px; object-fit: cover;">
+                                                <img class="uk-width-1-1" src="{{ asset('storage/' . $news->thumbnail) }}"
+                                                alt="{{ $news->title }}" style="height: 250px; object-fit:cover">
                                             </div>
                                             <div class="uk-card-body">
                                                 <h3 class="card-title">
@@ -109,26 +110,27 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="uk-card-footer uk-clearfix">
+                                            <div class="uk-card-footer uk-clearfix uk-flex uk-flex-between">
                                                 <div class="uk-float-left">
                                                     @php
                                                         $newsCategories = App\Models\NewsCategory::where('news_id', $news->id)->get();
                                                     @endphp
                                                     <div class="categories">
                                                         @foreach ($newsCategories as $index => $newsCategory)
-                                                        <a href="/news/category/{{ $newsCategory->category->slug }}"
-                                                            class="uk-text-decoration-none uk-label uk-label-warning in-label-small">{{ $newsCategory->category->name }}</a>
+                                                            <a href="/news/category/{{ $newsCategory->category->slug }}" class="uk-text-decoration-none uk-label uk-label-warning in-label-small">{{ $newsCategory->category->name }}</a>
                                                             @if (!$loop->last)
                                                                 <span></span>
                                                             @endif
                                                         @endforeach
                                                     </div>
                                                 </div>
-                                                <div class="uk-float-right">
+                                                <div class="uk-float-right uk-margin-small-top">
                                                     <a href="/news/{{ $news->slug }}" class="uk-button uk-button-text">Baca selengkapnya
-                                                        <i class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
+                                                        <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                                                    </a>
                                                 </div>
                                             </div>
+
                                         </article>
                                     </div>
                                 @endif
