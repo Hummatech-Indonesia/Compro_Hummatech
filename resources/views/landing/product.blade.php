@@ -3,69 +3,71 @@
 
 @section('style')
 <style>
-    .uk-tab {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        white-space: nowrap;
-        padding: 0;
-        margin: 0;
-        -webkit-overflow-scrolling: touch;
-    }
+.uk-tab {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 0;
+    margin: 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
 
+.uk-tab li {
+    flex: 0 0 auto;
+    list-style-type: none;
+    text-align: center;
+    margin-right: 110px; /* Atur jarak antar elemen <li> */
+}
+
+.uk-tab li:last-child {
+    margin-right: 10px; /* Atur jarak khusus untuk elemen terakhir */
+}
+
+.uk-tab li a {
+    padding: 10px 5px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.uk-tab > li.uk-active > a::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #D7AC53;
+}
+
+.uk-tab li.active a {
+    color: #D7AC53;
+    border-radius: 5px;
+    position: relative;
+}
+
+.uk-tab::-webkit-scrollbar {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
     .uk-tab li {
-        flex: 0 0 auto;
-        margin-right: 1rem;
-        list-style-type: none;
+        margin-right: 5rem;
+        max-width: 150px;
+        white-space: normal;
+        text-overflow: ellipsis;
         overflow-wrap: break-word;
     }
 
-    .uk-tab li:last-child {
-        margin-right: 0;
-    }
-
     .uk-tab li a {
-        padding: 10px 5px;
-        font-size: 14px;
+        font-size: 0.75rem;
+        padding: 5px 10px;
     }
+}
 
-    .uk-tab > li.uk-active > a::after {
-        content: "";
-        position: absolute;
-        bottom: 0px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background-color: #D7AC53;
-    }
-
-    .uk-tab li.active a {
-        color: #D7AC53;
-        border-radius: 5px;
-        position: relative;
-    }
-
-    @media screen and (max-width: 768px) {
-        .uk-tab li {
-            margin-right: 1rem;
-            max-width: 150px;
-            white-space: normal;
-            text-overflow: ellipsis;
-            overflow-wrap: break-word; /* Memastikan pematahan kata */
-        }
-
-        .uk-tab li a {
-            font-size: 0.75rem;
-            padding: 5px 10px;
-        }
-    }
-
-    @media screen and (min-width: 769px) {
-        .uk-tab li {
-            margin-right: 1rem;
-        }
-    }
 </style>
+
 @endsection
 
 @section('seo')
