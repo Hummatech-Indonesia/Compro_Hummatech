@@ -177,9 +177,10 @@ class NewsController extends Controller
     {
         $newses = $this->newsCategory->where($category->id);
         $newsCategories = $this->category->get();
+        $allCategories = $this->category->get();
         $background = $this->background->getByType('Berita');
 
-        return view('landing.news.index', compact('newses' ,'newsCategories', 'background'));
+        return view('landing.news.index', compact('newses' ,'newsCategories', 'allCategories', 'background'));
     }
 
     /**
