@@ -68,9 +68,10 @@
                                                     @endphp
                                                     <div class="categories">
                                                         @foreach ($newsCategories as $index => $newsCategory)
-                                                            <span class="uk-label uk-label-warning in-label-small">{{ $newsCategory->category->name }}</span>
+                                                        <a href="/news/category/{{ $newsCategory->category->slug }}"
+                                                            class="uk-text-decoration-none uk-label uk-label-warning in-label-small">{{ $newsCategory->category->name }}</a>
                                                             @if (!$loop->last)
-                                                                <span>,</span>
+                                                                <span></span>
                                                             @endif
                                                         @endforeach
                                                     </div>
@@ -115,9 +116,10 @@
                                                     @endphp
                                                     <div class="categories">
                                                         @foreach ($newsCategories as $index => $newsCategory)
-                                                            <span class="uk-label uk-label-warning in-label-small">{{ $newsCategory->category->name }}</span>
+                                                        <a href="/news/category/{{ $newsCategory->category->slug }}"
+                                                            class="uk-text-decoration-none uk-label uk-label-warning in-label-small">{{ $newsCategory->category->name }}</a>
                                                             @if (!$loop->last)
-                                                                <span>,</span>
+                                                                <span></span>
                                                             @endif
                                                         @endforeach
                                                     </div>
