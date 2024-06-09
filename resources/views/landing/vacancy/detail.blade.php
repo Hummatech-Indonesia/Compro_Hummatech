@@ -67,10 +67,13 @@
         <div class="uk-container">
             <div class="uk-grid">
                 <div class="uk-width-1-1">
-                    <ul class="uk-breadcrumb">
-                        <li href="/">Hubungi</li>
+                    <ul class="uk-breadcrumb-custom">
+                        <li href="/">Home</li>
                         <li>
-                            <span>Hubungi</span>
+                            <span>Lowongan</span>
+                        </li>
+                        <li>
+                            <span>{{ $jobVacancy->name }}</span>
                         </li>
                     </ul>
                 </div>
