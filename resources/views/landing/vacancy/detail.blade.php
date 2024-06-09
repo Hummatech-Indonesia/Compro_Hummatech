@@ -123,7 +123,7 @@
                     <p class="uk-text-lead uk-text-muted">
                         {!! $jobVacancy->description !!}
                     </p>
-                    <h5>Kualisifikasi</h5>
+                    <h5>Kualifikasi</h5>
                     <p class="uk-text-lead uk-text-muted">
                         {!! $jobVacancy->qualification !!}
                     </p>
