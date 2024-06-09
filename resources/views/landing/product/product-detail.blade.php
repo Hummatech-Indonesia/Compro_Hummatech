@@ -3,13 +3,23 @@
 @section('style')
     <style>
         .uk-slider-items > div {
-            padding: 0 10px; /* Optional: adjust padding between slides */
-            margin-right: 20px; /* Adjust margin between slides */
+            padding: 0 10px;
+            margin-right: 20px;
 
         }
         .uk-slider-items * {
             color: black !important;
         }
+        .uk-grid-two-items .uk-first-column {
+            margin-right: 50px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .uk-grid-two-items .uk-first-column {
+                margin-right: 20px; 
+            }
+        }
+
     </style>
 
 @endsection
@@ -50,7 +60,7 @@
     ]
 }
 </script>
-    
+
 @section('header')
 <div class="uk-section uk-padding-remove-vertical in-equity-breadcrumb">
     <div class="uk-container">
@@ -109,7 +119,7 @@
                     <p class="uk-text-lead">Fitur - Fitur {{ $product->name }} yang mungkin dapat membantu anda</p>
                 </div>
             </div>
-            <div class="uk-grid uk-grid-large uk-child-width-1-3@m uk-margin-medium-top uk-grid-stack uk-flex-center" data-uk-grid>
+            <div class="uk-grid uk-grid-large uk-child-width-1-3@m uk-margin-medium-top uk-grid-stack uk-flex-center {{ count($product->features) == 2 ? 'uk-grid-two-items' : '' }}" data-uk-grid>
                 @foreach ($product->features as $feature)
                     <div class="uk-flex uk-flex-left uk-first-column">
                         <div class="uk-margin-right">
@@ -125,6 +135,7 @@
                     </div>
                 @endforeach
             </div>
+
         </div>
     </div>
 </div>
