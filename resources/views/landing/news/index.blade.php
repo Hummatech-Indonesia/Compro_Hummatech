@@ -61,26 +61,27 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="uk-card-footer uk-clearfix uk-flex uk-flex-between">
-                                                <div class="uk-float-left">
+                                            <div class="uk-card-footer uk-flex uk-flex-between">
+                                                <div class="uk-flex uk-flex-left">
+                                                    <a href="/news/{{ $news->news->slug }}" class="uk-button uk-button-text">
+                                                        Baca selengkapnya <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="uk-flex uk-flex-right">
                                                     @php
-                                                        $newsCategories = App\Models\NewsCategory::where('news_id', $news->id)->get();
+                                                        $newsCategories = App\Models\NewsCategory::where('news_id', $news->news->id)->get()
                                                     @endphp
                                                     <div class="categories">
                                                         @foreach ($newsCategories as $index => $newsCategory)
-                                                            <a href="/news/category/{{ $newsCategory->category->slug }}" class="uk-text-decoration-none uk-label uk-label-warning in-label-small">{{ $newsCategory->category->name }}</a>
+                                                            <a href="/news/category/{{ $newsCategory->category->slug }}" class="uk-text-decoration-none uk-label uk-label-warning in-label-small" style="margin-left: 5px;">{{ $newsCategory->category->name }}</a>
                                                             @if (!$loop->last)
                                                                 <span></span>
                                                             @endif
                                                         @endforeach
                                                     </div>
                                                 </div>
-                                                <div class="uk-float-right uk-margin-small-top">
-                                                    <a href="/news/{{ $news->news->slug }}" class="uk-button uk-button-text">Baca selengkapnya
-                                                        <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
-                                                    </a>
-                                                </div>
                                             </div>
+
 
                                         </article>
                                     </div>
@@ -110,24 +111,24 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="uk-card-footer uk-clearfix uk-flex uk-flex-between">
-                                                <div class="uk-float-left">
+                                            <div class="uk-card-footer uk-flex uk-flex-between">
+                                                <div class="uk-flex uk-flex-left">
+                                                    <a href="/news/{{ $news->slug }}" class="uk-button uk-button-text">
+                                                        Baca selengkapnya <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="uk-flex uk-flex-right">
                                                     @php
                                                         $newsCategories = App\Models\NewsCategory::where('news_id', $news->id)->get();
                                                     @endphp
                                                     <div class="categories">
                                                         @foreach ($newsCategories as $index => $newsCategory)
-                                                            <a href="/news/category/{{ $newsCategory->category->slug }}" class="uk-text-decoration-none uk-label uk-label-warning in-label-small">{{ $newsCategory->category->name }}</a>
+                                                            <a href="/news/category/{{ $newsCategory->category->slug }}" class="uk-text-decoration-none uk-label uk-label-warning in-label-small" style="margin-left: 5px;">{{ $newsCategory->category->name }}</a>
                                                             @if (!$loop->last)
                                                                 <span></span>
                                                             @endif
                                                         @endforeach
                                                     </div>
-                                                </div>
-                                                <div class="uk-float-right uk-margin-small-top">
-                                                    <a href="/news/{{ $news->slug }}" class="uk-button uk-button-text">Baca selengkapnya
-                                                        <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
-                                                    </a>
                                                 </div>
                                             </div>
 
@@ -142,9 +143,6 @@
                         </div>
                     </div>
                     <div class="uk-width-expand@m">
-                        <!-- widget search begin -->
-                        <!-- widget search end -->
-                        <!-- widget categories begin -->
                         <aside class="uk-margin-medium-bottom">
                             <div class="uk-card uk-card-default uk-card-body uk-border-rounded">
                                 <h5 class="uk-heading-bullet uk-text-uppercase uk-margin-remove-bottom">Kategori</h5>
@@ -165,10 +163,6 @@
                                 </ul>
                             </div>
                         </aside>
-
-                        <!-- widget categories end -->
-                        <!-- widget latest begin -->
-                        <!-- widget latest end -->
                     </div>
                 </div>
             </div>
@@ -176,4 +170,6 @@
         <!-- blog content end -->
     </main>
 @endsection
+
+
 
