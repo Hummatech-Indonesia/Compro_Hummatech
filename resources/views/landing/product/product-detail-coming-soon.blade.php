@@ -81,27 +81,28 @@
 @endsection
 
 @section('content')
-    <div class="thumb-services-area inc-thumbnail default-padding bottom-less">
-        <div class="container">
-            <div class="about-items">
-                <div class="row align-center">
-                    <div class="col-lg-5">
-                        <div class="thumb">
-                            <img src="{{ asset('storage/' . $ComingSoonProduct->image) }}" alt="Thumb">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 info">
-                        <h1>{{ $ComingSoonProduct->name }}</h1>
-                        <p>
-                            {{ $ComingSoonProduct->description }}
-                        </p>
-                        <a class="btn btn-gradient effect btn-md" target="_blank" href="{{ $ComingSoonProduct->link }}">Kunjungi website</a>
-                    </div>
+<div class="uk-section uk-margin-large-top uk-margin-large-bottom">
+    <div class="uk-container uk-margin-top uk-margin-large-bottom">
+        <div class="uk-grid uk-grid-large uk-flex uk-flex-middle" data-uk-grid>
+            <div class="uk-width-2-5@m uk-flex uk-flex-middle uk-margin-large-bottom">
+                <div class="in-equity-video">
+                    <img class="uk-border-rounded uk-width-1-1" src="{{ asset('storage/'. $ComingSoonProduct->image) }}" data-src="{{ asset('storage/'. $ComingSoonProduct->image) }}" alt="sample-images" width="433" height="255" data-uk-img>
+                </div>
+            </div>
+            <div class="uk-width-3-5@m uk-flex uk-flex-middle">
+                <div>
+                    <h3>{{ $ComingSoonProduct->name }}</h3>
+                    <p>{!! $ComingSoonProduct->description !!}</p>
+                    @if ($ComingSoonProduct->link != null)
+                        <a href="{{ $ComingSoonProduct->link }}" target="_blank" class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">Kunjungi Website
+                            <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                        </a>
+                    @endif
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Faq -->
+</div>
 @endsection
 @section('script')
     <script>
