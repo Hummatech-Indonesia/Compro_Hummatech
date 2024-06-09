@@ -22,6 +22,11 @@ class NewsCategoryRepository extends BaseRepository implements NewsCategoryInter
         return $this->model->query()->findOrFail($id);
     }
 
+    public function get(): mixed
+    {
+        return $this->model->query()->get();
+    }
+
     /**
      * store
      *
@@ -52,7 +57,7 @@ class NewsCategoryRepository extends BaseRepository implements NewsCategoryInter
         return $this->model->query()->delete($id);
     }
 
-    public function whereNews($id) 
+    public function whereNews($id)
     {
         return $this->model->query()->where('news_id', $id)->get();
     }

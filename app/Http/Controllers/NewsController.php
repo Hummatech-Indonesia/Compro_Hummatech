@@ -157,11 +157,15 @@ class NewsController extends Controller
     public function news(Request $request)
     {
         $newsCategories = $this->category->get();
+        $allCategories = $this->category->get();
         $newses = $this->news->customPaginate($request, 12);
         $background = $this->background->getByType('Berita');
 
-        return view('landing.news.index', compact('newses', 'newsCategories', 'background'));
+        return view('landing.news.index', compact('newses', 'newsCategories', 'allCategories', 'background'));
     }
+
+
+
 
     /**
      * News Data by Category List on Homepage
