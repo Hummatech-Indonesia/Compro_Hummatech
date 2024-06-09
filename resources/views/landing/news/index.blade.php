@@ -28,15 +28,15 @@
                                     <div class="uk-width-1-2@m uk-first-column">
                                         <article class="uk-card uk-card-default uk-border-rounded">
                                             <div class="uk-card-media-top">
-                                                <img class="uk-width-1-1" src="{{ asset('storage/' . $news->thumbnail) }}"
-                                                    alt="{{ $news->title }}" style="height: 250px; object-fit:cover">
+                                                <img class="uk-width-1-1" src="{{ asset('storage/' . $news->news->thumbnail) }}"
+                                                    alt="{{ $news->news->title }}" style="height: 250px; object-fit:cover">
                                             </div>
                                             <div class="uk-card-body">
                                                 <h3>
-                                                    <a href="/news/{{ $news->slug }}"
-                                                        class="link-primary text-decoration-none uk-text-right">{{ $news->title }}</a>
+                                                    <a href="/news/{{ $news->news->slug }}"
+                                                        class="link-primary text-decoration-none uk-text-right">{{ $news->news->title }}</a>
                                                 </h3>
-                                                <p class="">{!! Str::limit(strip_tags($news->description), 200) !!}</p>
+                                                <p class="">{!! Str::limit(strip_tags($news->news->description), 200) !!}</p>
                                                 <div class="uk-flex">
                                                     <div class="uk-margin-small-right">
                                                         <img class="uk-border-pill uk-background-muted"
@@ -45,7 +45,7 @@
                                                     </div>
                                                     <div class="uk-flex uk-flex-middle">
                                                         <p class="uk-text-small uk-text-muted uk-margin-remove">
-                                                            {{ \Carbon\Carbon::parse($news->date)->locale('id_ID')->isoFormat('D MMMM Y') }}
+                                                            {{ \Carbon\Carbon::parse($news->news->date)->locale('id_ID')->isoFormat('D MMMM Y') }}
                                                         </p>
                                                     </div>
                                                 </div>
@@ -55,20 +55,20 @@
                                                     @php
                                                         $newsCategories = App\Models\NewsCategory::where(
                                                             'news_id',
-                                                            $news->id,
+                                                            $news->news->id,
                                                         )->get();
                                                     @endphp
                                                     <div class="categories">
                                                         @foreach ($newsCategories as $index => $newsCategory)
-                                                            <span
-                                                                class="uk-label uk-label-warning in-label-small">{{ $newsCategory->category->name }}</span>
+                                                            <a href="/news/category/{{ $newsCategory->category->slug }}"
+                                                                class="uk-text-decoration-none uk-label uk-label-warning in-label-small">{{ $newsCategory->category->name }}</a>
                                                             @if (!$loop->last)
-                                                                <span>,</span>
+                                                                <span> </span>
                                                             @endif
                                                         @endforeach
                                                     </div>
-                                                    <div class="uk-float-right">
-                                                        <a href="/news/{{ $news->slug }}"
+                                                    <div class="uk-float-left uk-margin-small-top">
+                                                        <a href="/news/{{ $news->news->slug }}"
                                                             class="uk-button uk-button-text">Baca selengkapnya<i
                                                                 class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
                                                     </div>
@@ -111,14 +111,14 @@
                                                     @endphp
                                                     <div class="categories">
                                                         @foreach ($newsCategories as $index => $newsCategory)
-                                                            <span
-                                                                class="uk-label uk-label-warning in-label-small">{{ $newsCategory->category->name }}</span>
+                                                            <a href="/news/category/{{ $newsCategory->category->slug }}"
+                                                                class="uk-text-decoration-none uk-label uk-label-warning in-label-small uk-text-decoration-none">{{ $newsCategory->category->name }}</a>
                                                             @if (!$loop->last)
-                                                                <span>,</span>
+                                                                <span> </span>
                                                             @endif
                                                         @endforeach
                                                     </div>
-                                                    <div class="uk-float-right">
+                                                    <div class="uk-float-left uk-margin-small-top">
                                                         <a href="/news/{{ $news->slug }}"
                                                             class="uk-button uk-button-text">Baca selengkapnya<i
                                                                 class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>

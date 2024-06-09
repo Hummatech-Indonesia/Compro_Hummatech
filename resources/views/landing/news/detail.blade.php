@@ -8,6 +8,7 @@
                     <ul class="uk-breadcrumb">
                         <li><a href="/">Beranda</a></li>
                         <li><span>Berita</span></li>
+                        <li><span>Berita</span></li>
                     </ul>
                 </div>
             </div>
@@ -57,10 +58,10 @@
                                             @endphp
                                             <div class="categories">
                                                 @foreach ($newsCategories as $index => $newsCategory)
-                                                    <span
-                                                        class="uk-label uk-label-warning in-label-small">{{ $newsCategory->category->name }}</span>
+                                                    <a href="/news/category/{{ $newsCategory->category->slug }}"
+                                                        class="uk-label uk-label-warning in-label-small">{{ $newsCategory->category->name }}</a>
                                                     @if (!$loop->last)
-                                                        <span>,</span>
+                                                        <span> </span>
                                                     @endif
                                                 @endforeach
                                             </div>
