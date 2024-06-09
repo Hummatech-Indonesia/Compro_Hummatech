@@ -1,20 +1,46 @@
 @extends('landing.layouts.layouts.app')
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Beranda",
+          "item": "{{ url('/') }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Berita",
+          "item": "{{ url('/news') }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": $news->slug,
+          "item": "{{ url('/'. $news->slug) }}"
+        },
+      ]
+    }
+</script>
 @section('header')
-    <!-- header start -->
-    <div class="uk-section uk-padding-remove-vertical in-equity-breadcrumb">
-        <div class="uk-container">
-            <div class="uk-grid">
-                <div class="uk-width-1-1">
-                    <ul class="uk-breadcrumb">
-                        <li><a href="/">Beranda</a></li>
-                        <li><span>Berita</span></li>
-                        <li><span>Berita</span></li>
-                    </ul>
-                </div>
+<!-- header start -->
+<div class="uk-section uk-padding-remove-vertical in-equity-breadcrumb">
+    <div class="uk-container">
+        <div class="uk-grid">
+            <div class="uk-width-1-1">
+                <ul class="uk-breadcrumb-custom">
+                    <li><a href="/">Home</a></li>
+                    <li><span>Berita</span></li>
+                    <li><span class="uk-text-capitalize">{{ $news->title }}</span></li>
+                </ul>
             </div>
         </div>
     </div>
-    <!-- header end -->
+</div>
+<!-- header end -->
 @endsection
 @section('content')
     <main data-title="blog">

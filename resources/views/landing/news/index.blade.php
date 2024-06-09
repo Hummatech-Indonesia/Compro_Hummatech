@@ -5,8 +5,8 @@
         <div class="uk-container">
             <div class="uk-grid">
                 <div class="uk-width-1-1">
-                    <ul class="uk-breadcrumb">
-                        <li><a href="/">Beranda</a></li>
+                    <ul class="uk-breadcrumb-custom">
+                        <li><a href="/">Home</a></li>
                         <li><span>Berita</span></li>
                     </ul>
                 </div>
