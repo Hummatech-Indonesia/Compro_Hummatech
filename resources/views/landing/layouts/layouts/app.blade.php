@@ -137,7 +137,7 @@
                                             </a></h6>
                                         </li>
                                     @empty
-                                        <li class="uk-text-muted">Belum ada data layanan</li>
+                                        <li class="uk-text-muted">Belum ada data</li>
                                     @endforelse
                                 </ul>
                             </div>
