@@ -9,4 +9,5 @@ use App\Contracts\Interfaces\Eloquent\WhereClauseInterface;
 interface NewsCategoryInterface extends StoreInterface, DeleteInterface, WhereClauseInterface
 {
     public function deleteByNewsId($id);
+    public function whereNews($id);
 }
