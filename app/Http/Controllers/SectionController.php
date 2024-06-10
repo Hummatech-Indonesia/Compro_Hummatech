@@ -41,6 +41,7 @@ class SectionController extends Controller
     public function create()
     {
         return view('admin.pages.hero-section.create');
+        
     }
 
     /**
