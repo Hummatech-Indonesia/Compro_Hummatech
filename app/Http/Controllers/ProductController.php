@@ -245,7 +245,6 @@ class ProductController extends Controller
         $id  = $ComingSoonProduct->id;
         $faqs = $this->faq->ServiceProductShow('product_id', $id);
 
-
         return view('landing.product.product-detail-coming-soon', compact('ComingSoonProduct', 'testimonial', 'faqs'));
     }
 }

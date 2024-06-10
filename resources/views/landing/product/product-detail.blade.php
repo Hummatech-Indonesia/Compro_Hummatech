@@ -3,13 +3,23 @@
 @section('style')
     <style>
         .uk-slider-items > div {
-            padding: 0 10px; /* Optional: adjust padding between slides */
-            margin-right: 20px; /* Adjust margin between slides */
+            padding: 0 10px;
+            margin-right: 20px;
 
         }
         .uk-slider-items * {
             color: black !important;
         }
+        .uk-grid-two-items .uk-first-column {
+            margin-right: 50px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .uk-grid-two-items .uk-first-column {
+                margin-right: 20px; 
+            }
+        }
+
     </style>
 
 @endsection
@@ -23,43 +33,46 @@
     <meta property="og:type" content="website" />
     <link rel="canonical" href="{{ url('/') }}" />
     <!-- ========== Breadcrumb Markup (JSON-LD) ========== -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Beranda",
-          "item": "{{ url('/') }}"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Tentang Kami",
-          "item": "{{ url('/about-us') }}"
-        },
-        {
-          "@type": "ListItem",
-          "position": 4,
-          "name": "Produk",
-          "item": "{{ url('/produk') }}"
-        },
-      ]
-    }
-    </script>
 @endsection
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+    {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Beranda",
+        "item": "{{ url('/') }}"
+    },
+    {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Produk",
+        "item": "{{ url('/product') }}"
+    },
+    {
+        "@type": "ListItem",
+        "position": 3,
+        "name": $product->name,
+        "item": "{{ url('/'. $product->name) }}"
+    },
+    ]
+}
+</script>
 
 @section('header')
 <div class="uk-section uk-padding-remove-vertical in-equity-breadcrumb">
     <div class="uk-container">
         <div class="uk-grid">
             <div class="uk-width-1-1">
-                <ul class="uk-breadcrumb">
-                    <li href="/">Beranda</li>
+                <ul class="uk-breadcrumb-custom">
+                    <li href="/">Home</li>
                     <li>
-                        <span>Produk</span>
+                        <span>{{ $product->type == 'portfolio' ? 'Portfolio' : 'Produk' }}</span>
+                    </li>
+                    <li>
+                        <span>{{ $product->name }}</span>
                     </li>
                 </ul>
             </div>
@@ -82,7 +95,7 @@
                     <h3>{{ $product->name }}</h3>
                     <p>{!! $product->description !!}</p>
                     @if ($product->link != null)
-                        <a href="{{ $product->link }}" class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">Kunjungi Website
+                        <a href="{{ $product->link }}" target="_blank" class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">Kunjungi Website
                             <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
                         </a>
                     @endif
@@ -106,7 +119,7 @@
                     <p class="uk-text-lead">Fitur - Fitur {{ $product->name }} yang mungkin dapat membantu anda</p>
                 </div>
             </div>
-            <div class="uk-grid uk-grid-large uk-child-width-1-3@m uk-margin-medium-top uk-grid-stack uk-flex-center" data-uk-grid>
+            <div class="uk-grid uk-grid-large uk-child-width-1-3@m uk-margin-medium-top uk-grid-stack uk-flex-center {{ count($product->features) == 2 ? 'uk-grid-two-items' : '' }}" data-uk-grid>
                 @foreach ($product->features as $feature)
                     <div class="uk-flex uk-flex-left uk-first-column">
                         <div class="uk-margin-right">
@@ -122,6 +135,7 @@
                     </div>
                 @endforeach
             </div>
+
         </div>
     </div>
 </div>

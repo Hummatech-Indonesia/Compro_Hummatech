@@ -3,69 +3,71 @@
 
 @section('style')
 <style>
-    .uk-tab {
-        display: flex;
-        flex-wrap: nowrap;
-        overflow-x: auto;
-        white-space: nowrap;
-        padding: 0;
-        margin: 0;
-        -webkit-overflow-scrolling: touch;
-    }
+.uk-tab {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 0;
+    margin: 0;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
 
+.uk-tab li {
+    flex: 0 0 auto;
+    list-style-type: none;
+    text-align: center;
+    margin-right: 110px; /* Atur jarak antar elemen <li> */
+}
+
+.uk-tab li:last-child {
+    margin-right: 10px; /* Atur jarak khusus untuk elemen terakhir */
+}
+
+.uk-tab li a {
+    padding: 10px 5px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.uk-tab > li.uk-active > a::after {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #D7AC53;
+}
+
+.uk-tab li.active a {
+    color: #D7AC53;
+    border-radius: 5px;
+    position: relative;
+}
+
+.uk-tab::-webkit-scrollbar {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
     .uk-tab li {
-        flex: 0 0 auto;
-        margin-right: 1rem;
-        list-style-type: none;
+        margin-right: 5rem;
+        max-width: 150px;
+        white-space: normal;
+        text-overflow: ellipsis;
         overflow-wrap: break-word;
     }
 
-    .uk-tab li:last-child {
-        margin-right: 0;
-    }
-
     .uk-tab li a {
-        padding: 10px 5px;
-        font-size: 14px;
+        font-size: 0.75rem;
+        padding: 5px 10px;
     }
+}
 
-    .uk-tab > li.uk-active > a::after {
-        content: "";
-        position: absolute;
-        bottom: 0px;
-        left: 0;
-        width: 100%;
-        height: 2px;
-        background-color: #D7AC53;
-    }
-
-    .uk-tab li.active a {
-        color: #D7AC53;
-        border-radius: 5px;
-        position: relative;
-    }
-
-    @media screen and (max-width: 768px) {
-        .uk-tab li {
-            margin-right: 1rem;
-            max-width: 150px;
-            white-space: normal;
-            text-overflow: ellipsis;
-            overflow-wrap: break-word; /* Memastikan pematahan kata */
-        }
-
-        .uk-tab li a {
-            font-size: 0.75rem;
-            padding: 5px 10px;
-        }
-    }
-
-    @media screen and (min-width: 769px) {
-        .uk-tab li {
-            margin-right: 1rem;
-        }
-    }
 </style>
+
 @endsection
 
 @section('seo')
@@ -122,21 +124,48 @@
         @forelse ($categories as $category)
             <li><a href="#{{ $category->slug }}"><b>{{ $category->name }}</b></a></li>
         @empty
-
         @endforelse
+        @if ($comingProducts != null)
+            <li><a href="#"><b>Segera hadir</b></a></li>
+        @endif
     </ul>
 
     <ul class="uk-switcher uk-margin uk-margin-large-top">
         <li>
-            @forelse ($products as $key => $product)
+            @foreach ($comingProducts as $key=> $comingProduct)
                 <div class="uk-container uk-margin-top uk-margin-large-bottom">
                     <div class="uk-grid uk-grid-large uk-flex uk-flex-middle" data-uk-grid>
                         <div class="uk-width-3-5@m uk-flex uk-flex-middle uk-margin-large-bottom {{ $key % 2 == 1 ? 'uk-flex-last@m' : '' }}">
                             <div class="in-equity-video">
-                                <img class="uk-border-rounded uk-width-1-1" src="{{ asset('storage/'. $product->image) }}" data-src="{{ asset('storage/'. $product->image) }}" alt="sample-images" width="433" height="255" data-uk-img>
+                                <img class="uk-border-rounded uk-width-1-1" src="{{ asset('storage/'. $comingProduct->image) }}" data-src="{{ asset('storage/'. $comingProduct->image) }}" alt="sample-images" width="433" height="255" data-uk-img>
                             </div>
                         </div>
                         <div class="uk-width-2-5@m uk-flex uk-flex-middle {{ $key % 2 == 1 ? 'uk-flex-first@m': '' }}">
+                            <div>
+                                <h3>{{ $comingProduct->name }} <span class="uk-label uk-label-success in-label-small uk-margin-small-left">Segera hadir</span></h3>
+                                <p>{!! $comingProduct->description !!}</p>
+                                <a href="/product/coming-soon/{{ $comingProduct->slug }}"class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-top uk-margin-small-right">Detail
+                                    <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                                </a>
+                                @if ($comingProduct->link != null)
+                                    <a href="{{ $comingProduct->link }}" target="_blank" class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">Kunjungi Website
+                                        <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                                    </a>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+            @forelse ($products as $key => $product)
+                <div class="uk-container uk-margin-top uk-margin-large-bottom">
+                    <div class="uk-grid uk-grid-large uk-flex uk-flex-middle" data-uk-grid>
+                        <div class="uk-width-3-5@m uk-flex uk-flex-middle uk-margin-large-bottom {{ $key % 2 == 0 ? 'uk-flex-last@m' : '' }}">
+                            <div class="in-equity-video">
+                                <img class="uk-border-rounded uk-width-1-1" src="{{ asset('storage/'. $product->image) }}" data-src="{{ asset('storage/'. $product->image) }}" alt="sample-images" width="433" height="255" data-uk-img>
+                            </div>
+                        </div>
+                        <div class="uk-width-2-5@m uk-flex uk-flex-middle {{ $key % 2 == 0 ? 'uk-flex-first@m': '' }}">
                             <div>
                                 <h3>{{ $product->name }}</h3>
                                 <p>{!! $product->description !!}</p>
@@ -194,8 +223,37 @@
                 @endforelse
             </li>
         @empty
-
         @endforelse
+
+        @if ($comingProducts != null)
+            @forelse ($comingProducts as $key => $comingProduct)
+                <li>
+                    <div class="uk-container uk-margin-top uk-margin-large-bottom">
+                        <div class="uk-grid uk-grid-large uk-flex uk-flex-middle" data-uk-grid>
+                            <div class="uk-width-3-5@m uk-flex uk-flex-middle uk-margin-large-bottom {{ $key % 2 == 1 ? 'uk-flex-last@m' : '' }}">
+                                <div class="in-equity-video">
+                                    <img class="uk-border-rounded uk-width-1-1" src="{{ asset('storage/'. $comingProduct->image) }}" data-src="{{ asset('storage/'. $comingProduct->image) }}" alt="sample-images" width="433" height="255" data-uk-img>
+                                </div>
+                            </div>
+                            <div class="uk-width-2-5@m uk-flex uk-flex-middle {{ $key % 2 == 1 ? 'uk-flex-first@m': '' }}">
+                                <div>
+                                    <h3>{{ $comingProduct->name }}</h3>
+                                    <p>{!! $comingProduct->description !!}</p>
+                                    <a href="/product/{{ $comingProduct->slug }}"
+                                        class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-top uk-margin-small-right">Detail
+                                        <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                                    </a>
+                                    <a href="#" class="uk-button uk-button-primary uk-border-rounded uk-margin-small-top">Kunjungi Website
+                                        <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            @empty
+            @endforelse
+        @endif
     </ul>
 </div>
 

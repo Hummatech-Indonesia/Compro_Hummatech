@@ -5,8 +5,8 @@
         <div class="uk-container">
             <div class="uk-grid">
                 <div class="uk-width-1-1">
-                    <ul class="uk-breadcrumb">
-                        <li><a href="/">Beranda</a></li>
+                    <ul class="uk-breadcrumb-custom">
+                        <li><a href="/">Home</a></li>
                         <li><span>Berita</span></li>
                     </ul>
                 </div>
@@ -15,6 +15,17 @@
     </div>
     <!-- header end -->
 @endsection
+
+@section('style')
+    <style>
+        .card-title, .card-description {
+                word-wrap: break-word;
+                word-break: break-all;
+                overflow: hidden;
+        }
+    </style>
+@endsection
+
 @section('content')
     <main data-title="blog">
         <!-- blog content begin -->
@@ -28,15 +39,15 @@
                                     <div class="uk-width-1-2@m uk-first-column">
                                         <article class="uk-card uk-card-default uk-border-rounded">
                                             <div class="uk-card-media-top">
-                                                <img class="uk-width-1-1" src="{{ asset('storage/' . $news->thumbnail) }}"
-                                                    alt="{{ $news->title }}" style="height: 250px; object-fit:cover">
+                                                <img class="uk-width-1-1" src="{{ asset('storage/' . $news->news->thumbnail) }}"
+                                                alt="{{ $news->news->title }}" style="height: 250px; object-fit:cover">
                                             </div>
                                             <div class="uk-card-body">
-                                                <h3>
+                                                <h3 class="card-title">
                                                     <a href="/news/{{ $news->slug }}"
                                                         class="link-primary text-decoration-none uk-text-right">{{ $news->title }}</a>
                                                 </h3>
-                                                <p class="">{!! Str::limit(strip_tags($news->description), 200) !!}</p>
+                                                <p class="card-description">{!! Str::limit(strip_tags($news->news ? $news->news->description : $news->description), 200) !!}</p>
                                                 <div class="uk-flex">
                                                     <div class="uk-margin-small-right">
                                                         <img class="uk-border-pill uk-background-muted"
@@ -50,29 +61,28 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="uk-card-footer uk-clearfix">
-                                                <div class="uk-float-left">
+                                            <div class="uk-card-footer uk-flex uk-flex-between">
+                                                <div class="uk-flex uk-flex-left">
+                                                    <a href="/news/{{ $news->news->slug }}" class="uk-button uk-button-text">
+                                                        Baca selengkapnya <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="uk-flex uk-flex-right">
                                                     @php
-                                                        $newsCategories = App\Models\NewsCategory::where(
-                                                            'news_id',
-                                                            $news->id,
-                                                        )->get();
+                                                        $newsCategories = App\Models\NewsCategory::where('news_id', $news->news->id)->get()
                                                     @endphp
                                                     <div class="categories">
                                                         @foreach ($newsCategories as $index => $newsCategory)
-                                                            <span
-                                                                class="uk-label uk-label-warning in-label-small">{{ $newsCategory->category->name }}</span>
+                                                            <a href="/news/category/{{ $newsCategory->category->slug }}" class="uk-text-decoration-none uk-label uk-label-warning in-label-small" style="margin-left: 5px;">{{ $newsCategory->category->name }}</a>
                                                             @if (!$loop->last)
-                                                                <span>,</span>
+                                                                <span></span>
                                                             @endif
                                                         @endforeach
                                                     </div>
-                                                    <div class="uk-float-right">
-                                                        <a href="/news/{{ $news->slug }}"
-                                                            class="uk-button uk-button-text">Baca selengkapnya<i
-                                                                class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
-                                                    </div>
                                                 </div>
+                                            </div>
+
+
                                         </article>
                                     </div>
                                 @else
@@ -80,14 +90,14 @@
                                         <article class="uk-card uk-card-default uk-border-rounded">
                                             <div class="uk-card-media-top">
                                                 <img class="uk-width-1-1" src="{{ asset('storage/' . $news->thumbnail) }}"
-                                                    alt="{{ $news->title }}" style="height: 250px; object-fit:cover">
+                                                alt="{{ $news->title }}" style="height: 250px; object-fit:cover">
                                             </div>
                                             <div class="uk-card-body">
-                                                <h3>
+                                                <h3 class="card-title">
                                                     <a href="/news/{{ $news->slug }}"
                                                         class="link-primary text-decoration-none uk-text-right">{{ $news->title }}</a>
                                                 </h3>
-                                                <p class="">{!! Str::limit(strip_tags($news->description), 200) !!}</p>
+                                                <p class="card-description">{!! Str::limit(strip_tags($news->news ? $news->news->description : $news->description), 200) !!}</p>
                                                 <div class="uk-flex">
                                                     <div class="uk-margin-small-right">
                                                         <img class="uk-border-pill uk-background-muted"
@@ -101,29 +111,27 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="uk-card-footer uk-clearfix">
-                                                <div class="uk-float-left">
+                                            <div class="uk-card-footer uk-flex uk-flex-between">
+                                                <div class="uk-flex uk-flex-left">
+                                                    <a href="/news/{{ $news->slug }}" class="uk-button uk-button-text">
+                                                        Baca selengkapnya <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="uk-flex uk-flex-right">
                                                     @php
-                                                        $newsCategories = App\Models\NewsCategory::where(
-                                                            'news_id',
-                                                            $news->id,
-                                                        )->get();
+                                                        $newsCategories = App\Models\NewsCategory::where('news_id', $news->id)->get();
                                                     @endphp
                                                     <div class="categories">
                                                         @foreach ($newsCategories as $index => $newsCategory)
-                                                            <span
-                                                                class="uk-label uk-label-warning in-label-small">{{ $newsCategory->category->name }}</span>
+                                                            <a href="/news/category/{{ $newsCategory->category->slug }}" class="uk-text-decoration-none uk-label uk-label-warning in-label-small" style="margin-left: 5px;">{{ $newsCategory->category->name }}</a>
                                                             @if (!$loop->last)
-                                                                <span>,</span>
+                                                                <span></span>
                                                             @endif
                                                         @endforeach
                                                     </div>
-                                                    <div class="uk-float-right">
-                                                        <a href="/news/{{ $news->slug }}"
-                                                            class="uk-button uk-button-text">Baca selengkapnya<i
-                                                                class="fas fa-arrow-circle-right uk-margin-small-left"></i></a>
-                                                    </div>
                                                 </div>
+                                            </div>
+
                                         </article>
                                     </div>
                                 @endif
@@ -135,16 +143,6 @@
                         </div>
                     </div>
                     <div class="uk-width-expand@m">
-                        <!-- widget search begin -->
-                        {{-- <aside class="uk-margin-medium-bottom">
-                            <form name="blog-search" class="uk-search uk-search-default uk-width-1-1">
-                                <a href="" class="uk-search-icon-flip uk-icon uk-search-icon" data-uk-search-icon=""
-                                    aria-label="Submit Search"></a>
-                                <input class="uk-input uk-border-rounded" type="search" placeholder="Cari berita...">
-                            </form>
-                        </aside> --}}
-                        <!-- widget search end -->
-                        <!-- widget categories begin -->
                         <aside class="uk-margin-medium-bottom">
                             <div class="uk-card uk-card-default uk-card-body uk-border-rounded">
                                 <h5 class="uk-heading-bullet uk-text-uppercase uk-margin-remove-bottom">Kategori</h5>
@@ -154,33 +152,17 @@
                                             Semua
                                         </a>
                                     </li>
-                                    @foreach ($newsCategories as $category)
-                                        <li>
-                                            <a style="color:{{ request()->is('news/category/' . $category->slug) ? 'active #5EA2FF' : '' }}"
-                                                href="{{ url("/news/category/{$category->slug}") }}">{{ $category->name }}</a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-
-                            </div>
-                        </aside>
-                        <!-- widget categories end -->
-                        {{-- <!-- widget lates begin -->
-                        <aside class="uk-margin-medium-bottom">
-                            <div class="uk-card uk-card-default uk-card-body uk-border-rounded">
-                                <h5 class="uk-heading-bullet uk-text-uppercase uk-margin-remove-bottom">Berita terbaru</h5>
-                                <ul class="uk-list uk-list-divider uk-list-large widget-latest">
-                                    @foreach (range(1, 3) as $item)
-                                        <li>
-                                            <a href="#">Potter ipsum wand elf parchment wingardium.</a>
-                                            <span class="uk-article-meta uk-text-small"><br><i
-                                                    class="fas fa-clock fa-sm uk-margin-small-right"></i>2 Juni 2024</span>
-                                        </li>
-                                    @endforeach
+                                    @if(isset($allCategories))
+                                        @foreach ($allCategories as $category)
+                                            <li>
+                                                <a style="color:{{ request()->is('news/category/' . $category->slug) ? '#5EA2FF' : '' }}"
+                                                    href="{{ url('/news/category/' . $category->slug) }}">{{ $category->name }}</a>
+                                            </li>
+                                        @endforeach
+                                    @endif
                                 </ul>
                             </div>
                         </aside>
-                        <!-- widget lates end --> --}}
                     </div>
                 </div>
             </div>
@@ -188,3 +170,6 @@
         <!-- blog content end -->
     </main>
 @endsection
+
+
+

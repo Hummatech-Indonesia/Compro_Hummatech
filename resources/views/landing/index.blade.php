@@ -398,7 +398,7 @@
                                         <div class="uk-slider-items uk-flex uk-flex-center uk-grid-collapse uk-child-width-1-6@m uk-child-width-1-2@s uk-text-center in-client-logo-6" data-uk-grid>
                                             @forelse ($mitras as $mitra)
                                                 <div class=" uk-first-column uk-flex uk-flex-center" style="background-color: transparent">
-                                                    <img class="uk-margin-remove" src="{{ asset('storage/' . $mitra->image) }}" alt="{{ $mitra->name }}" width="167" height="55">
+                                                    <img class="uk-margin-remove" src="{{ asset('storage/' . $mitra->image) }}" alt="{{ $mitra->name }}" width="170" height="68">
                                                 </div>
                                             @empty
                                             <div class="uk-flex uk-flex-center uk-flex-middle uk-width-1-1">

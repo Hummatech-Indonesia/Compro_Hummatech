@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Contracts\Interfaces\BackgroundInterface;
 use App\Contracts\Interfaces\CategoryNewsInterface;
 use App\Contracts\Interfaces\NewsCategoryInterface;
+use App\Contracts\Interfaces\NewsImageInterface;
 use App\Contracts\Interfaces\NewsInterface;
 use App\Http\Requests\StoreNewsRequest;
 use App\Http\Requests\UpdateNewsRequest;
@@ -22,14 +23,16 @@ class NewsController extends Controller
     private CategoryNewsInterface $category;
     private NewsCategoryInterface $newsCategory;
     private BackgroundInterface $background;
+    private NewsImageInterface $newsImage;
 
-    public function __construct(NewsInterface $news, NewsService $newsService, CategoryNewsInterface $category, NewsCategoryInterface $newsCategoryInterface, BackgroundInterface $background)
+    public function __construct(NewsImageInterface $newsImage, NewsInterface $news, NewsService $newsService, CategoryNewsInterface $category, NewsCategoryInterface $newsCategoryInterface, BackgroundInterface $background)
     {
         $this->newsCategory = $newsCategoryInterface;
         $this->news = $news;
         $this->newsService = $newsService;
         $this->category = $category;
         $this->background = $background;
+        $this->newsImage = $newsImage;
     }
 
     /**
@@ -77,8 +80,8 @@ class NewsController extends Controller
      */
     public function show(News $news)
     {
-        $categories = NewsCategory::where('news_id', $news->id)->get();
-        $newsImages = NewsImage::where('news_id', $news->id)->get();
+        $categories = $this->newsCategory->whereNews($news->id);
+        $newsImages = $this->newsImage->whereNews($news->id);
         return view('admin.pages.news.show', compact('news', 'newsImages', 'categories'));
     }
 
@@ -154,11 +157,15 @@ class NewsController extends Controller
     public function news(Request $request)
     {
         $newsCategories = $this->category->get();
+        $allCategories = $this->category->get();
         $newses = $this->news->customPaginate($request, 12);
         $background = $this->background->getByType('Berita');
 
-        return view('landing.news.index', compact('newses', 'newsCategories', 'background'));
+        return view('landing.news.index', compact('newses', 'newsCategories', 'allCategories', 'background'));
     }
+
+
+
 
     /**
      * News Data by Category List on Homepage
@@ -170,9 +177,10 @@ class NewsController extends Controller
     {
         $newses = $this->newsCategory->where($category->id);
         $newsCategories = $this->category->get();
+        $allCategories = $this->category->get();
         $background = $this->background->getByType('Berita');
 
-        return view('landing.news.index', compact('newses' ,'newsCategories', 'background'));
+        return view('landing.news.index', compact('newses' ,'newsCategories', 'allCategories', 'background'));
     }
 
     /**
