@@ -60,7 +60,7 @@
         font-size: 0.875rem;
         color: #1a1a1a;
         }
-
+        
         /* Hover */
         .uk-breadcrumb-custom > * > :hover {
         color: #1a1a1a;
