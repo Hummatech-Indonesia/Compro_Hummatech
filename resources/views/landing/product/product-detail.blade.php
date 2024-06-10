@@ -16,7 +16,7 @@
 
         @media screen and (max-width: 768px) {
             .uk-grid-two-items .uk-first-column {
-                margin-right: 20px; 
+                margin-right: 20px;
             }
         }
 
@@ -99,32 +99,6 @@
     <link rel="canonical" href="{{ url('/') }}" />
     <!-- ========== Breadcrumb Markup (JSON-LD) ========== -->
 @endsection
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-    {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Beranda",
-        "item": "{{ url('/') }}"
-    },
-    {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Produk",
-        "item": "{{ url('/product') }}"
-    },
-    {
-        "@type": "ListItem",
-        "position": 3,
-        "name": $product->name,
-        "item": "{{ url('/'. $product->name) }}"
-    },
-    ]
-}
-</script>
 
 @section('header')
 <div class="uk-section uk-padding-remove-vertical in-equity-breadcrumb">
@@ -366,4 +340,32 @@
             ]
         });
     </script>
+
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Beranda",
+            "item": "{{ url('/') }}"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Produk",
+            "item": "{{ url('/product') }}"
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "name": $product->name,
+            "item": "{{ url('/'. $product->name) }}"
+        },
+        ]
+    }
+    </script>
+    
 @endsection
