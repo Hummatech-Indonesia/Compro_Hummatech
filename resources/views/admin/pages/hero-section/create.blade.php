@@ -89,7 +89,7 @@
             <div class="mb-3 form-group">
                 <label for="subheadline">Keterangan <small class="text-danger">*Wajib Diisi</small></label>
                 <input type="text" id="subheadline" name="information" class="form-control" placeholder="Contoh: Ini Adalah Keterangan" value="{{ old('information') }}"/>
-                @error('subtitle')
+                @error('information')
                     <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
@@ -102,7 +102,7 @@
             <div class="pt-3 me-auto d-flex gap-2 w-100 justify-content-end align-items-center">
                 <a href="{{ url('/hero-section') }}" class="btn btn-light">Batal</a>
                 <button class="btn btn-primary" type="submit">Tambah</button>
-            </div>
+            </div>stud
         </form>
     </div>
 @endsection
