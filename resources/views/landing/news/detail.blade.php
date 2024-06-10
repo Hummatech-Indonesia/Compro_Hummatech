@@ -68,32 +68,7 @@
         }
     </style>
 @endsection
-<script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Beranda",
-          "item": "{{ url('/') }}"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Berita",
-          "item": "{{ url('/news') }}"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": $news->slug,
-          "item": "{{ url('/'. $news->slug) }}"
-        },
-      ]
-    }
-</script>
+
 @section('header')
 <!-- header start -->
 <div class="uk-section uk-padding-remove-vertical in-equity-breadcrumb">
@@ -196,4 +171,34 @@
         </div>
         <!-- blog content end -->
     </main>
+@endsection
+
+
+@section('script')
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Beranda",
+          "item": "{{ url('/') }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Berita",
+          "item": "{{ url('/news') }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": $news->slug,
+          "item": "{{ url('/'. $news->slug) }}"
+        },
+      ]
+    }
+</script>
 @endsection
