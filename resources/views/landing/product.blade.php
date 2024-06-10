@@ -18,11 +18,11 @@
     flex: 0 0 auto;
     list-style-type: none;
     text-align: center;
-    margin-right: 110px; /* Atur jarak antar elemen <li> */
+    margin-right: 200px; /* Atur jarak antar elemen <li> */
 }
 
 .uk-tab li:last-child {
-    margin-right: 10px; /* Atur jarak khusus untuk elemen terakhir */
+    margin-right: 0px; /* Atur jarak khusus untuk elemen terakhir */
 }
 
 .uk-tab li a {
@@ -53,7 +53,7 @@
 
 @media screen and (max-width: 768px) {
     .uk-tab li {
-        margin-right: 5rem;
+        margin-right: 10rem;
         max-width: 150px;
         white-space: normal;
         text-overflow: ellipsis;
