@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="{{ asset('assets_landing/css/style.css') }}">
     <!-- uikit -->
     <script src="{{ asset('assets_landing/js/vendors/uikit.min.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.21.5/js/uikit.min.js" integrity="sha512-o1pscsZol3fA/E3/37sA/iYUksjsA7VBuYL9JDHJeWOOmhWKvyQ00Z+C1pnk4etQmJcBfMtHt3HajG1wv437IA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- favicon -->
     <link rel="shortcut icon" href="{{ asset('icon.png') }}" type="image/x-icon">
     <!-- touch icon -->
