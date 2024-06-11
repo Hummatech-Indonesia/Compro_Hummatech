@@ -7,11 +7,10 @@
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
 <head>
-    @yield('description')
     @hasSection('title')
-        <title>{!! "{$__env->yieldContent('title')}" !!}</title>
+    <title>{!! "{$__env->yieldContent('title')}" !!}</title>
     @else
-        <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
     @endif <!-- meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,19 +18,20 @@
     @yield('seo')
     <!-- preload assets -->
     <link rel="preload" href="{{ asset('assets_landing/fonts/fa-brands-400.woff2') }}" as="font" type="font/woff2"
-        crossorigin>
+    crossorigin>
     <link rel="preload" href="{{ asset('assets_landing/fonts/fa-solid-900.woff2') }}" as="font" type="font/woff2"
-        crossorigin>
+    crossorigin>
     <link rel="preload" href="{{ asset('assets_landing/fonts/archivo-v18-latin-regular.woff2') }}" as="font"
-        type="font/woff2" crossorigin>
+    type="font/woff2" crossorigin>
     <link rel="preload" href="{{ asset('assets_landing/fonts/archivo-v18-latin-300.woff2') }}" as="font"
-        type="font/woff2" crossorigin>
+    type="font/woff2" crossorigin>
     <link rel="preload" href="{{ asset('assets_landing/fonts/archivo-v18-latin-700.woff2') }}" as="font"
-        type="font/woff2" crossorigin>
+    type="font/woff2" crossorigin>
     <link rel="preload" href="{{ asset('assets_landing/css/style.css') }}" as="style">
     <link rel="preload" href="{{ asset('assets_landing/js/vendors/uikit.min.js') }}" as="script">
     <link rel="preload" href="{{ asset('assets_landing/js/utilities.min.js') }}" as="script">
     <link rel="preload" href="{{ asset('assets_landing/js/config-theme.js') }}" as="script">
+    @yield('description')
     <!-- stylesheet -->
     <link rel="stylesheet" href="{{ asset('assets_landing/css/style.css') }}">
     <!-- uikit -->
@@ -181,8 +181,8 @@
     <script src="{{ asset('assets_landing/js/vendors/particles.min.js') }}"></script>
     <script src="{{ asset('assets_landing/js/config-particles.js') }}"></script>
     <script src="{{ asset('assets_landing/js/utilities.min.js') }}"></script>
-    <script src="{{ asset('assets_landing/js/config-theme.js') }}"></script>
     @yield('script')
+    <script src="{{ asset('assets_landing/js/config-theme.js') }}"></script>
 </body>
 <!-- Mirrored from www.indonez.com/html-demo/equity/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 30 May 2024 05:55:09 GMT -->
 
