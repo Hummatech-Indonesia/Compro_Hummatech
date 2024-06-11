@@ -177,12 +177,12 @@
     </a>
     <!-- to top end -->
     <!-- javascript -->
-    @yield('script')
     <script src="{{ asset('assets_landing/js/vendors/tradingview-widget.min.js') }}"></script>
     <script src="{{ asset('assets_landing/js/vendors/particles.min.js') }}"></script>
     <script src="{{ asset('assets_landing/js/config-particles.js') }}"></script>
     <script src="{{ asset('assets_landing/js/utilities.min.js') }}"></script>
     <script src="{{ asset('assets_landing/js/config-theme.js') }}"></script>
+    @yield('script')
 </body>
 <!-- Mirrored from www.indonez.com/html-demo/equity/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 30 May 2024 05:55:09 GMT -->
 
