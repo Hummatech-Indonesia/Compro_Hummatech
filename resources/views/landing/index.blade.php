@@ -326,22 +326,24 @@
                     </div>
                 </div>
                 <div class="uk-grid-match uk-grid-medium uk-child-width-1-3@m uk-child-width-1-2@s uk-margin-bottom" data-uk-grid>
-                    @forelse ($service as $serviceItem)
-                        <div>
-                            <div class="uk-card uk-card-body uk-card-default uk-border-rounded">
-                                <div class="uk-flex uk-flex-middle">
-                                    <span class="in-product-name red">{{ strtoupper(Str::substr($serviceItem->name, 0, 2)) }}</span>
-                                    <h5 class="uk-margin-remove">{{ $serviceItem->name }}</h5>
+                    @forelse ($service as $index => $serviceItem)
+                        @if ($index < 6)
+                            <div>
+                                <div class="uk-card uk-card-body uk-card-default uk-border-rounded">
+                                    <div class="uk-flex uk-flex-middle">
+                                        <span class="in-product-name red">{{ strtoupper(Str::substr($serviceItem->name, 0, 2)) }}</span>
+                                        <h5 class="uk-margin-remove">{{ $serviceItem->name }}</h5>
+                                    </div>
+                                    <div style="word-break: break-all;">
+                                        <p class="uk-text-break uk-margin-remove">{!! $serviceItem->short_description !!}</p>
+                                    </div>
+                                    <a href="/services/{{ $serviceItem->slug }}" class="uk-button uk-button-text uk-float-right uk-position-bottom-right">
+                                        Lihat Selengkapnya
+                                        <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                                    </a>
                                 </div>
-                                <div style="word-break: break-all;">
-                                    <p class="uk-text-break uk-margin-remove">{!! $serviceItem->short_description !!}</p>
-                                </div>
-                                <a href="/services/{{ $serviceItem->slug }}" class="uk-button uk-button-text uk-float-right uk-position-bottom-right">
-                                    Lihat Selengkapnya
-                                    <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
-                                </a>
                             </div>
-                        </div>
+                        @endif
                     @empty
                     <div class="uk-flex uk-flex-center uk-flex-middle uk-width-1-1">
                         <div class="uk-text-center">
@@ -352,6 +354,13 @@
                     @endforelse
                 </div>
 
+                @if ($service->count() > 3)
+                    <div class="uk-width-1-1 uk-flex uk-flex-center uk-text-center uk-margin-samll-bottom">
+                        <a href="#" class="uk-button uk-border-rounded custom-button" style="color: #edeff1">
+                            Selengkapnya <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
+                        </a>
+                    </div>
+                @endif
 
             </div>
         </div>
