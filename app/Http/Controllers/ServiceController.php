@@ -141,6 +141,14 @@ class ServiceController extends Controller
         $instagram = $this->sosmed->instagram();
         return view('landing.service.service-detail', compact('instagram', 'servicemitras','slugs', 'services', 'products', 'testimonials', 'faqs', 'procedures', 'sales', 'profile', 'galeries', 'background'));
     }
+
+    public function showMore()
+    {
+        $services = $this->service->get();
+        $profile = $this->profile->First();
+        return view('landing.service', compact('services', 'profile'));
+    }
+
     /**
      * Update the specified resource in storage.
      */

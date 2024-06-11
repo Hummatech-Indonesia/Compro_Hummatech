@@ -356,7 +356,7 @@
 
                 @if ($service->count() > 3)
                     <div class="uk-width-1-1 uk-flex uk-flex-center uk-text-center uk-margin-samll-bottom">
-                        <a href="#" class="uk-button uk-border-rounded custom-button" style="color: #edeff1">
+                        <a href="/all" class="uk-button uk-border-rounded custom-button" style="color: #edeff1">
                             Selengkapnya <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
                         </a>
                     </div>

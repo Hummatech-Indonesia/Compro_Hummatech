@@ -274,6 +274,8 @@ Route::post('background/store' , [BackgroundController::class , 'store']);
 
 Route::get('/sitemap.xml', SitemapController::class);
 
+Route::get('all', [ServiceController::class, 'showMore']);
+
 require_once __DIR__ . '/kader.php';
 require_once __DIR__ . '/farah.php';
 require_once __DIR__ . '/nesa.php';
