@@ -1,4 +1,13 @@
 @extends('landing.layouts.layouts.app')
+@section('seo')
+    <meta name="title" content="Berita" />
+    <meta name="og:image" content="{{ asset('icon.png') }}" />
+    <meta name="twitter:image" content="{{ asset('icon.png') }}" />
+    <meta property="og:url" content="{{ url('/') }}" />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="{{ url('/') }}" />
+@endsection
+@section('title', 'Berita')
 @section('header')
     <!-- header start -->
     <div class="uk-section uk-padding-remove-vertical in-equity-breadcrumb">

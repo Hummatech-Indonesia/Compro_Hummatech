@@ -7,6 +7,7 @@
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
 <head>
+    @yield('description')
     @hasSection('title')
         <title>{!! "{$__env->yieldContent('title')}" !!}</title>
     @else

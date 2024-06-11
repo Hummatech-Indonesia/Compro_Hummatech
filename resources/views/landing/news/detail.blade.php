@@ -1,4 +1,19 @@
 @extends('landing.layouts.layouts.app')
+@section('title', $news->title . ' - Berita')
+@section('description')
+    <meta name="description" content="{{ Str::limit(strip_tags($news->description), 200) }}" />
+@endsection
+@section('seo')
+<meta name="title" content="{{ $news->title }} - PT CAKRA PARAMA INDONESIA" />
+<meta name="og:image" content="{{ asset('storage/' . $news->image) }}"/>
+<meta name="og:image:secure_url" content="{{ asset('storage/' . $news->image) }}"/>
+<meta name="og:image:type" content="image/jpeg" />
+<meta property="og:image" content="{{ asset('storage/' . $news->image) }}" />
+<meta property="og:image:alt" content="{{ $news->title }}" />
+<meta property="og:url" content="{{ url('/') }}" />
+<meta property="og:type" content="article" />
+<link rel="canonical" href="{{ url('/') }}" />
+@endsection
 <script type="application/ld+json">
     {
       "@context": "https://schema.org",
