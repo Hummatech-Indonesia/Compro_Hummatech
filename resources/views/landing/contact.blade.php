@@ -72,6 +72,12 @@
             </div>
 
             <div class="uk-section">
+                @if(session('berhasil'))
+                <div class="uk-alert-success uk-box-shadow-small" uk-alert>
+                    <a href="#" class="uk-alert-close" style="color: #fff" uk-close></a>
+                    <p style="font-size: 18px">{{ session('berhasil') }}</p>
+                </div>
+                @endif
                 <div class="uk-container uk-margin-top uk-margin-medium-bottom">
                     <div class="uk-grid uk-child-width-1-2@m uk-grid-stack" data-uk-grid>
                         <div class="uk-margin-medium-top " data-uk-grid>
@@ -220,4 +226,10 @@
             });
         };
     </script>
+
+<script>
+    @if(Session::has('success'))
+        toastr.success("{{ Session::get('success') }}");
+    @endif
+</script>
 @endsection

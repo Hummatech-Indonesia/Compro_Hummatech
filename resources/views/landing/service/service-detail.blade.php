@@ -26,32 +26,6 @@
     <meta property="og:image"
         content="{{ asset('storage/' . $slugs->image) }}" />
 @endsection
-<script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Beranda",
-          "item": "{{ url('/') }}"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Layanan",
-          "item": "{{ url('/service') }}"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": $slugs->name,
-          "item": "{{ url('/'. $slugs->name) }}"
-        },
-      ]
-    }
-</script>
 @section('header')
 <!-- header start -->
 <div class="uk-section uk-padding-remove-vertical in-equity-breadcrumb">
@@ -363,4 +337,32 @@
     </div>
     <!-- blog content end -->
 </main>
+@endsection
+@section('script')
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Beranda",
+          "item": "{{ url('/') }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Layanan",
+          "item": "{{ url('/service') }}"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": $slugs->name,
+          "item": "{{ url('/'. $slugs->name) }}"
+        },
+      ]
+    }
+</script>
 @endsection

@@ -27,6 +27,72 @@
             padding: 20px;
             text-align: center;
         }
+
+        .in-equity-breadcrumb .uk-breadcrumb-custom {
+        padding-top: 14px;
+        padding-bottom: 18px;
+        }
+
+        .uk-breadcrumb-custom {
+        padding: 0;
+        list-style: none;
+        color: #1a1a1a;
+        font-size: 14px;
+        }
+        @media (max-width: 960px) {
+        .uk-breadcrumb-custom li:nth-child(n+4) {
+            display: none;
+        }
+        }
+        .uk-breadcrumb-custom :last-child > span a {
+        color: #fff;
+        }
+        .uk-breadcrumb-custom :last-child > span a:hover {
+        text-decoration: none;
+        }
+
+        /*
+        * 1. Doesn't generate any box and replaced by child boxes
+        */
+        .uk-breadcrumb-custom > * {
+        display: contents;
+        }
+
+        /* Items
+        ========================================================================== */
+        .uk-breadcrumb-custom > * > * {
+        font-size: 0.875rem;
+        color: #1a1a1a;
+        }
+
+        /* Hover */
+        .uk-breadcrumb-custom > * > :hover {
+        color: #1a1a1a;
+        text-decoration: none;
+        }
+
+        /* Disabled */
+        /* Active */
+        .uk-breadcrumb-custom > :last-child > span,
+        .uk-breadcrumb-custom > :last-child > a:not([href]) {
+        color: #fff;
+        }
+
+        /*
+        * Divider
+        * `nth-child` makes it also work without JS if it's only one row
+        * 1. Remove space between inline block elements.
+        * 2. Style
+        */
+        .uk-breadcrumb-custom > :nth-child(n+2):not(.uk-first-column)::before {
+        content: "/";
+        display: inline-block;
+        /* 1 */
+        margin: 0 20px 0 calc(20px - 4px);
+        /* 2 */
+        font-size: 0.75rem;
+        color: #1a1a1a;
+        }
     </style>
 @endsection
 

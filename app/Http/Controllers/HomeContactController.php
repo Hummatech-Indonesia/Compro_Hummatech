@@ -45,7 +45,7 @@ class HomeContactController extends Controller
     {
         $profile = $this->profile->First();
         $data = $this->service->sendMail($request, $profile->email);
-        return back()->with('success','Pesan anda sudah terkirim!');
+        return back()->with('berhasil','Pesan anda sudah terkirim!');
     }
 
     /**

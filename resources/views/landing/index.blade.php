@@ -191,7 +191,34 @@
     </style>
 
 
+    <style>
+        .portfolio-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: inherit;
+        }
+        .news-article {
+            width: 100%;
+        }
 
+        .news-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .mitra-image {
+            width: 170px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+        .news-container {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
 
 @endsection
 @section('content')
@@ -306,7 +333,7 @@
                                     <span class="in-product-name red">{{ strtoupper(Str::substr($serviceItem->name, 0, 2)) }}</span>
                                     <h5 class="uk-margin-remove">{{ $serviceItem->name }}</h5>
                                 </div>
-                                <div style="word-break: break-all;"> <!-- Ganti overflow menjadi word-break: break-all -->
+                                <div style="word-break: break-all;">
                                     <p class="uk-text-break uk-margin-remove">{!! $serviceItem->short_description !!}</p>
                                 </div>
                                 <a href="/services/{{ $serviceItem->slug }}" class="uk-button uk-button-text uk-float-right uk-position-bottom-right">
@@ -397,9 +424,9 @@
                                     <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
                                         <div class="uk-slider-items uk-flex uk-flex-center uk-grid-collapse uk-child-width-1-6@m uk-child-width-1-2@s uk-text-center in-client-logo-6" data-uk-grid>
                                             @forelse ($mitras as $mitra)
-                                                <div class=" uk-first-column uk-flex uk-flex-center" style="background-color: transparent">
-                                                    <img class="uk-margin-remove" src="{{ asset('storage/' . $mitra->image) }}" alt="{{ $mitra->name }}" width="170" height="68">
-                                                </div>
+                                            <div class="uk-first-column uk-flex uk-flex-center" style="background-color: transparent">
+                                                <img class="uk-margin-remove mitra-image" src="{{ asset('storage/' . $mitra->image) }}" alt="{{ $mitra->name }}">
+                                            </div>
                                             @empty
                                             <div class="uk-flex uk-flex-center uk-flex-middle uk-width-1-1">
                                                 <div class="uk-text-center">
@@ -431,61 +458,64 @@
 
 
     <!-- section content begin -->
-        <div class="uk-section in-equity-13">
-            <div class="uk-container uk-margin-medium-bottom">
-                <div class="uk-grid uk-flex uk-flex-center">
-                    <div class="uk-width-3-4@m uk-text-center">
-                        <h1 class="uk-margin-small-bottom">
-                            <span class="in-highlight">BERITA</span>
-                        </h1>
-                        <p class="uk-text-lead uk-margin-remove-top">
-                            Melangkah Ke Depan: Kabar Terbaru Mengenai Perkembangan Perusahaan Kami
-                        </p>
-                    </div>
-                </div>
-                <div class="uk-width-5-6@m">
-                    <div class="uk-child-width-1-2@s uk-child-width-1-3@m uk-margin-top uk-flex uk-flex-center" data-uk-grid>
-                        @forelse ($news as $index => $newsItem)
-                            @if ($index < 3)
-                                <div>
-                                    <span class="uk-label in-label-small uk-margin-remove-bottom">News</span>
-                                    <article>
-                                        <img class="uk-border-rounded uk-width-1-1 in-offset-bottom-20" src="assets_landing/img/in-lazy.gif"
-                                            data-src="{{ asset('storage/' . $newsItem->thumbnail) }}" alt="news" width="340" height="170" data-uk-img>
-                                        <h5 class="news-title">
-                                            <a href="/news/{{ $newsItem->slug }}">{{ $newsItem->title }}</a>
-                                        </h5>
-                                        <div class="uk-flex uk-flex-middle">
-                                            <div>
-                                                <i class="fas fa-clock fa-xs"></i>
-                                            </div>
-                                            <div>
-                                                <span class="uk-text-small uk-text-uppercase uk-text-muted uk-margin-small-left">
-                                                    {{ \Carbon\Carbon::parse($newsItem->date)->locale('id_ID')->isoFormat('D MMMM Y') }}
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <p class="news-description">
-                                            {!! Str::limit(strip_tags($newsItem->description), 100) !!}
-                                        </p>
-                                    </article>
-                                </div>
-                            @endif
-                        @empty
-                        <div class="uk-flex uk-flex-center uk-flex-middle uk-width-1-1">
-                            <div class="uk-text-center">
-                                <img src="{{ asset('empty.png') }}" alt="No data" srcset="">
-                                <h2>Belum ada data</h2>
-                            </div>
-                        </div>
-                        @endforelse
-                    </div>
+    <div class="uk-section in-equity-13">
+        <div class="uk-container uk-margin-medium-bottom">
+            <div class="uk-grid uk-flex uk-flex-center uk-margin-large-bottom">
+                <div class="uk-width-3-4@m uk-text-center">
+                    <h1 class="uk-margin-small-bottom">
+                        <span class="in-highlight">BERITA</span>
+                    </h1>
+                    <p class="uk-text-lead uk-margin-remove-top">
+                        Melangkah Ke Depan: Kabar Terbaru Mengenai Perkembangan Perusahaan Kami
+                    </p>
                 </div>
             </div>
+            <div class="uk-width-5-6@m uk-margin-auto-vertical uk-margin-xlarge-left">
+                <div class="uk-child-width-1-3@m uk-margin-top uk-flex uk-flex-center" uk-grid>
+                    @forelse ($news as $index => $newsItem)
+                    @if ($index < 3)
+                    <div>
+                        <span class="uk-label in-label-small uk-margin-remove-bottom">News</span>
+                        <article class="news-article">
+                            <img class="uk-border-rounded uk-width-1-1 in-offset-bottom-20 news-image" src="assets_landing/img/in-lazy.gif"
+                                data-src="{{ asset('storage/' . $newsItem->thumbnail) }}" alt="news" uk-img>
+                            <h5 class="news-title">
+                                <a href="/news/{{ $newsItem->slug }}">{{ $newsItem->title }}</a>
+                            </h5>
+                            <div class="uk-flex uk-flex-middle">
+                                <div>
+                                    <i class="fas fa-clock fa-xs"></i>
+                                </div>
+                                <div>
+                                    <span class="uk-text-small uk-text-uppercase uk-text-muted uk-margin-small-left">
+                                        {{ \Carbon\Carbon::parse($newsItem->date)->locale('id_ID')->isoFormat('D MMMM Y') }}
+                                    </span>
+                                </div>
+                            </div>
+                            <p class="news-description">
+                                {!! Str::limit(strip_tags($newsItem->description), 100) !!}
+                            </p>
+                        </article>
+                    </div>
+                    @endif
+                    @empty
+                    <div class="uk-flex uk-flex-center uk-flex-middle uk-width-1-1">
+                        <div class="uk-text-center">
+                            <img src="{{ asset('empty.png') }}" alt="No data">
+                            <h2>Belum ada data</h2>
+                        </div>
+                    </div>
+                    @endforelse
+                </div>
+            </div>
+
         </div>
+    </div>
+
+
 
         @if ($news->count() > 3)
-            <div class="uk-width-1-1 uk-flex uk-flex-center uk-text-center uk-margin-medium-top">
+            <div class="uk-width-1-1 uk-flex uk-flex-center uk-text-center uk-margin-large-bottom">
                 <a href="/news" class="uk-button uk-button-default uk-button-primary uk-border-rounded custom-button">
                     Selengkapnya <i class="fas fa-arrow-circle-right uk-margin-small-left"></i>
                 </a>
@@ -504,13 +534,14 @@
             <ul class="uk-grid-small uk-flex uk-flex-center uk-child-width-1-3@m uk-child-width-1-2@s uk-text-center" data-uk-grid="masonry: true">
                 @forelse ($portfolios as $index => $portfolio)
                     @if ($index < 6)
-                        <li>
-                            <div class="uk-inline-clip uk-transition-toggle uk-border-rounded" tabindex="0">
-                                <a href="{{ route('detail.portfolio', $portfolio->slug) }}"> <!-- Tautan ke halaman detail portofolio -->
-                                    <img class="uk-transition-scale-up uk-transition-opaque" src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->name }}">
-                                </a>
-                            </div>
-                        </li>
+                    <li>
+                        <div class="uk-inline-clip uk-transition-toggle uk-border-rounded" tabindex="0">
+                            <a href="{{ route('detail.portfolio', $portfolio->slug) }}">
+                                <img class="uk-transition-scale-up uk-transition-opaque portfolio-image" src="{{ asset('storage/' . $portfolio->image) }}" alt="{{ $portfolio->name }}">
+                            </a>
+                        </div>
+                    </li>
+
                     @endif
                 @empty
                 <div class="uk-flex uk-flex-center uk-flex-middle uk-width-1-1">
